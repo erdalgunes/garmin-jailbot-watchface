@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string id="AppName">Jailbot Pixel Face</string>
+    <bitmap id="LauncherIcon" filename="drawables/launcher_icon.png"/>
+</resources>
