@@ -115,21 +115,22 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     function drawMinuteMarkers(dc, centerX, centerY, rimRadius) {
         for (var i = 0; i < 60; i++) {
             var angle = i * Math.PI / 30.0;
-            var markerX = centerX + rimRadius * Math.sin(angle);
-            var markerY = centerY - rimRadius * Math.cos(angle);
+            var markerX = centerX + Math.sin(angle) * rimRadius;
+            var markerY = centerY - Math.cos(angle) * rimRadius;
             
             dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
             
             if (i % 5 == 0) {
-                // Major markers
+                // Major markers (hours)
                 if (i == 0) {
-                    dc.fillRoundedRectangle(markerX - 2, markerY - 4, 4, 6, 2);
+                    // 12 o'clock marker - slightly larger
+                    dc.fillCircle(markerX, markerY, 3);
                 } else {
-                    dc.fillRoundedRectangle(markerX - 1, markerY - 2, 2, 4, 1);
+                    dc.fillCircle(markerX, markerY, 2);
                 }
             } else {
-                // Minor markers
-                dc.fillRoundedRectangle(markerX - 1, markerY - 1, 2, 2, 1);
+                // Minor markers (minutes)
+                dc.fillCircle(markerX, markerY, 1);
             }
         }
     }
@@ -167,9 +168,10 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     
     function drawHourAtMinutePosition(dc, centerX, centerY, rimRadius, hours, minutes) {
         var minuteAngle = minutes * Math.PI / 30.0;
-        var handRadius = rimRadius - 35;
-        var numberX = centerX + handRadius * Math.sin(minuteAngle);
-        var numberY = centerY - handRadius * Math.cos(minuteAngle);
+        // Fine-tuned positioning for better alignment with rim
+        var handRadius = rimRadius - 30;  // Adjusted for better centering
+        var numberX = centerX + Math.sin(minuteAngle) * handRadius;
+        var numberY = centerY - Math.cos(minuteAngle) * handRadius;
         
         // Format hour for display
         var displayHour = hours;
@@ -185,13 +187,13 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         
         var hourStr = displayHour.format("%d");
         
-        // Shadow
+        // Subtle shadow for depth
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(numberX + 1, numberY + 1, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(numberX + 1, numberY + 1, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
         
-        // Main number
+        // Main number in green
         dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(numberX, numberY, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(numberX, numberY, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
     
     function drawSimpleAOD(dc, width, height) {
@@ -271,9 +273,9 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     
     function drawHourAtMinutePositionAOD(dc, centerX, centerY, rimRadius, hours, minutes) {
         var minuteAngle = minutes * Math.PI / 30.0;
-        var handRadius = rimRadius - 35;
-        var numberX = centerX + handRadius * Math.sin(minuteAngle);
-        var numberY = centerY - handRadius * Math.cos(minuteAngle);
+        var handRadius = rimRadius - 30;  // Match normal mode positioning
+        var numberX = centerX + Math.sin(minuteAngle) * handRadius;
+        var numberY = centerY - Math.cos(minuteAngle) * handRadius;
         
         // Format hour for display
         var displayHour = hours;
@@ -291,6 +293,6 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         
         // Just the number in dim gray (no shadow for AOD)
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(numberX, numberY, Graphics.FONT_MEDIUM, hourStr, Graphics.TEXT_JUSTIFY_CENTER);
+        dc.drawText(numberX, numberY, Graphics.FONT_SMALL, hourStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
     }
 }
