@@ -1,0 +1,2531 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [System,1,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Lang,2,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Math,3,13,17]; ]
+using Toybox.Math;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 6; @symbol_classdef = [MoodEngine,6,6,16]; ]
+class MoodEngine {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 7; @position = 16; @symbol_vardef = [states,7,16,22]; ]
+    private
+    var states;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 8; @position = 16; @symbol_vardef = [currentState,8,16,28]; ]
+    private
+    var currentState;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 9; @position = 16; @symbol_vardef = [stateMemory,9,16,27]; ]
+    private
+    var stateMemory;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 10; @position = 16; @symbol_vardef = [blinkScheduler,10,16,30]; ]
+    private
+    var blinkScheduler;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 11; @position = 16; @symbol_vardef = [expressionRenderer,11,16,34]; ]
+    private
+    var expressionRenderer;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 12; @position = 16; @symbol_vardef = [emoticonRenderer,12,16,32]; ]
+    private
+    var emoticonRenderer;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 13; @position = 16; @symbol_vardef = [lastUpdateTime,13,16,30]; ]
+    private
+    var lastUpdateTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 14; @position = 16; @symbol_vardef = [stateCooldowns,14,16,30]; ]
+    private
+    var stateCooldowns;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 16; @symbol_functiondef = [initialize,16,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_16_26_40_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 18 8 ]
+        symbol [ self %self 18 8 12 ];
+        %tmp.1 = newa 7;
+        symbol [ VictoryState %tmp.5 19 16 28 ];
+        %tmp.5 = getv ? :VictoryState;
+        %tmp.2 = newc %tmp.5 ();
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 0 %tmp.2;
+        symbol [ OverheatState %tmp.11 20 16 29 ];
+        %tmp.11 = getv ? :OverheatState;
+        %tmp.8 = newc %tmp.11 ();
+        %tmp.12 = dup %tmp.7;
+        %tmp.13 = aputv %tmp.12 1 %tmp.8;
+        symbol [ DrowsyState %tmp.17 21 16 27 ];
+        %tmp.17 = getv ? :DrowsyState;
+        %tmp.14 = newc %tmp.17 ();
+        %tmp.18 = dup %tmp.13;
+        %tmp.19 = aputv %tmp.18 2 %tmp.14;
+        symbol [ RecoveringState %tmp.23 22 16 31 ];
+        %tmp.23 = getv ? :RecoveringState;
+        %tmp.20 = newc %tmp.23 ();
+        %tmp.24 = dup %tmp.19;
+        %tmp.25 = aputv %tmp.24 3 %tmp.20;
+        symbol [ FocusedState %tmp.29 23 16 28 ];
+        %tmp.29 = getv ? :FocusedState;
+        %tmp.26 = newc %tmp.29 ();
+        %tmp.30 = dup %tmp.25;
+        %tmp.31 = aputv %tmp.30 4 %tmp.26;
+        symbol [ ChargedState %tmp.35 24 16 28 ];
+        %tmp.35 = getv ? :ChargedState;
+        %tmp.32 = newc %tmp.35 ();
+        %tmp.36 = dup %tmp.31;
+        %tmp.37 = aputv %tmp.36 5 %tmp.32;
+        symbol [ StandbyState %tmp.41 25 16 28 ];
+        %tmp.41 = getv ? :StandbyState;
+        %tmp.38 = newc %tmp.41 ();
+        %tmp.42 = dup %tmp.37;
+        %tmp.43 = aputv %tmp.42 6 %tmp.38;
+        symbol [ states ? 18 13 19 ];
+        putv self :states %tmp.43;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 28 8 ]
+        symbol [ self %self 28 8 12 ];
+        %tmp.44 = self;
+        symbol [ self %tmp.44 28 28 32 ];
+        symbol [ states %tmp.45 28 33 39 ];
+        %tmp.45 = getv %tmp.44 :states;
+        %tmp.46 = self;
+        symbol [ self %tmp.46 28 40 44 ];
+        symbol [ states %tmp.47 28 45 51 ];
+        %tmp.47 = getv %tmp.46 :states;
+        symbol [ size %tmp.48 28 52 56 ];
+        %tmp.48 = getv function %tmp.47 :size;
+        %tmp.49 = invoke %tmp.47 %tmp.48();
+        %tmp.50 = 1;
+        %tmp.51 = sub %tmp.49 %tmp.50;
+        %tmp.52 = agetv %tmp.45 %tmp.51;
+        symbol [ currentState ? 28 13 25 ];
+        putv self :currentState %tmp.52;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 29 8 ]
+        symbol [ self %self 29 8 12 ];
+        symbol [ MoodMemory %tmp.56 29 31 41 ];
+        %tmp.56 = getv ? :MoodMemory;
+        %tmp.53 = newc %tmp.56 ();
+        symbol [ stateMemory ? 29 13 24 ];
+        putv self :stateMemory %tmp.53;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 30 8 ]
+        symbol [ self %self 30 8 12 ];
+        symbol [ BlinkScheduler %tmp.60 30 34 48 ];
+        %tmp.60 = getv ? :BlinkScheduler;
+        %tmp.57 = newc %tmp.60 ();
+        symbol [ blinkScheduler ? 30 13 27 ];
+        putv self :blinkScheduler %tmp.57;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 31 8 ]
+        symbol [ self %self 31 8 12 ];
+        symbol [ ExpressionRenderer %tmp.64 31 38 56 ];
+        %tmp.64 = getv ? :ExpressionRenderer;
+        %tmp.61 = newc %tmp.64 ();
+        symbol [ expressionRenderer ? 31 13 31 ];
+        putv self :expressionRenderer %tmp.61;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 32 8 ]
+        symbol [ self %self 32 8 12 ];
+        symbol [ EmoticonRenderer %tmp.68 32 36 52 ];
+        %tmp.68 = getv ? :EmoticonRenderer;
+        %tmp.65 = newc %tmp.68 ();
+        symbol [ emoticonRenderer ? 32 13 29 ];
+        putv self :emoticonRenderer %tmp.65;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 33 8 ]
+        symbol [ self %self 33 8 12 ];
+        symbol [ System %tmp.69 33 30 36 ];
+        %tmp.69 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.70 33 37 45 ];
+        %tmp.70 = getv function %tmp.69 :getTimer;
+        %tmp.71 = invoke %tmp.69 %tmp.70();
+        symbol [ lastUpdateTime ? 33 13 27 ];
+        putv self :lastUpdateTime %tmp.71;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 34 8 ]
+        symbol [ self %self 34 8 12 ];
+        %tmp.72 = newd 0;
+        symbol [ stateCooldowns ? 34 13 27 ];
+        putv self :stateCooldowns %tmp.72;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 37 8 ]
+        for @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_test @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_incr @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_init:
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_begin" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_end" ]
+        %i.1 = local;
+        symbol [ i %i.1 37 17 18 ];
+        %tmp.73 = 0;
+        lputv %i.1 %tmp.73;
+        symbol [ i %i.1 37 17 18 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_test:
+        %tmp.74 = lgetv %i.1;
+        symbol [ i %tmp.74 37 24 25 ];
+        %tmp.75 = self;
+        symbol [ self %tmp.75 37 28 32 ];
+        symbol [ states %tmp.76 37 33 39 ];
+        %tmp.76 = getv %tmp.75 :states;
+        symbol [ size %tmp.77 37 40 44 ];
+        %tmp.77 = getv function %tmp.76 :size;
+        %tmp.78 = invoke %tmp.76 %tmp.77();
+        %tmp.79 = lt %tmp.74 %tmp.78;
+        bf %tmp.79 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_begin:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_53_39_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 38 12 ]
+        symbol [ self %self 38 12 16 ];
+        symbol [ stateCooldowns %tmp.80 38 17 31 ];
+        %tmp.80 = getv self :stateCooldowns;
+        %tmp.81 = 0;
+        %tmp.82 = self;
+        symbol [ self %tmp.82 38 32 36 ];
+        symbol [ states %tmp.83 38 37 43 ];
+        %tmp.83 = getv %tmp.82 :states;
+        %tmp.84 = lgetv %i.1;
+        symbol [ i %tmp.84 38 44 45 ];
+        %tmp.85 = agetv %tmp.83 %tmp.84;
+        symbol [ id %tmp.86 38 47 49 ];
+        %tmp.86 = getv function %tmp.85 :id;
+        %tmp.87 = invoke %tmp.85 %tmp.86();
+        aputv %tmp.80 %tmp.87 %tmp.81;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_53_39_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_incr:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 37 ]
+        %tmp.90 = lgetv %i.1;
+        symbol [ i %tmp.90 37 48 49 ];
+        %tmp.91 = add %tmp.90 1;
+        lputv %i.1 %tmp.91;
+        symbol [ i %i.1 37 48 49 ];
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_test;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_37_8_39_8_for_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_16_26_40_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 42; @symbol_functiondef = [update,42,13,19]; @symbol_param<0> = [rawSensors,42,20,30]; ]
+    function update(rawSensors) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 43 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_stop" ]
+        %ctx.1 = local;
+        symbol [ ctx %ctx.1 43 12 15 ];
+        symbol [ MoodContext %tmp.4 43 22 33 ];
+        %tmp.4 = getv ? :MoodContext;
+        %tmp.5 = lgetv %rawSensors;
+        symbol [ rawSensors %tmp.5 43 34 44 ];
+        %tmp.1 = newc %tmp.4 (%tmp.5);
+        lputv %ctx.1 %tmp.1;
+        symbol [ ctx %ctx.1 43 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 44 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_stop" ]
+        %now.2 = local;
+        symbol [ now %now.2 44 12 15 ];
+        symbol [ System %tmp.6 44 18 24 ];
+        %tmp.6 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.7 44 25 33 ];
+        %tmp.7 = getv function %tmp.6 :getTimer;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        lputv %now.2 %tmp.8;
+        symbol [ now %now.2 44 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 45 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_stop" ]
+        %deltaMs.3 = local;
+        symbol [ deltaMs %deltaMs.3 45 12 19 ];
+        %tmp.9 = lgetv %now.2;
+        symbol [ now %tmp.9 45 22 25 ];
+        %tmp.10 = self;
+        symbol [ self %tmp.10 45 28 32 ];
+        symbol [ lastUpdateTime %tmp.11 45 33 47 ];
+        %tmp.11 = getv %tmp.10 :lastUpdateTime;
+        %tmp.12 = sub %tmp.9 %tmp.11;
+        lputv %deltaMs.3 %tmp.12;
+        symbol [ deltaMs %deltaMs.3 45 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 46 8 ]
+        symbol [ self %self 46 8 12 ];
+        %tmp.13 = lgetv %now.2;
+        symbol [ now %tmp.13 46 30 33 ];
+        symbol [ lastUpdateTime ? 46 13 27 ];
+        putv self :lastUpdateTime %tmp.13;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 49 8 ]
+        %tmp.14 = self;
+        symbol [ self %tmp.14 49 8 12 ];
+        symbol [ updateCooldowns %tmp.15 49 13 28 ];
+        %tmp.15 = getv function %tmp.14 :updateCooldowns;
+        %tmp.16 = lgetv %deltaMs.3;
+        symbol [ deltaMs %tmp.16 49 29 36 ];
+        invoke %tmp.14 %tmp.15(%tmp.16);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 52 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_stop" ]
+        %newState.4 = local;
+        symbol [ newState %newState.4 52 12 20 ];
+        %tmp.17 = self;
+        symbol [ self %tmp.17 52 23 27 ];
+        symbol [ selectState %tmp.18 52 28 39 ];
+        %tmp.18 = getv function %tmp.17 :selectState;
+        %tmp.19 = lgetv %ctx.1;
+        symbol [ ctx %tmp.19 52 40 43 ];
+        %tmp.20 = invoke %tmp.17 %tmp.18(%tmp.19);
+        lputv %newState.4 %tmp.20;
+        symbol [ newState %newState.4 52 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 55 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_8_57_8_if_stmt:
+        %tmp.21 = lgetv %newState.4;
+        symbol [ newState %tmp.21 55 12 20 ];
+        symbol [ id %tmp.22 55 21 23 ];
+        %tmp.22 = getv function %tmp.21 :id;
+        %tmp.23 = invoke %tmp.21 %tmp.22();
+        %tmp.24 = self;
+        symbol [ self %tmp.24 55 29 33 ];
+        symbol [ currentState %tmp.25 55 34 46 ];
+        %tmp.25 = getv %tmp.24 :currentState;
+        symbol [ id %tmp.26 55 47 49 ];
+        %tmp.26 = getv function %tmp.25 :id;
+        %tmp.27 = invoke %tmp.25 %tmp.26();
+        %tmp.28 = ne %tmp.23 %tmp.27;
+        bf %tmp.28 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_8_57_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_8_57_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_53_57_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 56 12 ]
+        %tmp.29 = self;
+        symbol [ self %tmp.29 56 12 16 ];
+        symbol [ transitionToState %tmp.30 56 17 34 ];
+        %tmp.30 = getv function %tmp.29 :transitionToState;
+        %tmp.31 = lgetv %newState.4;
+        symbol [ newState %tmp.31 56 35 43 ];
+        %tmp.32 = lgetv %ctx.1;
+        symbol [ ctx %tmp.32 56 45 48 ];
+        invoke %tmp.29 %tmp.30(%tmp.31, %tmp.32);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_53_57_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_8_57_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_55_8_57_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 60 8 ]
+        %tmp.33 = self;
+        symbol [ self %tmp.33 60 8 12 ];
+        symbol [ blinkScheduler %tmp.34 60 13 27 ];
+        %tmp.34 = getv %tmp.33 :blinkScheduler;
+        symbol [ update %tmp.35 60 28 34 ];
+        %tmp.35 = getv function %tmp.34 :update;
+        %tmp.36 = self;
+        symbol [ self %tmp.36 60 35 39 ];
+        symbol [ currentState %tmp.37 60 40 52 ];
+        %tmp.37 = getv %tmp.36 :currentState;
+        symbol [ blinkProfile %tmp.38 60 53 65 ];
+        %tmp.38 = getv function %tmp.37 :blinkProfile;
+        %tmp.39 = lgetv %ctx.1;
+        symbol [ ctx %tmp.39 60 66 69 ];
+        %tmp.40 = invoke %tmp.37 %tmp.38(%tmp.39);
+        %tmp.41 = lgetv %deltaMs.3;
+        symbol [ deltaMs %tmp.41 60 72 79 ];
+        invoke %tmp.34 %tmp.35(%tmp.40, %tmp.41);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 63 8 ]
+        %tmp.42 = self;
+        symbol [ self %tmp.42 63 8 12 ];
+        symbol [ stateMemory %tmp.43 63 13 24 ];
+        %tmp.43 = getv %tmp.42 :stateMemory;
+        symbol [ update %tmp.44 63 25 31 ];
+        %tmp.44 = getv function %tmp.43 :update;
+        %tmp.45 = lgetv %ctx.1;
+        symbol [ ctx %tmp.45 63 32 35 ];
+        %tmp.46 = lgetv %deltaMs.3;
+        symbol [ deltaMs %tmp.46 63 37 44 ];
+        invoke %tmp.43 %tmp.44(%tmp.45, %tmp.46);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 65 8 ]
+        %tmp.47 = self;
+        symbol [ self %tmp.47 65 15 19 ];
+        symbol [ getRenderData %tmp.48 65 20 33 ];
+        %tmp.48 = getv function %tmp.47 :getRenderData;
+        %tmp.49 = lgetv %ctx.1;
+        symbol [ ctx %tmp.49 65 34 37 ];
+        %tmp.50 = invoke %tmp.47 %tmp.48(%tmp.49);
+        ret %tmp.50;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_42_32_66_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 68; @symbol_functiondef = [selectState,68,21,32]; @symbol_param<0> = [ctx,68,33,36]; ]
+    private
+    function selectState(ctx) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 69 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_stop" ]
+        %bestState.1 = local;
+        symbol [ bestState %bestState.1 69 12 21 ];
+        %tmp.1 = null;
+        lputv %bestState.1 %tmp.1;
+        symbol [ bestState %bestState.1 69 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 70 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_stop" ]
+        %bestScore.2 = local;
+        symbol [ bestScore %bestScore.2 70 12 21 ];
+        %tmp.2 = -1.0;
+        lputv %bestScore.2 %tmp.2;
+        symbol [ bestScore %bestScore.2 70 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 73 8 ]
+        for @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_test @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_incr @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_init:
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_begin" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 73 17 18 ];
+        %tmp.3 = 0;
+        lputv %i.3 %tmp.3;
+        symbol [ i %i.3 73 17 18 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_test:
+        %tmp.4 = lgetv %i.3;
+        symbol [ i %tmp.4 73 24 25 ];
+        %tmp.5 = self;
+        symbol [ self %tmp.5 73 28 32 ];
+        symbol [ states %tmp.6 73 33 39 ];
+        %tmp.6 = getv %tmp.5 :states;
+        symbol [ size %tmp.7 73 40 44 ];
+        %tmp.7 = getv function %tmp.6 :size;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        %tmp.9 = lt %tmp.4 %tmp.8;
+        bf %tmp.9 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_begin:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 74 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_stop" ]
+        %state.4 = local;
+        symbol [ state %state.4 74 16 21 ];
+        %tmp.10 = self;
+        symbol [ self %tmp.10 74 24 28 ];
+        symbol [ states %tmp.11 74 29 35 ];
+        %tmp.11 = getv %tmp.10 :states;
+        %tmp.12 = lgetv %i.3;
+        symbol [ i %tmp.12 74 36 37 ];
+        %tmp.13 = agetv %tmp.11 %tmp.12;
+        lputv %state.4 %tmp.13;
+        symbol [ state %state.4 74 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 75 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_stop" ]
+        %stateId.5 = local;
+        symbol [ stateId %stateId.5 75 16 23 ];
+        %tmp.14 = lgetv %state.4;
+        symbol [ state %tmp.14 75 26 31 ];
+        symbol [ id %tmp.15 75 32 34 ];
+        %tmp.15 = getv function %tmp.14 :id;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        lputv %stateId.5 %tmp.16;
+        symbol [ stateId %stateId.5 75 16 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 78 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_12_80_12_if_stmt:
+        %tmp.17 = self;
+        symbol [ self %tmp.17 78 16 20 ];
+        symbol [ stateCooldowns %tmp.18 78 21 35 ];
+        %tmp.18 = getv %tmp.17 :stateCooldowns;
+        %tmp.19 = lgetv %stateId.5;
+        symbol [ stateId %tmp.19 78 36 43 ];
+        %tmp.20 = agetv %tmp.18 %tmp.19;
+        %tmp.21 = 0;
+        %tmp.22 = gt %tmp.20 %tmp.21;
+        bf %tmp.22 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_12_80_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_12_80_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_50_80_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 79 16 ]
+        goto break @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_incr;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_50_80_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_12_80_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_78_12_80_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 82 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_stop" ]
+        %score.6 = local;
+        symbol [ score %score.6 82 16 21 ];
+        %tmp.23 = lgetv %state.4;
+        symbol [ state %tmp.23 82 24 29 ];
+        symbol [ score %tmp.24 82 30 35 ];
+        %tmp.24 = getv function %tmp.23 :score;
+        %tmp.25 = lgetv %ctx;
+        symbol [ ctx %tmp.25 82 36 39 ];
+        %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+        lputv %score.6 %tmp.26;
+        symbol [ score %score.6 82 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 85 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_12_87_12_if_stmt:
+        %tmp.27 = lgetv %stateId.5;
+        symbol [ stateId %tmp.27 85 16 23 ];
+        symbol [ equals %tmp.28 85 24 30 ];
+        %tmp.28 = getv function %tmp.27 :equals;
+        %tmp.29 = self;
+        symbol [ self %tmp.29 85 31 35 ];
+        symbol [ currentState %tmp.30 85 36 48 ];
+        %tmp.30 = getv %tmp.29 :currentState;
+        symbol [ id %tmp.31 85 49 51 ];
+        %tmp.31 = getv function %tmp.30 :id;
+        %tmp.32 = invoke %tmp.30 %tmp.31();
+        %tmp.33 = invoke %tmp.27 %tmp.28(%tmp.32);
+        bf %tmp.33 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_12_87_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_12_87_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_56_87_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 86 16 ]
+        %tmp.34 = lgetv %score.6;
+        symbol [ score %tmp.34 86 16 21 ];
+        %tmp.35 = 0.1;
+        %tmp.36 = add %tmp.34 %tmp.35;
+        lputv %score.6 %tmp.36;
+        symbol [ score %score.6 86 16 21 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_56_87_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_12_87_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_85_12_87_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 90 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_16_90_77_begin:
+        %tmp.37 = lgetv %score.6;
+        symbol [ score %tmp.37 90 16 21 ];
+        %tmp.38 = lgetv %bestScore.2;
+        symbol [ bestScore %tmp.38 90 24 33 ];
+        %tmp.39 = gt %tmp.37 %tmp.38;
+        bt %tmp.39 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_true;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_37_90_77_false:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_38_90_73_begin:
+        %tmp.40 = lgetv %score.6;
+        symbol [ score %tmp.40 90 38 43 ];
+        %tmp.41 = lgetv %bestScore.2;
+        symbol [ bestScore %tmp.41 90 47 56 ];
+        %tmp.42 = eq %tmp.40 %tmp.41;
+        bf %tmp.42 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_60_90_73_true:
+        %tmp.43 = lgetv %bestState.1;
+        symbol [ bestState %tmp.43 90 60 69 ];
+        %tmp.44 = null;
+        %tmp.45 = eq %tmp.43 %tmp.44;
+        push %tmp.45;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_60_90_73_end:
+        %tmp.46 = phi [%tmp.42 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_38_90_73_begin] [%tmp.45 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_60_90_73_true] [%tmp.46 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_60_90_73_end];
+        push %tmp.46;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_37_90_77_end:
+        %tmp.47 = phi [%tmp.39 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_16_90_77_begin] [%tmp.46 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_37_90_77_false] [%tmp.47 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_37_90_77_end];
+        bf %tmp.47 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_80_93_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 91 16 ]
+        %tmp.48 = lgetv %state.4;
+        symbol [ state %tmp.48 91 28 33 ];
+        lputv %bestState.1 %tmp.48;
+        symbol [ bestState %bestState.1 91 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 92 16 ]
+        %tmp.49 = lgetv %score.6;
+        symbol [ score %tmp.49 92 28 33 ];
+        lputv %bestScore.2 %tmp.49;
+        symbol [ bestScore %bestScore.2 92 16 25 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_80_93_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_90_12_93_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_53_94_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_incr:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 73 ]
+        %tmp.52 = lgetv %i.3;
+        symbol [ i %tmp.52 73 48 49 ];
+        %tmp.53 = add %tmp.52 1;
+        lputv %i.3 %tmp.53;
+        symbol [ i %i.3 73 48 49 ];
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_test;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_73_8_94_8_for_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 96 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_begin:
+        %tmp.54 = lgetv %bestState.1;
+        symbol [ bestState %tmp.54 96 15 24 ];
+        %tmp.55 = null;
+        %tmp.56 = ne %tmp.54 %tmp.55;
+        bf %tmp.56 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_false;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_true:
+        %tmp.57 = lgetv %bestState.1;
+        symbol [ bestState %tmp.57 96 35 44 ];
+        %tmp.58 = as %tmp.57 { (!Null) };
+        push %tmp.58;
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_false:
+        %tmp.59 = self;
+        symbol [ self %tmp.59 96 47 51 ];
+        symbol [ states %tmp.60 96 52 58 ];
+        %tmp.60 = getv %tmp.59 :states;
+        %tmp.61 = self;
+        symbol [ self %tmp.61 96 59 63 ];
+        symbol [ states %tmp.62 96 64 70 ];
+        %tmp.62 = getv %tmp.61 :states;
+        symbol [ size %tmp.63 96 71 75 ];
+        %tmp.63 = getv function %tmp.62 :size;
+        %tmp.64 = invoke %tmp.62 %tmp.63();
+        %tmp.65 = 1;
+        %tmp.66 = sub %tmp.64 %tmp.65;
+        %tmp.67 = agetv %tmp.60 %tmp.66;
+        push %tmp.67;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_end:
+        %tmp.68 = phi [%tmp.56 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_begin] [%tmp.58 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_true] [%tmp.67 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_false] [%tmp.68 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_96_15_96_81_end];
+        ret %tmp.68;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_68_38_97_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 99; @symbol_functiondef = [transitionToState,99,21,38]; @symbol_param<0> = [newState,99,39,47]; @symbol_param<1> = [ctx,99,49,52]; ]
+    private
+    function transitionToState(newState, ctx) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_99_54_120_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 101 8 ]
+        %tmp.1 = self;
+        symbol [ self %tmp.1 101 8 12 ];
+        symbol [ currentState %tmp.2 101 13 25 ];
+        %tmp.2 = getv %tmp.1 :currentState;
+        symbol [ exit %tmp.3 101 26 30 ];
+        %tmp.3 = getv function %tmp.2 :exit;
+        %tmp.4 = lgetv %ctx;
+        symbol [ ctx %tmp.4 101 31 34 ];
+        invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 104 8 ]
+        %tmp.5 = lgetv %newState;
+        symbol [ newState %tmp.5 104 8 16 ];
+        symbol [ enter %tmp.6 104 17 22 ];
+        %tmp.6 = getv function %tmp.5 :enter;
+        %tmp.7 = lgetv %ctx;
+        symbol [ ctx %tmp.7 104 23 26 ];
+        invoke %tmp.5 %tmp.6(%tmp.7);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 107 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_99_54_120_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_99_54_120_4_stop" ]
+        %prevStateId.1 = local;
+        symbol [ prevStateId %prevStateId.1 107 12 23 ];
+        %tmp.8 = self;
+        symbol [ self %tmp.8 107 26 30 ];
+        symbol [ currentState %tmp.9 107 31 43 ];
+        %tmp.9 = getv %tmp.8 :currentState;
+        symbol [ id %tmp.10 107 44 46 ];
+        %tmp.10 = getv function %tmp.9 :id;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %prevStateId.1 %tmp.11;
+        symbol [ prevStateId %prevStateId.1 107 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 108 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_8_110_8_if_stmt:
+        %tmp.12 = lgetv %prevStateId.1;
+        symbol [ prevStateId %tmp.12 108 13 24 ];
+        symbol [ equals %tmp.13 108 25 31 ];
+        %tmp.13 = getv function %tmp.12 :equals;
+        %tmp.14 = "victory";
+        %tmp.15 = invoke %tmp.12 %tmp.13(%tmp.14);
+        %tmp.16 = not %tmp.15;
+        bf %tmp.16 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_8_110_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_8_110_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_44_110_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 109 12 ]
+        symbol [ self %self 109 12 16 ];
+        symbol [ stateCooldowns %tmp.17 109 17 31 ];
+        %tmp.17 = getv self :stateCooldowns;
+        %tmp.18 = self;
+        symbol [ self %tmp.18 109 47 51 ];
+        symbol [ getCooldownForState %tmp.19 109 52 71 ];
+        %tmp.19 = getv function %tmp.18 :getCooldownForState;
+        %tmp.20 = lgetv %prevStateId.1;
+        symbol [ prevStateId %tmp.20 109 72 83 ];
+        %tmp.21 = invoke %tmp.18 %tmp.19(%tmp.20);
+        %tmp.22 = lgetv %prevStateId.1;
+        symbol [ prevStateId %tmp.22 109 32 43 ];
+        aputv %tmp.17 %tmp.22 %tmp.21;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_44_110_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_8_110_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_108_8_110_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 113 8 ]
+        symbol [ self %self 113 8 12 ];
+        %tmp.23 = lgetv %newState;
+        symbol [ newState %tmp.23 113 28 36 ];
+        symbol [ currentState ? 113 13 25 ];
+        putv self :currentState %tmp.23;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 116 8 ]
+        %tmp.24 = self;
+        symbol [ self %tmp.24 116 8 12 ];
+        symbol [ blinkScheduler %tmp.25 116 13 27 ];
+        %tmp.25 = getv %tmp.24 :blinkScheduler;
+        symbol [ triggerEventBlink %tmp.26 116 28 45 ];
+        %tmp.26 = getv function %tmp.25 :triggerEventBlink;
+        invoke %tmp.25 %tmp.26();
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 119 8 ]
+        symbol [ System %tmp.27 119 8 14 ];
+        %tmp.27 = getm $.Toybox.System;
+        symbol [ println %tmp.28 119 15 22 ];
+        %tmp.28 = getv function %tmp.27 :println;
+        %tmp.29 = "Mood: ";
+        %tmp.30 = lgetv %prevStateId.1;
+        symbol [ prevStateId %tmp.30 119 34 45 ];
+        %tmp.31 = add %tmp.29 %tmp.30;
+        %tmp.32 = " -> ";
+        %tmp.33 = add %tmp.31 %tmp.32;
+        %tmp.34 = lgetv %newState;
+        symbol [ newState %tmp.34 119 57 65 ];
+        symbol [ id %tmp.35 119 66 68 ];
+        %tmp.35 = getv function %tmp.34 :id;
+        %tmp.36 = invoke %tmp.34 %tmp.35();
+        %tmp.37 = add %tmp.33 %tmp.36;
+        invoke %tmp.27 %tmp.28(%tmp.37);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_99_54_120_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 122; @symbol_functiondef = [getCooldownForState,122,21,40]; @symbol_param<0> = [stateId,122,41,48]; ]
+    private
+    function getCooldownForState(stateId) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_122_50_131_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 124 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_8_124_55_if_stmt:
+        %tmp.1 = lgetv %stateId;
+        symbol [ stateId %tmp.1 124 12 19 ];
+        symbol [ equals %tmp.2 124 20 26 ];
+        %tmp.2 = getv function %tmp.1 :equals;
+        %tmp.3 = "victory";
+        %tmp.4 = invoke %tmp.1 %tmp.2(%tmp.3);
+        bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_8_124_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_8_124_55_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_39_124_55_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 124 41 ]
+        %tmp.5 = 45000;
+        ret %tmp.5;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_39_124_55_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_8_124_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_124_8_124_55_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 125 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_8_125_57_if_stmt:
+        %tmp.6 = lgetv %stateId;
+        symbol [ stateId %tmp.6 125 12 19 ];
+        symbol [ equals %tmp.7 125 20 26 ];
+        %tmp.7 = getv function %tmp.6 :equals;
+        %tmp.8 = "overheat";
+        %tmp.9 = invoke %tmp.6 %tmp.7(%tmp.8);
+        bf %tmp.9 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_8_125_57_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_8_125_57_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_40_125_57_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 125 42 ]
+        %tmp.10 = 120000;
+        ret %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_40_125_57_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_8_125_57_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_125_8_125_57_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 126 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_8_126_55_if_stmt:
+        %tmp.11 = lgetv %stateId;
+        symbol [ stateId %tmp.11 126 12 19 ];
+        symbol [ equals %tmp.12 126 20 26 ];
+        %tmp.12 = getv function %tmp.11 :equals;
+        %tmp.13 = "drowsy";
+        %tmp.14 = invoke %tmp.11 %tmp.12(%tmp.13);
+        bf %tmp.14 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_8_126_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_8_126_55_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_38_126_55_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 126 40 ]
+        %tmp.15 = 180000;
+        ret %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_38_126_55_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_8_126_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_126_8_126_55_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 127 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_8_127_59_if_stmt:
+        %tmp.16 = lgetv %stateId;
+        symbol [ stateId %tmp.16 127 12 19 ];
+        symbol [ equals %tmp.17 127 20 26 ];
+        %tmp.17 = getv function %tmp.16 :equals;
+        %tmp.18 = "recovering";
+        %tmp.19 = invoke %tmp.16 %tmp.17(%tmp.18);
+        bf %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_8_127_59_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_8_127_59_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_42_127_59_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 127 44 ]
+        %tmp.20 = 150000;
+        ret %tmp.20;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_42_127_59_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_8_127_59_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_127_8_127_59_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 128 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_8_128_56_if_stmt:
+        %tmp.21 = lgetv %stateId;
+        symbol [ stateId %tmp.21 128 12 19 ];
+        symbol [ equals %tmp.22 128 20 26 ];
+        %tmp.22 = getv function %tmp.21 :equals;
+        %tmp.23 = "focused";
+        %tmp.24 = invoke %tmp.21 %tmp.22(%tmp.23);
+        bf %tmp.24 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_8_128_56_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_8_128_56_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_39_128_56_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 128 41 ]
+        %tmp.25 = 120000;
+        ret %tmp.25;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_39_128_56_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_8_128_56_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_128_8_128_56_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 129 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_8_129_55_if_stmt:
+        %tmp.26 = lgetv %stateId;
+        symbol [ stateId %tmp.26 129 12 19 ];
+        symbol [ equals %tmp.27 129 20 26 ];
+        %tmp.27 = getv function %tmp.26 :equals;
+        %tmp.28 = "charged";
+        %tmp.29 = invoke %tmp.26 %tmp.27(%tmp.28);
+        bf %tmp.29 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_8_129_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_8_129_55_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_39_129_55_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 129 41 ]
+        %tmp.30 = 90000;
+        ret %tmp.30;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_39_129_55_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_8_129_55_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_129_8_129_55_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 130 8 ]
+        %tmp.31 = 60000;
+        ret %tmp.31;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_122_50_131_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 133; @symbol_functiondef = [updateCooldowns,133,21,36]; @symbol_param<0> = [deltaMs,133,37,44]; ]
+    private
+    function updateCooldowns(deltaMs) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_133_46_144_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 134 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_133_46_144_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_133_46_144_4_stop" ]
+        %keys.1 = local;
+        symbol [ keys %keys.1 134 12 16 ];
+        %tmp.1 = self;
+        symbol [ self %tmp.1 134 19 23 ];
+        symbol [ stateCooldowns %tmp.2 134 24 38 ];
+        %tmp.2 = getv %tmp.1 :stateCooldowns;
+        symbol [ keys %tmp.3 134 39 43 ];
+        %tmp.3 = getv function %tmp.2 :keys;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %keys.1 %tmp.4;
+        symbol [ keys %keys.1 134 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 135 8 ]
+        for @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_test @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_incr @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_init:
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_begin" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_end" ]
+        %i.2 = local;
+        symbol [ i %i.2 135 17 18 ];
+        %tmp.5 = 0;
+        lputv %i.2 %tmp.5;
+        symbol [ i %i.2 135 17 18 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_test:
+        %tmp.6 = lgetv %i.2;
+        symbol [ i %tmp.6 135 24 25 ];
+        %tmp.7 = lgetv %keys.1;
+        symbol [ keys %tmp.7 135 28 32 ];
+        symbol [ size %tmp.8 135 33 37 ];
+        %tmp.8 = getv function %tmp.7 :size;
+        %tmp.9 = invoke %tmp.7 %tmp.8();
+        %tmp.10 = lt %tmp.6 %tmp.9;
+        bf %tmp.10 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_begin:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_46_143_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 136 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_46_143_8_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_46_143_8_stop" ]
+        %key.3 = local;
+        symbol [ key %key.3 136 16 19 ];
+        %tmp.11 = lgetv %keys.1;
+        symbol [ keys %tmp.11 136 22 26 ];
+        %tmp.12 = lgetv %i.2;
+        symbol [ i %tmp.12 136 27 28 ];
+        %tmp.13 = agetv %tmp.11 %tmp.12;
+        lputv %key.3 %tmp.13;
+        symbol [ key %key.3 136 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 137 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_12_142_12_if_stmt:
+        %tmp.14 = self;
+        symbol [ self %tmp.14 137 16 20 ];
+        symbol [ stateCooldowns %tmp.15 137 21 35 ];
+        %tmp.15 = getv %tmp.14 :stateCooldowns;
+        %tmp.16 = lgetv %key.3;
+        symbol [ key %tmp.16 137 36 39 ];
+        %tmp.17 = agetv %tmp.15 %tmp.16;
+        %tmp.18 = 0;
+        %tmp.19 = gt %tmp.17 %tmp.18;
+        bf %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_12_142_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_12_142_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_46_142_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 138 16 ]
+        symbol [ self %self 138 16 20 ];
+        symbol [ stateCooldowns %tmp.20 138 21 35 ];
+        %tmp.20 = getv self :stateCooldowns;
+        symbol [ self %self 138 16 20 ];
+        symbol [ stateCooldowns %tmp.21 138 21 35 ];
+        %tmp.21 = getv self :stateCooldowns;
+        %tmp.22 = lgetv %key.3;
+        symbol [ key %tmp.22 138 36 39 ];
+        %tmp.23 = agetv %tmp.21 %tmp.22;
+        %tmp.24 = lgetv %deltaMs;
+        symbol [ deltaMs %tmp.24 138 44 51 ];
+        %tmp.25 = sub %tmp.23 %tmp.24;
+        %tmp.26 = lgetv %key.3;
+        symbol [ key %tmp.26 138 36 39 ];
+        aputv %tmp.20 %tmp.26 dup %tmp.25;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 139 16 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_16_141_16_if_stmt:
+        %tmp.27 = self;
+        symbol [ self %tmp.27 139 20 24 ];
+        symbol [ stateCooldowns %tmp.28 139 25 39 ];
+        %tmp.28 = getv %tmp.27 :stateCooldowns;
+        %tmp.29 = lgetv %key.3;
+        symbol [ key %tmp.29 139 40 43 ];
+        %tmp.30 = agetv %tmp.28 %tmp.29;
+        %tmp.31 = 0;
+        %tmp.32 = lt %tmp.30 %tmp.31;
+        bf %tmp.32 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_16_141_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_16_141_16_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_50_141_16_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 140 20 ]
+        symbol [ self %self 140 20 24 ];
+        symbol [ stateCooldowns %tmp.33 140 25 39 ];
+        %tmp.33 = getv self :stateCooldowns;
+        %tmp.34 = 0;
+        %tmp.35 = lgetv %key.3;
+        symbol [ key %tmp.35 140 40 43 ];
+        aputv %tmp.33 %tmp.35 %tmp.34;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_50_141_16_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_16_141_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_139_16_141_16_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_46_142_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_12_142_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_137_12_142_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_46_143_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_incr:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 135 ]
+        %tmp.38 = lgetv %i.2;
+        symbol [ i %tmp.38 135 41 42 ];
+        %tmp.39 = add %tmp.38 1;
+        lputv %i.2 %tmp.39;
+        symbol [ i %i.2 135 41 42 ];
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_test;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_135_8_143_8_for_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_133_46_144_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 146; @symbol_functiondef = [getRenderData,146,21,34]; @symbol_param<0> = [ctx,146,35,38]; ]
+    private
+    function getRenderData(ctx) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 148 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_stop" ]
+        %allowedVariants.1 = local;
+        symbol [ allowedVariants %allowedVariants.1 148 12 27 ];
+        %tmp.1 = self;
+        symbol [ self %tmp.1 148 30 34 ];
+        symbol [ currentState %tmp.2 148 35 47 ];
+        %tmp.2 = getv %tmp.1 :currentState;
+        symbol [ allowedVariants %tmp.3 148 48 63 ];
+        %tmp.3 = getv function %tmp.2 :allowedVariants;
+        %tmp.4 = lgetv %ctx;
+        symbol [ ctx %tmp.4 148 64 67 ];
+        %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
+        lputv %allowedVariants.1 %tmp.5;
+        symbol [ allowedVariants %allowedVariants.1 148 12 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 149 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_stop" ]
+        %variant.2 = local;
+        symbol [ variant %variant.2 149 12 19 ];
+        %tmp.6 = self;
+        symbol [ self %tmp.6 149 22 26 ];
+        symbol [ stateMemory %tmp.7 149 27 38 ];
+        %tmp.7 = getv %tmp.6 :stateMemory;
+        symbol [ selectVariant %tmp.8 149 39 52 ];
+        %tmp.8 = getv function %tmp.7 :selectVariant;
+        %tmp.9 = lgetv %allowedVariants.1;
+        symbol [ allowedVariants %tmp.9 149 53 68 ];
+        %tmp.10 = lgetv %ctx;
+        symbol [ ctx %tmp.10 149 70 73 ];
+        %tmp.11 = invoke %tmp.7 %tmp.8(%tmp.9, %tmp.10);
+        lputv %variant.2 %tmp.11;
+        symbol [ variant %variant.2 149 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 152 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_stop" ]
+        %expression.3 = local;
+        symbol [ expression %expression.3 152 12 22 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_begin:
+        %tmp.12 = lgetv %ctx;
+        symbol [ ctx %tmp.12 152 25 28 ];
+        symbol [ aod %tmp.13 152 29 32 ];
+        %tmp.13 = getv %tmp.12 :aod;
+        bf %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_false;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_true:
+        %tmp.14 = self;
+        symbol [ self %tmp.14 153 12 16 ];
+        symbol [ currentState %tmp.15 153 17 29 ];
+        %tmp.15 = getv %tmp.14 :currentState;
+        symbol [ aodExpression %tmp.16 153 30 43 ];
+        %tmp.16 = getv function %tmp.15 :aodExpression;
+        %tmp.17 = lgetv %ctx;
+        symbol [ ctx %tmp.17 153 44 47 ];
+        %tmp.18 = invoke %tmp.15 %tmp.16(%tmp.17);
+        push %tmp.18;
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_false:
+        %tmp.19 = self;
+        symbol [ self %tmp.19 154 12 16 ];
+        symbol [ currentState %tmp.20 154 17 29 ];
+        %tmp.20 = getv %tmp.19 :currentState;
+        symbol [ getExpression %tmp.21 154 30 43 ];
+        %tmp.21 = getv function %tmp.20 :getExpression;
+        %tmp.22 = lgetv %ctx;
+        symbol [ ctx %tmp.22 154 44 47 ];
+        %tmp.23 = lgetv %variant.2;
+        symbol [ variant %tmp.23 154 49 56 ];
+        %tmp.24 = invoke %tmp.20 %tmp.21(%tmp.22, %tmp.23);
+        push %tmp.24;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_end:
+        %tmp.25 = phi [%tmp.13 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_begin] [%tmp.18 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_true] [%tmp.24 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_false] [%tmp.25 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_152_25_154_56_end];
+        lputv %expression.3 %tmp.25;
+        symbol [ expression %expression.3 152 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 157 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_stop" ]
+        %blinkPhase.4 = local;
+        symbol [ blinkPhase %blinkPhase.4 157 12 22 ];
+        %tmp.26 = self;
+        symbol [ self %tmp.26 157 25 29 ];
+        symbol [ blinkScheduler %tmp.27 157 30 44 ];
+        %tmp.27 = getv %tmp.26 :blinkScheduler;
+        symbol [ getBlinkPhase %tmp.28 157 45 58 ];
+        %tmp.28 = getv function %tmp.27 :getBlinkPhase;
+        %tmp.29 = invoke %tmp.27 %tmp.28();
+        lputv %blinkPhase.4 %tmp.29;
+        symbol [ blinkPhase %blinkPhase.4 157 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 159 8 ]
+        %tmp.30 = newd 6;
+        %tmp.32 = const :state;
+        symbol [ state %tmp.32 160 13 18 const ];
+        %tmp.33 = self;
+        symbol [ self %tmp.33 160 22 26 ];
+        symbol [ currentState %tmp.34 160 27 39 ];
+        %tmp.34 = getv %tmp.33 :currentState;
+        symbol [ id %tmp.35 160 40 42 ];
+        %tmp.35 = getv function %tmp.34 :id;
+        %tmp.36 = invoke %tmp.34 %tmp.35();
+        %tmp.37 = dup %tmp.30;
+        %tmp.38 = aputv %tmp.37 %tmp.32 %tmp.36;
+        %tmp.40 = const :variant;
+        symbol [ variant %tmp.40 161 13 20 const ];
+        %tmp.41 = lgetv %variant.2;
+        symbol [ variant %tmp.41 161 24 31 ];
+        %tmp.42 = dup %tmp.38;
+        %tmp.43 = aputv %tmp.42 %tmp.40 %tmp.41;
+        %tmp.45 = const :expression;
+        symbol [ expression %tmp.45 162 13 23 const ];
+        %tmp.46 = lgetv %expression.3;
+        symbol [ expression %tmp.46 162 27 37 ];
+        %tmp.47 = dup %tmp.43;
+        %tmp.48 = aputv %tmp.47 %tmp.45 %tmp.46;
+        %tmp.50 = const :blinkPhase;
+        symbol [ blinkPhase %tmp.50 163 13 23 const ];
+        %tmp.51 = lgetv %blinkPhase.4;
+        symbol [ blinkPhase %tmp.51 163 27 37 ];
+        %tmp.52 = dup %tmp.48;
+        %tmp.53 = aputv %tmp.52 %tmp.50 %tmp.51;
+        %tmp.55 = const :emoticon;
+        symbol [ emoticon %tmp.55 164 13 21 const ];
+        %tmp.56 = self;
+        symbol [ self %tmp.56 164 25 29 ];
+        symbol [ currentState %tmp.57 164 30 42 ];
+        %tmp.57 = getv %tmp.56 :currentState;
+        symbol [ getEmoticon %tmp.58 164 43 54 ];
+        %tmp.58 = getv function %tmp.57 :getEmoticon;
+        %tmp.59 = invoke %tmp.57 %tmp.58();
+        %tmp.60 = dup %tmp.53;
+        %tmp.61 = aputv %tmp.60 %tmp.55 %tmp.59;
+        %tmp.63 = const :aod;
+        symbol [ aod %tmp.63 165 13 16 const ];
+        %tmp.64 = lgetv %ctx;
+        symbol [ ctx %tmp.64 165 20 23 ];
+        symbol [ aod %tmp.65 165 24 27 ];
+        %tmp.65 = getv %tmp.64 :aod;
+        %tmp.66 = dup %tmp.61;
+        %tmp.67 = aputv %tmp.66 %tmp.63 %tmp.65;
+        ret %tmp.67;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_146_40_167_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 171; @symbol_classdef = [MoodMemory,171,6,16]; ]
+class MoodMemory {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 171; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 171; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 172; @position = 16; @symbol_vardef = [stateHistory,172,16,28]; ]
+    private
+    var stateHistory;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 173; @position = 16; @symbol_vardef = [lastVariantTime,173,16,31]; ]
+    private
+    var lastVariantTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 174; @position = 16; @symbol_vardef = [currentVariant,174,16,30]; ]
+    private
+    var currentVariant;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 175; @position = 16; @symbol_vardef = [achievementEventTime,175,16,36]; ]
+    private
+    var achievementEventTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 177; @symbol_functiondef = [initialize,177,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_177_26_182_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 178 8 ]
+        symbol [ self %self 178 8 12 ];
+        %tmp.1 = newa 0;
+        symbol [ stateHistory ? 178 13 25 ];
+        putv self :stateHistory %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 179 8 ]
+        symbol [ self %self 179 8 12 ];
+        %tmp.2 = 0;
+        symbol [ lastVariantTime ? 179 13 28 ];
+        putv self :lastVariantTime %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 180 8 ]
+        symbol [ self %self 180 8 12 ];
+        %tmp.3 = "base";
+        symbol [ currentVariant ? 180 13 27 ];
+        putv self :currentVariant %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 181 8 ]
+        symbol [ self %self 181 8 12 ];
+        %tmp.4 = 0;
+        symbol [ achievementEventTime ? 181 13 33 ];
+        putv self :achievementEventTime %tmp.4;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_177_26_182_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 184; @symbol_functiondef = [update,184,13,19]; @symbol_param<0> = [ctx,184,20,23]; @symbol_param<1> = [deltaMs,184,25,32]; ]
+    function update(ctx, deltaMs) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_184_34_189_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 186 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_8_188_8_if_stmt:
+        %tmp.1 = lgetv %ctx;
+        symbol [ ctx %tmp.1 186 12 15 ];
+        symbol [ achievementEvent %tmp.2 186 16 32 ];
+        %tmp.2 = getv %tmp.1 :achievementEvent;
+        bf %tmp.2 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_8_188_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_8_188_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_34_188_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 187 12 ]
+        symbol [ self %self 187 12 16 ];
+        symbol [ System %tmp.3 187 40 46 ];
+        %tmp.3 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.4 187 47 55 ];
+        %tmp.4 = getv function %tmp.3 :getTimer;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        symbol [ achievementEventTime ? 187 17 37 ];
+        putv self :achievementEventTime %tmp.5;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_34_188_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_8_188_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_186_8_188_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_184_34_189_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 191; @symbol_functiondef = [selectVariant,191,13,26]; @symbol_param<0> = [allowedVariants,191,27,42]; @symbol_param<1> = [ctx,191,44,47]; ]
+    function selectVariant(allowedVariants, ctx) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_191_49_209_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 193 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_8_195_8_if_stmt:
+        %tmp.1 = lgetv %allowedVariants;
+        symbol [ allowedVariants %tmp.1 193 12 27 ];
+        symbol [ size %tmp.2 193 28 32 ];
+        %tmp.2 = getv function %tmp.1 :size;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = 1;
+        %tmp.5 = eq %tmp.3 %tmp.4;
+        bf %tmp.5 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_8_195_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_8_195_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_41_195_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 194 12 ]
+        %tmp.6 = lgetv %allowedVariants;
+        symbol [ allowedVariants %tmp.6 194 19 34 ];
+        %tmp.7 = 0;
+        %tmp.8 = agetv %tmp.6 %tmp.7;
+        ret %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_41_195_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_8_195_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_193_8_195_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 198 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_8_206_8_if_stmt:
+        %tmp.9 = lgetv %allowedVariants;
+        symbol [ allowedVariants %tmp.9 198 12 27 ];
+        symbol [ indexOf %tmp.10 198 28 35 ];
+        %tmp.10 = getv function %tmp.9 :indexOf;
+        %tmp.11 = "yawn";
+        %tmp.12 = invoke %tmp.9 %tmp.10(%tmp.11);
+        %tmp.13 = -1;
+        %tmp.14 = ne %tmp.12 %tmp.13;
+        bf %tmp.14 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_8_206_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_8_206_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_51_206_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 199 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_51_206_8_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_51_206_8_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 199 16 19 ];
+        symbol [ System %tmp.15 199 22 28 ];
+        %tmp.15 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.16 199 29 37 ];
+        %tmp.16 = getv function %tmp.15 :getTimer;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        lputv %now.1 %tmp.17;
+        symbol [ now %now.1 199 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 200 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_12_205_12_if_stmt:
+        %tmp.18 = lgetv %now.1;
+        symbol [ now %tmp.18 200 16 19 ];
+        %tmp.19 = self;
+        symbol [ self %tmp.19 200 22 26 ];
+        symbol [ lastVariantTime %tmp.20 200 27 42 ];
+        %tmp.20 = getv %tmp.19 :lastVariantTime;
+        %tmp.21 = sub %tmp.18 %tmp.20;
+        %tmp.22 = 60000;
+        %tmp.23 = gt %tmp.21 %tmp.22;
+        bf %tmp.23 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_12_205_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_12_205_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_52_205_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 201 16 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_16_204_16_if_stmt:
+        symbol [ Math %tmp.24 201 20 24 ];
+        %tmp.24 = getm $.Toybox.Math;
+        symbol [ rand %tmp.25 201 25 29 ];
+        %tmp.25 = getv function %tmp.24 :rand;
+        %tmp.26 = invoke %tmp.24 %tmp.25();
+        %tmp.27 = 100;
+        %tmp.28 = mod %tmp.26 %tmp.27;
+        %tmp.29 = 30;
+        %tmp.30 = lt %tmp.28 %tmp.29;
+        bf %tmp.30 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_16_204_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_16_204_16_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_44_204_16_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 202 20 ]
+        symbol [ self %self 202 20 24 ];
+        %tmp.31 = lgetv %now.1;
+        symbol [ now %tmp.31 202 43 46 ];
+        symbol [ lastVariantTime ? 202 25 40 ];
+        putv self :lastVariantTime %tmp.31;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 203 20 ]
+        %tmp.32 = "yawn";
+        ret %tmp.32;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_44_204_16_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_16_204_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_201_16_204_16_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_52_205_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_12_205_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_200_12_205_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_51_206_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_8_206_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_198_8_206_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 208 8 ]
+        %tmp.33 = lgetv %allowedVariants;
+        symbol [ allowedVariants %tmp.33 208 15 30 ];
+        %tmp.34 = 0;
+        %tmp.35 = agetv %tmp.33 %tmp.34;
+        ret %tmp.35;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_191_49_209_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 211; @symbol_functiondef = [isAchievementEventRecent,211,13,37]; ]
+    function isAchievementEventRecent() {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_211_40_213_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 212 8 ]
+        symbol [ System %tmp.1 212 16 22 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.2 212 23 31 ];
+        %tmp.2 = getv function %tmp.1 :getTimer;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        %tmp.4 = self;
+        symbol [ self %tmp.4 212 36 40 ];
+        symbol [ achievementEventTime %tmp.5 212 41 61 ];
+        %tmp.5 = getv %tmp.4 :achievementEventTime;
+        %tmp.6 = sub %tmp.3 %tmp.5;
+        %tmp.7 = 90000;
+        %tmp.8 = lt %tmp.6 %tmp.7;
+        ret %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_211_40_213_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 217; @symbol_classdef = [BlinkScheduler,217,6,20]; ]
+class BlinkScheduler {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 217; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 217; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 218; @position = 16; @symbol_vardef = [nextBlinkTime,218,16,29]; ]
+    private
+    var nextBlinkTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 219; @position = 16; @symbol_vardef = [blinkStartTime,219,16,30]; ]
+    private
+    var blinkStartTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 220; @position = 16; @symbol_vardef = [blinkDuration,220,16,29]; ]
+    private
+    var blinkDuration;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 221; @position = 16; @symbol_vardef = [isBlinking,221,16,26]; ]
+    private
+    var isBlinking;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 222; @position = 16; @symbol_vardef = [currentProfile,222,16,30]; ]
+    private
+    var currentProfile;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 223; @position = 16; @symbol_vardef = [eventBlinkPending,223,16,33]; ]
+    private
+    var eventBlinkPending;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 225; @symbol_functiondef = [initialize,225,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_225_26_234_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 226 8 ]
+        symbol [ self %self 226 8 12 ];
+        %tmp.1 = 0;
+        symbol [ nextBlinkTime ? 226 13 26 ];
+        putv self :nextBlinkTime %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 227 8 ]
+        symbol [ self %self 227 8 12 ];
+        %tmp.2 = 0;
+        symbol [ blinkStartTime ? 227 13 27 ];
+        putv self :blinkStartTime %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 228 8 ]
+        symbol [ self %self 228 8 12 ];
+        %tmp.3 = 100;
+        symbol [ blinkDuration ? 228 13 26 ];
+        putv self :blinkDuration %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 229 8 ]
+        symbol [ self %self 229 8 12 ];
+        %tmp.4 = false;
+        symbol [ isBlinking ? 229 13 23 ];
+        putv self :isBlinking %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 230 8 ]
+        symbol [ self %self 230 8 12 ];
+        %tmp.5 = null;
+        symbol [ currentProfile ? 230 13 27 ];
+        putv self :currentProfile %tmp.5;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 231 8 ]
+        symbol [ self %self 231 8 12 ];
+        %tmp.6 = false;
+        symbol [ eventBlinkPending ? 231 13 30 ];
+        putv self :eventBlinkPending %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 233 8 ]
+        %tmp.7 = self;
+        symbol [ self %tmp.7 233 8 12 ];
+        symbol [ scheduleNextBlink %tmp.8 233 13 30 ];
+        %tmp.8 = getv function %tmp.7 :scheduleNextBlink;
+        %tmp.9 = self;
+        symbol [ self %tmp.9 233 31 35 ];
+        symbol [ getDefaultProfile %tmp.10 233 36 53 ];
+        %tmp.10 = getv function %tmp.9 :getDefaultProfile;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        invoke %tmp.7 %tmp.8(%tmp.11);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_225_26_234_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 236; @symbol_functiondef = [update,236,13,19]; @symbol_param<0> = [profile,236,20,27]; @symbol_param<1> = [deltaMs,236,29,36]; ]
+    function update(profile, deltaMs) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_236_38_268_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 237 8 ]
+        symbol [ self %self 237 8 12 ];
+        %tmp.1 = lgetv %profile;
+        symbol [ profile %tmp.1 237 30 37 ];
+        symbol [ currentProfile ? 237 13 27 ];
+        putv self :currentProfile %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 238 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_236_38_268_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_236_38_268_4_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 238 12 15 ];
+        symbol [ System %tmp.2 238 18 24 ];
+        %tmp.2 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.3 238 25 33 ];
+        %tmp.3 = getv function %tmp.2 :getTimer;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %now.1 %tmp.4;
+        symbol [ now %now.1 238 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 241 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_8_245_8_if_stmt:
+        %tmp.5 = self;
+        symbol [ self %tmp.5 241 12 16 ];
+        symbol [ eventBlinkPending %tmp.6 241 17 34 ];
+        %tmp.6 = getv %tmp.5 :eventBlinkPending;
+        bf %tmp.6 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_8_245_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_8_245_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_36_245_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 242 12 ]
+        %tmp.7 = self;
+        symbol [ self %tmp.7 242 12 16 ];
+        symbol [ startBlink %tmp.8 242 17 27 ];
+        %tmp.8 = getv function %tmp.7 :startBlink;
+        %tmp.9 = lgetv %profile;
+        symbol [ profile %tmp.9 242 28 35 ];
+        symbol [ get %tmp.10 242 36 39 ];
+        %tmp.10 = getv function %tmp.9 :get;
+        %tmp.12 = const :closureMs;
+        symbol [ closureMs %tmp.12 242 41 50 const ];
+        %tmp.13 = invoke %tmp.9 %tmp.10(%tmp.12);
+        invoke %tmp.7 %tmp.8(%tmp.13);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 243 12 ]
+        symbol [ self %self 243 12 16 ];
+        %tmp.14 = false;
+        symbol [ eventBlinkPending ? 243 17 34 ];
+        putv self :eventBlinkPending %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 244 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_36_245_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_8_245_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_241_8_245_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 248 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_12_248_44_begin:
+        %tmp.15 = self;
+        symbol [ self %tmp.15 248 13 17 ];
+        symbol [ isBlinking %tmp.16 248 18 28 ];
+        %tmp.16 = getv %tmp.15 :isBlinking;
+        %tmp.17 = not %tmp.16;
+        bf %tmp.17 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_32_248_44_true:
+        %tmp.18 = lgetv %now.1;
+        symbol [ now %tmp.18 248 32 35 ];
+        %tmp.19 = self;
+        symbol [ self %tmp.19 248 39 43 ];
+        symbol [ nextBlinkTime %tmp.20 248 44 57 ];
+        %tmp.20 = getv %tmp.19 :nextBlinkTime;
+        %tmp.21 = gte %tmp.18 %tmp.20;
+        push %tmp.21;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_32_248_44_end:
+        %tmp.22 = phi [%tmp.17 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_12_248_44_begin] [%tmp.21 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_32_248_44_true] [%tmp.22 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_32_248_44_end];
+        bf %tmp.22 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_59_258_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 249 12 ]
+        %tmp.23 = self;
+        symbol [ self %tmp.23 249 12 16 ];
+        symbol [ startBlink %tmp.24 249 17 27 ];
+        %tmp.24 = getv function %tmp.23 :startBlink;
+        %tmp.25 = lgetv %profile;
+        symbol [ profile %tmp.25 249 28 35 ];
+        symbol [ get %tmp.26 249 36 39 ];
+        %tmp.26 = getv function %tmp.25 :get;
+        %tmp.28 = const :closureMs;
+        symbol [ closureMs %tmp.28 249 41 50 const ];
+        %tmp.29 = invoke %tmp.25 %tmp.26(%tmp.28);
+        invoke %tmp.23 %tmp.24(%tmp.29);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 252 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_stmt:
+        symbol [ Math %tmp.30 252 16 20 ];
+        %tmp.30 = getm $.Toybox.Math;
+        symbol [ rand %tmp.31 252 21 25 ];
+        %tmp.31 = getv function %tmp.30 :rand;
+        %tmp.32 = invoke %tmp.30 %tmp.31();
+        %tmp.33 = 1000;
+        %tmp.34 = mod %tmp.32 %tmp.33;
+        %tmp.35 = lgetv %profile;
+        symbol [ profile %tmp.35 252 38 45 ];
+        symbol [ get %tmp.36 252 46 49 ];
+        %tmp.36 = getv function %tmp.35 :get;
+        %tmp.38 = const :doubleProb;
+        symbol [ doubleProb %tmp.38 252 51 61 const ];
+        %tmp.39 = invoke %tmp.35 %tmp.36(%tmp.38);
+        %tmp.40 = 1000;
+        %tmp.41 = mul %tmp.39 %tmp.40;
+        %tmp.42 = lt %tmp.34 %tmp.41;
+        bf %tmp.42 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_72_255_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 254 16 ]
+        symbol [ self %self 254 16 20 ];
+        %tmp.43 = lgetv %now.1;
+        symbol [ now %tmp.43 254 37 40 ];
+        %tmp.44 = lgetv %profile;
+        symbol [ profile %tmp.44 254 43 50 ];
+        symbol [ get %tmp.45 254 51 54 ];
+        %tmp.45 = getv function %tmp.44 :get;
+        %tmp.47 = const :closureMs;
+        symbol [ closureMs %tmp.47 254 56 65 const ];
+        %tmp.48 = invoke %tmp.44 %tmp.45(%tmp.47);
+        %tmp.49 = add %tmp.43 %tmp.48;
+        %tmp.50 = 80;
+        %tmp.51 = add %tmp.49 %tmp.50;
+        symbol [ nextBlinkTime ? 254 21 34 ];
+        putv self :nextBlinkTime %tmp.51;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_72_255_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_255_19_257_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 256 16 ]
+        %tmp.52 = self;
+        symbol [ self %tmp.52 256 16 20 ];
+        symbol [ scheduleNextBlink %tmp.53 256 21 38 ];
+        %tmp.53 = getv function %tmp.52 :scheduleNextBlink;
+        %tmp.54 = lgetv %profile;
+        symbol [ profile %tmp.54 256 39 46 ];
+        invoke %tmp.52 %tmp.53(%tmp.54);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_255_19_257_12_stop:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_252_12_257_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_59_258_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_248_8_258_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 261 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_12_261_67_begin:
+        %tmp.55 = self;
+        symbol [ self %tmp.55 261 12 16 ];
+        symbol [ isBlinking %tmp.56 261 17 27 ];
+        %tmp.56 = getv %tmp.55 :isBlinking;
+        bf %tmp.56 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_31_261_67_true:
+        %tmp.57 = lgetv %now.1;
+        symbol [ now %tmp.57 261 32 35 ];
+        %tmp.58 = self;
+        symbol [ self %tmp.58 261 38 42 ];
+        symbol [ blinkStartTime %tmp.59 261 43 57 ];
+        %tmp.59 = getv %tmp.58 :blinkStartTime;
+        %tmp.60 = sub %tmp.57 %tmp.59;
+        %tmp.61 = self;
+        symbol [ self %tmp.61 261 62 66 ];
+        symbol [ blinkDuration %tmp.62 261 67 80 ];
+        %tmp.62 = getv %tmp.61 :blinkDuration;
+        %tmp.63 = gte %tmp.60 %tmp.62;
+        push %tmp.63;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_31_261_67_end:
+        %tmp.64 = phi [%tmp.56 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_12_261_67_begin] [%tmp.63 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_31_261_67_true] [%tmp.64 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_31_261_67_end];
+        bf %tmp.64 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_82_267_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 262 12 ]
+        symbol [ self %self 262 12 16 ];
+        %tmp.65 = false;
+        symbol [ isBlinking ? 262 17 27 ];
+        putv self :isBlinking %tmp.65;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 264 12 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_12_266_12_if_stmt:
+        %tmp.66 = self;
+        symbol [ self %tmp.66 264 16 20 ];
+        symbol [ nextBlinkTime %tmp.67 264 21 34 ];
+        %tmp.67 = getv %tmp.66 :nextBlinkTime;
+        %tmp.68 = lgetv %now.1;
+        symbol [ now %tmp.68 264 38 41 ];
+        %tmp.69 = lte %tmp.67 %tmp.68;
+        bf %tmp.69 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_12_266_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_12_266_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_43_266_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 265 16 ]
+        %tmp.70 = self;
+        symbol [ self %tmp.70 265 16 20 ];
+        symbol [ scheduleNextBlink %tmp.71 265 21 38 ];
+        %tmp.71 = getv function %tmp.70 :scheduleNextBlink;
+        %tmp.72 = lgetv %profile;
+        symbol [ profile %tmp.72 265 39 46 ];
+        invoke %tmp.70 %tmp.71(%tmp.72);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_43_266_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_12_266_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_264_12_266_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_82_267_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_261_8_267_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_236_38_268_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 270; @symbol_functiondef = [startBlink,270,21,31]; @symbol_param<0> = [duration,270,32,40]; ]
+    private
+    function startBlink(duration) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_270_42_274_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 271 8 ]
+        symbol [ self %self 271 8 12 ];
+        %tmp.1 = true;
+        symbol [ isBlinking ? 271 13 23 ];
+        putv self :isBlinking %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 272 8 ]
+        symbol [ self %self 272 8 12 ];
+        symbol [ System %tmp.2 272 30 36 ];
+        %tmp.2 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.3 272 37 45 ];
+        %tmp.3 = getv function %tmp.2 :getTimer;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        symbol [ blinkStartTime ? 272 13 27 ];
+        putv self :blinkStartTime %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 273 8 ]
+        symbol [ self %self 273 8 12 ];
+        %tmp.5 = lgetv %duration;
+        symbol [ duration %tmp.5 273 29 37 ];
+        symbol [ blinkDuration ? 273 13 26 ];
+        putv self :blinkDuration %tmp.5;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_270_42_274_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 276; @symbol_functiondef = [scheduleNextBlink,276,21,38]; @symbol_param<0> = [profile,276,39,46]; ]
+    private
+    function scheduleNextBlink(profile) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 278 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_stop" ]
+        %min.1 = local;
+        symbol [ min %min.1 278 12 15 ];
+        %tmp.1 = lgetv %profile;
+        symbol [ profile %tmp.1 278 18 25 ];
+        symbol [ get %tmp.2 278 26 29 ];
+        %tmp.2 = getv function %tmp.1 :get;
+        %tmp.4 = const :min;
+        symbol [ min %tmp.4 278 31 34 const ];
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        %tmp.6 = 1000;
+        %tmp.7 = mul %tmp.5 %tmp.6;
+        lputv %min.1 %tmp.7;
+        symbol [ min %min.1 278 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 279 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_stop" ]
+        %max.2 = local;
+        symbol [ max %max.2 279 12 15 ];
+        %tmp.8 = lgetv %profile;
+        symbol [ profile %tmp.8 279 18 25 ];
+        symbol [ get %tmp.9 279 26 29 ];
+        %tmp.9 = getv function %tmp.8 :get;
+        %tmp.11 = const :max;
+        symbol [ max %tmp.11 279 31 34 const ];
+        %tmp.12 = invoke %tmp.8 %tmp.9(%tmp.11);
+        %tmp.13 = 1000;
+        %tmp.14 = mul %tmp.12 %tmp.13;
+        lputv %max.2 %tmp.14;
+        symbol [ max %max.2 279 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 280 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_stop" ]
+        %mean.3 = local;
+        symbol [ mean %mean.3 280 12 16 ];
+        %tmp.15 = lgetv %profile;
+        symbol [ profile %tmp.15 280 19 26 ];
+        symbol [ get %tmp.16 280 27 30 ];
+        %tmp.16 = getv function %tmp.15 :get;
+        %tmp.18 = const :mean;
+        symbol [ mean %tmp.18 280 32 36 const ];
+        %tmp.19 = invoke %tmp.15 %tmp.16(%tmp.18);
+        %tmp.20 = 1000;
+        %tmp.21 = mul %tmp.19 %tmp.20;
+        lputv %mean.3 %tmp.21;
+        symbol [ mean %mean.3 280 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 283 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_stop" ]
+        %interval.4 = local;
+        symbol [ interval %interval.4 283 12 20 ];
+        %tmp.22 = self;
+        symbol [ self %tmp.22 283 23 27 ];
+        symbol [ generateBlinkInterval %tmp.23 283 28 49 ];
+        %tmp.23 = getv function %tmp.22 :generateBlinkInterval;
+        %tmp.24 = lgetv %min.1;
+        symbol [ min %tmp.24 283 50 53 ];
+        %tmp.25 = lgetv %max.2;
+        symbol [ max %tmp.25 283 55 58 ];
+        %tmp.26 = lgetv %mean.3;
+        symbol [ mean %tmp.26 283 60 64 ];
+        %tmp.27 = invoke %tmp.22 %tmp.23(%tmp.24, %tmp.25, %tmp.26);
+        lputv %interval.4 %tmp.27;
+        symbol [ interval %interval.4 283 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 285 8 ]
+        symbol [ self %self 285 8 12 ];
+        symbol [ System %tmp.28 285 29 35 ];
+        %tmp.28 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.29 285 36 44 ];
+        %tmp.29 = getv function %tmp.28 :getTimer;
+        %tmp.30 = invoke %tmp.28 %tmp.29();
+        %tmp.31 = lgetv %interval.4;
+        symbol [ interval %tmp.31 285 49 57 ];
+        %tmp.32 = add %tmp.30 %tmp.31;
+        symbol [ nextBlinkTime ? 285 13 26 ];
+        putv self :nextBlinkTime %tmp.32;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_276_48_286_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 288; @symbol_functiondef = [generateBlinkInterval,288,21,42]; @symbol_param<0> = [min,288,43,46]; @symbol_param<1> = [max,288,48,51]; @symbol_param<2> = [mean,288,53,57]; ]
+    private
+    function generateBlinkInterval(min, max, mean) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 290 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop" ]
+        %range.1 = local;
+        symbol [ range %range.1 290 12 17 ];
+        %tmp.1 = lgetv %max;
+        symbol [ max %tmp.1 290 20 23 ];
+        %tmp.2 = lgetv %min;
+        symbol [ min %tmp.2 290 26 29 ];
+        %tmp.3 = sub %tmp.1 %tmp.2;
+        lputv %range.1 %tmp.3;
+        symbol [ range %range.1 290 12 17 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 291 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop" ]
+        %meanOffset.2 = local;
+        symbol [ meanOffset %meanOffset.2 291 12 22 ];
+        %tmp.4 = lgetv %mean;
+        symbol [ mean %tmp.4 291 26 30 ];
+        %tmp.5 = lgetv %min;
+        symbol [ min %tmp.5 291 33 36 ];
+        %tmp.6 = sub %tmp.4 %tmp.5;
+        %tmp.7 = lgetv %range.1;
+        symbol [ range %tmp.7 291 40 45 ];
+        %tmp.8 = div %tmp.6 %tmp.7;
+        lputv %meanOffset.2 %tmp.8;
+        symbol [ meanOffset %meanOffset.2 291 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 293 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop" ]
+        %rand1.3 = local;
+        symbol [ rand1 %rand1.3 293 12 17 ];
+        symbol [ Math %tmp.9 293 20 24 ];
+        %tmp.9 = getm $.Toybox.Math;
+        symbol [ rand %tmp.10 293 25 29 ];
+        %tmp.10 = getv function %tmp.9 :rand;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        %tmp.12 = 1000;
+        %tmp.13 = mod %tmp.11 %tmp.12;
+        %tmp.14 = 1000.0;
+        %tmp.15 = div %tmp.13 %tmp.14;
+        lputv %rand1.3 %tmp.15;
+        symbol [ rand1 %rand1.3 293 12 17 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 294 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop" ]
+        %rand2.4 = local;
+        symbol [ rand2 %rand2.4 294 12 17 ];
+        symbol [ Math %tmp.16 294 20 24 ];
+        %tmp.16 = getm $.Toybox.Math;
+        symbol [ rand %tmp.17 294 25 29 ];
+        %tmp.17 = getv function %tmp.16 :rand;
+        %tmp.18 = invoke %tmp.16 %tmp.17();
+        %tmp.19 = 1000;
+        %tmp.20 = mod %tmp.18 %tmp.19;
+        %tmp.21 = 1000.0;
+        %tmp.22 = div %tmp.20 %tmp.21;
+        lputv %rand2.4 %tmp.22;
+        symbol [ rand2 %rand2.4 294 12 17 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 297 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop" ]
+        %biased.5 = local;
+        symbol [ biased %biased.5 297 12 18 ];
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_begin:
+        %tmp.23 = lgetv %rand1.3;
+        symbol [ rand1 %tmp.23 297 21 26 ];
+        %tmp.24 = lgetv %meanOffset.2;
+        symbol [ meanOffset %tmp.24 297 29 39 ];
+        %tmp.25 = lt %tmp.23 %tmp.24;
+        bf %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_false;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_true:
+        symbol [ Math %tmp.26 298 13 17 ];
+        %tmp.26 = getm $.Toybox.Math;
+        symbol [ sqrt %tmp.27 298 18 22 ];
+        %tmp.27 = getv function %tmp.26 :sqrt;
+        %tmp.28 = lgetv %rand1.3;
+        symbol [ rand1 %tmp.28 298 23 28 ];
+        %tmp.29 = lgetv %meanOffset.2;
+        symbol [ meanOffset %tmp.29 298 31 41 ];
+        %tmp.30 = mul %tmp.28 %tmp.29;
+        %tmp.31 = invoke %tmp.26 %tmp.27(%tmp.30);
+        %tmp.32 = lgetv %meanOffset.2;
+        symbol [ meanOffset %tmp.32 298 45 55 ];
+        %tmp.33 = mul %tmp.31 %tmp.32;
+        push %tmp.33;
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_false:
+        %tmp.34 = 1.0;
+        symbol [ Math %tmp.35 299 19 23 ];
+        %tmp.35 = getm $.Toybox.Math;
+        symbol [ sqrt %tmp.36 299 24 28 ];
+        %tmp.36 = getv function %tmp.35 :sqrt;
+        %tmp.37 = 1.0;
+        %tmp.38 = lgetv %rand1.3;
+        symbol [ rand1 %tmp.38 299 36 41 ];
+        %tmp.39 = sub %tmp.37 %tmp.38;
+        %tmp.40 = 1.0;
+        %tmp.41 = lgetv %meanOffset.2;
+        symbol [ meanOffset %tmp.41 299 52 62 ];
+        %tmp.42 = sub %tmp.40 %tmp.41;
+        %tmp.43 = mul %tmp.39 %tmp.42;
+        %tmp.44 = invoke %tmp.35 %tmp.36(%tmp.43);
+        %tmp.45 = 1.0;
+        %tmp.46 = lgetv %meanOffset.2;
+        symbol [ meanOffset %tmp.46 299 74 84 ];
+        %tmp.47 = sub %tmp.45 %tmp.46;
+        %tmp.48 = mul %tmp.44 %tmp.47;
+        %tmp.49 = sub %tmp.34 %tmp.48;
+        push %tmp.49;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_end:
+        %tmp.50 = phi [%tmp.25 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_begin] [%tmp.33 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_true] [%tmp.49 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_false] [%tmp.50 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_297_21_299_85_end];
+        lputv %biased.5 %tmp.50;
+        symbol [ biased %biased.5 297 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 301 8 ]
+        %tmp.51 = lgetv %min;
+        symbol [ min %tmp.51 301 15 18 ];
+        %tmp.52 = lgetv %biased.5;
+        symbol [ biased %tmp.52 301 22 28 ];
+        %tmp.53 = lgetv %range.1;
+        symbol [ range %tmp.53 301 31 36 ];
+        %tmp.54 = mul %tmp.52 %tmp.53;
+        %tmp.55 = add %tmp.51 %tmp.54;
+        ret %tmp.55;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_288_59_302_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 304; @symbol_functiondef = [triggerEventBlink,304,13,30]; ]
+    function triggerEventBlink() {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_304_33_306_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 305 8 ]
+        symbol [ self %self 305 8 12 ];
+        %tmp.1 = true;
+        symbol [ eventBlinkPending ? 305 13 30 ];
+        putv self :eventBlinkPending %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_304_33_306_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 308; @symbol_functiondef = [getBlinkPhase,308,13,26]; ]
+    function getBlinkPhase() {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 309 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_8_311_8_if_stmt:
+        %tmp.1 = self;
+        symbol [ self %tmp.1 309 13 17 ];
+        symbol [ isBlinking %tmp.2 309 18 28 ];
+        %tmp.2 = getv %tmp.1 :isBlinking;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_8_311_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_8_311_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_30_311_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 310 12 ]
+        %tmp.4 = 0.0;
+        ret %tmp.4;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_30_311_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_8_311_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_309_8_311_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 313 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_stop" ]
+        %elapsed.1 = local;
+        symbol [ elapsed %elapsed.1 313 12 19 ];
+        symbol [ System %tmp.5 313 22 28 ];
+        %tmp.5 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.6 313 29 37 ];
+        %tmp.6 = getv function %tmp.5 :getTimer;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        %tmp.8 = self;
+        symbol [ self %tmp.8 313 42 46 ];
+        symbol [ blinkStartTime %tmp.9 313 47 61 ];
+        %tmp.9 = getv %tmp.8 :blinkStartTime;
+        %tmp.10 = sub %tmp.7 %tmp.9;
+        lputv %elapsed.1 %tmp.10;
+        symbol [ elapsed %elapsed.1 313 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 314 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_stop" ]
+        %progress.2 = local;
+        symbol [ progress %progress.2 314 12 20 ];
+        %tmp.11 = lgetv %elapsed.1;
+        symbol [ elapsed %tmp.11 314 23 30 ];
+        symbol [ toFloat %tmp.12 314 31 38 ];
+        %tmp.12 = getv function %tmp.11 :toFloat;
+        %tmp.13 = invoke %tmp.11 %tmp.12();
+        %tmp.14 = self;
+        symbol [ self %tmp.14 314 43 47 ];
+        symbol [ blinkDuration %tmp.15 314 48 61 ];
+        %tmp.15 = getv %tmp.14 :blinkDuration;
+        %tmp.16 = div %tmp.13 %tmp.15;
+        lputv %progress.2 %tmp.16;
+        symbol [ progress %progress.2 314 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 316 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_8_318_8_if_stmt:
+        %tmp.17 = lgetv %progress.2;
+        symbol [ progress %tmp.17 316 12 20 ];
+        %tmp.18 = 1.0;
+        %tmp.19 = gte %tmp.17 %tmp.18;
+        bf %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_8_318_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_8_318_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_29_318_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 317 12 ]
+        %tmp.20 = 0.0;
+        ret %tmp.20;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_29_318_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_8_318_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_316_8_318_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 321 8 ]
+        symbol [ Math %tmp.21 321 15 19 ];
+        %tmp.21 = getm $.Toybox.Math;
+        symbol [ sin %tmp.22 321 20 23 ];
+        %tmp.22 = getv function %tmp.21 :sin;
+        %tmp.23 = lgetv %progress.2;
+        symbol [ progress %tmp.23 321 24 32 ];
+        symbol [ Math %tmp.24 321 35 39 ];
+        %tmp.24 = getm $.Toybox.Math;
+        symbol [ PI %tmp.25 321 40 42 ];
+        %tmp.25 = getv %tmp.24 :PI;
+        %tmp.26 = mul %tmp.23 %tmp.25;
+        %tmp.27 = invoke %tmp.21 %tmp.22(%tmp.26);
+        ret %tmp.27;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_308_29_322_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 324; @symbol_functiondef = [getDefaultProfile,324,21,38]; ]
+    private
+    function getDefaultProfile() {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_324_41_332_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 325 8 ]
+        %tmp.1 = newd 5;
+        %tmp.3 = const :min;
+        symbol [ min %tmp.3 326 13 16 const ];
+        %tmp.4 = 3.0;
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.3 %tmp.4;
+        %tmp.8 = const :max;
+        symbol [ max %tmp.8 327 13 16 const ];
+        %tmp.9 = 6.5;
+        %tmp.10 = dup %tmp.6;
+        %tmp.11 = aputv %tmp.10 %tmp.8 %tmp.9;
+        %tmp.13 = const :mean;
+        symbol [ mean %tmp.13 328 13 17 const ];
+        %tmp.14 = 4.2;
+        %tmp.15 = dup %tmp.11;
+        %tmp.16 = aputv %tmp.15 %tmp.13 %tmp.14;
+        %tmp.18 = const :doubleProb;
+        symbol [ doubleProb %tmp.18 329 13 23 const ];
+        %tmp.19 = 0.0;
+        %tmp.20 = dup %tmp.16;
+        %tmp.21 = aputv %tmp.20 %tmp.18 %tmp.19;
+        %tmp.23 = const :closureMs;
+        symbol [ closureMs %tmp.23 330 13 22 const ];
+        %tmp.24 = 100;
+        %tmp.25 = dup %tmp.21;
+        %tmp.26 = aputv %tmp.25 %tmp.23 %tmp.24;
+        ret %tmp.26;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_324_41_332_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 336; @symbol_classdef = [ExpressionRenderer,336,6,24]; ]
+class ExpressionRenderer {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 336; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 336; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 337; @symbol_functiondef = [initialize,337,13,23]; ]
+    function initialize() as Void {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 341; @symbol_functiondef = [render,341,13,19]; @symbol_param<0> = [dc,341,20,22]; @symbol_param<1> = [renderData,341,24,34]; @symbol_param<2> = [faceSize,341,36,44]; @symbol_param<3> = [centerX,341,46,53]; @symbol_param<4> = [centerY,341,55,62]; ]
+    function render(dc, renderData, faceSize, centerX, centerY) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 342 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_stop" ]
+        %emoticon.1 = local;
+        symbol [ emoticon %emoticon.1 342 12 20 ];
+        %tmp.1 = lgetv %renderData;
+        symbol [ renderData %tmp.1 342 23 33 ];
+        symbol [ get %tmp.2 342 34 37 ];
+        %tmp.2 = getv function %tmp.1 :get;
+        %tmp.4 = const :emoticon;
+        symbol [ emoticon %tmp.4 342 39 47 const ];
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        lputv %emoticon.1 %tmp.5;
+        symbol [ emoticon %emoticon.1 342 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 343 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_stop" ]
+        %blinkPhase.2 = local;
+        symbol [ blinkPhase %blinkPhase.2 343 12 22 ];
+        %tmp.6 = lgetv %renderData;
+        symbol [ renderData %tmp.6 343 25 35 ];
+        symbol [ get %tmp.7 343 36 39 ];
+        %tmp.7 = getv function %tmp.6 :get;
+        %tmp.9 = const :blinkPhase;
+        symbol [ blinkPhase %tmp.9 343 41 51 const ];
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        lputv %blinkPhase.2 %tmp.10;
+        symbol [ blinkPhase %blinkPhase.2 343 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 344 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_stop" ]
+        %aod.3 = local;
+        symbol [ aod %aod.3 344 12 15 ];
+        %tmp.11 = lgetv %renderData;
+        symbol [ renderData %tmp.11 344 18 28 ];
+        symbol [ get %tmp.12 344 29 32 ];
+        %tmp.12 = getv function %tmp.11 :get;
+        %tmp.14 = const :aod;
+        symbol [ aod %tmp.14 344 34 37 const ];
+        %tmp.15 = invoke %tmp.11 %tmp.12(%tmp.14);
+        lputv %aod.3 %tmp.15;
+        symbol [ aod %aod.3 344 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 347 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_stmt:
+        %tmp.16 = lgetv %emoticon.1;
+        symbol [ emoticon %tmp.16 347 12 20 ];
+        %tmp.17 = null;
+        %tmp.18 = ne %tmp.16 %tmp.17;
+        bf %tmp.18 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_30_349_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 348 12 ]
+        %tmp.19 = self;
+        symbol [ self %tmp.19 348 12 16 ];
+        symbol [ renderWithEmoticon %tmp.20 348 17 35 ];
+        %tmp.20 = getv function %tmp.19 :renderWithEmoticon;
+        %tmp.21 = lgetv %dc;
+        symbol [ dc %tmp.21 348 36 38 ];
+        %tmp.22 = lgetv %renderData;
+        symbol [ renderData %tmp.22 348 40 50 ];
+        %tmp.23 = lgetv %faceSize;
+        symbol [ faceSize %tmp.23 348 52 60 ];
+        %tmp.24 = lgetv %centerX;
+        symbol [ centerX %tmp.24 348 62 69 ];
+        %tmp.25 = lgetv %centerY;
+        symbol [ centerY %tmp.25 348 71 78 ];
+        invoke %tmp.19 %tmp.20(%tmp.21, %tmp.22, %tmp.23, %tmp.24, %tmp.25);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_30_349_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_349_15_352_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 351 12 ]
+        %tmp.26 = self;
+        symbol [ self %tmp.26 351 12 16 ];
+        symbol [ renderLegacy %tmp.27 351 17 29 ];
+        %tmp.27 = getv function %tmp.26 :renderLegacy;
+        %tmp.28 = lgetv %dc;
+        symbol [ dc %tmp.28 351 30 32 ];
+        %tmp.29 = lgetv %renderData;
+        symbol [ renderData %tmp.29 351 34 44 ];
+        %tmp.30 = lgetv %faceSize;
+        symbol [ faceSize %tmp.30 351 46 54 ];
+        %tmp.31 = lgetv %centerX;
+        symbol [ centerX %tmp.31 351 56 63 ];
+        %tmp.32 = lgetv %centerY;
+        symbol [ centerY %tmp.32 351 65 72 ];
+        invoke %tmp.26 %tmp.27(%tmp.28, %tmp.29, %tmp.30, %tmp.31, %tmp.32);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_349_15_352_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_347_8_352_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_341_64_353_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 355; @symbol_functiondef = [renderWithEmoticon,355,13,31]; @symbol_param<0> = [dc,355,32,34]; @symbol_param<1> = [renderData,355,36,46]; @symbol_param<2> = [faceSize,355,48,56]; @symbol_param<3> = [centerX,355,58,65]; @symbol_param<4> = [centerY,355,67,74]; ]
+    function renderWithEmoticon(dc, renderData, faceSize, centerX, centerY) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 356 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_stop" ]
+        %emoticon.1 = local;
+        symbol [ emoticon %emoticon.1 356 12 20 ];
+        %tmp.1 = lgetv %renderData;
+        symbol [ renderData %tmp.1 356 23 33 ];
+        symbol [ get %tmp.2 356 34 37 ];
+        %tmp.2 = getv function %tmp.1 :get;
+        %tmp.4 = const :emoticon;
+        symbol [ emoticon %tmp.4 356 39 47 const ];
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        lputv %emoticon.1 %tmp.5;
+        symbol [ emoticon %emoticon.1 356 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 357 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_stop" ]
+        %blinkPhase.2 = local;
+        symbol [ blinkPhase %blinkPhase.2 357 12 22 ];
+        %tmp.6 = lgetv %renderData;
+        symbol [ renderData %tmp.6 357 25 35 ];
+        symbol [ get %tmp.7 357 36 39 ];
+        %tmp.7 = getv function %tmp.6 :get;
+        %tmp.9 = const :blinkPhase;
+        symbol [ blinkPhase %tmp.9 357 41 51 const ];
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        lputv %blinkPhase.2 %tmp.10;
+        symbol [ blinkPhase %blinkPhase.2 357 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 360 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_stop" ]
+        %emoticonRenderer.3 = local;
+        symbol [ emoticonRenderer %emoticonRenderer.3 360 12 28 ];
+        symbol [ EmoticonRenderer %tmp.14 360 35 51 ];
+        %tmp.14 = getv ? :EmoticonRenderer;
+        %tmp.11 = newc %tmp.14 ();
+        lputv %emoticonRenderer.3 %tmp.11;
+        symbol [ emoticonRenderer %emoticonRenderer.3 360 12 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 361 8 ]
+        %tmp.15 = lgetv %emoticonRenderer.3;
+        symbol [ emoticonRenderer %tmp.15 361 8 24 ];
+        symbol [ renderEmoticon %tmp.16 361 25 39 ];
+        %tmp.16 = getv function %tmp.15 :renderEmoticon;
+        %tmp.17 = lgetv %dc;
+        symbol [ dc %tmp.17 361 40 42 ];
+        %tmp.18 = lgetv %emoticon.1;
+        symbol [ emoticon %tmp.18 361 44 52 ];
+        %tmp.19 = lgetv %centerX;
+        symbol [ centerX %tmp.19 361 54 61 ];
+        %tmp.20 = lgetv %centerY;
+        symbol [ centerY %tmp.20 361 63 70 ];
+        %tmp.21 = lgetv %faceSize;
+        symbol [ faceSize %tmp.21 361 72 80 ];
+        invoke %tmp.15 %tmp.16(%tmp.17, %tmp.18, %tmp.19, %tmp.20, %tmp.21);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 364 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_8_366_8_if_stmt:
+        %tmp.22 = lgetv %blinkPhase.2;
+        symbol [ blinkPhase %tmp.22 364 12 22 ];
+        %tmp.23 = 0.1;
+        %tmp.24 = gt %tmp.22 %tmp.23;
+        bf %tmp.24 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_8_366_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_8_366_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_30_366_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 365 12 ]
+        %tmp.25 = self;
+        symbol [ self %tmp.25 365 12 16 ];
+        symbol [ applyBlinkOverlay %tmp.26 365 17 34 ];
+        %tmp.26 = getv function %tmp.25 :applyBlinkOverlay;
+        %tmp.27 = lgetv %dc;
+        symbol [ dc %tmp.27 365 35 37 ];
+        %tmp.28 = lgetv %centerX;
+        symbol [ centerX %tmp.28 365 39 46 ];
+        %tmp.29 = lgetv %centerY;
+        symbol [ centerY %tmp.29 365 48 55 ];
+        %tmp.30 = lgetv %faceSize;
+        symbol [ faceSize %tmp.30 365 57 65 ];
+        %tmp.31 = lgetv %blinkPhase.2;
+        symbol [ blinkPhase %tmp.31 365 67 77 ];
+        invoke %tmp.25 %tmp.26(%tmp.27, %tmp.28, %tmp.29, %tmp.30, %tmp.31);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_30_366_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_8_366_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_364_8_366_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_355_76_367_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 369; @symbol_functiondef = [renderLegacy,369,13,25]; @symbol_param<0> = [dc,369,26,28]; @symbol_param<1> = [renderData,369,30,40]; @symbol_param<2> = [faceSize,369,42,50]; @symbol_param<3> = [centerX,369,52,59]; @symbol_param<4> = [centerY,369,61,68]; ]
+    function renderLegacy(dc, renderData, faceSize, centerX, centerY) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 370 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %expression.1 = local;
+        symbol [ expression %expression.1 370 12 22 ];
+        %tmp.1 = lgetv %renderData;
+        symbol [ renderData %tmp.1 370 25 35 ];
+        symbol [ get %tmp.2 370 36 39 ];
+        %tmp.2 = getv function %tmp.1 :get;
+        %tmp.4 = const :expression;
+        symbol [ expression %tmp.4 370 41 51 const ];
+        %tmp.5 = invoke %tmp.1 %tmp.2(%tmp.4);
+        lputv %expression.1 %tmp.5;
+        symbol [ expression %expression.1 370 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 371 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %blinkPhase.2 = local;
+        symbol [ blinkPhase %blinkPhase.2 371 12 22 ];
+        %tmp.6 = lgetv %renderData;
+        symbol [ renderData %tmp.6 371 25 35 ];
+        symbol [ get %tmp.7 371 36 39 ];
+        %tmp.7 = getv function %tmp.6 :get;
+        %tmp.9 = const :blinkPhase;
+        symbol [ blinkPhase %tmp.9 371 41 51 const ];
+        %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.9);
+        lputv %blinkPhase.2 %tmp.10;
+        symbol [ blinkPhase %blinkPhase.2 371 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 372 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %aod.3 = local;
+        symbol [ aod %aod.3 372 12 15 ];
+        %tmp.11 = lgetv %renderData;
+        symbol [ renderData %tmp.11 372 18 28 ];
+        symbol [ get %tmp.12 372 29 32 ];
+        %tmp.12 = getv function %tmp.11 :get;
+        %tmp.14 = const :aod;
+        symbol [ aod %tmp.14 372 34 37 const ];
+        %tmp.15 = invoke %tmp.11 %tmp.12(%tmp.14);
+        lputv %aod.3 %tmp.15;
+        symbol [ aod %aod.3 372 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 375 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %eyeWidth.4 = local;
+        symbol [ eyeWidth %eyeWidth.4 375 12 20 ];
+        %tmp.16 = lgetv %faceSize;
+        symbol [ faceSize %tmp.16 375 24 32 ];
+        %tmp.17 = 5;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        %tmp.19 = lgetv %expression.1;
+        symbol [ expression %tmp.19 375 40 50 ];
+        symbol [ get %tmp.20 375 51 54 ];
+        %tmp.20 = getv function %tmp.19 :get;
+        %tmp.22 = const :eyeWidth;
+        symbol [ eyeWidth %tmp.22 375 56 64 const ];
+        %tmp.23 = invoke %tmp.19 %tmp.20(%tmp.22);
+        %tmp.24 = mul %tmp.18 %tmp.23;
+        lputv %eyeWidth.4 %tmp.24;
+        symbol [ eyeWidth %eyeWidth.4 375 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 376 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %eyeHeight.5 = local;
+        symbol [ eyeHeight %eyeHeight.5 376 12 21 ];
+        %tmp.25 = lgetv %faceSize;
+        symbol [ faceSize %tmp.25 376 25 33 ];
+        %tmp.26 = 10;
+        %tmp.27 = div %tmp.25 %tmp.26;
+        %tmp.28 = lgetv %expression.1;
+        symbol [ expression %tmp.28 376 42 52 ];
+        symbol [ get %tmp.29 376 53 56 ];
+        %tmp.29 = getv function %tmp.28 :get;
+        %tmp.31 = const :eyeHeight;
+        symbol [ eyeHeight %tmp.31 376 58 67 const ];
+        %tmp.32 = invoke %tmp.28 %tmp.29(%tmp.31);
+        %tmp.33 = mul %tmp.27 %tmp.32;
+        lputv %eyeHeight.5 %tmp.33;
+        symbol [ eyeHeight %eyeHeight.5 376 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 377 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %eyeRadius.6 = local;
+        symbol [ eyeRadius %eyeRadius.6 377 12 21 ];
+        %tmp.34 = lgetv %eyeHeight.5;
+        symbol [ eyeHeight %tmp.34 377 24 33 ];
+        %tmp.35 = lgetv %expression.1;
+        symbol [ expression %tmp.35 377 36 46 ];
+        symbol [ get %tmp.36 377 47 50 ];
+        %tmp.36 = getv function %tmp.35 :get;
+        %tmp.38 = const :eyeRadius;
+        symbol [ eyeRadius %tmp.38 377 52 61 const ];
+        %tmp.39 = invoke %tmp.35 %tmp.36(%tmp.38);
+        %tmp.40 = mul %tmp.34 %tmp.39;
+        lputv %eyeRadius.6 %tmp.40;
+        symbol [ eyeRadius %eyeRadius.6 377 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 380 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %currentEyeHeight.7 = local;
+        symbol [ currentEyeHeight %currentEyeHeight.7 380 12 28 ];
+        %tmp.41 = lgetv %eyeHeight.5;
+        symbol [ eyeHeight %tmp.41 380 31 40 ];
+        %tmp.42 = 1.0;
+        %tmp.43 = lgetv %blinkPhase.2;
+        symbol [ blinkPhase %tmp.43 380 50 60 ];
+        %tmp.44 = sub %tmp.42 %tmp.43;
+        %tmp.45 = mul %tmp.41 %tmp.44;
+        lputv %currentEyeHeight.7 %tmp.45;
+        symbol [ currentEyeHeight %currentEyeHeight.7 380 12 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 383 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %eyeY.8 = local;
+        symbol [ eyeY %eyeY.8 383 12 16 ];
+        %tmp.46 = lgetv %centerY;
+        symbol [ centerY %tmp.46 383 19 26 ];
+        %tmp.47 = lgetv %faceSize;
+        symbol [ faceSize %tmp.47 383 29 37 ];
+        %tmp.48 = 8;
+        %tmp.49 = div %tmp.47 %tmp.48;
+        %tmp.50 = sub %tmp.46 %tmp.49;
+        lputv %eyeY.8 %tmp.50;
+        symbol [ eyeY %eyeY.8 383 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 384 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %leftEyeX.9 = local;
+        symbol [ leftEyeX %leftEyeX.9 384 12 20 ];
+        %tmp.51 = lgetv %centerX;
+        symbol [ centerX %tmp.51 384 23 30 ];
+        %tmp.52 = lgetv %faceSize;
+        symbol [ faceSize %tmp.52 384 33 41 ];
+        %tmp.53 = 6;
+        %tmp.54 = div %tmp.52 %tmp.53;
+        %tmp.55 = sub %tmp.51 %tmp.54;
+        lputv %leftEyeX.9 %tmp.55;
+        symbol [ leftEyeX %leftEyeX.9 384 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 385 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %rightEyeX.10 = local;
+        symbol [ rightEyeX %rightEyeX.10 385 12 21 ];
+        %tmp.56 = lgetv %centerX;
+        symbol [ centerX %tmp.56 385 24 31 ];
+        %tmp.57 = lgetv %faceSize;
+        symbol [ faceSize %tmp.57 385 34 42 ];
+        %tmp.58 = 6;
+        %tmp.59 = div %tmp.57 %tmp.58;
+        %tmp.60 = add %tmp.56 %tmp.59;
+        lputv %rightEyeX.10 %tmp.60;
+        symbol [ rightEyeX %rightEyeX.10 385 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 388 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_8_392_8_if_stmt:
+        %tmp.61 = lgetv %currentEyeHeight.7;
+        symbol [ currentEyeHeight %tmp.61 388 12 28 ];
+        %tmp.62 = 2;
+        %tmp.63 = gt %tmp.61 %tmp.62;
+        bf %tmp.63 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_8_392_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_8_392_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_34_392_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 389 12 ]
+        %tmp.64 = lgetv %dc;
+        symbol [ dc %tmp.64 389 12 14 ];
+        symbol [ setColor %tmp.65 389 15 23 ];
+        %tmp.65 = getv function %tmp.64 :setColor;
+        symbol [ Graphics %tmp.67 389 24 32 ];
+        %tmp.67 = getv ? :Graphics;
+        symbol [ COLOR_GREEN %tmp.68 389 33 44 ];
+        %tmp.68 = getv %tmp.67 :COLOR_GREEN;
+        symbol [ Graphics %tmp.70 389 46 54 ];
+        %tmp.70 = getv ? :Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.71 389 55 72 ];
+        %tmp.71 = getv %tmp.70 :COLOR_TRANSPARENT;
+        invoke %tmp.64 %tmp.65(%tmp.68, %tmp.71);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 390 12 ]
+        %tmp.72 = lgetv %dc;
+        symbol [ dc %tmp.72 390 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.73 390 15 35 ];
+        %tmp.73 = getv function %tmp.72 :fillRoundedRectangle;
+        %tmp.74 = lgetv %leftEyeX.9;
+        symbol [ leftEyeX %tmp.74 390 36 44 ];
+        %tmp.75 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.75 390 47 55 ];
+        %tmp.76 = 2;
+        %tmp.77 = div %tmp.75 %tmp.76;
+        %tmp.78 = sub %tmp.74 %tmp.77;
+        %tmp.79 = lgetv %eyeY.8;
+        symbol [ eyeY %tmp.79 390 59 63 ];
+        %tmp.80 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.80 390 65 73 ];
+        %tmp.81 = lgetv %currentEyeHeight.7;
+        symbol [ currentEyeHeight %tmp.81 390 75 91 ];
+        %tmp.82 = lgetv %eyeRadius.6;
+        symbol [ eyeRadius %tmp.82 390 93 102 ];
+        invoke %tmp.72 %tmp.73(%tmp.78, %tmp.79, %tmp.80, %tmp.81, %tmp.82);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 391 12 ]
+        %tmp.83 = lgetv %dc;
+        symbol [ dc %tmp.83 391 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.84 391 15 35 ];
+        %tmp.84 = getv function %tmp.83 :fillRoundedRectangle;
+        %tmp.85 = lgetv %rightEyeX.10;
+        symbol [ rightEyeX %tmp.85 391 36 45 ];
+        %tmp.86 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.86 391 48 56 ];
+        %tmp.87 = 2;
+        %tmp.88 = div %tmp.86 %tmp.87;
+        %tmp.89 = sub %tmp.85 %tmp.88;
+        %tmp.90 = lgetv %eyeY.8;
+        symbol [ eyeY %tmp.90 391 60 64 ];
+        %tmp.91 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.91 391 66 74 ];
+        %tmp.92 = lgetv %currentEyeHeight.7;
+        symbol [ currentEyeHeight %tmp.92 391 76 92 ];
+        %tmp.93 = lgetv %eyeRadius.6;
+        symbol [ eyeRadius %tmp.93 391 94 103 ];
+        invoke %tmp.83 %tmp.84(%tmp.89, %tmp.90, %tmp.91, %tmp.92, %tmp.93);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_34_392_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_8_392_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_388_8_392_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 395 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %mouthWidth.11 = local;
+        symbol [ mouthWidth %mouthWidth.11 395 12 22 ];
+        %tmp.94 = lgetv %faceSize;
+        symbol [ faceSize %tmp.94 395 26 34 ];
+        %tmp.95 = 2.5;
+        %tmp.96 = div %tmp.94 %tmp.95;
+        %tmp.97 = lgetv %expression.1;
+        symbol [ expression %tmp.97 395 44 54 ];
+        symbol [ get %tmp.98 395 55 58 ];
+        %tmp.98 = getv function %tmp.97 :get;
+        %tmp.100 = const :mouthWidth;
+        symbol [ mouthWidth %tmp.100 395 60 70 const ];
+        %tmp.101 = invoke %tmp.97 %tmp.98(%tmp.100);
+        %tmp.102 = mul %tmp.96 %tmp.101;
+        lputv %mouthWidth.11 %tmp.102;
+        symbol [ mouthWidth %mouthWidth.11 395 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 396 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %mouthHeight.12 = local;
+        symbol [ mouthHeight %mouthHeight.12 396 12 23 ];
+        %tmp.103 = lgetv %faceSize;
+        symbol [ faceSize %tmp.103 396 27 35 ];
+        %tmp.104 = 12;
+        %tmp.105 = div %tmp.103 %tmp.104;
+        %tmp.106 = lgetv %expression.1;
+        symbol [ expression %tmp.106 396 44 54 ];
+        symbol [ get %tmp.107 396 55 58 ];
+        %tmp.107 = getv function %tmp.106 :get;
+        %tmp.109 = const :mouthHeight;
+        symbol [ mouthHeight %tmp.109 396 60 71 const ];
+        %tmp.110 = invoke %tmp.106 %tmp.107(%tmp.109);
+        %tmp.111 = mul %tmp.105 %tmp.110;
+        lputv %mouthHeight.12 %tmp.111;
+        symbol [ mouthHeight %mouthHeight.12 396 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 397 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %mouthY.13 = local;
+        symbol [ mouthY %mouthY.13 397 12 18 ];
+        %tmp.112 = lgetv %centerY;
+        symbol [ centerY %tmp.112 397 21 28 ];
+        %tmp.113 = lgetv %faceSize;
+        symbol [ faceSize %tmp.113 397 31 39 ];
+        %tmp.114 = 12;
+        %tmp.115 = div %tmp.113 %tmp.114;
+        %tmp.116 = add %tmp.112 %tmp.115;
+        lputv %mouthY.13 %tmp.116;
+        symbol [ mouthY %mouthY.13 397 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 398 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop" ]
+        %mouthRadius.14 = local;
+        symbol [ mouthRadius %mouthRadius.14 398 12 23 ];
+        %tmp.117 = lgetv %mouthHeight.12;
+        symbol [ mouthHeight %tmp.117 398 26 37 ];
+        %tmp.118 = 0.5;
+        %tmp.119 = mul %tmp.117 %tmp.118;
+        lputv %mouthRadius.14 %tmp.119;
+        symbol [ mouthRadius %mouthRadius.14 398 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 400 8 ]
+        %tmp.120 = lgetv %dc;
+        symbol [ dc %tmp.120 400 8 10 ];
+        symbol [ setColor %tmp.121 400 11 19 ];
+        %tmp.121 = getv function %tmp.120 :setColor;
+        symbol [ Graphics %tmp.123 400 20 28 ];
+        %tmp.123 = getv ? :Graphics;
+        symbol [ COLOR_GREEN %tmp.124 400 29 40 ];
+        %tmp.124 = getv %tmp.123 :COLOR_GREEN;
+        symbol [ Graphics %tmp.126 400 42 50 ];
+        %tmp.126 = getv ? :Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.127 400 51 68 ];
+        %tmp.127 = getv %tmp.126 :COLOR_TRANSPARENT;
+        invoke %tmp.120 %tmp.121(%tmp.124, %tmp.127);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 401 8 ]
+        %tmp.128 = lgetv %dc;
+        symbol [ dc %tmp.128 401 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.129 401 11 31 ];
+        %tmp.129 = getv function %tmp.128 :fillRoundedRectangle;
+        %tmp.130 = lgetv %centerX;
+        symbol [ centerX %tmp.130 401 32 39 ];
+        %tmp.131 = lgetv %mouthWidth.11;
+        symbol [ mouthWidth %tmp.131 401 42 52 ];
+        %tmp.132 = 2;
+        %tmp.133 = div %tmp.131 %tmp.132;
+        %tmp.134 = sub %tmp.130 %tmp.133;
+        %tmp.135 = lgetv %mouthY.13;
+        symbol [ mouthY %tmp.135 401 56 62 ];
+        %tmp.136 = lgetv %mouthWidth.11;
+        symbol [ mouthWidth %tmp.136 401 64 74 ];
+        %tmp.137 = lgetv %mouthHeight.12;
+        symbol [ mouthHeight %tmp.137 401 76 87 ];
+        %tmp.138 = lgetv %mouthRadius.14;
+        symbol [ mouthRadius %tmp.138 401 89 100 ];
+        invoke %tmp.128 %tmp.129(%tmp.134, %tmp.135, %tmp.136, %tmp.137, %tmp.138);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 404 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_12_404_40_begin:
+        %tmp.139 = lgetv %expression.1;
+        symbol [ expression %tmp.139 404 12 22 ];
+        symbol [ get %tmp.140 404 23 26 ];
+        %tmp.140 = getv function %tmp.139 :get;
+        %tmp.142 = const :accent;
+        symbol [ accent %tmp.142 404 28 34 const ];
+        %tmp.143 = invoke %tmp.139 %tmp.140(%tmp.142);
+        bf %tmp.143 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_39_404_40_true:
+        %tmp.144 = lgetv %aod.3;
+        symbol [ aod %tmp.144 404 40 43 ];
+        %tmp.145 = not %tmp.144;
+        push %tmp.145;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_39_404_40_end:
+        %tmp.146 = phi [%tmp.143 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_12_404_40_begin] [%tmp.145 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_39_404_40_true] [%tmp.146 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_39_404_40_end];
+        bf %tmp.146 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_45_406_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 405 12 ]
+        %tmp.147 = self;
+        symbol [ self %tmp.147 405 12 16 ];
+        symbol [ drawAccentEffects %tmp.148 405 17 34 ];
+        %tmp.148 = getv function %tmp.147 :drawAccentEffects;
+        %tmp.149 = lgetv %dc;
+        symbol [ dc %tmp.149 405 35 37 ];
+        %tmp.150 = lgetv %renderData;
+        symbol [ renderData %tmp.150 405 39 49 ];
+        symbol [ get %tmp.151 405 50 53 ];
+        %tmp.151 = getv function %tmp.150 :get;
+        %tmp.153 = const :state;
+        symbol [ state %tmp.153 405 55 60 const ];
+        %tmp.154 = invoke %tmp.150 %tmp.151(%tmp.153);
+        %tmp.155 = lgetv %centerX;
+        symbol [ centerX %tmp.155 405 63 70 ];
+        %tmp.156 = lgetv %centerY;
+        symbol [ centerY %tmp.156 405 72 79 ];
+        %tmp.157 = lgetv %faceSize;
+        symbol [ faceSize %tmp.157 405 81 89 ];
+        invoke %tmp.147 %tmp.148(%tmp.149, %tmp.154, %tmp.155, %tmp.156, %tmp.157);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_45_406_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_404_8_406_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_369_70_407_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 409; @symbol_functiondef = [applyBlinkOverlay,409,21,38]; @symbol_param<0> = [dc,409,39,41]; @symbol_param<1> = [centerX,409,43,50]; @symbol_param<2> = [centerY,409,52,59]; @symbol_param<3> = [faceSize,409,61,69]; @symbol_param<4> = [blinkPhase,409,71,81]; ]
+    private
+    function applyBlinkOverlay(dc, centerX, centerY, faceSize, blinkPhase) {
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 411 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %eyeY.1 = local;
+        symbol [ eyeY %eyeY.1 411 12 16 ];
+        %tmp.1 = lgetv %centerY;
+        symbol [ centerY %tmp.1 411 19 26 ];
+        %tmp.2 = lgetv %faceSize;
+        symbol [ faceSize %tmp.2 411 29 37 ];
+        %tmp.3 = 8;
+        %tmp.4 = div %tmp.2 %tmp.3;
+        %tmp.5 = sub %tmp.1 %tmp.4;
+        lputv %eyeY.1 %tmp.5;
+        symbol [ eyeY %eyeY.1 411 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 412 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %leftEyeX.2 = local;
+        symbol [ leftEyeX %leftEyeX.2 412 12 20 ];
+        %tmp.6 = lgetv %centerX;
+        symbol [ centerX %tmp.6 412 23 30 ];
+        %tmp.7 = lgetv %faceSize;
+        symbol [ faceSize %tmp.7 412 33 41 ];
+        %tmp.8 = 6;
+        %tmp.9 = div %tmp.7 %tmp.8;
+        %tmp.10 = sub %tmp.6 %tmp.9;
+        lputv %leftEyeX.2 %tmp.10;
+        symbol [ leftEyeX %leftEyeX.2 412 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 413 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %rightEyeX.3 = local;
+        symbol [ rightEyeX %rightEyeX.3 413 12 21 ];
+        %tmp.11 = lgetv %centerX;
+        symbol [ centerX %tmp.11 413 24 31 ];
+        %tmp.12 = lgetv %faceSize;
+        symbol [ faceSize %tmp.12 413 34 42 ];
+        %tmp.13 = 6;
+        %tmp.14 = div %tmp.12 %tmp.13;
+        %tmp.15 = add %tmp.11 %tmp.14;
+        lputv %rightEyeX.3 %tmp.15;
+        symbol [ rightEyeX %rightEyeX.3 413 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 414 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %eyeWidth.4 = local;
+        symbol [ eyeWidth %eyeWidth.4 414 12 20 ];
+        %tmp.16 = lgetv %faceSize;
+        symbol [ faceSize %tmp.16 414 23 31 ];
+        %tmp.17 = 5;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        lputv %eyeWidth.4 %tmp.18;
+        symbol [ eyeWidth %eyeWidth.4 414 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 415 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %eyeHeight.5 = local;
+        symbol [ eyeHeight %eyeHeight.5 415 12 21 ];
+        %tmp.19 = lgetv %faceSize;
+        symbol [ faceSize %tmp.19 415 24 32 ];
+        %tmp.20 = 10;
+        %tmp.21 = div %tmp.19 %tmp.20;
+        lputv %eyeHeight.5 %tmp.21;
+        symbol [ eyeHeight %eyeHeight.5 415 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 418 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_start" "_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop" ]
+        %eyelidHeight.6 = local;
+        symbol [ eyelidHeight %eyelidHeight.6 418 12 24 ];
+        %tmp.22 = lgetv %eyeHeight.5;
+        symbol [ eyeHeight %tmp.22 418 27 36 ];
+        %tmp.23 = lgetv %blinkPhase;
+        symbol [ blinkPhase %tmp.23 418 39 49 ];
+        %tmp.24 = mul %tmp.22 %tmp.23;
+        lputv %eyelidHeight.6 %tmp.24;
+        symbol [ eyelidHeight %eyelidHeight.6 418 12 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 420 8 ]
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_8_424_8_if_stmt:
+        %tmp.25 = lgetv %eyelidHeight.6;
+        symbol [ eyelidHeight %tmp.25 420 12 24 ];
+        %tmp.26 = 1;
+        %tmp.27 = gt %tmp.25 %tmp.26;
+        bf %tmp.27 @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_8_424_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_8_424_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_30_424_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 421 12 ]
+        %tmp.28 = lgetv %dc;
+        symbol [ dc %tmp.28 421 12 14 ];
+        symbol [ setColor %tmp.29 421 15 23 ];
+        %tmp.29 = getv function %tmp.28 :setColor;
+        symbol [ Graphics %tmp.31 421 24 32 ];
+        %tmp.31 = getv ? :Graphics;
+        symbol [ COLOR_BLACK %tmp.32 421 33 44 ];
+        %tmp.32 = getv %tmp.31 :COLOR_BLACK;
+        symbol [ Graphics %tmp.34 421 46 54 ];
+        %tmp.34 = getv ? :Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.35 421 55 72 ];
+        %tmp.35 = getv %tmp.34 :COLOR_TRANSPARENT;
+        invoke %tmp.28 %tmp.29(%tmp.32, %tmp.35);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 422 12 ]
+        %tmp.36 = lgetv %dc;
+        symbol [ dc %tmp.36 422 12 14 ];
+        symbol [ fillRectangle %tmp.37 422 15 28 ];
+        %tmp.37 = getv function %tmp.36 :fillRectangle;
+        %tmp.38 = lgetv %leftEyeX.2;
+        symbol [ leftEyeX %tmp.38 422 29 37 ];
+        %tmp.39 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.39 422 40 48 ];
+        %tmp.40 = 2;
+        %tmp.41 = div %tmp.39 %tmp.40;
+        %tmp.42 = sub %tmp.38 %tmp.41;
+        %tmp.43 = lgetv %eyeY.1;
+        symbol [ eyeY %tmp.43 422 52 56 ];
+        %tmp.44 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.44 422 58 66 ];
+        %tmp.45 = lgetv %eyelidHeight.6;
+        symbol [ eyelidHeight %tmp.45 422 68 80 ];
+        invoke %tmp.36 %tmp.37(%tmp.42, %tmp.43, %tmp.44, %tmp.45);
+[ "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc" 423 12 ]
+        %tmp.46 = lgetv %dc;
+        symbol [ dc %tmp.46 423 12 14 ];
+        symbol [ fillRectangle %tmp.47 423 15 28 ];
+        %tmp.47 = getv function %tmp.46 :fillRectangle;
+        %tmp.48 = lgetv %rightEyeX.3;
+        symbol [ rightEyeX %tmp.48 423 29 38 ];
+        %tmp.49 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.49 423 41 49 ];
+        %tmp.50 = 2;
+        %tmp.51 = div %tmp.49 %tmp.50;
+        %tmp.52 = sub %tmp.48 %tmp.51;
+        %tmp.53 = lgetv %eyeY.1;
+        symbol [ eyeY %tmp.53 423 53 57 ];
+        %tmp.54 = lgetv %eyeWidth.4;
+        symbol [ eyeWidth %tmp.54 423 59 67 ];
+        %tmp.55 = lgetv %eyelidHeight.6;
+        symbol [ eyelidHeight %tmp.55 423 69 81 ];
+        invoke %tmp.46 %tmp.47(%tmp.52, %tmp.53, %tmp.54, %tmp.55);
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_30_424_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_8_424_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_420_8_424_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_MoodEngine_mc_409_83_425_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 427; @symbol_functiondef = [drawAccentEffects,427,21,38]; @symbol_param<0> = [dc,427,39,41]; @symbol_param<1> = [state,427,43,48]; @symbol_param<2> = [centerX,427,50,57]; @symbol_param<3> = [centerY,427,59,66]; @symbol_param<4> = [faceSize,427,68,76]; ]
+    private
+    function drawAccentEffects(dc, state, centerX, centerY, faceSize) {
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/MoodEngine.mc"; @line = 1; ]
+<init> {
+}

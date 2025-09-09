@@ -1,0 +1,2873 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [System,1,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Lang,2,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Math,3,13,17]; ]
+using Toybox.Math;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Graphics,4,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 10; @symbol_classdef = [ExpressionParams,10,6,22]; ]
+class ExpressionParams {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 10; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 10; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 12; @position = 8; @symbol_vardef = [eyeShape,12,8,16]; ]
+    var eyeShape;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 13; @position = 8; @symbol_vardef = [eyeWidth,13,8,16]; ]
+    var eyeWidth;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 14; @position = 8; @symbol_vardef = [eyeHeight,14,8,17]; ]
+    var eyeHeight;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 15; @position = 8; @symbol_vardef = [eyeRadius,15,8,17]; ]
+    var eyeRadius;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 16; @position = 8; @symbol_vardef = [eyeSeparation,16,8,21]; ]
+    var eyeSeparation;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 17; @position = 8; @symbol_vardef = [eyeAsymmetry,17,8,20]; ]
+    var eyeAsymmetry;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 18; @position = 8; @symbol_vardef = [eyeOpenness,18,8,19]; ]
+    var eyeOpenness;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 21; @position = 8; @symbol_vardef = [mouthShape,21,8,18]; ]
+    var mouthShape;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 22; @position = 8; @symbol_vardef = [mouthWidth,22,8,18]; ]
+    var mouthWidth;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 23; @position = 8; @symbol_vardef = [mouthHeight,23,8,19]; ]
+    var mouthHeight;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 24; @position = 8; @symbol_vardef = [mouthRadius,24,8,19]; ]
+    var mouthRadius;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 25; @position = 8; @symbol_vardef = [mouthCurvature,25,8,22]; ]
+    var mouthCurvature;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 26; @position = 8; @symbol_vardef = [mouthOpenness,26,8,21]; ]
+    var mouthOpenness;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 29; @position = 8; @symbol_vardef = [showTears,29,8,17]; ]
+    var showTears;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 30; @position = 8; @symbol_vardef = [tearSize,30,8,16]; ]
+    var tearSize;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 31; @position = 8; @symbol_vardef = [showBlush,31,8,17]; ]
+    var showBlush;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 32; @position = 8; @symbol_vardef = [blushIntensity,32,8,22]; ]
+    var blushIntensity;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 33; @position = 8; @symbol_vardef = [showTongue,33,8,18]; ]
+    var showTongue;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 34; @position = 8; @symbol_vardef = [tongueSize,34,8,18]; ]
+    var tongueSize;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 37; @position = 8; @symbol_vardef = [blinkRate,37,8,17]; ]
+    var blinkRate;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 38; @position = 8; @symbol_vardef = [blinkDuration,38,8,21]; ]
+    var blinkDuration;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 39; @position = 8; @symbol_vardef = [expressionIntensity,39,8,27]; ]
+    var expressionIntensity;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 41; @symbol_functiondef = [initialize,41,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_41_26_68_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 43 8 ]
+        symbol [ self %self 43 8 12 ];
+        %tmp.1 = "dot";
+        symbol [ eyeShape ? 43 13 21 ];
+        putv self :eyeShape %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 44 8 ]
+        symbol [ self %self 44 8 12 ];
+        %tmp.2 = 1.0;
+        symbol [ eyeWidth ? 44 13 21 ];
+        putv self :eyeWidth %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 45 8 ]
+        symbol [ self %self 45 8 12 ];
+        %tmp.3 = 1.0;
+        symbol [ eyeHeight ? 45 13 22 ];
+        putv self :eyeHeight %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 46 8 ]
+        symbol [ self %self 46 8 12 ];
+        %tmp.4 = 0.3;
+        symbol [ eyeRadius ? 46 13 22 ];
+        putv self :eyeRadius %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 47 8 ]
+        symbol [ self %self 47 8 12 ];
+        %tmp.5 = 0.38;
+        symbol [ eyeSeparation ? 47 13 26 ];
+        putv self :eyeSeparation %tmp.5;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 48 8 ]
+        symbol [ self %self 48 8 12 ];
+        %tmp.6 = 0.0;
+        symbol [ eyeAsymmetry ? 48 13 25 ];
+        putv self :eyeAsymmetry %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 49 8 ]
+        symbol [ self %self 49 8 12 ];
+        %tmp.7 = 1.0;
+        symbol [ eyeOpenness ? 49 13 24 ];
+        putv self :eyeOpenness %tmp.7;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 51 8 ]
+        symbol [ self %self 51 8 12 ];
+        %tmp.8 = "flat";
+        symbol [ mouthShape ? 51 13 23 ];
+        putv self :mouthShape %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 52 8 ]
+        symbol [ self %self 52 8 12 ];
+        %tmp.9 = 1.0;
+        symbol [ mouthWidth ? 52 13 23 ];
+        putv self :mouthWidth %tmp.9;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 53 8 ]
+        symbol [ self %self 53 8 12 ];
+        %tmp.10 = 0.3;
+        symbol [ mouthHeight ? 53 13 24 ];
+        putv self :mouthHeight %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 54 8 ]
+        symbol [ self %self 54 8 12 ];
+        %tmp.11 = 0.4;
+        symbol [ mouthRadius ? 54 13 24 ];
+        putv self :mouthRadius %tmp.11;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 55 8 ]
+        symbol [ self %self 55 8 12 ];
+        %tmp.12 = 0.0;
+        symbol [ mouthCurvature ? 55 13 27 ];
+        putv self :mouthCurvature %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 56 8 ]
+        symbol [ self %self 56 8 12 ];
+        %tmp.13 = 0.0;
+        symbol [ mouthOpenness ? 56 13 26 ];
+        putv self :mouthOpenness %tmp.13;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 58 8 ]
+        symbol [ self %self 58 8 12 ];
+        %tmp.14 = false;
+        symbol [ showTears ? 58 13 22 ];
+        putv self :showTears %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 59 8 ]
+        symbol [ self %self 59 8 12 ];
+        %tmp.15 = 0.06;
+        symbol [ tearSize ? 59 13 21 ];
+        putv self :tearSize %tmp.15;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 60 8 ]
+        symbol [ self %self 60 8 12 ];
+        %tmp.16 = false;
+        symbol [ showBlush ? 60 13 22 ];
+        putv self :showBlush %tmp.16;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 61 8 ]
+        symbol [ self %self 61 8 12 ];
+        %tmp.17 = 0.2;
+        symbol [ blushIntensity ? 61 13 27 ];
+        putv self :blushIntensity %tmp.17;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 62 8 ]
+        symbol [ self %self 62 8 12 ];
+        %tmp.18 = false;
+        symbol [ showTongue ? 62 13 23 ];
+        putv self :showTongue %tmp.18;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 63 8 ]
+        symbol [ self %self 63 8 12 ];
+        %tmp.19 = 0.2;
+        symbol [ tongueSize ? 63 13 23 ];
+        putv self :tongueSize %tmp.19;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 65 8 ]
+        symbol [ self %self 65 8 12 ];
+        %tmp.20 = 4.2;
+        symbol [ blinkRate ? 65 13 22 ];
+        putv self :blinkRate %tmp.20;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 66 8 ]
+        symbol [ self %self 66 8 12 ];
+        %tmp.21 = 100;
+        symbol [ blinkDuration ? 66 13 26 ];
+        putv self :blinkDuration %tmp.21;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 67 8 ]
+        symbol [ self %self 67 8 12 ];
+        %tmp.22 = 0.5;
+        symbol [ expressionIntensity ? 67 13 32 ];
+        putv self :expressionIntensity %tmp.22;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_41_26_68_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 72; @symbol_classdef = [EmoticonParser,72,6,20]; ]
+class EmoticonParser {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 72; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 72; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 73; @symbol_functiondef = [initialize,73,13,23]; ]
+    function initialize() as Void {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 77; @symbol_functiondef = [parseEmoticon,77,13,26]; @symbol_param<0> = [emoticon,77,27,35]; ]
+    function parseEmoticon(emoticon) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 78 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_stop" ]
+        %params.1 = local;
+        symbol [ params %params.1 78 12 18 ];
+        symbol [ ExpressionParams %tmp.4 78 25 41 ];
+        %tmp.4 = getv ? :ExpressionParams;
+        %tmp.1 = newc %tmp.4 ();
+        lputv %params.1 %tmp.1;
+        symbol [ params %params.1 78 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 79 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_stop" ]
+        %emotStr.2 = local;
+        symbol [ emotStr %emotStr.2 79 12 19 ];
+        %tmp.5 = lgetv %emoticon;
+        symbol [ emoticon %tmp.5 79 22 30 ];
+        symbol [ toString %tmp.6 79 31 39 ];
+        %tmp.6 = getv function %tmp.5 :toString;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %emotStr.2 %tmp.7;
+        symbol [ emotStr %emotStr.2 79 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 82 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_12_82_56_begin:
+        %tmp.8 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.8 82 12 19 ];
+        symbol [ equals %tmp.9 82 20 26 ];
+        %tmp.9 = getv function %tmp.8 :equals;
+        %tmp.10 = ":)";
+        %tmp.11 = invoke %tmp.8 %tmp.9(%tmp.10);
+        bt %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_true;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_36_82_56_false:
+        %tmp.12 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.12 82 36 43 ];
+        symbol [ equals %tmp.13 82 44 50 ];
+        %tmp.13 = getv function %tmp.12 :equals;
+        %tmp.14 = ":-)";
+        %tmp.15 = invoke %tmp.12 %tmp.13(%tmp.14);
+        push %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_36_82_56_end:
+        %tmp.16 = phi [%tmp.11 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_12_82_56_begin] [%tmp.15 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_36_82_56_false] [%tmp.16 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_36_82_56_end];
+        bf %tmp.16 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_59_84_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 83 12 ]
+        %tmp.17 = self;
+        symbol [ self %tmp.17 83 12 16 ];
+        symbol [ applyHappy %tmp.18 83 17 27 ];
+        %tmp.18 = getv function %tmp.17 :applyHappy;
+        %tmp.19 = lgetv %params.1;
+        symbol [ params %tmp.19 83 28 34 ];
+        invoke %tmp.17 %tmp.18(%tmp.19);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_59_84_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 84 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_19_84_63_begin:
+        %tmp.20 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.20 84 19 26 ];
+        symbol [ equals %tmp.21 84 27 33 ];
+        %tmp.21 = getv function %tmp.20 :equals;
+        %tmp.22 = ":(";
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        bt %tmp.23 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_true;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_43_84_63_false:
+        %tmp.24 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.24 84 43 50 ];
+        symbol [ equals %tmp.25 84 51 57 ];
+        %tmp.25 = getv function %tmp.24 :equals;
+        %tmp.26 = ":-(";
+        %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+        push %tmp.27;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_43_84_63_end:
+        %tmp.28 = phi [%tmp.23 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_19_84_63_begin] [%tmp.27 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_43_84_63_false] [%tmp.28 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_43_84_63_end];
+        bf %tmp.28 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_66_86_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 85 12 ]
+        %tmp.29 = self;
+        symbol [ self %tmp.29 85 12 16 ];
+        symbol [ applySad %tmp.30 85 17 25 ];
+        %tmp.30 = getv function %tmp.29 :applySad;
+        %tmp.31 = lgetv %params.1;
+        symbol [ params %tmp.31 85 26 32 ];
+        invoke %tmp.29 %tmp.30(%tmp.31);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_66_86_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 86 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_stmt:
+        %tmp.32 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.32 86 19 26 ];
+        symbol [ equals %tmp.33 86 27 33 ];
+        %tmp.33 = getv function %tmp.32 :equals;
+        %tmp.34 = ":d";
+        %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+        bf %tmp.35 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_41_88_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 87 12 ]
+        %tmp.36 = self;
+        symbol [ self %tmp.36 87 12 16 ];
+        symbol [ applyGrin %tmp.37 87 17 26 ];
+        %tmp.37 = getv function %tmp.36 :applyGrin;
+        %tmp.38 = lgetv %params.1;
+        symbol [ params %tmp.38 87 27 33 ];
+        invoke %tmp.36 %tmp.37(%tmp.38);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_41_88_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 88 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_stmt:
+        %tmp.39 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.39 88 19 26 ];
+        symbol [ equals %tmp.40 88 27 33 ];
+        %tmp.40 = getv function %tmp.39 :equals;
+        %tmp.41 = ":p";
+        %tmp.42 = invoke %tmp.39 %tmp.40(%tmp.41);
+        bf %tmp.42 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_41_90_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 89 12 ]
+        %tmp.43 = self;
+        symbol [ self %tmp.43 89 12 16 ];
+        symbol [ applyTongue %tmp.44 89 17 28 ];
+        %tmp.44 = getv function %tmp.43 :applyTongue;
+        %tmp.45 = lgetv %params.1;
+        symbol [ params %tmp.45 89 29 35 ];
+        invoke %tmp.43 %tmp.44(%tmp.45);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_41_90_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 90 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_stmt:
+        %tmp.46 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.46 90 19 26 ];
+        symbol [ equals %tmp.47 90 27 33 ];
+        %tmp.47 = getv function %tmp.46 :equals;
+        %tmp.48 = ";)";
+        %tmp.49 = invoke %tmp.46 %tmp.47(%tmp.48);
+        bf %tmp.49 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_41_92_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 91 12 ]
+        %tmp.50 = self;
+        symbol [ self %tmp.50 91 12 16 ];
+        symbol [ applyWink %tmp.51 91 17 26 ];
+        %tmp.51 = getv function %tmp.50 :applyWink;
+        %tmp.52 = lgetv %params.1;
+        symbol [ params %tmp.52 91 27 33 ];
+        invoke %tmp.50 %tmp.51(%tmp.52);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_41_92_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 92 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_stmt:
+        %tmp.53 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.53 92 19 26 ];
+        symbol [ equals %tmp.54 92 27 33 ];
+        %tmp.54 = getv function %tmp.53 :equals;
+        %tmp.55 = "xd";
+        %tmp.56 = invoke %tmp.53 %tmp.54(%tmp.55);
+        bf %tmp.56 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_41_94_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 93 12 ]
+        %tmp.57 = self;
+        symbol [ self %tmp.57 93 12 16 ];
+        symbol [ applyLaugh %tmp.58 93 17 27 ];
+        %tmp.58 = getv function %tmp.57 :applyLaugh;
+        %tmp.59 = lgetv %params.1;
+        symbol [ params %tmp.59 93 28 34 ];
+        invoke %tmp.57 %tmp.58(%tmp.59);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_41_94_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 94 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_stmt:
+        %tmp.60 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.60 94 19 26 ];
+        symbol [ equals %tmp.61 94 27 33 ];
+        %tmp.61 = getv function %tmp.60 :equals;
+        %tmp.62 = ":'(";
+        %tmp.63 = invoke %tmp.60 %tmp.61(%tmp.62);
+        bf %tmp.63 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_42_96_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 95 12 ]
+        %tmp.64 = self;
+        symbol [ self %tmp.64 95 12 16 ];
+        symbol [ applyCrying %tmp.65 95 17 28 ];
+        %tmp.65 = getv function %tmp.64 :applyCrying;
+        %tmp.66 = lgetv %params.1;
+        symbol [ params %tmp.66 95 29 35 ];
+        invoke %tmp.64 %tmp.65(%tmp.66);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_42_96_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 96 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_stmt:
+        %tmp.67 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.67 96 19 26 ];
+        symbol [ equals %tmp.68 96 27 33 ];
+        %tmp.68 = getv function %tmp.67 :equals;
+        %tmp.69 = ":|";
+        %tmp.70 = invoke %tmp.67 %tmp.68(%tmp.69);
+        bf %tmp.70 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_41_98_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 97 12 ]
+        %tmp.71 = self;
+        symbol [ self %tmp.71 97 12 16 ];
+        symbol [ applyNeutral %tmp.72 97 17 29 ];
+        %tmp.72 = getv function %tmp.71 :applyNeutral;
+        %tmp.73 = lgetv %params.1;
+        symbol [ params %tmp.73 97 30 36 ];
+        invoke %tmp.71 %tmp.72(%tmp.73);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_41_98_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 98 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_stmt:
+        %tmp.74 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.74 98 19 26 ];
+        symbol [ equals %tmp.75 98 27 33 ];
+        %tmp.75 = getv function %tmp.74 :equals;
+        %tmp.76 = ":o";
+        %tmp.77 = invoke %tmp.74 %tmp.75(%tmp.76);
+        bf %tmp.77 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_41_100_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 99 12 ]
+        %tmp.78 = self;
+        symbol [ self %tmp.78 99 12 16 ];
+        symbol [ applyShock %tmp.79 99 17 27 ];
+        %tmp.79 = getv function %tmp.78 :applyShock;
+        %tmp.80 = lgetv %params.1;
+        symbol [ params %tmp.80 99 28 34 ];
+        invoke %tmp.78 %tmp.79(%tmp.80);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_41_100_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 100 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_stmt:
+        %tmp.81 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.81 100 19 26 ];
+        symbol [ equals %tmp.82 100 27 33 ];
+        %tmp.82 = getv function %tmp.81 :equals;
+        %tmp.83 = "-_-";
+        %tmp.84 = invoke %tmp.81 %tmp.82(%tmp.83);
+        bf %tmp.84 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_42_102_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 101 12 ]
+        %tmp.85 = self;
+        symbol [ self %tmp.85 101 12 16 ];
+        symbol [ applyUnimpressed %tmp.86 101 17 33 ];
+        %tmp.86 = getv function %tmp.85 :applyUnimpressed;
+        %tmp.87 = lgetv %params.1;
+        symbol [ params %tmp.87 101 34 40 ];
+        invoke %tmp.85 %tmp.86(%tmp.87);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_42_102_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 102 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_stmt:
+        %tmp.88 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.88 102 19 26 ];
+        symbol [ equals %tmp.89 102 27 33 ];
+        %tmp.89 = getv function %tmp.88 :equals;
+        %tmp.90 = "^_^";
+        %tmp.91 = invoke %tmp.88 %tmp.89(%tmp.90);
+        bf %tmp.91 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_42_104_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 103 12 ]
+        %tmp.92 = self;
+        symbol [ self %tmp.92 103 12 16 ];
+        symbol [ applyJoy %tmp.93 103 17 25 ];
+        %tmp.93 = getv function %tmp.92 :applyJoy;
+        %tmp.94 = lgetv %params.1;
+        symbol [ params %tmp.94 103 26 32 ];
+        invoke %tmp.92 %tmp.93(%tmp.94);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_42_104_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 104 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_stmt:
+        %tmp.95 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.95 104 19 26 ];
+        symbol [ equals %tmp.96 104 27 33 ];
+        %tmp.96 = getv function %tmp.95 :equals;
+        %tmp.97 = "o_o";
+        %tmp.98 = invoke %tmp.95 %tmp.96(%tmp.97);
+        bf %tmp.98 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_42_106_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 105 12 ]
+        %tmp.99 = self;
+        symbol [ self %tmp.99 105 12 16 ];
+        symbol [ applyConfused %tmp.100 105 17 30 ];
+        %tmp.100 = getv function %tmp.99 :applyConfused;
+        %tmp.101 = lgetv %params.1;
+        symbol [ params %tmp.101 105 31 37 ];
+        invoke %tmp.99 %tmp.100(%tmp.101);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_42_106_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 106 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_stmt:
+        %tmp.102 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.102 106 19 26 ];
+        symbol [ equals %tmp.103 106 27 33 ];
+        %tmp.103 = getv function %tmp.102 :equals;
+        %tmp.104 = ">:(";
+        %tmp.105 = invoke %tmp.102 %tmp.103(%tmp.104);
+        bf %tmp.105 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_42_108_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 107 12 ]
+        %tmp.106 = self;
+        symbol [ self %tmp.106 107 12 16 ];
+        symbol [ applyAngry %tmp.107 107 17 27 ];
+        %tmp.107 = getv function %tmp.106 :applyAngry;
+        %tmp.108 = lgetv %params.1;
+        symbol [ params %tmp.108 107 28 34 ];
+        invoke %tmp.106 %tmp.107(%tmp.108);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_42_108_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 108 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_stmt:
+        %tmp.109 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.109 108 19 26 ];
+        symbol [ equals %tmp.110 108 27 33 ];
+        %tmp.110 = getv function %tmp.109 :equals;
+        %tmp.111 = ":3";
+        %tmp.112 = invoke %tmp.109 %tmp.110(%tmp.111);
+        bf %tmp.112 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_41_110_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 109 12 ]
+        %tmp.113 = self;
+        symbol [ self %tmp.113 109 12 16 ];
+        symbol [ applyCat %tmp.114 109 17 25 ];
+        %tmp.114 = getv function %tmp.113 :applyCat;
+        %tmp.115 = lgetv %params.1;
+        symbol [ params %tmp.115 109 26 32 ];
+        invoke %tmp.113 %tmp.114(%tmp.115);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_41_110_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 110 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_15_112_8_if_stmt:
+        %tmp.116 = lgetv %emotStr.2;
+        symbol [ emotStr %tmp.116 110 19 26 ];
+        symbol [ equals %tmp.117 110 27 33 ];
+        %tmp.117 = getv function %tmp.116 :equals;
+        %tmp.118 = "<3";
+        %tmp.119 = invoke %tmp.116 %tmp.117(%tmp.118);
+        bf %tmp.119 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_15_112_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_41_112_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 111 12 ]
+        %tmp.120 = self;
+        symbol [ self %tmp.120 111 12 16 ];
+        symbol [ applyLove %tmp.121 111 17 26 ];
+        %tmp.121 = getv function %tmp.120 :applyLove;
+        %tmp.122 = lgetv %params.1;
+        symbol [ params %tmp.122 111 27 33 ];
+        invoke %tmp.120 %tmp.121(%tmp.122);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_41_112_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_15_112_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_110_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_108_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_106_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_104_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_102_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_100_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_98_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_96_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_94_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_92_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_90_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_88_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_86_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_84_15_112_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_82_8_112_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 114 8 ]
+        %tmp.123 = lgetv %params.1;
+        symbol [ params %tmp.123 114 15 21 ];
+        ret %tmp.123;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_77_37_115_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 117; @symbol_functiondef = [applyHappy,117,21,31]; @symbol_param<0> = [params,117,32,38]; ]
+    private
+    function applyHappy(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_117_40_122_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 118 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 118 8 14 ];
+        %tmp.2 = "curve";
+        symbol [ mouthShape ? 118 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 119 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 119 8 14 ];
+        %tmp.4 = 0.5;
+        symbol [ mouthCurvature ? 119 15 29 ];
+        putv %tmp.3 :mouthCurvature %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 120 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 120 8 14 ];
+        %tmp.6 = 1.2;
+        symbol [ mouthWidth ? 120 15 25 ];
+        putv %tmp.5 :mouthWidth %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 121 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 121 8 14 ];
+        %tmp.8 = 0.7;
+        symbol [ expressionIntensity ? 121 15 34 ];
+        putv %tmp.7 :expressionIntensity %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_117_40_122_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 124; @symbol_functiondef = [applySad,124,21,29]; @symbol_param<0> = [params,124,30,36]; ]
+    private
+    function applySad(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_124_38_130_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 125 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 125 8 14 ];
+        %tmp.2 = "curve";
+        symbol [ mouthShape ? 125 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 126 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 126 8 14 ];
+        %tmp.4 = -0.5;
+        symbol [ mouthCurvature ? 126 15 29 ];
+        putv %tmp.3 :mouthCurvature %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 127 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 127 8 14 ];
+        %tmp.6 = 1.2;
+        symbol [ mouthWidth ? 127 15 25 ];
+        putv %tmp.5 :mouthWidth %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 128 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 128 8 14 ];
+        %tmp.8 = 0.9;
+        symbol [ eyeHeight ? 128 15 24 ];
+        putv %tmp.7 :eyeHeight %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 129 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 129 8 14 ];
+        %tmp.10 = 0.6;
+        symbol [ expressionIntensity ? 129 15 34 ];
+        putv %tmp.9 :expressionIntensity %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_124_38_130_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 132; @symbol_functiondef = [applyGrin,132,21,30]; @symbol_param<0> = [params,132,31,37]; ]
+    private
+    function applyGrin(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_132_39_140_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 133 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 133 8 14 ];
+        %tmp.2 = "grin";
+        symbol [ mouthShape ? 133 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 134 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 134 8 14 ];
+        %tmp.4 = 1.4;
+        symbol [ mouthWidth ? 134 15 25 ];
+        putv %tmp.3 :mouthWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 135 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 135 8 14 ];
+        %tmp.6 = 0.4;
+        symbol [ mouthHeight ? 135 15 26 ];
+        putv %tmp.5 :mouthHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 136 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 136 8 14 ];
+        %tmp.8 = 0.3;
+        symbol [ mouthOpenness ? 136 15 28 ];
+        putv %tmp.7 :mouthOpenness %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 137 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 137 8 14 ];
+        %tmp.10 = 1.2;
+        symbol [ eyeWidth ? 137 15 23 ];
+        putv %tmp.9 :eyeWidth %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 138 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 138 8 14 ];
+        %tmp.12 = 1.1;
+        symbol [ eyeHeight ? 138 15 24 ];
+        putv %tmp.11 :eyeHeight %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 139 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 139 8 14 ];
+        %tmp.14 = 0.9;
+        symbol [ expressionIntensity ? 139 15 34 ];
+        putv %tmp.13 :expressionIntensity %tmp.14;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_132_39_140_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 142; @symbol_functiondef = [applyTongue,142,21,32]; @symbol_param<0> = [params,142,33,39]; ]
+    private
+    function applyTongue(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_142_41_149_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 143 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 143 8 14 ];
+        %tmp.2 = "tongueOut";
+        symbol [ mouthShape ? 143 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 144 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 144 8 14 ];
+        %tmp.4 = 1.1;
+        symbol [ mouthWidth ? 144 15 25 ];
+        putv %tmp.3 :mouthWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 145 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 145 8 14 ];
+        %tmp.6 = 0.4;
+        symbol [ mouthOpenness ? 145 15 28 ];
+        putv %tmp.5 :mouthOpenness %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 146 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 146 8 14 ];
+        %tmp.8 = true;
+        symbol [ showTongue ? 146 15 25 ];
+        putv %tmp.7 :showTongue %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 147 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 147 8 14 ];
+        %tmp.10 = 0.25;
+        symbol [ tongueSize ? 147 15 25 ];
+        putv %tmp.9 :tongueSize %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 148 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 148 8 14 ];
+        %tmp.12 = 0.8;
+        symbol [ expressionIntensity ? 148 15 34 ];
+        putv %tmp.11 :expressionIntensity %tmp.12;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_142_41_149_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 151; @symbol_functiondef = [applyWink,151,21,30]; @symbol_param<0> = [params,151,31,37]; ]
+    private
+    function applyWink(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_151_39_158_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 152 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 152 8 14 ];
+        %tmp.2 = "winkLeft";
+        symbol [ eyeShape ? 152 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 153 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 153 8 14 ];
+        %tmp.4 = "smirk";
+        symbol [ mouthShape ? 153 15 25 ];
+        putv %tmp.3 :mouthShape %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 154 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 154 8 14 ];
+        %tmp.6 = 0.3;
+        symbol [ mouthCurvature ? 154 15 29 ];
+        putv %tmp.5 :mouthCurvature %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 155 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 155 8 14 ];
+        %tmp.8 = 1.1;
+        symbol [ mouthWidth ? 155 15 25 ];
+        putv %tmp.7 :mouthWidth %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 156 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 156 8 14 ];
+        %tmp.10 = 0.15;
+        symbol [ eyeAsymmetry ? 156 15 27 ];
+        putv %tmp.9 :eyeAsymmetry %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 157 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 157 8 14 ];
+        %tmp.12 = 0.7;
+        symbol [ expressionIntensity ? 157 15 34 ];
+        putv %tmp.11 :expressionIntensity %tmp.12;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_151_39_158_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 160; @symbol_functiondef = [applyLaugh,160,21,31]; @symbol_param<0> = [params,160,32,38]; ]
+    private
+    function applyLaugh(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_160_40_167_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 161 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 161 8 14 ];
+        %tmp.2 = "X";
+        symbol [ eyeShape ? 161 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 162 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 162 8 14 ];
+        %tmp.4 = "grin";
+        symbol [ mouthShape ? 162 15 25 ];
+        putv %tmp.3 :mouthShape %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 163 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 163 8 14 ];
+        %tmp.6 = 1.4;
+        symbol [ mouthWidth ? 163 15 25 ];
+        putv %tmp.5 :mouthWidth %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 164 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 164 8 14 ];
+        %tmp.8 = 0.5;
+        symbol [ mouthHeight ? 164 15 26 ];
+        putv %tmp.7 :mouthHeight %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 165 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 165 8 14 ];
+        %tmp.10 = 0.4;
+        symbol [ mouthOpenness ? 165 15 28 ];
+        putv %tmp.9 :mouthOpenness %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 166 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 166 8 14 ];
+        %tmp.12 = 1.0;
+        symbol [ expressionIntensity ? 166 15 34 ];
+        putv %tmp.11 :expressionIntensity %tmp.12;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_160_40_167_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 169; @symbol_functiondef = [applyCrying,169,21,32]; @symbol_param<0> = [params,169,33,39]; ]
+    private
+    function applyCrying(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_169_41_177_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 170 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 170 8 14 ];
+        %tmp.2 = "curve";
+        symbol [ mouthShape ? 170 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 171 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 171 8 14 ];
+        %tmp.4 = -0.6;
+        symbol [ mouthCurvature ? 171 15 29 ];
+        putv %tmp.3 :mouthCurvature %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 172 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 172 8 14 ];
+        %tmp.6 = 1.1;
+        symbol [ mouthWidth ? 172 15 25 ];
+        putv %tmp.5 :mouthWidth %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 173 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 173 8 14 ];
+        %tmp.8 = true;
+        symbol [ showTears ? 173 15 24 ];
+        putv %tmp.7 :showTears %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 174 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 174 8 14 ];
+        %tmp.10 = 0.08;
+        symbol [ tearSize ? 174 15 23 ];
+        putv %tmp.9 :tearSize %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 175 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 175 8 14 ];
+        %tmp.12 = 0.8;
+        symbol [ eyeHeight ? 175 15 24 ];
+        putv %tmp.11 :eyeHeight %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 176 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 176 8 14 ];
+        %tmp.14 = 0.8;
+        symbol [ expressionIntensity ? 176 15 34 ];
+        putv %tmp.13 :expressionIntensity %tmp.14;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_169_41_177_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 179; @symbol_functiondef = [applyNeutral,179,21,33]; @symbol_param<0> = [params,179,34,40]; ]
+    private
+    function applyNeutral(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_179_42_183_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 180 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 180 8 14 ];
+        %tmp.2 = "flat";
+        symbol [ mouthShape ? 180 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 181 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 181 8 14 ];
+        %tmp.4 = 1.0;
+        symbol [ mouthWidth ? 181 15 25 ];
+        putv %tmp.3 :mouthWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 182 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 182 8 14 ];
+        %tmp.6 = 0.3;
+        symbol [ expressionIntensity ? 182 15 34 ];
+        putv %tmp.5 :expressionIntensity %tmp.6;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_179_42_183_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 185; @symbol_functiondef = [applyShock,185,21,31]; @symbol_param<0> = [params,185,32,38]; ]
+    private
+    function applyShock(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_185_40_194_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 186 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 186 8 14 ];
+        %tmp.2 = "circle";
+        symbol [ eyeShape ? 186 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 187 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 187 8 14 ];
+        %tmp.4 = 1.2;
+        symbol [ eyeWidth ? 187 15 23 ];
+        putv %tmp.3 :eyeWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 188 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 188 8 14 ];
+        %tmp.6 = 1.3;
+        symbol [ eyeHeight ? 188 15 24 ];
+        putv %tmp.5 :eyeHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 189 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 189 8 14 ];
+        %tmp.8 = "oShock";
+        symbol [ mouthShape ? 189 15 25 ];
+        putv %tmp.7 :mouthShape %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 190 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 190 8 14 ];
+        %tmp.10 = 0.6;
+        symbol [ mouthWidth ? 190 15 25 ];
+        putv %tmp.9 :mouthWidth %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 191 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 191 8 14 ];
+        %tmp.12 = 0.7;
+        symbol [ mouthHeight ? 191 15 26 ];
+        putv %tmp.11 :mouthHeight %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 192 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 192 8 14 ];
+        %tmp.14 = 0.8;
+        symbol [ mouthOpenness ? 192 15 28 ];
+        putv %tmp.13 :mouthOpenness %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 193 8 ]
+        %tmp.15 = lgetv %params;
+        symbol [ params %tmp.15 193 8 14 ];
+        %tmp.16 = 0.9;
+        symbol [ expressionIntensity ? 193 15 34 ];
+        putv %tmp.15 :expressionIntensity %tmp.16;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_185_40_194_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 196; @symbol_functiondef = [applyUnimpressed,196,21,37]; @symbol_param<0> = [params,196,38,44]; ]
+    private
+    function applyUnimpressed(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_196_46_202_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 197 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 197 8 14 ];
+        %tmp.2 = "line";
+        symbol [ eyeShape ? 197 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 198 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 198 8 14 ];
+        %tmp.4 = 0.3;
+        symbol [ eyeHeight ? 198 15 24 ];
+        putv %tmp.3 :eyeHeight %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 199 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 199 8 14 ];
+        %tmp.6 = "flat";
+        symbol [ mouthShape ? 199 15 25 ];
+        putv %tmp.5 :mouthShape %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 200 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 200 8 14 ];
+        %tmp.8 = 0.8;
+        symbol [ mouthWidth ? 200 15 25 ];
+        putv %tmp.7 :mouthWidth %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 201 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 201 8 14 ];
+        %tmp.10 = 0.4;
+        symbol [ expressionIntensity ? 201 15 34 ];
+        putv %tmp.9 :expressionIntensity %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_196_46_202_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 204; @symbol_functiondef = [applyJoy,204,21,29]; @symbol_param<0> = [params,204,30,36]; ]
+    private
+    function applyJoy(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_204_38_214_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 205 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 205 8 14 ];
+        %tmp.2 = "arcUp";
+        symbol [ eyeShape ? 205 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 206 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 206 8 14 ];
+        %tmp.4 = 1.1;
+        symbol [ eyeWidth ? 206 15 23 ];
+        putv %tmp.3 :eyeWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 207 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 207 8 14 ];
+        %tmp.6 = 1.2;
+        symbol [ eyeHeight ? 207 15 24 ];
+        putv %tmp.5 :eyeHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 208 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 208 8 14 ];
+        %tmp.8 = "curve";
+        symbol [ mouthShape ? 208 15 25 ];
+        putv %tmp.7 :mouthShape %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 209 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 209 8 14 ];
+        %tmp.10 = 0.7;
+        symbol [ mouthCurvature ? 209 15 29 ];
+        putv %tmp.9 :mouthCurvature %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 210 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 210 8 14 ];
+        %tmp.12 = 1.3;
+        symbol [ mouthWidth ? 210 15 25 ];
+        putv %tmp.11 :mouthWidth %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 211 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 211 8 14 ];
+        %tmp.14 = true;
+        symbol [ showBlush ? 211 15 24 ];
+        putv %tmp.13 :showBlush %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 212 8 ]
+        %tmp.15 = lgetv %params;
+        symbol [ params %tmp.15 212 8 14 ];
+        %tmp.16 = 0.3;
+        symbol [ blushIntensity ? 212 15 29 ];
+        putv %tmp.15 :blushIntensity %tmp.16;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 213 8 ]
+        %tmp.17 = lgetv %params;
+        symbol [ params %tmp.17 213 8 14 ];
+        %tmp.18 = 0.9;
+        symbol [ expressionIntensity ? 213 15 34 ];
+        putv %tmp.17 :expressionIntensity %tmp.18;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_204_38_214_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 216; @symbol_functiondef = [applyConfused,216,21,34]; @symbol_param<0> = [params,216,35,41]; ]
+    private
+    function applyConfused(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_216_43_225_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 217 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 217 8 14 ];
+        %tmp.2 = "circle";
+        symbol [ eyeShape ? 217 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 218 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 218 8 14 ];
+        %tmp.4 = 1.0;
+        symbol [ eyeWidth ? 218 15 23 ];
+        putv %tmp.3 :eyeWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 219 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 219 8 14 ];
+        %tmp.6 = 1.1;
+        symbol [ eyeHeight ? 219 15 24 ];
+        putv %tmp.5 :eyeHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 220 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 220 8 14 ];
+        %tmp.8 = 0.1;
+        symbol [ eyeAsymmetry ? 220 15 27 ];
+        putv %tmp.7 :eyeAsymmetry %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 221 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 221 8 14 ];
+        %tmp.10 = "curve";
+        symbol [ mouthShape ? 221 15 25 ];
+        putv %tmp.9 :mouthShape %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 222 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 222 8 14 ];
+        %tmp.12 = 0.1;
+        symbol [ mouthCurvature ? 222 15 29 ];
+        putv %tmp.11 :mouthCurvature %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 223 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 223 8 14 ];
+        %tmp.14 = 0.9;
+        symbol [ mouthWidth ? 223 15 25 ];
+        putv %tmp.13 :mouthWidth %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 224 8 ]
+        %tmp.15 = lgetv %params;
+        symbol [ params %tmp.15 224 8 14 ];
+        %tmp.16 = 0.5;
+        symbol [ expressionIntensity ? 224 15 34 ];
+        putv %tmp.15 :expressionIntensity %tmp.16;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_216_43_225_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 227; @symbol_functiondef = [applyAngry,227,21,31]; @symbol_param<0> = [params,227,32,38]; ]
+    private
+    function applyAngry(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_227_40_236_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 228 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 228 8 14 ];
+        %tmp.2 = "line";
+        symbol [ eyeShape ? 228 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 229 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 229 8 14 ];
+        %tmp.4 = 0.9;
+        symbol [ eyeWidth ? 229 15 23 ];
+        putv %tmp.3 :eyeWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 230 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 230 8 14 ];
+        %tmp.6 = 1.2;
+        symbol [ eyeHeight ? 230 15 24 ];
+        putv %tmp.5 :eyeHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 231 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 231 8 14 ];
+        %tmp.8 = 0.8;
+        symbol [ eyeOpenness ? 231 15 26 ];
+        putv %tmp.7 :eyeOpenness %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 232 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 232 8 14 ];
+        %tmp.10 = "frown";
+        symbol [ mouthShape ? 232 15 25 ];
+        putv %tmp.9 :mouthShape %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 233 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 233 8 14 ];
+        %tmp.12 = -0.7;
+        symbol [ mouthCurvature ? 233 15 29 ];
+        putv %tmp.11 :mouthCurvature %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 234 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 234 8 14 ];
+        %tmp.14 = 1.0;
+        symbol [ mouthWidth ? 234 15 25 ];
+        putv %tmp.13 :mouthWidth %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 235 8 ]
+        %tmp.15 = lgetv %params;
+        symbol [ params %tmp.15 235 8 14 ];
+        %tmp.16 = 0.9;
+        symbol [ expressionIntensity ? 235 15 34 ];
+        putv %tmp.15 :expressionIntensity %tmp.16;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_227_40_236_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 238; @symbol_functiondef = [applyCat,238,21,29]; @symbol_param<0> = [params,238,30,36]; ]
+    private
+    function applyCat(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_238_38_244_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 239 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 239 8 14 ];
+        %tmp.2 = "cat3";
+        symbol [ mouthShape ? 239 15 25 ];
+        putv %tmp.1 :mouthShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 240 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 240 8 14 ];
+        %tmp.4 = 0.7;
+        symbol [ mouthWidth ? 240 15 25 ];
+        putv %tmp.3 :mouthWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 241 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 241 8 14 ];
+        %tmp.6 = 0.25;
+        symbol [ mouthHeight ? 241 15 26 ];
+        putv %tmp.5 :mouthHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 242 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 242 8 14 ];
+        %tmp.8 = 1.1;
+        symbol [ eyeWidth ? 242 15 23 ];
+        putv %tmp.7 :eyeWidth %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 243 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 243 8 14 ];
+        %tmp.10 = 0.6;
+        symbol [ expressionIntensity ? 243 15 34 ];
+        putv %tmp.9 :expressionIntensity %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_238_38_244_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 246; @symbol_functiondef = [applyLove,246,21,30]; @symbol_param<0> = [params,246,31,37]; ]
+    private
+    function applyLove(params) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_246_39_256_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 247 8 ]
+        %tmp.1 = lgetv %params;
+        symbol [ params %tmp.1 247 8 14 ];
+        %tmp.2 = "heart";
+        symbol [ eyeShape ? 247 15 23 ];
+        putv %tmp.1 :eyeShape %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 248 8 ]
+        %tmp.3 = lgetv %params;
+        symbol [ params %tmp.3 248 8 14 ];
+        %tmp.4 = 1.0;
+        symbol [ eyeWidth ? 248 15 23 ];
+        putv %tmp.3 :eyeWidth %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 249 8 ]
+        %tmp.5 = lgetv %params;
+        symbol [ params %tmp.5 249 8 14 ];
+        %tmp.6 = 1.0;
+        symbol [ eyeHeight ? 249 15 24 ];
+        putv %tmp.5 :eyeHeight %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 250 8 ]
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 250 8 14 ];
+        %tmp.8 = "curve";
+        symbol [ mouthShape ? 250 15 25 ];
+        putv %tmp.7 :mouthShape %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 251 8 ]
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 251 8 14 ];
+        %tmp.10 = 0.6;
+        symbol [ mouthCurvature ? 251 15 29 ];
+        putv %tmp.9 :mouthCurvature %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 252 8 ]
+        %tmp.11 = lgetv %params;
+        symbol [ params %tmp.11 252 8 14 ];
+        %tmp.12 = 1.2;
+        symbol [ mouthWidth ? 252 15 25 ];
+        putv %tmp.11 :mouthWidth %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 253 8 ]
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 253 8 14 ];
+        %tmp.14 = true;
+        symbol [ showBlush ? 253 15 24 ];
+        putv %tmp.13 :showBlush %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 254 8 ]
+        %tmp.15 = lgetv %params;
+        symbol [ params %tmp.15 254 8 14 ];
+        %tmp.16 = 0.4;
+        symbol [ blushIntensity ? 254 15 29 ];
+        putv %tmp.15 :blushIntensity %tmp.16;
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 255 8 ]
+        %tmp.17 = lgetv %params;
+        symbol [ params %tmp.17 255 8 14 ];
+        %tmp.18 = 0.8;
+        symbol [ expressionIntensity ? 255 15 34 ];
+        putv %tmp.17 :expressionIntensity %tmp.18;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_246_39_256_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 260; @symbol_classdef = [EmoticonRenderer,260,6,22]; ]
+class EmoticonRenderer {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 260; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 260; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 261; @position = 16; @symbol_vardef = [parser,261,16,22]; ]
+    private
+    var parser;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 263; @symbol_functiondef = [initialize,263,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_263_26_265_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 264 8 ]
+        symbol [ self %self 264 8 12 ];
+        symbol [ EmoticonParser %tmp.4 264 26 40 ];
+        %tmp.4 = getv ? :EmoticonParser;
+        %tmp.1 = newc %tmp.4 ();
+        symbol [ parser ? 264 13 19 ];
+        putv self :parser %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_263_26_265_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 267; @symbol_functiondef = [renderEmoticon,267,13,27]; @symbol_param<0> = [dc,267,28,30]; @symbol_param<1> = [emoticon,267,32,40]; @symbol_param<2> = [centerX,267,42,49]; @symbol_param<3> = [centerY,267,51,58]; @symbol_param<4> = [faceSize,267,60,68]; ]
+    function renderEmoticon(dc, emoticon, centerX, centerY, faceSize) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_267_70_270_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 268 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_267_70_270_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_267_70_270_4_stop" ]
+        %params.1 = local;
+        symbol [ params %params.1 268 12 18 ];
+        %tmp.1 = self;
+        symbol [ self %tmp.1 268 21 25 ];
+        symbol [ parser %tmp.2 268 26 32 ];
+        %tmp.2 = getv %tmp.1 :parser;
+        symbol [ parseEmoticon %tmp.3 268 33 46 ];
+        %tmp.3 = getv function %tmp.2 :parseEmoticon;
+        %tmp.4 = lgetv %emoticon;
+        symbol [ emoticon %tmp.4 268 47 55 ];
+        %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
+        lputv %params.1 %tmp.5;
+        symbol [ params %params.1 268 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 269 8 ]
+        %tmp.6 = self;
+        symbol [ self %tmp.6 269 8 12 ];
+        symbol [ drawExpression %tmp.7 269 13 27 ];
+        %tmp.7 = getv function %tmp.6 :drawExpression;
+        %tmp.8 = lgetv %dc;
+        symbol [ dc %tmp.8 269 28 30 ];
+        %tmp.9 = lgetv %params.1;
+        symbol [ params %tmp.9 269 32 38 ];
+        %tmp.10 = lgetv %centerX;
+        symbol [ centerX %tmp.10 269 40 47 ];
+        %tmp.11 = lgetv %centerY;
+        symbol [ centerY %tmp.11 269 49 56 ];
+        %tmp.12 = lgetv %faceSize;
+        symbol [ faceSize %tmp.12 269 58 66 ];
+        invoke %tmp.6 %tmp.7(%tmp.8, %tmp.9, %tmp.10, %tmp.11, %tmp.12);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_267_70_270_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 272; @symbol_functiondef = [drawExpression,272,13,27]; @symbol_param<0> = [dc,272,28,30]; @symbol_param<1> = [params,272,32,38]; @symbol_param<2> = [centerX,272,40,47]; @symbol_param<3> = [centerY,272,49,56]; @symbol_param<4> = [faceSize,272,58,66]; ]
+    function drawExpression(dc, params, centerX, centerY, faceSize) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 274 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %baseEyeWidth.1 = local;
+        symbol [ baseEyeWidth %baseEyeWidth.1 274 12 24 ];
+        %tmp.1 = lgetv %faceSize;
+        symbol [ faceSize %tmp.1 274 28 36 ];
+        %tmp.2 = 5;
+        %tmp.3 = div %tmp.1 %tmp.2;
+        lputv %baseEyeWidth.1 %tmp.3;
+        symbol [ baseEyeWidth %baseEyeWidth.1 274 12 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 275 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %baseEyeHeight.2 = local;
+        symbol [ baseEyeHeight %baseEyeHeight.2 275 12 25 ];
+        %tmp.4 = lgetv %faceSize;
+        symbol [ faceSize %tmp.4 275 29 37 ];
+        %tmp.5 = 10;
+        %tmp.6 = div %tmp.4 %tmp.5;
+        lputv %baseEyeHeight.2 %tmp.6;
+        symbol [ baseEyeHeight %baseEyeHeight.2 275 12 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 276 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %baseMouthWidth.3 = local;
+        symbol [ baseMouthWidth %baseMouthWidth.3 276 12 26 ];
+        %tmp.7 = lgetv %faceSize;
+        symbol [ faceSize %tmp.7 276 30 38 ];
+        %tmp.8 = 2.5;
+        %tmp.9 = div %tmp.7 %tmp.8;
+        lputv %baseMouthWidth.3 %tmp.9;
+        symbol [ baseMouthWidth %baseMouthWidth.3 276 12 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 277 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %baseMouthHeight.4 = local;
+        symbol [ baseMouthHeight %baseMouthHeight.4 277 12 27 ];
+        %tmp.10 = lgetv %faceSize;
+        symbol [ faceSize %tmp.10 277 31 39 ];
+        %tmp.11 = 12;
+        %tmp.12 = div %tmp.10 %tmp.11;
+        lputv %baseMouthHeight.4 %tmp.12;
+        symbol [ baseMouthHeight %baseMouthHeight.4 277 12 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 280 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %eyeY.5 = local;
+        symbol [ eyeY %eyeY.5 280 12 16 ];
+        %tmp.13 = lgetv %centerY;
+        symbol [ centerY %tmp.13 280 19 26 ];
+        %tmp.14 = lgetv %faceSize;
+        symbol [ faceSize %tmp.14 280 29 37 ];
+        %tmp.15 = 8;
+        %tmp.16 = div %tmp.14 %tmp.15;
+        %tmp.17 = sub %tmp.13 %tmp.16;
+        lputv %eyeY.5 %tmp.17;
+        symbol [ eyeY %eyeY.5 280 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 281 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %eyeSep.6 = local;
+        symbol [ eyeSep %eyeSep.6 281 12 18 ];
+        %tmp.18 = lgetv %faceSize;
+        symbol [ faceSize %tmp.18 281 22 30 ];
+        %tmp.19 = 6;
+        %tmp.20 = div %tmp.18 %tmp.19;
+        %tmp.21 = lgetv %params;
+        symbol [ params %tmp.21 281 38 44 ];
+        symbol [ eyeSeparation %tmp.22 281 45 58 ];
+        %tmp.22 = getv %tmp.21 :eyeSeparation;
+        %tmp.23 = mul %tmp.20 %tmp.22;
+        %tmp.24 = 0.38;
+        %tmp.25 = div %tmp.23 %tmp.24;
+        lputv %eyeSep.6 %tmp.25;
+        symbol [ eyeSep %eyeSep.6 281 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 282 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %leftEyeX.7 = local;
+        symbol [ leftEyeX %leftEyeX.7 282 12 20 ];
+        %tmp.26 = lgetv %centerX;
+        symbol [ centerX %tmp.26 282 23 30 ];
+        %tmp.27 = lgetv %eyeSep.6;
+        symbol [ eyeSep %tmp.27 282 33 39 ];
+        %tmp.28 = sub %tmp.26 %tmp.27;
+        lputv %leftEyeX.7 %tmp.28;
+        symbol [ leftEyeX %leftEyeX.7 282 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 283 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %rightEyeX.8 = local;
+        symbol [ rightEyeX %rightEyeX.8 283 12 21 ];
+        %tmp.29 = lgetv %centerX;
+        symbol [ centerX %tmp.29 283 24 31 ];
+        %tmp.30 = lgetv %eyeSep.6;
+        symbol [ eyeSep %tmp.30 283 34 40 ];
+        %tmp.31 = add %tmp.29 %tmp.30;
+        lputv %rightEyeX.8 %tmp.31;
+        symbol [ rightEyeX %rightEyeX.8 283 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 286 8 ]
+        %tmp.32 = self;
+        symbol [ self %tmp.32 286 8 12 ];
+        symbol [ drawEyes %tmp.33 286 13 21 ];
+        %tmp.33 = getv function %tmp.32 :drawEyes;
+        %tmp.34 = lgetv %dc;
+        symbol [ dc %tmp.34 286 22 24 ];
+        %tmp.35 = lgetv %params;
+        symbol [ params %tmp.35 286 26 32 ];
+        %tmp.36 = lgetv %leftEyeX.7;
+        symbol [ leftEyeX %tmp.36 286 34 42 ];
+        %tmp.37 = lgetv %rightEyeX.8;
+        symbol [ rightEyeX %tmp.37 286 44 53 ];
+        %tmp.38 = lgetv %eyeY.5;
+        symbol [ eyeY %tmp.38 286 55 59 ];
+        %tmp.39 = lgetv %baseEyeWidth.1;
+        symbol [ baseEyeWidth %tmp.39 286 61 73 ];
+        %tmp.40 = lgetv %baseEyeHeight.2;
+        symbol [ baseEyeHeight %tmp.40 286 75 88 ];
+        invoke %tmp.32 %tmp.33(%tmp.34, %tmp.35, %tmp.36, %tmp.37, %tmp.38, %tmp.39, %tmp.40);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 289 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop" ]
+        %mouthY.9 = local;
+        symbol [ mouthY %mouthY.9 289 12 18 ];
+        %tmp.41 = lgetv %centerY;
+        symbol [ centerY %tmp.41 289 21 28 ];
+        %tmp.42 = lgetv %faceSize;
+        symbol [ faceSize %tmp.42 289 31 39 ];
+        %tmp.43 = 12;
+        %tmp.44 = div %tmp.42 %tmp.43;
+        %tmp.45 = add %tmp.41 %tmp.44;
+        lputv %mouthY.9 %tmp.45;
+        symbol [ mouthY %mouthY.9 289 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 290 8 ]
+        %tmp.46 = self;
+        symbol [ self %tmp.46 290 8 12 ];
+        symbol [ drawMouth %tmp.47 290 13 22 ];
+        %tmp.47 = getv function %tmp.46 :drawMouth;
+        %tmp.48 = lgetv %dc;
+        symbol [ dc %tmp.48 290 23 25 ];
+        %tmp.49 = lgetv %params;
+        symbol [ params %tmp.49 290 27 33 ];
+        %tmp.50 = lgetv %centerX;
+        symbol [ centerX %tmp.50 290 35 42 ];
+        %tmp.51 = lgetv %mouthY.9;
+        symbol [ mouthY %tmp.51 290 44 50 ];
+        %tmp.52 = lgetv %baseMouthWidth.3;
+        symbol [ baseMouthWidth %tmp.52 290 52 66 ];
+        %tmp.53 = lgetv %baseMouthHeight.4;
+        symbol [ baseMouthHeight %tmp.53 290 68 83 ];
+        invoke %tmp.46 %tmp.47(%tmp.48, %tmp.49, %tmp.50, %tmp.51, %tmp.52, %tmp.53);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 293 8 ]
+        %tmp.54 = self;
+        symbol [ self %tmp.54 293 8 12 ];
+        symbol [ drawAccessories %tmp.55 293 13 28 ];
+        %tmp.55 = getv function %tmp.54 :drawAccessories;
+        %tmp.56 = lgetv %dc;
+        symbol [ dc %tmp.56 293 29 31 ];
+        %tmp.57 = lgetv %params;
+        symbol [ params %tmp.57 293 33 39 ];
+        %tmp.58 = lgetv %centerX;
+        symbol [ centerX %tmp.58 293 41 48 ];
+        %tmp.59 = lgetv %centerY;
+        symbol [ centerY %tmp.59 293 50 57 ];
+        %tmp.60 = lgetv %faceSize;
+        symbol [ faceSize %tmp.60 293 59 67 ];
+        invoke %tmp.54 %tmp.55(%tmp.56, %tmp.57, %tmp.58, %tmp.59, %tmp.60);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_272_68_294_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 296; @symbol_functiondef = [drawEyes,296,21,29]; @symbol_param<0> = [dc,296,30,32]; @symbol_param<1> = [params,296,34,40]; @symbol_param<2> = [leftX,296,42,47]; @symbol_param<3> = [rightX,296,49,55]; @symbol_param<4> = [eyeY,296,57,61]; @symbol_param<5> = [baseWidth,296,63,72]; @symbol_param<6> = [baseHeight,296,74,84]; ]
+    private
+    function drawEyes(dc, params, leftX, rightX, eyeY, baseWidth, baseHeight) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 297 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_stop" ]
+        %eyeWidth.1 = local;
+        symbol [ eyeWidth %eyeWidth.1 297 12 20 ];
+        %tmp.1 = lgetv %baseWidth;
+        symbol [ baseWidth %tmp.1 297 23 32 ];
+        %tmp.2 = lgetv %params;
+        symbol [ params %tmp.2 297 35 41 ];
+        symbol [ eyeWidth %tmp.3 297 42 50 ];
+        %tmp.3 = getv %tmp.2 :eyeWidth;
+        %tmp.4 = mul %tmp.1 %tmp.3;
+        lputv %eyeWidth.1 %tmp.4;
+        symbol [ eyeWidth %eyeWidth.1 297 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 298 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_stop" ]
+        %eyeHeight.2 = local;
+        symbol [ eyeHeight %eyeHeight.2 298 12 21 ];
+        %tmp.5 = lgetv %baseHeight;
+        symbol [ baseHeight %tmp.5 298 24 34 ];
+        %tmp.6 = lgetv %params;
+        symbol [ params %tmp.6 298 37 43 ];
+        symbol [ eyeHeight %tmp.7 298 44 53 ];
+        %tmp.7 = getv %tmp.6 :eyeHeight;
+        %tmp.8 = mul %tmp.5 %tmp.7;
+        %tmp.9 = lgetv %params;
+        symbol [ params %tmp.9 298 56 62 ];
+        symbol [ eyeOpenness %tmp.10 298 63 74 ];
+        %tmp.10 = getv %tmp.9 :eyeOpenness;
+        %tmp.11 = mul %tmp.8 %tmp.10;
+        lputv %eyeHeight.2 %tmp.11;
+        symbol [ eyeHeight %eyeHeight.2 298 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 299 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_stop" ]
+        %eyeRadius.3 = local;
+        symbol [ eyeRadius %eyeRadius.3 299 12 21 ];
+        %tmp.12 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.12 299 24 33 ];
+        %tmp.13 = lgetv %params;
+        symbol [ params %tmp.13 299 36 42 ];
+        symbol [ eyeRadius %tmp.14 299 43 52 ];
+        %tmp.14 = getv %tmp.13 :eyeRadius;
+        %tmp.15 = mul %tmp.12 %tmp.14;
+        lputv %eyeRadius.3 %tmp.15;
+        symbol [ eyeRadius %eyeRadius.3 299 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 301 8 ]
+        %tmp.16 = lgetv %dc;
+        symbol [ dc %tmp.16 301 8 10 ];
+        symbol [ setColor %tmp.17 301 11 19 ];
+        %tmp.17 = getv function %tmp.16 :setColor;
+        symbol [ Graphics %tmp.18 301 20 28 ];
+        %tmp.18 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.19 301 29 40 ];
+        %tmp.19 = getv %tmp.18 :COLOR_GREEN;
+        symbol [ Graphics %tmp.20 301 42 50 ];
+        %tmp.20 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.21 301 51 68 ];
+        %tmp.21 = getv %tmp.20 :COLOR_TRANSPARENT;
+        invoke %tmp.16 %tmp.17(%tmp.19, %tmp.21);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 303 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_12_303_76_begin:
+        %tmp.22 = lgetv %params;
+        symbol [ params %tmp.22 303 12 18 ];
+        symbol [ eyeShape %tmp.23 303 19 27 ];
+        %tmp.23 = getv %tmp.22 :eyeShape;
+        symbol [ equals %tmp.24 303 28 34 ];
+        %tmp.24 = getv function %tmp.23 :equals;
+        %tmp.25 = "dot";
+        %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+        bt %tmp.26 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_true;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_45_303_76_false:
+        %tmp.27 = lgetv %params;
+        symbol [ params %tmp.27 303 45 51 ];
+        symbol [ eyeShape %tmp.28 303 52 60 ];
+        %tmp.28 = getv %tmp.27 :eyeShape;
+        symbol [ equals %tmp.29 303 61 67 ];
+        %tmp.29 = getv function %tmp.28 :equals;
+        %tmp.30 = "circle";
+        %tmp.31 = invoke %tmp.28 %tmp.29(%tmp.30);
+        push %tmp.31;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_45_303_76_end:
+        %tmp.32 = phi [%tmp.26 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_12_303_76_begin] [%tmp.31 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_45_303_76_false] [%tmp.32 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_45_303_76_end];
+        bf %tmp.32 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_79_308_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 305 12 ]
+        %tmp.33 = lgetv %dc;
+        symbol [ dc %tmp.33 305 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.34 305 15 35 ];
+        %tmp.34 = getv function %tmp.33 :fillRoundedRectangle;
+        %tmp.35 = lgetv %leftX;
+        symbol [ leftX %tmp.35 305 36 41 ];
+        %tmp.36 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.36 305 44 52 ];
+        %tmp.37 = 2;
+        %tmp.38 = div %tmp.36 %tmp.37;
+        %tmp.39 = sub %tmp.35 %tmp.38;
+        %tmp.40 = lgetv %eyeY;
+        symbol [ eyeY %tmp.40 305 56 60 ];
+        %tmp.41 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.41 305 62 70 ];
+        %tmp.42 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.42 305 72 81 ];
+        %tmp.43 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.43 305 83 92 ];
+        invoke %tmp.33 %tmp.34(%tmp.39, %tmp.40, %tmp.41, %tmp.42, %tmp.43);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 306 12 ]
+        %tmp.44 = lgetv %dc;
+        symbol [ dc %tmp.44 306 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.45 306 15 35 ];
+        %tmp.45 = getv function %tmp.44 :fillRoundedRectangle;
+        %tmp.46 = lgetv %rightX;
+        symbol [ rightX %tmp.46 306 36 42 ];
+        %tmp.47 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.47 306 45 53 ];
+        %tmp.48 = 2;
+        %tmp.49 = div %tmp.47 %tmp.48;
+        %tmp.50 = sub %tmp.46 %tmp.49;
+        %tmp.51 = lgetv %eyeY;
+        symbol [ eyeY %tmp.51 306 57 61 ];
+        %tmp.52 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.52 306 63 71 ];
+        %tmp.53 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.53 306 73 82 ];
+        %tmp.54 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.54 306 84 93 ];
+        invoke %tmp.44 %tmp.45(%tmp.50, %tmp.51, %tmp.52, %tmp.53, %tmp.54);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_79_308_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 308 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_stmt:
+        %tmp.55 = lgetv %params;
+        symbol [ params %tmp.55 308 19 25 ];
+        symbol [ eyeShape %tmp.56 308 26 34 ];
+        %tmp.56 = getv %tmp.55 :eyeShape;
+        symbol [ equals %tmp.57 308 35 41 ];
+        %tmp.57 = getv function %tmp.56 :equals;
+        %tmp.58 = "winkLeft";
+        %tmp.59 = invoke %tmp.56 %tmp.57(%tmp.58);
+        bf %tmp.59 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_55_314_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 310 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_55_314_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_55_314_8_stop" ]
+        %closedHeight.4 = local;
+        symbol [ closedHeight %closedHeight.4 310 16 28 ];
+        %tmp.60 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.60 310 31 40 ];
+        %tmp.61 = 0.2;
+        %tmp.62 = mul %tmp.60 %tmp.61;
+        lputv %closedHeight.4 %tmp.62;
+        symbol [ closedHeight %closedHeight.4 310 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 311 12 ]
+        %tmp.63 = lgetv %dc;
+        symbol [ dc %tmp.63 311 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.64 311 15 35 ];
+        %tmp.64 = getv function %tmp.63 :fillRoundedRectangle;
+        %tmp.65 = lgetv %leftX;
+        symbol [ leftX %tmp.65 311 36 41 ];
+        %tmp.66 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.66 311 44 52 ];
+        %tmp.67 = 2;
+        %tmp.68 = div %tmp.66 %tmp.67;
+        %tmp.69 = sub %tmp.65 %tmp.68;
+        %tmp.70 = lgetv %eyeY;
+        symbol [ eyeY %tmp.70 311 56 60 ];
+        %tmp.71 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.71 311 64 73 ];
+        %tmp.72 = lgetv %closedHeight.4;
+        symbol [ closedHeight %tmp.72 311 76 88 ];
+        %tmp.73 = sub %tmp.71 %tmp.72;
+        %tmp.74 = 2;
+        %tmp.75 = div %tmp.73 %tmp.74;
+        %tmp.76 = add %tmp.70 %tmp.75;
+        %tmp.77 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.77 311 93 101 ];
+        %tmp.78 = lgetv %closedHeight.4;
+        symbol [ closedHeight %tmp.78 311 103 115 ];
+        %tmp.79 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.79 311 117 126 ];
+        invoke %tmp.63 %tmp.64(%tmp.69, %tmp.76, %tmp.77, %tmp.78, %tmp.79);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 312 12 ]
+        %tmp.80 = lgetv %dc;
+        symbol [ dc %tmp.80 312 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.81 312 15 35 ];
+        %tmp.81 = getv function %tmp.80 :fillRoundedRectangle;
+        %tmp.82 = lgetv %rightX;
+        symbol [ rightX %tmp.82 312 36 42 ];
+        %tmp.83 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.83 312 45 53 ];
+        %tmp.84 = 2;
+        %tmp.85 = div %tmp.83 %tmp.84;
+        %tmp.86 = sub %tmp.82 %tmp.85;
+        %tmp.87 = lgetv %eyeY;
+        symbol [ eyeY %tmp.87 312 57 61 ];
+        %tmp.88 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.88 312 63 71 ];
+        %tmp.89 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.89 312 73 82 ];
+        %tmp.90 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.90 312 84 93 ];
+        invoke %tmp.80 %tmp.81(%tmp.86, %tmp.87, %tmp.88, %tmp.89, %tmp.90);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_55_314_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 314 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_stmt:
+        %tmp.91 = lgetv %params;
+        symbol [ params %tmp.91 314 19 25 ];
+        symbol [ eyeShape %tmp.92 314 26 34 ];
+        %tmp.92 = getv %tmp.91 :eyeShape;
+        symbol [ equals %tmp.93 314 35 41 ];
+        %tmp.93 = getv function %tmp.92 :equals;
+        %tmp.94 = "line";
+        %tmp.95 = invoke %tmp.92 %tmp.93(%tmp.94);
+        bf %tmp.95 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_51_320_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 316 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_51_320_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_51_320_8_stop" ]
+        %lineHeight.5 = local;
+        symbol [ lineHeight %lineHeight.5 316 16 26 ];
+        %tmp.96 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.96 316 29 38 ];
+        %tmp.97 = 0.3;
+        %tmp.98 = mul %tmp.96 %tmp.97;
+        lputv %lineHeight.5 %tmp.98;
+        symbol [ lineHeight %lineHeight.5 316 16 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 317 12 ]
+        %tmp.99 = lgetv %dc;
+        symbol [ dc %tmp.99 317 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.100 317 15 35 ];
+        %tmp.100 = getv function %tmp.99 :fillRoundedRectangle;
+        %tmp.101 = lgetv %leftX;
+        symbol [ leftX %tmp.101 317 36 41 ];
+        %tmp.102 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.102 317 44 52 ];
+        %tmp.103 = 2;
+        %tmp.104 = div %tmp.102 %tmp.103;
+        %tmp.105 = sub %tmp.101 %tmp.104;
+        %tmp.106 = lgetv %eyeY;
+        symbol [ eyeY %tmp.106 317 56 60 ];
+        %tmp.107 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.107 317 64 73 ];
+        %tmp.108 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.108 317 76 86 ];
+        %tmp.109 = sub %tmp.107 %tmp.108;
+        %tmp.110 = 2;
+        %tmp.111 = div %tmp.109 %tmp.110;
+        %tmp.112 = add %tmp.106 %tmp.111;
+        %tmp.113 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.113 317 91 99 ];
+        %tmp.114 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.114 317 101 111 ];
+        %tmp.115 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.115 317 113 123 ];
+        %tmp.116 = 2;
+        %tmp.117 = div %tmp.115 %tmp.116;
+        invoke %tmp.99 %tmp.100(%tmp.105, %tmp.112, %tmp.113, %tmp.114, %tmp.117);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 318 12 ]
+        %tmp.118 = lgetv %dc;
+        symbol [ dc %tmp.118 318 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.119 318 15 35 ];
+        %tmp.119 = getv function %tmp.118 :fillRoundedRectangle;
+        %tmp.120 = lgetv %rightX;
+        symbol [ rightX %tmp.120 318 36 42 ];
+        %tmp.121 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.121 318 45 53 ];
+        %tmp.122 = 2;
+        %tmp.123 = div %tmp.121 %tmp.122;
+        %tmp.124 = sub %tmp.120 %tmp.123;
+        %tmp.125 = lgetv %eyeY;
+        symbol [ eyeY %tmp.125 318 57 61 ];
+        %tmp.126 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.126 318 65 74 ];
+        %tmp.127 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.127 318 77 87 ];
+        %tmp.128 = sub %tmp.126 %tmp.127;
+        %tmp.129 = 2;
+        %tmp.130 = div %tmp.128 %tmp.129;
+        %tmp.131 = add %tmp.125 %tmp.130;
+        %tmp.132 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.132 318 92 100 ];
+        %tmp.133 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.133 318 102 112 ];
+        %tmp.134 = lgetv %lineHeight.5;
+        symbol [ lineHeight %tmp.134 318 114 124 ];
+        %tmp.135 = 2;
+        %tmp.136 = div %tmp.134 %tmp.135;
+        invoke %tmp.118 %tmp.119(%tmp.124, %tmp.131, %tmp.132, %tmp.133, %tmp.136);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_51_320_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 320 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_stmt:
+        %tmp.137 = lgetv %params;
+        symbol [ params %tmp.137 320 19 25 ];
+        symbol [ eyeShape %tmp.138 320 26 34 ];
+        %tmp.138 = getv %tmp.137 :eyeShape;
+        symbol [ equals %tmp.139 320 35 41 ];
+        %tmp.139 = getv function %tmp.138 :equals;
+        %tmp.140 = "X";
+        %tmp.141 = invoke %tmp.138 %tmp.139(%tmp.140);
+        bf %tmp.141 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_48_324_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 322 12 ]
+        %tmp.142 = self;
+        symbol [ self %tmp.142 322 12 16 ];
+        symbol [ drawXEyes %tmp.143 322 17 26 ];
+        %tmp.143 = getv function %tmp.142 :drawXEyes;
+        %tmp.144 = lgetv %dc;
+        symbol [ dc %tmp.144 322 27 29 ];
+        %tmp.145 = lgetv %leftX;
+        symbol [ leftX %tmp.145 322 31 36 ];
+        %tmp.146 = lgetv %rightX;
+        symbol [ rightX %tmp.146 322 38 44 ];
+        %tmp.147 = lgetv %eyeY;
+        symbol [ eyeY %tmp.147 322 46 50 ];
+        %tmp.148 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.148 322 52 60 ];
+        %tmp.149 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.149 322 62 71 ];
+        invoke %tmp.142 %tmp.143(%tmp.144, %tmp.145, %tmp.146, %tmp.147, %tmp.148, %tmp.149);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_48_324_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 324 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_stmt:
+        %tmp.150 = lgetv %params;
+        symbol [ params %tmp.150 324 19 25 ];
+        symbol [ eyeShape %tmp.151 324 26 34 ];
+        %tmp.151 = getv %tmp.150 :eyeShape;
+        symbol [ equals %tmp.152 324 35 41 ];
+        %tmp.152 = getv function %tmp.151 :equals;
+        %tmp.153 = "arcUp";
+        %tmp.154 = invoke %tmp.151 %tmp.152(%tmp.153);
+        bf %tmp.154 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_52_328_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 326 12 ]
+        %tmp.155 = self;
+        symbol [ self %tmp.155 326 12 16 ];
+        symbol [ drawArcEyes %tmp.156 326 17 28 ];
+        %tmp.156 = getv function %tmp.155 :drawArcEyes;
+        %tmp.157 = lgetv %dc;
+        symbol [ dc %tmp.157 326 29 31 ];
+        %tmp.158 = lgetv %leftX;
+        symbol [ leftX %tmp.158 326 33 38 ];
+        %tmp.159 = lgetv %rightX;
+        symbol [ rightX %tmp.159 326 40 46 ];
+        %tmp.160 = lgetv %eyeY;
+        symbol [ eyeY %tmp.160 326 48 52 ];
+        %tmp.161 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.161 326 54 62 ];
+        %tmp.162 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.162 326 64 73 ];
+        %tmp.163 = true;
+        invoke %tmp.155 %tmp.156(%tmp.157, %tmp.158, %tmp.159, %tmp.160, %tmp.161, %tmp.162, %tmp.163);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_52_328_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 328 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_15_331_8_if_stmt:
+        %tmp.164 = lgetv %params;
+        symbol [ params %tmp.164 328 19 25 ];
+        symbol [ eyeShape %tmp.165 328 26 34 ];
+        %tmp.165 = getv %tmp.164 :eyeShape;
+        symbol [ equals %tmp.166 328 35 41 ];
+        %tmp.166 = getv function %tmp.165 :equals;
+        %tmp.167 = "heart";
+        %tmp.168 = invoke %tmp.165 %tmp.166(%tmp.167);
+        bf %tmp.168 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_15_331_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_52_331_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 330 12 ]
+        %tmp.169 = self;
+        symbol [ self %tmp.169 330 12 16 ];
+        symbol [ drawHeartEyes %tmp.170 330 17 30 ];
+        %tmp.170 = getv function %tmp.169 :drawHeartEyes;
+        %tmp.171 = lgetv %dc;
+        symbol [ dc %tmp.171 330 31 33 ];
+        %tmp.172 = lgetv %leftX;
+        symbol [ leftX %tmp.172 330 35 40 ];
+        %tmp.173 = lgetv %rightX;
+        symbol [ rightX %tmp.173 330 42 48 ];
+        %tmp.174 = lgetv %eyeY;
+        symbol [ eyeY %tmp.174 330 50 54 ];
+        %tmp.175 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.175 330 56 64 ];
+        %tmp.176 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.176 330 66 75 ];
+        invoke %tmp.169 %tmp.170(%tmp.171, %tmp.172, %tmp.173, %tmp.174, %tmp.175, %tmp.176);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_52_331_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_15_331_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_328_15_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_324_15_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_320_15_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_314_15_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_308_15_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_303_8_331_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_296_86_332_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 334; @symbol_functiondef = [drawXEyes,334,21,30]; @symbol_param<0> = [dc,334,31,33]; @symbol_param<1> = [leftX,334,35,40]; @symbol_param<2> = [rightX,334,42,48]; @symbol_param<3> = [eyeY,334,50,54]; @symbol_param<4> = [width,334,56,61]; @symbol_param<5> = [height,334,63,69]; ]
+    private
+    function drawXEyes(dc, leftX, rightX, eyeY, width, height) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 335 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_stop" ]
+        %thickness.1 = local;
+        symbol [ thickness %thickness.1 335 12 21 ];
+        %tmp.1 = lgetv %height;
+        symbol [ height %tmp.1 335 24 30 ];
+        %tmp.2 = 0.25;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %thickness.1 %tmp.3;
+        symbol [ thickness %thickness.1 335 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 336 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_stop" ]
+        %halfWidth.2 = local;
+        symbol [ halfWidth %halfWidth.2 336 12 21 ];
+        %tmp.4 = lgetv %width;
+        symbol [ width %tmp.4 336 24 29 ];
+        %tmp.5 = 0.4;
+        %tmp.6 = mul %tmp.4 %tmp.5;
+        lputv %halfWidth.2 %tmp.6;
+        symbol [ halfWidth %halfWidth.2 336 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 337 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_stop" ]
+        %halfHeight.3 = local;
+        symbol [ halfHeight %halfHeight.3 337 12 22 ];
+        %tmp.7 = lgetv %height;
+        symbol [ height %tmp.7 337 25 31 ];
+        %tmp.8 = 0.4;
+        %tmp.9 = mul %tmp.7 %tmp.8;
+        lputv %halfHeight.3 %tmp.9;
+        symbol [ halfHeight %halfHeight.3 337 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 340 8 ]
+        %tmp.10 = lgetv %dc;
+        symbol [ dc %tmp.10 340 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.11 340 11 31 ];
+        %tmp.11 = getv function %tmp.10 :fillRoundedRectangle;
+        %tmp.12 = lgetv %leftX;
+        symbol [ leftX %tmp.12 340 32 37 ];
+        %tmp.13 = lgetv %halfWidth.2;
+        symbol [ halfWidth %tmp.13 340 40 49 ];
+        %tmp.14 = sub %tmp.12 %tmp.13;
+        %tmp.15 = lgetv %eyeY;
+        symbol [ eyeY %tmp.15 340 51 55 ];
+        %tmp.16 = lgetv %halfHeight.3;
+        symbol [ halfHeight %tmp.16 340 58 68 ];
+        %tmp.17 = 2;
+        %tmp.18 = div %tmp.16 %tmp.17;
+        %tmp.19 = add %tmp.15 %tmp.18;
+        %tmp.20 = lgetv %width;
+        symbol [ width %tmp.20 340 72 77 ];
+        %tmp.21 = 0.8;
+        %tmp.22 = mul %tmp.20 %tmp.21;
+        %tmp.23 = lgetv %thickness.1;
+        symbol [ thickness %tmp.23 340 85 94 ];
+        %tmp.24 = lgetv %thickness.1;
+        symbol [ thickness %tmp.24 340 96 105 ];
+        %tmp.25 = 2;
+        %tmp.26 = div %tmp.24 %tmp.25;
+        invoke %tmp.10 %tmp.11(%tmp.14, %tmp.19, %tmp.22, %tmp.23, %tmp.26);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 341 8 ]
+        %tmp.27 = lgetv %dc;
+        symbol [ dc %tmp.27 341 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.28 341 11 31 ];
+        %tmp.28 = getv function %tmp.27 :fillRoundedRectangle;
+        %tmp.29 = lgetv %leftX;
+        symbol [ leftX %tmp.29 341 32 37 ];
+        %tmp.30 = lgetv %halfWidth.2;
+        symbol [ halfWidth %tmp.30 341 40 49 ];
+        %tmp.31 = sub %tmp.29 %tmp.30;
+        %tmp.32 = lgetv %eyeY;
+        symbol [ eyeY %tmp.32 341 51 55 ];
+        %tmp.33 = lgetv %height;
+        symbol [ height %tmp.33 341 58 64 ];
+        %tmp.34 = add %tmp.32 %tmp.33;
+        %tmp.35 = lgetv %halfHeight.3;
+        symbol [ halfHeight %tmp.35 341 67 77 ];
+        %tmp.36 = 2;
+        %tmp.37 = div %tmp.35 %tmp.36;
+        %tmp.38 = sub %tmp.34 %tmp.37;
+        %tmp.39 = lgetv %thickness.1;
+        symbol [ thickness %tmp.39 341 82 91 ];
+        %tmp.40 = sub %tmp.38 %tmp.39;
+        %tmp.41 = lgetv %width;
+        symbol [ width %tmp.41 341 93 98 ];
+        %tmp.42 = 0.8;
+        %tmp.43 = mul %tmp.41 %tmp.42;
+        %tmp.44 = lgetv %thickness.1;
+        symbol [ thickness %tmp.44 341 106 115 ];
+        %tmp.45 = lgetv %thickness.1;
+        symbol [ thickness %tmp.45 341 117 126 ];
+        %tmp.46 = 2;
+        %tmp.47 = div %tmp.45 %tmp.46;
+        invoke %tmp.27 %tmp.28(%tmp.31, %tmp.40, %tmp.43, %tmp.44, %tmp.47);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 344 8 ]
+        %tmp.48 = lgetv %dc;
+        symbol [ dc %tmp.48 344 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.49 344 11 31 ];
+        %tmp.49 = getv function %tmp.48 :fillRoundedRectangle;
+        %tmp.50 = lgetv %rightX;
+        symbol [ rightX %tmp.50 344 32 38 ];
+        %tmp.51 = lgetv %halfWidth.2;
+        symbol [ halfWidth %tmp.51 344 41 50 ];
+        %tmp.52 = sub %tmp.50 %tmp.51;
+        %tmp.53 = lgetv %eyeY;
+        symbol [ eyeY %tmp.53 344 52 56 ];
+        %tmp.54 = lgetv %halfHeight.3;
+        symbol [ halfHeight %tmp.54 344 59 69 ];
+        %tmp.55 = 2;
+        %tmp.56 = div %tmp.54 %tmp.55;
+        %tmp.57 = add %tmp.53 %tmp.56;
+        %tmp.58 = lgetv %width;
+        symbol [ width %tmp.58 344 73 78 ];
+        %tmp.59 = 0.8;
+        %tmp.60 = mul %tmp.58 %tmp.59;
+        %tmp.61 = lgetv %thickness.1;
+        symbol [ thickness %tmp.61 344 86 95 ];
+        %tmp.62 = lgetv %thickness.1;
+        symbol [ thickness %tmp.62 344 97 106 ];
+        %tmp.63 = 2;
+        %tmp.64 = div %tmp.62 %tmp.63;
+        invoke %tmp.48 %tmp.49(%tmp.52, %tmp.57, %tmp.60, %tmp.61, %tmp.64);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 345 8 ]
+        %tmp.65 = lgetv %dc;
+        symbol [ dc %tmp.65 345 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.66 345 11 31 ];
+        %tmp.66 = getv function %tmp.65 :fillRoundedRectangle;
+        %tmp.67 = lgetv %rightX;
+        symbol [ rightX %tmp.67 345 32 38 ];
+        %tmp.68 = lgetv %halfWidth.2;
+        symbol [ halfWidth %tmp.68 345 41 50 ];
+        %tmp.69 = sub %tmp.67 %tmp.68;
+        %tmp.70 = lgetv %eyeY;
+        symbol [ eyeY %tmp.70 345 52 56 ];
+        %tmp.71 = lgetv %height;
+        symbol [ height %tmp.71 345 59 65 ];
+        %tmp.72 = add %tmp.70 %tmp.71;
+        %tmp.73 = lgetv %halfHeight.3;
+        symbol [ halfHeight %tmp.73 345 68 78 ];
+        %tmp.74 = 2;
+        %tmp.75 = div %tmp.73 %tmp.74;
+        %tmp.76 = sub %tmp.72 %tmp.75;
+        %tmp.77 = lgetv %thickness.1;
+        symbol [ thickness %tmp.77 345 83 92 ];
+        %tmp.78 = sub %tmp.76 %tmp.77;
+        %tmp.79 = lgetv %width;
+        symbol [ width %tmp.79 345 94 99 ];
+        %tmp.80 = 0.8;
+        %tmp.81 = mul %tmp.79 %tmp.80;
+        %tmp.82 = lgetv %thickness.1;
+        symbol [ thickness %tmp.82 345 107 116 ];
+        %tmp.83 = lgetv %thickness.1;
+        symbol [ thickness %tmp.83 345 118 127 ];
+        %tmp.84 = 2;
+        %tmp.85 = div %tmp.83 %tmp.84;
+        invoke %tmp.65 %tmp.66(%tmp.69, %tmp.78, %tmp.81, %tmp.82, %tmp.85);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_334_71_346_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 348; @symbol_functiondef = [drawArcEyes,348,21,32]; @symbol_param<0> = [dc,348,33,35]; @symbol_param<1> = [leftX,348,37,42]; @symbol_param<2> = [rightX,348,44,50]; @symbol_param<3> = [eyeY,348,52,56]; @symbol_param<4> = [width,348,58,63]; @symbol_param<5> = [height,348,65,71]; @symbol_param<6> = [upward,348,73,79]; ]
+    private
+    function drawArcEyes(dc, leftX, rightX, eyeY, width, height, upward) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 349 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_stop" ]
+        %arcHeight.1 = local;
+        symbol [ arcHeight %arcHeight.1 349 12 21 ];
+        %tmp.1 = lgetv %height;
+        symbol [ height %tmp.1 349 24 30 ];
+        %tmp.2 = 0.6;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %arcHeight.1 %tmp.3;
+        symbol [ arcHeight %arcHeight.1 349 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 350 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_stop" ]
+        %y.2 = local;
+        symbol [ y %y.2 350 12 13 ];
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_begin:
+        %tmp.4 = lgetv %upward;
+        symbol [ upward %tmp.4 350 16 22 ];
+        bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_true:
+        %tmp.5 = lgetv %eyeY;
+        symbol [ eyeY %tmp.5 350 25 29 ];
+        %tmp.6 = lgetv %height;
+        symbol [ height %tmp.6 350 32 38 ];
+        %tmp.7 = add %tmp.5 %tmp.6;
+        %tmp.8 = lgetv %arcHeight.1;
+        symbol [ arcHeight %tmp.8 350 41 50 ];
+        %tmp.9 = sub %tmp.7 %tmp.8;
+        push %tmp.9;
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_false:
+        %tmp.10 = lgetv %eyeY;
+        symbol [ eyeY %tmp.10 350 53 57 ];
+        push %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_end:
+        %tmp.11 = phi [%tmp.4 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_begin] [%tmp.9 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_true] [%tmp.10 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_false] [%tmp.11 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_350_16_350_53_end];
+        lputv %y.2 %tmp.11;
+        symbol [ y %y.2 350 12 13 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 352 8 ]
+        %tmp.12 = lgetv %dc;
+        symbol [ dc %tmp.12 352 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.13 352 11 31 ];
+        %tmp.13 = getv function %tmp.12 :fillRoundedRectangle;
+        %tmp.14 = lgetv %leftX;
+        symbol [ leftX %tmp.14 352 32 37 ];
+        %tmp.15 = lgetv %width;
+        symbol [ width %tmp.15 352 40 45 ];
+        %tmp.16 = 2;
+        %tmp.17 = div %tmp.15 %tmp.16;
+        %tmp.18 = sub %tmp.14 %tmp.17;
+        %tmp.19 = lgetv %y.2;
+        symbol [ y %tmp.19 352 49 50 ];
+        %tmp.20 = lgetv %width;
+        symbol [ width %tmp.20 352 52 57 ];
+        %tmp.21 = lgetv %arcHeight.1;
+        symbol [ arcHeight %tmp.21 352 59 68 ];
+        %tmp.22 = lgetv %arcHeight.1;
+        symbol [ arcHeight %tmp.22 352 70 79 ];
+        %tmp.23 = 2;
+        %tmp.24 = div %tmp.22 %tmp.23;
+        invoke %tmp.12 %tmp.13(%tmp.18, %tmp.19, %tmp.20, %tmp.21, %tmp.24);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 353 8 ]
+        %tmp.25 = lgetv %dc;
+        symbol [ dc %tmp.25 353 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.26 353 11 31 ];
+        %tmp.26 = getv function %tmp.25 :fillRoundedRectangle;
+        %tmp.27 = lgetv %rightX;
+        symbol [ rightX %tmp.27 353 32 38 ];
+        %tmp.28 = lgetv %width;
+        symbol [ width %tmp.28 353 41 46 ];
+        %tmp.29 = 2;
+        %tmp.30 = div %tmp.28 %tmp.29;
+        %tmp.31 = sub %tmp.27 %tmp.30;
+        %tmp.32 = lgetv %y.2;
+        symbol [ y %tmp.32 353 50 51 ];
+        %tmp.33 = lgetv %width;
+        symbol [ width %tmp.33 353 53 58 ];
+        %tmp.34 = lgetv %arcHeight.1;
+        symbol [ arcHeight %tmp.34 353 60 69 ];
+        %tmp.35 = lgetv %arcHeight.1;
+        symbol [ arcHeight %tmp.35 353 71 80 ];
+        %tmp.36 = 2;
+        %tmp.37 = div %tmp.35 %tmp.36;
+        invoke %tmp.25 %tmp.26(%tmp.31, %tmp.32, %tmp.33, %tmp.34, %tmp.37);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_348_81_354_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 356; @symbol_functiondef = [drawHeartEyes,356,21,34]; @symbol_param<0> = [dc,356,35,37]; @symbol_param<1> = [leftX,356,39,44]; @symbol_param<2> = [rightX,356,46,52]; @symbol_param<3> = [eyeY,356,54,58]; @symbol_param<4> = [width,356,60,65]; @symbol_param<5> = [height,356,67,73]; ]
+    private
+    function drawHeartEyes(dc, leftX, rightX, eyeY, width, height) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 358 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_stop" ]
+        %heartWidth.1 = local;
+        symbol [ heartWidth %heartWidth.1 358 12 22 ];
+        %tmp.1 = lgetv %width;
+        symbol [ width %tmp.1 358 25 30 ];
+        %tmp.2 = 0.6;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %heartWidth.1 %tmp.3;
+        symbol [ heartWidth %heartWidth.1 358 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 359 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_stop" ]
+        %heartHeight.2 = local;
+        symbol [ heartHeight %heartHeight.2 359 12 23 ];
+        %tmp.4 = lgetv %height;
+        symbol [ height %tmp.4 359 26 32 ];
+        %tmp.5 = 0.8;
+        %tmp.6 = mul %tmp.4 %tmp.5;
+        lputv %heartHeight.2 %tmp.6;
+        symbol [ heartHeight %heartHeight.2 359 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 361 8 ]
+        %tmp.7 = lgetv %dc;
+        symbol [ dc %tmp.7 361 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.8 361 11 31 ];
+        %tmp.8 = getv function %tmp.7 :fillRoundedRectangle;
+        %tmp.9 = lgetv %leftX;
+        symbol [ leftX %tmp.9 361 32 37 ];
+        %tmp.10 = lgetv %heartWidth.1;
+        symbol [ heartWidth %tmp.10 361 40 50 ];
+        %tmp.11 = 2;
+        %tmp.12 = div %tmp.10 %tmp.11;
+        %tmp.13 = sub %tmp.9 %tmp.12;
+        %tmp.14 = lgetv %eyeY;
+        symbol [ eyeY %tmp.14 361 54 58 ];
+        %tmp.15 = lgetv %heartWidth.1;
+        symbol [ heartWidth %tmp.15 361 60 70 ];
+        %tmp.16 = lgetv %heartHeight.2;
+        symbol [ heartHeight %tmp.16 361 72 83 ];
+        %tmp.17 = lgetv %heartHeight.2;
+        symbol [ heartHeight %tmp.17 361 85 96 ];
+        %tmp.18 = 3;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        invoke %tmp.7 %tmp.8(%tmp.13, %tmp.14, %tmp.15, %tmp.16, %tmp.19);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 362 8 ]
+        %tmp.20 = lgetv %dc;
+        symbol [ dc %tmp.20 362 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.21 362 11 31 ];
+        %tmp.21 = getv function %tmp.20 :fillRoundedRectangle;
+        %tmp.22 = lgetv %rightX;
+        symbol [ rightX %tmp.22 362 32 38 ];
+        %tmp.23 = lgetv %heartWidth.1;
+        symbol [ heartWidth %tmp.23 362 41 51 ];
+        %tmp.24 = 2;
+        %tmp.25 = div %tmp.23 %tmp.24;
+        %tmp.26 = sub %tmp.22 %tmp.25;
+        %tmp.27 = lgetv %eyeY;
+        symbol [ eyeY %tmp.27 362 55 59 ];
+        %tmp.28 = lgetv %heartWidth.1;
+        symbol [ heartWidth %tmp.28 362 61 71 ];
+        %tmp.29 = lgetv %heartHeight.2;
+        symbol [ heartHeight %tmp.29 362 73 84 ];
+        %tmp.30 = lgetv %heartHeight.2;
+        symbol [ heartHeight %tmp.30 362 86 97 ];
+        %tmp.31 = 3;
+        %tmp.32 = div %tmp.30 %tmp.31;
+        invoke %tmp.20 %tmp.21(%tmp.26, %tmp.27, %tmp.28, %tmp.29, %tmp.32);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_356_75_363_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 365; @symbol_functiondef = [drawMouth,365,21,30]; @symbol_param<0> = [dc,365,31,33]; @symbol_param<1> = [params,365,35,41]; @symbol_param<2> = [centerX,365,43,50]; @symbol_param<3> = [mouthY,365,52,58]; @symbol_param<4> = [baseWidth,365,60,69]; @symbol_param<5> = [baseHeight,365,71,81]; ]
+    private
+    function drawMouth(dc, params, centerX, mouthY, baseWidth, baseHeight) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 366 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_stop" ]
+        %mouthWidth.1 = local;
+        symbol [ mouthWidth %mouthWidth.1 366 12 22 ];
+        %tmp.1 = lgetv %baseWidth;
+        symbol [ baseWidth %tmp.1 366 25 34 ];
+        %tmp.2 = lgetv %params;
+        symbol [ params %tmp.2 366 37 43 ];
+        symbol [ mouthWidth %tmp.3 366 44 54 ];
+        %tmp.3 = getv %tmp.2 :mouthWidth;
+        %tmp.4 = mul %tmp.1 %tmp.3;
+        lputv %mouthWidth.1 %tmp.4;
+        symbol [ mouthWidth %mouthWidth.1 366 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 367 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_stop" ]
+        %mouthHeight.2 = local;
+        symbol [ mouthHeight %mouthHeight.2 367 12 23 ];
+        %tmp.5 = lgetv %baseHeight;
+        symbol [ baseHeight %tmp.5 367 26 36 ];
+        %tmp.6 = lgetv %params;
+        symbol [ params %tmp.6 367 39 45 ];
+        symbol [ mouthHeight %tmp.7 367 46 57 ];
+        %tmp.7 = getv %tmp.6 :mouthHeight;
+        %tmp.8 = mul %tmp.5 %tmp.7;
+        lputv %mouthHeight.2 %tmp.8;
+        symbol [ mouthHeight %mouthHeight.2 367 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 368 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_stop" ]
+        %mouthRadius.3 = local;
+        symbol [ mouthRadius %mouthRadius.3 368 12 23 ];
+        %tmp.9 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.9 368 26 37 ];
+        %tmp.10 = lgetv %params;
+        symbol [ params %tmp.10 368 40 46 ];
+        symbol [ mouthRadius %tmp.11 368 47 58 ];
+        %tmp.11 = getv %tmp.10 :mouthRadius;
+        %tmp.12 = mul %tmp.9 %tmp.11;
+        lputv %mouthRadius.3 %tmp.12;
+        symbol [ mouthRadius %mouthRadius.3 368 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 370 8 ]
+        %tmp.13 = lgetv %dc;
+        symbol [ dc %tmp.13 370 8 10 ];
+        symbol [ setColor %tmp.14 370 11 19 ];
+        %tmp.14 = getv function %tmp.13 :setColor;
+        symbol [ Graphics %tmp.15 370 20 28 ];
+        %tmp.15 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.16 370 29 40 ];
+        %tmp.16 = getv %tmp.15 :COLOR_GREEN;
+        symbol [ Graphics %tmp.17 370 42 50 ];
+        %tmp.17 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.18 370 51 68 ];
+        %tmp.18 = getv %tmp.17 :COLOR_TRANSPARENT;
+        invoke %tmp.13 %tmp.14(%tmp.16, %tmp.18);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 372 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_stmt:
+        %tmp.19 = lgetv %params;
+        symbol [ params %tmp.19 372 12 18 ];
+        symbol [ mouthShape %tmp.20 372 19 29 ];
+        %tmp.20 = getv %tmp.19 :mouthShape;
+        symbol [ equals %tmp.21 372 30 36 ];
+        %tmp.21 = getv function %tmp.20 :equals;
+        %tmp.22 = "flat";
+        %tmp.23 = invoke %tmp.20 %tmp.21(%tmp.22);
+        bf %tmp.23 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_46_376_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 374 12 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 374 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.25 374 15 35 ];
+        %tmp.25 = getv function %tmp.24 :fillRoundedRectangle;
+        %tmp.26 = lgetv %centerX;
+        symbol [ centerX %tmp.26 374 36 43 ];
+        %tmp.27 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.27 374 46 56 ];
+        %tmp.28 = 2;
+        %tmp.29 = div %tmp.27 %tmp.28;
+        %tmp.30 = sub %tmp.26 %tmp.29;
+        %tmp.31 = lgetv %mouthY;
+        symbol [ mouthY %tmp.31 374 60 66 ];
+        %tmp.32 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.32 374 68 78 ];
+        %tmp.33 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.33 374 80 91 ];
+        %tmp.34 = lgetv %mouthRadius.3;
+        symbol [ mouthRadius %tmp.34 374 93 104 ];
+        invoke %tmp.24 %tmp.25(%tmp.30, %tmp.31, %tmp.32, %tmp.33, %tmp.34);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_46_376_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 376 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_stmt:
+        %tmp.35 = lgetv %params;
+        symbol [ params %tmp.35 376 19 25 ];
+        symbol [ mouthShape %tmp.36 376 26 36 ];
+        %tmp.36 = getv %tmp.35 :mouthShape;
+        symbol [ equals %tmp.37 376 37 43 ];
+        %tmp.37 = getv function %tmp.36 :equals;
+        %tmp.38 = "curve";
+        %tmp.39 = invoke %tmp.36 %tmp.37(%tmp.38);
+        bf %tmp.39 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_54_389_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 378 12 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_stmt:
+        %tmp.40 = lgetv %params;
+        symbol [ params %tmp.40 378 16 22 ];
+        symbol [ mouthCurvature %tmp.41 378 23 37 ];
+        %tmp.41 = getv %tmp.40 :mouthCurvature;
+        %tmp.42 = 0;
+        %tmp.43 = gt %tmp.41 %tmp.42;
+        bf %tmp.43 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_43_382_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 380 16 ]
+        %tmp.44 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.44 380 16 26 ];
+        %tmp.45 = 1.1;
+        %tmp.46 = mul %tmp.44 %tmp.45;
+        lputv %mouthWidth.1 %tmp.46;
+        symbol [ mouthWidth %mouthWidth.1 380 16 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 381 16 ]
+        %tmp.47 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.47 381 16 27 ];
+        %tmp.48 = 1.0;
+        %tmp.49 = lgetv %params;
+        symbol [ params %tmp.49 381 38 44 ];
+        symbol [ mouthCurvature %tmp.50 381 45 59 ];
+        %tmp.50 = getv %tmp.49 :mouthCurvature;
+        %tmp.51 = 0.5;
+        %tmp.52 = mul %tmp.50 %tmp.51;
+        %tmp.53 = add %tmp.48 %tmp.52;
+        %tmp.54 = mul %tmp.47 %tmp.53;
+        lputv %mouthHeight.2 %tmp.54;
+        symbol [ mouthHeight %mouthHeight.2 381 16 27 ];
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_43_382_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 382 19 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_19_386_12_if_stmt:
+        %tmp.55 = lgetv %params;
+        symbol [ params %tmp.55 382 23 29 ];
+        symbol [ mouthCurvature %tmp.56 382 30 44 ];
+        %tmp.56 = getv %tmp.55 :mouthCurvature;
+        %tmp.57 = 0;
+        %tmp.58 = lt %tmp.56 %tmp.57;
+        bf %tmp.58 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_19_386_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_19_386_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_50_386_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 384 16 ]
+        %tmp.59 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.59 384 16 26 ];
+        %tmp.60 = 0.9;
+        %tmp.61 = mul %tmp.59 %tmp.60;
+        lputv %mouthWidth.1 %tmp.61;
+        symbol [ mouthWidth %mouthWidth.1 384 16 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 385 16 ]
+        %tmp.62 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.62 385 16 27 ];
+        %tmp.63 = 1.0;
+        %tmp.64 = lgetv %params;
+        symbol [ params %tmp.64 385 38 44 ];
+        symbol [ mouthCurvature %tmp.65 385 45 59 ];
+        %tmp.65 = getv %tmp.64 :mouthCurvature;
+        %tmp.66 = 0.5;
+        %tmp.67 = mul %tmp.65 %tmp.66;
+        %tmp.68 = sub %tmp.63 %tmp.67;
+        %tmp.69 = mul %tmp.62 %tmp.68;
+        lputv %mouthHeight.2 %tmp.69;
+        symbol [ mouthHeight %mouthHeight.2 385 16 27 ];
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_50_386_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_19_386_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_382_19_386_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_378_12_386_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 387 12 ]
+        %tmp.70 = lgetv %dc;
+        symbol [ dc %tmp.70 387 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.71 387 15 35 ];
+        %tmp.71 = getv function %tmp.70 :fillRoundedRectangle;
+        %tmp.72 = lgetv %centerX;
+        symbol [ centerX %tmp.72 387 36 43 ];
+        %tmp.73 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.73 387 46 56 ];
+        %tmp.74 = 2;
+        %tmp.75 = div %tmp.73 %tmp.74;
+        %tmp.76 = sub %tmp.72 %tmp.75;
+        %tmp.77 = lgetv %mouthY;
+        symbol [ mouthY %tmp.77 387 60 66 ];
+        %tmp.78 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.78 387 68 78 ];
+        %tmp.79 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.79 387 80 91 ];
+        %tmp.80 = lgetv %mouthRadius.3;
+        symbol [ mouthRadius %tmp.80 387 93 104 ];
+        invoke %tmp.70 %tmp.71(%tmp.76, %tmp.77, %tmp.78, %tmp.79, %tmp.80);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_54_389_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 389 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_stmt:
+        %tmp.81 = lgetv %params;
+        symbol [ params %tmp.81 389 19 25 ];
+        symbol [ mouthShape %tmp.82 389 26 36 ];
+        %tmp.82 = getv %tmp.81 :mouthShape;
+        symbol [ equals %tmp.83 389 37 43 ];
+        %tmp.83 = getv function %tmp.82 :equals;
+        %tmp.84 = "grin";
+        %tmp.85 = invoke %tmp.82 %tmp.83(%tmp.84);
+        bf %tmp.85 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_53_394_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 391 12 ]
+        %tmp.86 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.86 391 12 23 ];
+        %tmp.87 = 1.0;
+        %tmp.88 = lgetv %params;
+        symbol [ params %tmp.88 391 34 40 ];
+        symbol [ mouthOpenness %tmp.89 391 41 54 ];
+        %tmp.89 = getv %tmp.88 :mouthOpenness;
+        %tmp.90 = add %tmp.87 %tmp.89;
+        %tmp.91 = mul %tmp.86 %tmp.90;
+        lputv %mouthHeight.2 %tmp.91;
+        symbol [ mouthHeight %mouthHeight.2 391 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 392 12 ]
+        %tmp.92 = lgetv %dc;
+        symbol [ dc %tmp.92 392 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.93 392 15 35 ];
+        %tmp.93 = getv function %tmp.92 :fillRoundedRectangle;
+        %tmp.94 = lgetv %centerX;
+        symbol [ centerX %tmp.94 392 36 43 ];
+        %tmp.95 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.95 392 46 56 ];
+        %tmp.96 = 2;
+        %tmp.97 = div %tmp.95 %tmp.96;
+        %tmp.98 = sub %tmp.94 %tmp.97;
+        %tmp.99 = lgetv %mouthY;
+        symbol [ mouthY %tmp.99 392 60 66 ];
+        %tmp.100 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.100 392 68 78 ];
+        %tmp.101 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.101 392 80 91 ];
+        %tmp.102 = lgetv %mouthRadius.3;
+        symbol [ mouthRadius %tmp.102 392 93 104 ];
+        invoke %tmp.92 %tmp.93(%tmp.98, %tmp.99, %tmp.100, %tmp.101, %tmp.102);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_53_394_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 394 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_stmt:
+        %tmp.103 = lgetv %params;
+        symbol [ params %tmp.103 394 19 25 ];
+        symbol [ mouthShape %tmp.104 394 26 36 ];
+        %tmp.104 = getv %tmp.103 :mouthShape;
+        symbol [ equals %tmp.105 394 37 43 ];
+        %tmp.105 = getv function %tmp.104 :equals;
+        %tmp.106 = "oShock";
+        %tmp.107 = invoke %tmp.104 %tmp.105(%tmp.106);
+        bf %tmp.107 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 396 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_stop" ]
+        %ovalWidth.4 = local;
+        symbol [ ovalWidth %ovalWidth.4 396 16 25 ];
+        %tmp.108 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.108 396 28 38 ];
+        %tmp.109 = 0.6;
+        %tmp.110 = mul %tmp.108 %tmp.109;
+        lputv %ovalWidth.4 %tmp.110;
+        symbol [ ovalWidth %ovalWidth.4 396 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 397 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_stop" ]
+        %ovalHeight.5 = local;
+        symbol [ ovalHeight %ovalHeight.5 397 16 26 ];
+        %tmp.111 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.111 397 29 40 ];
+        %tmp.112 = 1.0;
+        %tmp.113 = lgetv %params;
+        symbol [ params %tmp.113 397 50 56 ];
+        symbol [ mouthOpenness %tmp.114 397 57 70 ];
+        %tmp.114 = getv %tmp.113 :mouthOpenness;
+        %tmp.115 = 2;
+        %tmp.116 = mul %tmp.114 %tmp.115;
+        %tmp.117 = add %tmp.112 %tmp.116;
+        %tmp.118 = mul %tmp.111 %tmp.117;
+        lputv %ovalHeight.5 %tmp.118;
+        symbol [ ovalHeight %ovalHeight.5 397 16 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 398 12 ]
+        %tmp.119 = lgetv %dc;
+        symbol [ dc %tmp.119 398 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.120 398 15 35 ];
+        %tmp.120 = getv function %tmp.119 :fillRoundedRectangle;
+        %tmp.121 = lgetv %centerX;
+        symbol [ centerX %tmp.121 398 36 43 ];
+        %tmp.122 = lgetv %ovalWidth.4;
+        symbol [ ovalWidth %tmp.122 398 46 55 ];
+        %tmp.123 = 2;
+        %tmp.124 = div %tmp.122 %tmp.123;
+        %tmp.125 = sub %tmp.121 %tmp.124;
+        %tmp.126 = lgetv %mouthY;
+        symbol [ mouthY %tmp.126 398 59 65 ];
+        %tmp.127 = lgetv %ovalWidth.4;
+        symbol [ ovalWidth %tmp.127 398 67 76 ];
+        %tmp.128 = lgetv %ovalHeight.5;
+        symbol [ ovalHeight %tmp.128 398 78 88 ];
+        %tmp.129 = lgetv %ovalWidth.4;
+        symbol [ ovalWidth %tmp.129 398 90 99 ];
+        %tmp.130 = 2;
+        %tmp.131 = div %tmp.129 %tmp.130;
+        invoke %tmp.119 %tmp.120(%tmp.125, %tmp.126, %tmp.127, %tmp.128, %tmp.131);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_55_400_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 400 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_stmt:
+        %tmp.132 = lgetv %params;
+        symbol [ params %tmp.132 400 19 25 ];
+        symbol [ mouthShape %tmp.133 400 26 36 ];
+        %tmp.133 = getv %tmp.132 :mouthShape;
+        symbol [ equals %tmp.134 400 37 43 ];
+        %tmp.134 = getv function %tmp.133 :equals;
+        %tmp.135 = "cat3";
+        %tmp.136 = invoke %tmp.133 %tmp.134(%tmp.135);
+        bf %tmp.136 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_53_405_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 402 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_53_405_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_53_405_8_stop" ]
+        %catWidth.6 = local;
+        symbol [ catWidth %catWidth.6 402 16 24 ];
+        %tmp.137 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.137 402 27 37 ];
+        %tmp.138 = 0.5;
+        %tmp.139 = mul %tmp.137 %tmp.138;
+        lputv %catWidth.6 %tmp.139;
+        symbol [ catWidth %catWidth.6 402 16 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 403 12 ]
+        %tmp.140 = lgetv %dc;
+        symbol [ dc %tmp.140 403 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.141 403 15 35 ];
+        %tmp.141 = getv function %tmp.140 :fillRoundedRectangle;
+        %tmp.142 = lgetv %centerX;
+        symbol [ centerX %tmp.142 403 36 43 ];
+        %tmp.143 = lgetv %catWidth.6;
+        symbol [ catWidth %tmp.143 403 46 54 ];
+        %tmp.144 = 2;
+        %tmp.145 = div %tmp.143 %tmp.144;
+        %tmp.146 = sub %tmp.142 %tmp.145;
+        %tmp.147 = lgetv %mouthY;
+        symbol [ mouthY %tmp.147 403 58 64 ];
+        %tmp.148 = lgetv %catWidth.6;
+        symbol [ catWidth %tmp.148 403 66 74 ];
+        %tmp.149 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.149 403 76 87 ];
+        %tmp.150 = lgetv %mouthRadius.3;
+        symbol [ mouthRadius %tmp.150 403 89 100 ];
+        invoke %tmp.140 %tmp.141(%tmp.146, %tmp.147, %tmp.148, %tmp.149, %tmp.150);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_53_405_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 405 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_15_414_8_if_stmt:
+        %tmp.151 = lgetv %params;
+        symbol [ params %tmp.151 405 19 25 ];
+        symbol [ mouthShape %tmp.152 405 26 36 ];
+        %tmp.152 = getv %tmp.151 :mouthShape;
+        symbol [ equals %tmp.153 405 37 43 ];
+        %tmp.153 = getv function %tmp.152 :equals;
+        %tmp.154 = "tongueOut";
+        %tmp.155 = invoke %tmp.152 %tmp.153(%tmp.154);
+        bf %tmp.155 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_15_414_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_58_414_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 407 12 ]
+        %tmp.156 = lgetv %dc;
+        symbol [ dc %tmp.156 407 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.157 407 15 35 ];
+        %tmp.157 = getv function %tmp.156 :fillRoundedRectangle;
+        %tmp.158 = lgetv %centerX;
+        symbol [ centerX %tmp.158 407 36 43 ];
+        %tmp.159 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.159 407 46 56 ];
+        %tmp.160 = 2;
+        %tmp.161 = div %tmp.159 %tmp.160;
+        %tmp.162 = sub %tmp.158 %tmp.161;
+        %tmp.163 = lgetv %mouthY;
+        symbol [ mouthY %tmp.163 407 60 66 ];
+        %tmp.164 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.164 407 68 78 ];
+        %tmp.165 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.165 407 80 91 ];
+        %tmp.166 = lgetv %mouthRadius.3;
+        symbol [ mouthRadius %tmp.166 407 93 104 ];
+        invoke %tmp.156 %tmp.157(%tmp.162, %tmp.163, %tmp.164, %tmp.165, %tmp.166);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 408 12 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_12_413_12_if_stmt:
+        %tmp.167 = lgetv %params;
+        symbol [ params %tmp.167 408 16 22 ];
+        symbol [ showTongue %tmp.168 408 23 33 ];
+        %tmp.168 = getv %tmp.167 :showTongue;
+        bf %tmp.168 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_12_413_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_12_413_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 409 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_stop" ]
+        %tongueWidth.7 = local;
+        symbol [ tongueWidth %tongueWidth.7 409 20 31 ];
+        %tmp.169 = lgetv %mouthWidth.1;
+        symbol [ mouthWidth %tmp.169 409 34 44 ];
+        %tmp.170 = 0.4;
+        %tmp.171 = mul %tmp.169 %tmp.170;
+        lputv %tongueWidth.7 %tmp.171;
+        symbol [ tongueWidth %tongueWidth.7 409 20 31 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 410 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_stop" ]
+        %tongueHeight.8 = local;
+        symbol [ tongueHeight %tongueHeight.8 410 20 32 ];
+        %tmp.172 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.172 410 35 46 ];
+        %tmp.173 = lgetv %params;
+        symbol [ params %tmp.173 410 49 55 ];
+        symbol [ tongueSize %tmp.174 410 56 66 ];
+        %tmp.174 = getv %tmp.173 :tongueSize;
+        %tmp.175 = mul %tmp.172 %tmp.174;
+        %tmp.176 = 3;
+        %tmp.177 = mul %tmp.175 %tmp.176;
+        lputv %tongueHeight.8 %tmp.177;
+        symbol [ tongueHeight %tongueHeight.8 410 20 32 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 411 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_stop" ]
+        %tongueY.9 = local;
+        symbol [ tongueY %tongueY.9 411 20 27 ];
+        %tmp.178 = lgetv %mouthY;
+        symbol [ mouthY %tmp.178 411 30 36 ];
+        %tmp.179 = lgetv %mouthHeight.2;
+        symbol [ mouthHeight %tmp.179 411 39 50 ];
+        %tmp.180 = add %tmp.178 %tmp.179;
+        lputv %tongueY.9 %tmp.180;
+        symbol [ tongueY %tongueY.9 411 20 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 412 16 ]
+        %tmp.181 = lgetv %dc;
+        symbol [ dc %tmp.181 412 16 18 ];
+        symbol [ fillRoundedRectangle %tmp.182 412 19 39 ];
+        %tmp.182 = getv function %tmp.181 :fillRoundedRectangle;
+        %tmp.183 = lgetv %centerX;
+        symbol [ centerX %tmp.183 412 40 47 ];
+        %tmp.184 = lgetv %tongueWidth.7;
+        symbol [ tongueWidth %tmp.184 412 50 61 ];
+        %tmp.185 = 2;
+        %tmp.186 = div %tmp.184 %tmp.185;
+        %tmp.187 = sub %tmp.183 %tmp.186;
+        %tmp.188 = lgetv %tongueY.9;
+        symbol [ tongueY %tmp.188 412 65 72 ];
+        %tmp.189 = lgetv %tongueWidth.7;
+        symbol [ tongueWidth %tmp.189 412 74 85 ];
+        %tmp.190 = lgetv %tongueHeight.8;
+        symbol [ tongueHeight %tmp.190 412 87 99 ];
+        %tmp.191 = lgetv %tongueWidth.7;
+        symbol [ tongueWidth %tmp.191 412 101 112 ];
+        %tmp.192 = 2;
+        %tmp.193 = div %tmp.191 %tmp.192;
+        invoke %tmp.181 %tmp.182(%tmp.187, %tmp.188, %tmp.189, %tmp.190, %tmp.193);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_35_413_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_12_413_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_408_12_413_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_58_414_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_15_414_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_405_15_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_400_15_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_394_15_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_389_15_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_376_15_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_372_8_414_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_365_83_415_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 417; @symbol_functiondef = [drawAccessories,417,21,36]; @symbol_param<0> = [dc,417,37,39]; @symbol_param<1> = [params,417,41,47]; @symbol_param<2> = [centerX,417,49,56]; @symbol_param<3> = [centerY,417,58,65]; @symbol_param<4> = [faceSize,417,67,75]; ]
+    private
+    function drawAccessories(dc, params, centerX, centerY, faceSize) {
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_417_77_435_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 418 8 ]
+        %tmp.1 = lgetv %dc;
+        symbol [ dc %tmp.1 418 8 10 ];
+        symbol [ setColor %tmp.2 418 11 19 ];
+        %tmp.2 = getv function %tmp.1 :setColor;
+        symbol [ Graphics %tmp.3 418 20 28 ];
+        %tmp.3 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.4 418 29 40 ];
+        %tmp.4 = getv %tmp.3 :COLOR_GREEN;
+        symbol [ Graphics %tmp.5 418 42 50 ];
+        %tmp.5 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.6 418 51 68 ];
+        %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+        invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 421 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_8_426_8_if_stmt:
+        %tmp.7 = lgetv %params;
+        symbol [ params %tmp.7 421 12 18 ];
+        symbol [ showTears %tmp.8 421 19 28 ];
+        %tmp.8 = getv %tmp.7 :showTears;
+        bf %tmp.8 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_8_426_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_8_426_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 422 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_stop" ]
+        %tearSize.1 = local;
+        symbol [ tearSize %tearSize.1 422 16 24 ];
+        %tmp.9 = lgetv %faceSize;
+        symbol [ faceSize %tmp.9 422 27 35 ];
+        %tmp.10 = lgetv %params;
+        symbol [ params %tmp.10 422 38 44 ];
+        symbol [ tearSize %tmp.11 422 45 53 ];
+        %tmp.11 = getv %tmp.10 :tearSize;
+        %tmp.12 = mul %tmp.9 %tmp.11;
+        lputv %tearSize.1 %tmp.12;
+        symbol [ tearSize %tearSize.1 422 16 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 423 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_stop" ]
+        %tearX.2 = local;
+        symbol [ tearX %tearX.2 423 16 21 ];
+        %tmp.13 = lgetv %centerX;
+        symbol [ centerX %tmp.13 423 24 31 ];
+        %tmp.14 = lgetv %faceSize;
+        symbol [ faceSize %tmp.14 423 34 42 ];
+        %tmp.15 = 4;
+        %tmp.16 = div %tmp.14 %tmp.15;
+        %tmp.17 = sub %tmp.13 %tmp.16;
+        lputv %tearX.2 %tmp.17;
+        symbol [ tearX %tearX.2 423 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 424 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_stop" ]
+        %tearY.3 = local;
+        symbol [ tearY %tearY.3 424 16 21 ];
+        %tmp.18 = lgetv %centerY;
+        symbol [ centerY %tmp.18 424 24 31 ];
+        %tmp.19 = lgetv %faceSize;
+        symbol [ faceSize %tmp.19 424 34 42 ];
+        %tmp.20 = 12;
+        %tmp.21 = div %tmp.19 %tmp.20;
+        %tmp.22 = sub %tmp.18 %tmp.21;
+        lputv %tearY.3 %tmp.22;
+        symbol [ tearY %tearY.3 424 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 425 12 ]
+        %tmp.23 = lgetv %dc;
+        symbol [ dc %tmp.23 425 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.24 425 15 35 ];
+        %tmp.24 = getv function %tmp.23 :fillRoundedRectangle;
+        %tmp.25 = lgetv %tearX.2;
+        symbol [ tearX %tmp.25 425 36 41 ];
+        %tmp.26 = lgetv %tearY.3;
+        symbol [ tearY %tmp.26 425 43 48 ];
+        %tmp.27 = lgetv %tearSize.1;
+        symbol [ tearSize %tmp.27 425 50 58 ];
+        %tmp.28 = lgetv %tearSize.1;
+        symbol [ tearSize %tmp.28 425 60 68 ];
+        %tmp.29 = 1.5;
+        %tmp.30 = mul %tmp.28 %tmp.29;
+        %tmp.31 = lgetv %tearSize.1;
+        symbol [ tearSize %tmp.31 425 76 84 ];
+        %tmp.32 = 2;
+        %tmp.33 = div %tmp.31 %tmp.32;
+        invoke %tmp.23 %tmp.24(%tmp.25, %tmp.26, %tmp.27, %tmp.30, %tmp.33);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_30_426_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_8_426_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_421_8_426_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 429 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_8_434_8_if_stmt:
+        %tmp.34 = lgetv %params;
+        symbol [ params %tmp.34 429 12 18 ];
+        symbol [ showBlush %tmp.35 429 19 28 ];
+        %tmp.35 = getv %tmp.34 :showBlush;
+        bf %tmp.35 @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_8_434_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_8_434_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 430 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_stop" ]
+        %blushSize.4 = local;
+        symbol [ blushSize %blushSize.4 430 16 25 ];
+        %tmp.36 = lgetv %faceSize;
+        symbol [ faceSize %tmp.36 430 28 36 ];
+        %tmp.37 = 0.08;
+        %tmp.38 = mul %tmp.36 %tmp.37;
+        %tmp.39 = lgetv %params;
+        symbol [ params %tmp.39 430 46 52 ];
+        symbol [ blushIntensity %tmp.40 430 53 67 ];
+        %tmp.40 = getv %tmp.39 :blushIntensity;
+        %tmp.41 = mul %tmp.38 %tmp.40;
+        lputv %blushSize.4 %tmp.41;
+        symbol [ blushSize %blushSize.4 430 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 431 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_start" "_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_stop" ]
+        %blushY.5 = local;
+        symbol [ blushY %blushY.5 431 16 22 ];
+        %tmp.42 = lgetv %centerY;
+        symbol [ centerY %tmp.42 431 25 32 ];
+        %tmp.43 = lgetv %faceSize;
+        symbol [ faceSize %tmp.43 431 35 43 ];
+        %tmp.44 = 20;
+        %tmp.45 = div %tmp.43 %tmp.44;
+        %tmp.46 = add %tmp.42 %tmp.45;
+        lputv %blushY.5 %tmp.46;
+        symbol [ blushY %blushY.5 431 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 432 12 ]
+        %tmp.47 = lgetv %dc;
+        symbol [ dc %tmp.47 432 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.48 432 15 35 ];
+        %tmp.48 = getv function %tmp.47 :fillRoundedRectangle;
+        %tmp.49 = lgetv %centerX;
+        symbol [ centerX %tmp.49 432 36 43 ];
+        %tmp.50 = lgetv %faceSize;
+        symbol [ faceSize %tmp.50 432 46 54 ];
+        %tmp.51 = 3;
+        %tmp.52 = div %tmp.50 %tmp.51;
+        %tmp.53 = sub %tmp.49 %tmp.52;
+        %tmp.54 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.54 432 59 68 ];
+        %tmp.55 = sub %tmp.53 %tmp.54;
+        %tmp.56 = lgetv %blushY.5;
+        symbol [ blushY %tmp.56 432 70 76 ];
+        %tmp.57 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.57 432 78 87 ];
+        %tmp.58 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.58 432 89 98 ];
+        %tmp.59 = 2;
+        %tmp.60 = div %tmp.58 %tmp.59;
+        %tmp.61 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.61 432 102 111 ];
+        %tmp.62 = 4;
+        %tmp.63 = div %tmp.61 %tmp.62;
+        invoke %tmp.47 %tmp.48(%tmp.55, %tmp.56, %tmp.57, %tmp.60, %tmp.63);
+[ "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc" 433 12 ]
+        %tmp.64 = lgetv %dc;
+        symbol [ dc %tmp.64 433 12 14 ];
+        symbol [ fillRoundedRectangle %tmp.65 433 15 35 ];
+        %tmp.65 = getv function %tmp.64 :fillRoundedRectangle;
+        %tmp.66 = lgetv %centerX;
+        symbol [ centerX %tmp.66 433 36 43 ];
+        %tmp.67 = lgetv %faceSize;
+        symbol [ faceSize %tmp.67 433 46 54 ];
+        %tmp.68 = 3;
+        %tmp.69 = div %tmp.67 %tmp.68;
+        %tmp.70 = add %tmp.66 %tmp.69;
+        %tmp.71 = lgetv %blushY.5;
+        symbol [ blushY %tmp.71 433 58 64 ];
+        %tmp.72 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.72 433 66 75 ];
+        %tmp.73 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.73 433 77 86 ];
+        %tmp.74 = 2;
+        %tmp.75 = div %tmp.73 %tmp.74;
+        %tmp.76 = lgetv %blushSize.4;
+        symbol [ blushSize %tmp.76 433 90 99 ];
+        %tmp.77 = 4;
+        %tmp.78 = div %tmp.76 %tmp.77;
+        invoke %tmp.64 %tmp.65(%tmp.70, %tmp.71, %tmp.72, %tmp.75, %tmp.78);
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_30_434_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_8_434_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_429_8_434_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EmoticonSystem_mc_417_77_435_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EmoticonSystem.mc"; @line = 1; ]
+<init> {
+}

@@ -491,7 +491,7 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         
         // 3. Draw hour number at MINUTE position - shows progress through the hour
         var minuteAngle = minutes * Math.PI / 30.0; // 6 degrees per minute
-        var handRadius = rimRadius - 25; // Further from rim to prevent text overflow
+        var handRadius = rimRadius - 35; // Increased inset to keep text fully within bounds
         var numberX = centerX + handRadius * Math.sin(minuteAngle);
         var numberY = centerY - handRadius * Math.cos(minuteAngle);
         
