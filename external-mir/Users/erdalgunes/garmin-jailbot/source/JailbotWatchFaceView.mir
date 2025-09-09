@@ -4232,7 +4232,7 @@ _Users_erdalgunes_garmin_jailbot_source_JailbotWatchFaceView_mc_473_8_490_8_end:
         symbol [ handRadius %handRadius.17 494 12 22 ];
         %tmp.183 = lgetv %rimRadius.6;
         symbol [ rimRadius %tmp.183 494 25 34 ];
-        %tmp.184 = 15;
+        %tmp.184 = 25;
         %tmp.185 = sub %tmp.183 %tmp.184;
         lputv %handRadius.17 %tmp.185;
         symbol [ handRadius %handRadius.17 494 12 22 ];
