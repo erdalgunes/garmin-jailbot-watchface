@@ -1,0 +1,1719 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [System,1,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [ActivityMonitor,2,13,28]; ]
+using Toybox.ActivityMonitor;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Lang,3,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Time,4,13,17]; ]
+using Toybox.Time;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 7; @symbol_classdef = [HealthDataProvider,7,6,24]; ]
+class HealthDataProvider {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 7; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 7; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 8; @position = 16; @symbol_vardef = [lastActivityEndTime,8,16,35]; ]
+    private
+    var lastActivityEndTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 9; @position = 16; @symbol_vardef = [restingHRBaseline,9,16,33]; ]
+    private
+    var restingHRBaseline;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 10; @position = 16; @symbol_vardef = [stepGoalCache,10,16,29]; ]
+    private
+    var stepGoalCache;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 11; @position = 16; @symbol_vardef = [achievementFlags,11,16,32]; ]
+    private
+    var achievementFlags;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 13; @symbol_functiondef = [initialize,13,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_13_26_21_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 14 8 ]
+        symbol [ self %self 14 8 12 ];
+        %tmp.1 = 0;
+        symbol [ lastActivityEndTime ? 14 13 32 ];
+        putv self :lastActivityEndTime %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 15 8 ]
+        symbol [ self %self 15 8 12 ];
+        %tmp.2 = 60;
+        symbol [ restingHRBaseline ? 15 13 30 ];
+        putv self :restingHRBaseline %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 16 8 ]
+        symbol [ self %self 16 8 12 ];
+        %tmp.3 = 10000;
+        symbol [ stepGoalCache ? 16 13 26 ];
+        putv self :stepGoalCache %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 17 8 ]
+        symbol [ self %self 17 8 12 ];
+        %tmp.4 = newd 2;
+        %tmp.6 = const :stepGoalReached;
+        symbol [ stepGoalReached %tmp.6 18 13 28 const ];
+        %tmp.7 = false;
+        %tmp.8 = dup %tmp.4;
+        %tmp.9 = aputv %tmp.8 %tmp.6 %tmp.7;
+        %tmp.11 = const :lastStepCount;
+        symbol [ lastStepCount %tmp.11 19 13 26 const ];
+        %tmp.12 = 0;
+        %tmp.13 = dup %tmp.9;
+        %tmp.14 = aputv %tmp.13 %tmp.11 %tmp.12;
+        symbol [ achievementFlags ? 17 13 29 ];
+        putv self :achievementFlags %tmp.14;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_13_26_21_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 23; @symbol_functiondef = [gatherSensorData,23,13,29]; ]
+    function gatherSensorData() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 24 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop" ]
+        %sensors.1 = local;
+        symbol [ sensors %sensors.1 24 12 19 ];
+        %tmp.1 = newd 0;
+        lputv %sensors.1 %tmp.1;
+        symbol [ sensors %sensors.1 24 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 27 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop" ]
+        %info.2 = local;
+        symbol [ info %info.2 27 12 16 ];
+        symbol [ ActivityMonitor %tmp.2 27 19 34 ];
+        %tmp.2 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.3 27 35 42 ];
+        %tmp.3 = getv function %tmp.2 :getInfo;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %info.2 %tmp.4;
+        symbol [ info %info.2 27 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 28 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop" ]
+        %stats.3 = local;
+        symbol [ stats %stats.3 28 12 17 ];
+        symbol [ System %tmp.5 28 20 26 ];
+        %tmp.5 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.6 28 27 41 ];
+        %tmp.6 = getv function %tmp.5 :getSystemStats;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %stats.3 %tmp.7;
+        symbol [ stats %stats.3 28 12 17 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 31 8 ]
+        %tmp.8 = lgetv %sensors.1;
+        symbol [ sensors %tmp.8 31 8 15 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_begin:
+        %tmp.9 = lgetv %info.2;
+        symbol [ info %tmp.9 31 26 30 ];
+        symbol [ steps %tmp.10 31 31 36 ];
+        %tmp.10 = getv %tmp.9 :steps;
+        %tmp.11 = null;
+        %tmp.12 = ne %tmp.10 %tmp.11;
+        bf %tmp.12 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_true:
+        %tmp.13 = lgetv %info.2;
+        symbol [ info %tmp.13 31 47 51 ];
+        symbol [ steps %tmp.14 31 52 57 ];
+        %tmp.14 = getv %tmp.13 :steps;
+        push %tmp.14;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_false:
+        %tmp.15 = 0;
+        push %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_end:
+        %tmp.16 = phi [%tmp.12 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_begin] [%tmp.14 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_true] [%tmp.15 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_false] [%tmp.16 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_31_26_31_60_end];
+        %tmp.18 = const :steps;
+        symbol [ steps %tmp.18 31 17 22 const ];
+        aputv %tmp.8 %tmp.18 %tmp.16;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 32 8 ]
+        %tmp.19 = lgetv %sensors.1;
+        symbol [ sensors %tmp.19 32 8 15 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_begin:
+        %tmp.20 = lgetv %info.2;
+        symbol [ info %tmp.20 32 29 33 ];
+        symbol [ stepGoal %tmp.21 32 34 42 ];
+        %tmp.21 = getv %tmp.20 :stepGoal;
+        %tmp.22 = null;
+        %tmp.23 = ne %tmp.21 %tmp.22;
+        bf %tmp.23 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_true:
+        %tmp.24 = lgetv %info.2;
+        symbol [ info %tmp.24 32 53 57 ];
+        symbol [ stepGoal %tmp.25 32 58 66 ];
+        %tmp.25 = getv %tmp.24 :stepGoal;
+        push %tmp.25;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_false:
+        %tmp.26 = self;
+        symbol [ self %tmp.26 32 69 73 ];
+        symbol [ stepGoalCache %tmp.27 32 74 87 ];
+        %tmp.27 = getv %tmp.26 :stepGoalCache;
+        push %tmp.27;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_end:
+        %tmp.28 = phi [%tmp.23 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_begin] [%tmp.25 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_true] [%tmp.27 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_false] [%tmp.28 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_32_29_32_74_end];
+        %tmp.30 = const :stepGoal;
+        symbol [ stepGoal %tmp.30 32 17 25 const ];
+        aputv %tmp.19 %tmp.30 %tmp.28;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 35 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_12_35_53_begin:
+        %tmp.31 = lgetv %info.2;
+        symbol [ info %tmp.31 35 12 16 ];
+        symbol [ stepGoal %tmp.32 35 17 25 ];
+        %tmp.32 = getv %tmp.31 :stepGoal;
+        %tmp.33 = null;
+        %tmp.34 = ne %tmp.32 %tmp.33;
+        bf %tmp.34 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_37_35_53_true:
+        %tmp.35 = lgetv %info.2;
+        symbol [ info %tmp.35 35 37 41 ];
+        symbol [ stepGoal %tmp.36 35 42 50 ];
+        %tmp.36 = getv %tmp.35 :stepGoal;
+        %tmp.37 = 0;
+        %tmp.38 = gt %tmp.36 %tmp.37;
+        push %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_37_35_53_end:
+        %tmp.39 = phi [%tmp.34 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_12_35_53_begin] [%tmp.38 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_37_35_53_true] [%tmp.39 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_37_35_53_end];
+        bf %tmp.39 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_56_37_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 36 12 ]
+        symbol [ self %self 36 12 16 ];
+        %tmp.40 = lgetv %info.2;
+        symbol [ info %tmp.40 36 33 37 ];
+        symbol [ stepGoal %tmp.41 36 38 46 ];
+        %tmp.41 = getv %tmp.40 :stepGoal;
+        symbol [ stepGoalCache ? 36 17 30 ];
+        putv self :stepGoalCache %tmp.41;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_56_37_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_35_8_37_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 40 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop" ]
+        %heartRateData.4 = local;
+        symbol [ heartRateData %heartRateData.4 40 12 25 ];
+        %tmp.42 = self;
+        symbol [ self %tmp.42 40 28 32 ];
+        symbol [ getHeartRateData %tmp.43 40 33 49 ];
+        %tmp.43 = getv function %tmp.42 :getHeartRateData;
+        %tmp.44 = invoke %tmp.42 %tmp.43();
+        lputv %heartRateData.4 %tmp.44;
+        symbol [ heartRateData %heartRateData.4 40 12 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 41 8 ]
+        %tmp.45 = lgetv %sensors.1;
+        symbol [ sensors %tmp.45 41 8 15 ];
+        %tmp.46 = lgetv %heartRateData.4;
+        symbol [ heartRateData %tmp.46 41 30 43 ];
+        %tmp.48 = const :current;
+        symbol [ current %tmp.48 41 45 52 const ];
+        %tmp.49 = agetv %tmp.46 %tmp.48;
+        %tmp.51 = const :heartRate;
+        symbol [ heartRate %tmp.51 41 17 26 const ];
+        aputv %tmp.45 %tmp.51 %tmp.49;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 42 8 ]
+        %tmp.52 = lgetv %sensors.1;
+        symbol [ sensors %tmp.52 42 8 15 ];
+        %tmp.53 = lgetv %heartRateData.4;
+        symbol [ heartRateData %tmp.53 42 30 43 ];
+        %tmp.55 = const :resting;
+        symbol [ resting %tmp.55 42 45 52 const ];
+        %tmp.56 = agetv %tmp.53 %tmp.55;
+        %tmp.58 = const :restingHR;
+        symbol [ restingHR %tmp.58 42 17 26 const ];
+        aputv %tmp.52 %tmp.58 %tmp.56;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 45 8 ]
+        %tmp.59 = lgetv %sensors.1;
+        symbol [ sensors %tmp.59 45 8 15 ];
+        %tmp.60 = self;
+        symbol [ self %tmp.60 45 27 31 ];
+        symbol [ getStressLevel %tmp.61 45 32 46 ];
+        %tmp.61 = getv function %tmp.60 :getStressLevel;
+        %tmp.62 = invoke %tmp.60 %tmp.61();
+        %tmp.64 = const :stress;
+        symbol [ stress %tmp.64 45 17 23 const ];
+        aputv %tmp.59 %tmp.64 %tmp.62;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 46 8 ]
+        %tmp.65 = lgetv %sensors.1;
+        symbol [ sensors %tmp.65 46 8 15 ];
+        %tmp.66 = self;
+        symbol [ self %tmp.66 46 32 36 ];
+        symbol [ getBodyBatteryLevel %tmp.67 46 37 56 ];
+        %tmp.67 = getv function %tmp.66 :getBodyBatteryLevel;
+        %tmp.68 = invoke %tmp.66 %tmp.67();
+        %tmp.70 = const :bodyBattery;
+        symbol [ bodyBattery %tmp.70 46 17 28 const ];
+        aputv %tmp.65 %tmp.70 %tmp.68;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 49 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop" ]
+        %activityInfo.5 = local;
+        symbol [ activityInfo %activityInfo.5 49 12 24 ];
+        %tmp.71 = self;
+        symbol [ self %tmp.71 49 27 31 ];
+        symbol [ getActivityStatus %tmp.72 49 32 49 ];
+        %tmp.72 = getv function %tmp.71 :getActivityStatus;
+        %tmp.73 = invoke %tmp.71 %tmp.72();
+        lputv %activityInfo.5 %tmp.73;
+        symbol [ activityInfo %activityInfo.5 49 12 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 50 8 ]
+        %tmp.74 = lgetv %sensors.1;
+        symbol [ sensors %tmp.74 50 8 15 ];
+        %tmp.75 = lgetv %activityInfo.5;
+        symbol [ activityInfo %tmp.75 50 31 43 ];
+        %tmp.77 = const :active;
+        symbol [ active %tmp.77 50 45 51 const ];
+        %tmp.78 = agetv %tmp.75 %tmp.77;
+        %tmp.80 = const :inActivity;
+        symbol [ inActivity %tmp.80 50 17 27 const ];
+        aputv %tmp.74 %tmp.80 %tmp.78;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 51 8 ]
+        %tmp.81 = lgetv %sensors.1;
+        symbol [ sensors %tmp.81 51 8 15 ];
+        %tmp.82 = lgetv %activityInfo.5;
+        symbol [ activityInfo %tmp.82 51 35 47 ];
+        %tmp.84 = const :postActivity30;
+        symbol [ postActivity30 %tmp.84 51 49 63 const ];
+        %tmp.85 = agetv %tmp.82 %tmp.84;
+        %tmp.87 = const :postActivity30;
+        symbol [ postActivity30 %tmp.87 51 17 31 const ];
+        aputv %tmp.81 %tmp.87 %tmp.85;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 54 8 ]
+        %tmp.88 = lgetv %sensors.1;
+        symbol [ sensors %tmp.88 54 8 15 ];
+        %tmp.89 = self;
+        symbol [ self %tmp.89 54 33 37 ];
+        symbol [ estimateSleepQuality %tmp.90 54 38 58 ];
+        %tmp.90 = getv function %tmp.89 :estimateSleepQuality;
+        %tmp.91 = invoke %tmp.89 %tmp.90();
+        %tmp.93 = const :sleepQuality;
+        symbol [ sleepQuality %tmp.93 54 17 29 const ];
+        aputv %tmp.88 %tmp.93 %tmp.91;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 57 8 ]
+        %tmp.94 = lgetv %sensors.1;
+        symbol [ sensors %tmp.94 57 8 15 ];
+        %tmp.95 = self;
+        symbol [ self %tmp.95 57 37 41 ];
+        symbol [ detectAchievements %tmp.96 57 42 60 ];
+        %tmp.96 = getv function %tmp.95 :detectAchievements;
+        %tmp.97 = lgetv %sensors.1;
+        symbol [ sensors %tmp.97 57 61 68 ];
+        %tmp.99 = const :steps;
+        symbol [ steps %tmp.99 57 70 75 const ];
+        %tmp.100 = agetv %tmp.97 %tmp.99;
+        %tmp.101 = lgetv %sensors.1;
+        symbol [ sensors %tmp.101 57 78 85 ];
+        %tmp.103 = const :stepGoal;
+        symbol [ stepGoal %tmp.103 57 87 95 const ];
+        %tmp.104 = agetv %tmp.101 %tmp.103;
+        %tmp.105 = invoke %tmp.95 %tmp.96(%tmp.100, %tmp.104);
+        %tmp.107 = const :achievementEvent;
+        symbol [ achievementEvent %tmp.107 57 17 33 const ];
+        aputv %tmp.94 %tmp.107 %tmp.105;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 60 8 ]
+        %tmp.108 = lgetv %sensors.1;
+        symbol [ sensors %tmp.108 60 8 15 ];
+        %tmp.109 = self;
+        symbol [ self %tmp.109 60 24 28 ];
+        symbol [ isInAODMode %tmp.110 60 29 40 ];
+        %tmp.110 = getv function %tmp.109 :isInAODMode;
+        %tmp.111 = invoke %tmp.109 %tmp.110();
+        %tmp.113 = const :aod;
+        symbol [ aod %tmp.113 60 17 20 const ];
+        aputv %tmp.108 %tmp.113 %tmp.111;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 62 8 ]
+        %tmp.114 = lgetv %sensors.1;
+        symbol [ sensors %tmp.114 62 15 22 ];
+        ret %tmp.114;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_23_32_63_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 65; @symbol_functiondef = [getHeartRateData,65,21,37]; ]
+    private
+    function getHeartRateData() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_65_40_83_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 66 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_65_40_83_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_65_40_83_4_stop" ]
+        %currentHR.1 = local;
+        symbol [ currentHR %currentHR.1 66 12 21 ];
+        %tmp.1 = 70;
+        lputv %currentHR.1 %tmp.1;
+        symbol [ currentHR %currentHR.1 66 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 68 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_12_74_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 70 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_12_74_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_12_74_8_stop" ]
+        %info.2 = local;
+        symbol [ info %info.2 70 16 20 ];
+        symbol [ ActivityMonitor %tmp.2 70 23 38 ];
+        %tmp.2 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.3 70 39 46 ];
+        %tmp.3 = getv function %tmp.2 :getInfo;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %info.2 %tmp.4;
+        symbol [ info %info.2 70 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 71 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_16_71_57_begin:
+        %tmp.5 = lgetv %info.2;
+        symbol [ info %tmp.5 71 16 20 ];
+        %tmp.7 = const :heartRate;
+        symbol [ heartRate %tmp.7 71 26 35 const ];
+        %tmp.8 = canhazplz %tmp.5 %tmp.7;
+        bf %tmp.8 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_39_71_57_true:
+        %tmp.9 = lgetv %info.2;
+        symbol [ info %tmp.9 71 39 43 ];
+        %tmp.10 = as %tmp.9 { (interface { var heartRate; }) };
+        symbol [ heartRate %tmp.11 71 44 53 ];
+        %tmp.11 = getv %tmp.10 :heartRate;
+        %tmp.12 = null;
+        %tmp.13 = ne %tmp.11 %tmp.12;
+        push %tmp.13;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_39_71_57_end:
+        %tmp.14 = phi [%tmp.8 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_16_71_57_begin] [%tmp.13 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_39_71_57_true] [%tmp.14 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_39_71_57_end];
+        bf %tmp.14 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_63_73_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 72 16 ]
+        %tmp.15 = lgetv %info.2;
+        symbol [ info %tmp.15 72 28 32 ];
+        %tmp.16 = as %tmp.15 { (interface { var heartRate; }) };
+        symbol [ heartRate %tmp.17 72 33 42 ];
+        %tmp.17 = getv %tmp.16 :heartRate;
+        lputv %currentHR.1 %tmp.17;
+        symbol [ currentHR %currentHR.1 72 16 25 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_63_73_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_71_12_73_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_12_74_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_catch:
+        %tmp.18 = exception;
+        push %tmp.18;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 74 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_10_77_8_end" ]
+        %ex.3 = local;
+        symbol [ ex %ex.3 74 17 19 ];
+        %tmp.19 = dup %tmp.18;
+        lputv %ex.3 %tmp.19;
+        symbol [ ex %ex.3 74 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_21_77_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 76 12 ]
+        symbol [ System %tmp.20 76 12 18 ];
+        %tmp.20 = getm $.Toybox.System;
+        symbol [ println %tmp.21 76 19 26 ];
+        %tmp.21 = getv function %tmp.20 :println;
+        %tmp.22 = "HR not available: ";
+        %tmp.23 = lgetv %ex.3;
+        symbol [ ex %tmp.23 76 50 52 ];
+        symbol [ getErrorMessage %tmp.24 76 53 68 ];
+        %tmp.24 = getv function %tmp.23 :getErrorMessage;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        %tmp.26 = add %tmp.22 %tmp.25;
+        invoke %tmp.20 %tmp.21(%tmp.26);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_21_77_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_10_77_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_10_77_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_74_10_77_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally;
+        throw %tmp.18;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_68_8_77_8_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 79 8 ]
+        %tmp.27 = newd 2;
+        %tmp.29 = const :current;
+        symbol [ current %tmp.29 80 13 20 const ];
+        %tmp.30 = lgetv %currentHR.1;
+        symbol [ currentHR %tmp.30 80 24 33 ];
+        %tmp.31 = dup %tmp.27;
+        %tmp.32 = aputv %tmp.31 %tmp.29 %tmp.30;
+        %tmp.34 = const :resting;
+        symbol [ resting %tmp.34 81 13 20 const ];
+        %tmp.35 = self;
+        symbol [ self %tmp.35 81 24 28 ];
+        symbol [ restingHRBaseline %tmp.36 81 29 46 ];
+        %tmp.36 = getv %tmp.35 :restingHRBaseline;
+        %tmp.37 = dup %tmp.32;
+        %tmp.38 = aputv %tmp.37 %tmp.34 %tmp.36;
+        ret %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_65_40_83_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 85; @symbol_functiondef = [getStressLevel,85,21,35]; ]
+    private
+    function getStressLevel() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_85_38_90_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 88 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_85_38_90_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_85_38_90_4_stop" ]
+        %stress.1 = local;
+        symbol [ stress %stress.1 88 12 18 ];
+        %tmp.1 = self;
+        symbol [ self %tmp.1 88 21 25 ];
+        symbol [ estimateStressFromActivity %tmp.2 88 26 52 ];
+        %tmp.2 = getv function %tmp.1 :estimateStressFromActivity;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %stress.1 %tmp.3;
+        symbol [ stress %stress.1 88 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 89 8 ]
+        %tmp.4 = lgetv %stress.1;
+        symbol [ stress %tmp.4 89 15 21 ];
+        ret %tmp.4;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_85_38_90_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 92; @symbol_functiondef = [getBodyBatteryLevel,92,21,40]; ]
+    private
+    function getBodyBatteryLevel() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_92_43_107_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 93 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_92_43_107_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_92_43_107_4_stop" ]
+        %bodyBattery.1 = local;
+        symbol [ bodyBattery %bodyBattery.1 93 12 23 ];
+        %tmp.1 = 75;
+        lputv %bodyBattery.1 %tmp.1;
+        symbol [ bodyBattery %bodyBattery.1 93 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 95 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_12_102_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 97 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_12_102_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_12_102_8_stop" ]
+        %stats.2 = local;
+        symbol [ stats %stats.2 97 16 21 ];
+        symbol [ System %tmp.2 97 24 30 ];
+        %tmp.2 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.3 97 31 45 ];
+        %tmp.3 = getv function %tmp.2 :getSystemStats;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %stats.2 %tmp.4;
+        symbol [ stats %stats.2 97 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 98 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_12_101_12_if_stmt:
+        %tmp.5 = lgetv %stats.2;
+        symbol [ stats %tmp.5 98 16 21 ];
+        %tmp.7 = const :batteryInDays;
+        symbol [ batteryInDays %tmp.7 98 27 40 const ];
+        %tmp.8 = canhazplz %tmp.5 %tmp.7;
+        bf %tmp.8 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_12_101_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_12_101_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_42_101_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 100 16 ]
+        %tmp.9 = self;
+        symbol [ self %tmp.9 100 30 34 ];
+        symbol [ estimateBodyBattery %tmp.10 100 35 54 ];
+        %tmp.10 = getv function %tmp.9 :estimateBodyBattery;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        lputv %bodyBattery.1 %tmp.11;
+        symbol [ bodyBattery %bodyBattery.1 100 16 27 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_42_101_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_12_101_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_98_12_101_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_12_102_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_catch:
+        %tmp.12 = exception;
+        push %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 102 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_10_104_8_end" ]
+        %ex.3 = local;
+        symbol [ ex %ex.3 102 17 19 ];
+        %tmp.13 = dup %tmp.12;
+        lputv %ex.3 %tmp.13;
+        symbol [ ex %ex.3 102 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_21_104_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 103 12 ]
+        symbol [ System %tmp.14 103 12 18 ];
+        %tmp.14 = getm $.Toybox.System;
+        symbol [ println %tmp.15 103 19 26 ];
+        %tmp.15 = getv function %tmp.14 :println;
+        %tmp.16 = "Body Battery estimation error: ";
+        %tmp.17 = lgetv %ex.3;
+        symbol [ ex %tmp.17 103 63 65 ];
+        symbol [ getErrorMessage %tmp.18 103 66 81 ];
+        %tmp.18 = getv function %tmp.17 :getErrorMessage;
+        %tmp.19 = invoke %tmp.17 %tmp.18();
+        %tmp.20 = add %tmp.16 %tmp.19;
+        invoke %tmp.14 %tmp.15(%tmp.20);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_21_104_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_10_104_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_10_104_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_102_10_104_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally;
+        throw %tmp.12;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_95_8_104_8_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 106 8 ]
+        %tmp.21 = lgetv %bodyBattery.1;
+        symbol [ bodyBattery %tmp.21 106 15 26 ];
+        ret %tmp.21;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_92_43_107_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 109; @symbol_functiondef = [estimateStressFromActivity,109,21,47]; ]
+    private
+    function estimateStressFromActivity() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_109_50_142_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 110 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_109_50_142_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_109_50_142_4_stop" ]
+        %stress.1 = local;
+        symbol [ stress %stress.1 110 12 18 ];
+        %tmp.1 = 50;
+        lputv %stress.1 %tmp.1;
+        symbol [ stress %stress.1 110 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 112 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 113 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_stop" ]
+        %info.2 = local;
+        symbol [ info %info.2 113 16 20 ];
+        symbol [ ActivityMonitor %tmp.2 113 23 38 ];
+        %tmp.2 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.3 113 39 46 ];
+        %tmp.3 = getv function %tmp.2 :getInfo;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %info.2 %tmp.4;
+        symbol [ info %info.2 113 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 114 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_stop" ]
+        %now.3 = local;
+        symbol [ now %now.3 114 16 19 ];
+        symbol [ System %tmp.5 114 22 28 ];
+        %tmp.5 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.6 114 29 41 ];
+        %tmp.6 = getv function %tmp.5 :getClockTime;
+        %tmp.7 = invoke %tmp.5 %tmp.6();
+        lputv %now.3 %tmp.7;
+        symbol [ now %now.3 114 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 115 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_stop" ]
+        %hour.4 = local;
+        symbol [ hour %hour.4 115 16 20 ];
+        %tmp.8 = lgetv %now.3;
+        symbol [ now %tmp.8 115 23 26 ];
+        symbol [ hour %tmp.9 115 27 31 ];
+        %tmp.9 = getv %tmp.8 :hour;
+        lputv %hour.4 %tmp.9;
+        symbol [ hour %hour.4 115 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 118 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_16_118_37_begin:
+        %tmp.10 = lgetv %hour.4;
+        symbol [ hour %tmp.10 118 16 20 ];
+        %tmp.11 = 9;
+        %tmp.12 = gte %tmp.10 %tmp.11;
+        bf %tmp.12 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_29_118_37_true:
+        %tmp.13 = lgetv %hour.4;
+        symbol [ hour %tmp.13 118 29 33 ];
+        %tmp.14 = 17;
+        %tmp.15 = lte %tmp.13 %tmp.14;
+        push %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_29_118_37_end:
+        %tmp.16 = phi [%tmp.12 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_16_118_37_begin] [%tmp.15 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_29_118_37_true] [%tmp.16 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_29_118_37_end];
+        bf %tmp.16 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_41_120_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 119 16 ]
+        %tmp.17 = lgetv %stress.1;
+        symbol [ stress %tmp.17 119 16 22 ];
+        %tmp.18 = 10;
+        %tmp.19 = add %tmp.17 %tmp.18;
+        lputv %stress.1 %tmp.19;
+        symbol [ stress %stress.1 119 16 22 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_41_120_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_118_12_120_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 121 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_16_121_38_begin:
+        %tmp.20 = lgetv %hour.4;
+        symbol [ hour %tmp.20 121 16 20 ];
+        %tmp.21 = 22;
+        %tmp.22 = gte %tmp.20 %tmp.21;
+        bt %tmp.22 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_true;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_30_121_38_false:
+        %tmp.23 = lgetv %hour.4;
+        symbol [ hour %tmp.23 121 30 34 ];
+        %tmp.24 = 6;
+        %tmp.25 = lte %tmp.23 %tmp.24;
+        push %tmp.25;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_30_121_38_end:
+        %tmp.26 = phi [%tmp.22 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_16_121_38_begin] [%tmp.25 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_30_121_38_false] [%tmp.26 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_30_121_38_end];
+        bf %tmp.26 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_41_123_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 122 16 ]
+        %tmp.27 = lgetv %stress.1;
+        symbol [ stress %tmp.27 122 16 22 ];
+        %tmp.28 = 10;
+        %tmp.29 = sub %tmp.27 %tmp.28;
+        lputv %stress.1 %tmp.29;
+        symbol [ stress %stress.1 122 16 22 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_41_123_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_121_12_123_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 126 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_16_126_73_begin:
+        %tmp.30 = lgetv %info.2;
+        symbol [ info %tmp.30 126 16 20 ];
+        %tmp.32 = const :activeMinutesWeek;
+        symbol [ activeMinutesWeek %tmp.32 126 26 43 const ];
+        %tmp.33 = canhazplz %tmp.30 %tmp.32;
+        bf %tmp.33 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_47_126_73_true:
+        %tmp.34 = lgetv %info.2;
+        symbol [ info %tmp.34 126 47 51 ];
+        %tmp.35 = as %tmp.34 { (interface { var activeMinutesWeek; }) };
+        symbol [ activeMinutesWeek %tmp.36 126 52 69 ];
+        %tmp.36 = getv %tmp.35 :activeMinutesWeek;
+        %tmp.37 = null;
+        %tmp.38 = ne %tmp.36 %tmp.37;
+        push %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_47_126_73_end:
+        %tmp.39 = phi [%tmp.33 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_16_126_73_begin] [%tmp.38 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_47_126_73_true] [%tmp.39 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_47_126_73_end];
+        bf %tmp.39 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_79_131_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 127 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_79_131_12_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_79_131_12_stop" ]
+        %weeklyActive.5 = local;
+        symbol [ weeklyActive %weeklyActive.5 127 20 32 ];
+        %tmp.40 = lgetv %info.2;
+        symbol [ info %tmp.40 127 35 39 ];
+        %tmp.41 = as %tmp.40 { (interface { var activeMinutesWeek; }) };
+        symbol [ activeMinutesWeek %tmp.42 127 40 57 ];
+        %tmp.42 = getv %tmp.41 :activeMinutesWeek;
+        symbol [ total %tmp.43 127 58 63 ];
+        %tmp.43 = getv %tmp.42 :total;
+        lputv %weeklyActive.5 %tmp.43;
+        symbol [ weeklyActive %weeklyActive.5 127 20 32 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 128 16 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_16_130_16_if_stmt:
+        %tmp.44 = lgetv %weeklyActive.5;
+        symbol [ weeklyActive %tmp.44 128 20 32 ];
+        %tmp.45 = 150;
+        %tmp.46 = gt %tmp.44 %tmp.45;
+        bf %tmp.46 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_16_130_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_16_130_16_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_40_130_16_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 129 20 ]
+        %tmp.47 = lgetv %stress.1;
+        symbol [ stress %tmp.47 129 20 26 ];
+        %tmp.48 = 15;
+        %tmp.49 = sub %tmp.47 %tmp.48;
+        lputv %stress.1 %tmp.49;
+        symbol [ stress %stress.1 129 20 26 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_40_130_16_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_16_130_16_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_128_16_130_16_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_79_131_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_126_12_131_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 134 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_12_134_42_if_stmt:
+        %tmp.50 = lgetv %stress.1;
+        symbol [ stress %tmp.50 134 16 22 ];
+        %tmp.51 = 0;
+        %tmp.52 = lt %tmp.50 %tmp.51;
+        bf %tmp.52 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_12_134_42_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_12_134_42_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_28_134_42_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 134 30 ]
+        %tmp.53 = 0;
+        lputv %stress.1 %tmp.53;
+        symbol [ stress %stress.1 134 30 36 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_28_134_42_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_12_134_42_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_134_12_134_42_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 135 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_12_135_46_if_stmt:
+        %tmp.54 = lgetv %stress.1;
+        symbol [ stress %tmp.54 135 16 22 ];
+        %tmp.55 = 100;
+        %tmp.56 = gt %tmp.54 %tmp.55;
+        bf %tmp.56 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_12_135_46_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_12_135_46_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_30_135_46_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 135 32 ]
+        %tmp.57 = 100;
+        lputv %stress.1 %tmp.57;
+        symbol [ stress %stress.1 135 32 38 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_30_135_46_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_12_135_46_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_135_12_135_46_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_12_137_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_catch:
+        %tmp.58 = exception;
+        push %tmp.58;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 137 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_10_139_8_end" ]
+        %ex.6 = local;
+        symbol [ ex %ex.6 137 17 19 ];
+        %tmp.59 = dup %tmp.58;
+        lputv %ex.6 %tmp.59;
+        symbol [ ex %ex.6 137 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_21_139_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 138 12 ]
+        symbol [ System %tmp.60 138 12 18 ];
+        %tmp.60 = getm $.Toybox.System;
+        symbol [ println %tmp.61 138 19 26 ];
+        %tmp.61 = getv function %tmp.60 :println;
+        %tmp.62 = "Stress estimation error: ";
+        %tmp.63 = lgetv %ex.6;
+        symbol [ ex %tmp.63 138 57 59 ];
+        symbol [ getErrorMessage %tmp.64 138 60 75 ];
+        %tmp.64 = getv function %tmp.63 :getErrorMessage;
+        %tmp.65 = invoke %tmp.63 %tmp.64();
+        %tmp.66 = add %tmp.62 %tmp.65;
+        invoke %tmp.60 %tmp.61(%tmp.66);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_21_139_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_10_139_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_10_139_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_137_10_139_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally;
+        throw %tmp.58;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_112_8_139_8_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 141 8 ]
+        %tmp.67 = lgetv %stress.1;
+        symbol [ stress %tmp.67 141 15 21 ];
+        ret %tmp.67;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_109_50_142_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 144; @symbol_functiondef = [estimateBodyBattery,144,21,40]; ]
+    private
+    function estimateBodyBattery() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 146 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 146 12 15 ];
+        symbol [ System %tmp.1 146 18 24 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.2 146 25 37 ];
+        %tmp.2 = getv function %tmp.1 :getClockTime;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %now.1 %tmp.3;
+        symbol [ now %now.1 146 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 147 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %hour.2 = local;
+        symbol [ hour %hour.2 147 12 16 ];
+        %tmp.4 = lgetv %now.1;
+        symbol [ now %tmp.4 147 19 22 ];
+        symbol [ hour %tmp.5 147 23 27 ];
+        %tmp.5 = getv %tmp.4 :hour;
+        lputv %hour.2 %tmp.5;
+        symbol [ hour %hour.2 147 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 150 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %timeBasedEnergy.3 = local;
+        symbol [ timeBasedEnergy %timeBasedEnergy.3 150 12 27 ];
+        %tmp.6 = 100;
+        %tmp.7 = lgetv %hour.2;
+        symbol [ hour %tmp.7 150 38 42 ];
+        %tmp.8 = 100;
+        %tmp.9 = mul %tmp.7 %tmp.8;
+        %tmp.10 = 24;
+        %tmp.11 = div %tmp.9 %tmp.10;
+        %tmp.12 = sub %tmp.6 %tmp.11;
+        lputv %timeBasedEnergy.3 %tmp.12;
+        symbol [ timeBasedEnergy %timeBasedEnergy.3 150 12 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 153 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %info.4 = local;
+        symbol [ info %info.4 153 12 16 ];
+        symbol [ ActivityMonitor %tmp.13 153 19 34 ];
+        %tmp.13 = getm $.Toybox.ActivityMonitor;
+        symbol [ getInfo %tmp.14 153 35 42 ];
+        %tmp.14 = getv function %tmp.13 :getInfo;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        lputv %info.4 %tmp.15;
+        symbol [ info %info.4 153 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 154 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %steps.5 = local;
+        symbol [ steps %steps.5 154 12 17 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_begin:
+        %tmp.16 = lgetv %info.4;
+        symbol [ info %tmp.16 154 20 24 ];
+        symbol [ steps %tmp.17 154 25 30 ];
+        %tmp.17 = getv %tmp.16 :steps;
+        %tmp.18 = null;
+        %tmp.19 = ne %tmp.17 %tmp.18;
+        bf %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_true:
+        %tmp.20 = lgetv %info.4;
+        symbol [ info %tmp.20 154 41 45 ];
+        symbol [ steps %tmp.21 154 46 51 ];
+        %tmp.21 = getv %tmp.20 :steps;
+        push %tmp.21;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_false:
+        %tmp.22 = 0;
+        push %tmp.22;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_end:
+        %tmp.23 = phi [%tmp.19 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_begin] [%tmp.21 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_true] [%tmp.22 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_false] [%tmp.23 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_154_20_154_54_end];
+        lputv %steps.5 %tmp.23;
+        symbol [ steps %steps.5 154 12 17 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 155 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %stepGoal.6 = local;
+        symbol [ stepGoal %stepGoal.6 155 12 20 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_begin:
+        %tmp.24 = lgetv %info.4;
+        symbol [ info %tmp.24 155 23 27 ];
+        symbol [ stepGoal %tmp.25 155 28 36 ];
+        %tmp.25 = getv %tmp.24 :stepGoal;
+        %tmp.26 = null;
+        %tmp.27 = ne %tmp.25 %tmp.26;
+        bf %tmp.27 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_true:
+        %tmp.28 = lgetv %info.4;
+        symbol [ info %tmp.28 155 47 51 ];
+        symbol [ stepGoal %tmp.29 155 52 60 ];
+        %tmp.29 = getv %tmp.28 :stepGoal;
+        push %tmp.29;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_false:
+        %tmp.30 = 10000;
+        push %tmp.30;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_end:
+        %tmp.31 = phi [%tmp.27 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_begin] [%tmp.29 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_true] [%tmp.30 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_false] [%tmp.31 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_155_23_155_63_end];
+        lputv %stepGoal.6 %tmp.31;
+        symbol [ stepGoal %stepGoal.6 155 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 157 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %activityAdjustment.7 = local;
+        symbol [ activityAdjustment %activityAdjustment.7 157 12 30 ];
+        %tmp.32 = 0;
+        lputv %activityAdjustment.7 %tmp.32;
+        symbol [ activityAdjustment %activityAdjustment.7 157 12 30 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 158 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_stmt:
+        %tmp.33 = lgetv %steps.5;
+        symbol [ steps %tmp.33 158 12 17 ];
+        %tmp.34 = lgetv %stepGoal.6;
+        symbol [ stepGoal %tmp.34 158 20 28 ];
+        %tmp.35 = 1.5;
+        %tmp.36 = mul %tmp.34 %tmp.35;
+        %tmp.37 = gt %tmp.33 %tmp.36;
+        bf %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_36_160_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 159 12 ]
+        %tmp.38 = -20;
+        lputv %activityAdjustment.7 %tmp.38;
+        symbol [ activityAdjustment %activityAdjustment.7 159 12 30 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_36_160_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 160 15 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_15_162_8_if_stmt:
+        %tmp.39 = lgetv %steps.5;
+        symbol [ steps %tmp.39 160 19 24 ];
+        %tmp.40 = lgetv %stepGoal.6;
+        symbol [ stepGoal %tmp.40 160 27 35 ];
+        %tmp.41 = 0.5;
+        %tmp.42 = mul %tmp.40 %tmp.41;
+        %tmp.43 = lt %tmp.39 %tmp.42;
+        bf %tmp.43 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_15_162_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_15_162_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_43_162_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 161 12 ]
+        %tmp.44 = 5;
+        lputv %activityAdjustment.7 %tmp.44;
+        symbol [ activityAdjustment %activityAdjustment.7 161 12 30 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_43_162_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_15_162_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_160_15_162_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_158_8_162_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 164 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop" ]
+        %estimated.8 = local;
+        symbol [ estimated %estimated.8 164 12 21 ];
+        %tmp.45 = lgetv %timeBasedEnergy.3;
+        symbol [ timeBasedEnergy %tmp.45 164 24 39 ];
+        %tmp.46 = lgetv %activityAdjustment.7;
+        symbol [ activityAdjustment %tmp.46 164 42 60 ];
+        %tmp.47 = add %tmp.45 %tmp.46;
+        lputv %estimated.8 %tmp.47;
+        symbol [ estimated %estimated.8 164 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 165 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_begin:
+        %tmp.48 = lgetv %estimated.8;
+        symbol [ estimated %tmp.48 165 15 24 ];
+        %tmp.49 = 0;
+        %tmp.50 = lt %tmp.48 %tmp.49;
+        bf %tmp.50 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_true:
+        %tmp.51 = 0;
+        push %tmp.51;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_false:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_begin:
+        %tmp.52 = lgetv %estimated.8;
+        symbol [ estimated %tmp.52 165 36 45 ];
+        %tmp.53 = 100;
+        %tmp.54 = gt %tmp.52 %tmp.53;
+        bf %tmp.54 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_true:
+        %tmp.55 = 100;
+        push %tmp.55;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_false:
+        %tmp.56 = lgetv %estimated.8;
+        symbol [ estimated %tmp.56 165 60 69 ];
+        push %tmp.56;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_end:
+        %tmp.57 = phi [%tmp.54 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_begin] [%tmp.55 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_true] [%tmp.56 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_false] [%tmp.57 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_36_165_60_end];
+        push %tmp.57;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_end:
+        %tmp.58 = phi [%tmp.50 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_begin] [%tmp.51 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_true] [%tmp.57 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_false] [%tmp.58 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_165_15_165_69_end];
+        ret %tmp.58;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_144_43_166_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 168; @symbol_functiondef = [getActivityStatus,168,21,38]; ]
+    private
+    function getActivityStatus() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 169 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_stop" ]
+        %active.1 = local;
+        symbol [ active %active.1 169 12 18 ];
+        %tmp.1 = false;
+        lputv %active.1 %tmp.1;
+        symbol [ active %active.1 169 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 170 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_stop" ]
+        %postActivity30.2 = local;
+        symbol [ postActivity30 %postActivity30.2 170 12 26 ];
+        %tmp.2 = false;
+        lputv %postActivity30.2 %tmp.2;
+        symbol [ postActivity30 %postActivity30.2 170 12 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 174 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 176 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_stop" ]
+        %hrData.3 = local;
+        symbol [ hrData %hrData.3 176 16 22 ];
+        %tmp.3 = self;
+        symbol [ self %tmp.3 176 25 29 ];
+        symbol [ getHeartRateData %tmp.4 176 30 46 ];
+        %tmp.4 = getv function %tmp.3 :getHeartRateData;
+        %tmp.5 = invoke %tmp.3 %tmp.4();
+        lputv %hrData.3 %tmp.5;
+        symbol [ hrData %hrData.3 176 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 177 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_stop" ]
+        %hrElevation.4 = local;
+        symbol [ hrElevation %hrElevation.4 177 16 27 ];
+        %tmp.6 = lgetv %hrData.3;
+        symbol [ hrData %tmp.6 177 30 36 ];
+        %tmp.8 = const :current;
+        symbol [ current %tmp.8 177 38 45 const ];
+        %tmp.9 = agetv %tmp.6 %tmp.8;
+        %tmp.10 = lgetv %hrData.3;
+        symbol [ hrData %tmp.10 177 49 55 ];
+        %tmp.12 = const :resting;
+        symbol [ resting %tmp.12 177 57 64 const ];
+        %tmp.13 = agetv %tmp.10 %tmp.12;
+        %tmp.14 = sub %tmp.9 %tmp.13;
+        lputv %hrElevation.4 %tmp.14;
+        symbol [ hrElevation %hrElevation.4 177 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 180 12 ]
+        %tmp.15 = lgetv %hrElevation.4;
+        symbol [ hrElevation %tmp.15 180 21 32 ];
+        %tmp.16 = 15;
+        %tmp.17 = gt %tmp.15 %tmp.16;
+        lputv %active.1 %tmp.17;
+        symbol [ active %active.1 180 12 18 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 183 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_stop" ]
+        %now.5 = local;
+        symbol [ now %now.5 183 16 19 ];
+        symbol [ System %tmp.18 183 22 28 ];
+        %tmp.18 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.19 183 29 37 ];
+        %tmp.19 = getv function %tmp.18 :getTimer;
+        %tmp.20 = invoke %tmp.18 %tmp.19();
+        lputv %now.5 %tmp.20;
+        symbol [ now %now.5 183 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 184 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_12_187_12_if_stmt:
+        %tmp.21 = self;
+        symbol [ self %tmp.21 184 16 20 ];
+        symbol [ lastActivityEndTime %tmp.22 184 21 40 ];
+        %tmp.22 = getv %tmp.21 :lastActivityEndTime;
+        %tmp.23 = 0;
+        %tmp.24 = gt %tmp.22 %tmp.23;
+        bf %tmp.24 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_12_187_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_12_187_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_46_187_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 185 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_46_187_12_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_46_187_12_stop" ]
+        %timeSinceActivity.6 = local;
+        symbol [ timeSinceActivity %timeSinceActivity.6 185 20 37 ];
+        %tmp.25 = lgetv %now.5;
+        symbol [ now %tmp.25 185 40 43 ];
+        %tmp.26 = self;
+        symbol [ self %tmp.26 185 46 50 ];
+        symbol [ lastActivityEndTime %tmp.27 185 51 70 ];
+        %tmp.27 = getv %tmp.26 :lastActivityEndTime;
+        %tmp.28 = sub %tmp.25 %tmp.27;
+        lputv %timeSinceActivity.6 %tmp.28;
+        symbol [ timeSinceActivity %timeSinceActivity.6 185 20 37 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 186 16 ]
+        %tmp.29 = lgetv %timeSinceActivity.6;
+        symbol [ timeSinceActivity %tmp.29 186 33 50 ];
+        %tmp.30 = 1800000;
+        %tmp.31 = lt %tmp.29 %tmp.30;
+        lputv %postActivity30.2 %tmp.31;
+        symbol [ postActivity30 %postActivity30.2 186 16 30 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_46_187_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_12_187_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_184_12_187_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 190 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_16_190_50_begin:
+        %tmp.32 = lgetv %active.1;
+        symbol [ active %tmp.32 190 17 23 ];
+        %tmp.33 = not %tmp.32;
+        bf %tmp.33 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_27_190_50_true:
+        %tmp.34 = self;
+        symbol [ self %tmp.34 190 27 31 ];
+        symbol [ wasActiveRecently %tmp.35 190 32 49 ];
+        %tmp.35 = getv function %tmp.34 :wasActiveRecently;
+        %tmp.36 = invoke %tmp.34 %tmp.35();
+        push %tmp.36;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_27_190_50_end:
+        %tmp.37 = phi [%tmp.33 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_16_190_50_begin] [%tmp.36 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_27_190_50_true] [%tmp.37 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_27_190_50_end];
+        bf %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_53_192_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 191 16 ]
+        symbol [ self %self 191 16 20 ];
+        %tmp.38 = lgetv %now.5;
+        symbol [ now %tmp.38 191 43 46 ];
+        symbol [ lastActivityEndTime ? 191 21 40 ];
+        putv self :lastActivityEndTime %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_53_192_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_190_12_192_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_12_194_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_catch:
+        %tmp.39 = exception;
+        push %tmp.39;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 194 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_10_196_8_end" ]
+        %ex.7 = local;
+        symbol [ ex %ex.7 194 17 19 ];
+        %tmp.40 = dup %tmp.39;
+        lputv %ex.7 %tmp.40;
+        symbol [ ex %ex.7 194 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_21_196_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 195 12 ]
+        symbol [ System %tmp.41 195 12 18 ];
+        %tmp.41 = getm $.Toybox.System;
+        symbol [ println %tmp.42 195 19 26 ];
+        %tmp.42 = getv function %tmp.41 :println;
+        %tmp.43 = "Activity status error: ";
+        %tmp.44 = lgetv %ex.7;
+        symbol [ ex %tmp.44 195 55 57 ];
+        symbol [ getErrorMessage %tmp.45 195 58 73 ];
+        %tmp.45 = getv function %tmp.44 :getErrorMessage;
+        %tmp.46 = invoke %tmp.44 %tmp.45();
+        %tmp.47 = add %tmp.43 %tmp.46;
+        invoke %tmp.41 %tmp.42(%tmp.47);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_21_196_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_10_196_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_10_196_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_194_10_196_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally;
+        throw %tmp.39;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_174_8_196_8_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 198 8 ]
+        %tmp.48 = newd 2;
+        %tmp.50 = const :active;
+        symbol [ active %tmp.50 199 13 19 const ];
+        %tmp.51 = lgetv %active.1;
+        symbol [ active %tmp.51 199 23 29 ];
+        %tmp.52 = dup %tmp.48;
+        %tmp.53 = aputv %tmp.52 %tmp.50 %tmp.51;
+        %tmp.55 = const :postActivity30;
+        symbol [ postActivity30 %tmp.55 200 13 27 const ];
+        %tmp.56 = lgetv %postActivity30.2;
+        symbol [ postActivity30 %tmp.56 200 31 45 ];
+        %tmp.57 = dup %tmp.53;
+        %tmp.58 = aputv %tmp.57 %tmp.55 %tmp.56;
+        ret %tmp.58;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_168_41_202_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 204; @symbol_functiondef = [wasActiveRecently,204,21,38]; ]
+    private
+    function wasActiveRecently() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_204_41_208_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 207 8 ]
+        %tmp.1 = false;
+        ret %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_204_41_208_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 210; @symbol_functiondef = [estimateSleepQuality,210,21,41]; ]
+    private
+    function estimateSleepQuality() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_210_44_232_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 211 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_210_44_232_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_210_44_232_4_stop" ]
+        %quality.1 = local;
+        symbol [ quality %quality.1 211 12 19 ];
+        %tmp.1 = 0.7;
+        lputv %quality.1 %tmp.1;
+        symbol [ quality %quality.1 211 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 213 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 215 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_stop" ]
+        %now.2 = local;
+        symbol [ now %now.2 215 16 19 ];
+        symbol [ System %tmp.2 215 22 28 ];
+        %tmp.2 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.3 215 29 41 ];
+        %tmp.3 = getv function %tmp.2 :getClockTime;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %now.2 %tmp.4;
+        symbol [ now %now.2 215 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 216 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_stop" ]
+        %hour.3 = local;
+        symbol [ hour %hour.3 216 16 20 ];
+        %tmp.5 = lgetv %now.2;
+        symbol [ now %tmp.5 216 23 26 ];
+        symbol [ hour %tmp.6 216 27 31 ];
+        %tmp.6 = getv %tmp.5 :hour;
+        lputv %hour.3 %tmp.6;
+        symbol [ hour %hour.3 216 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 219 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_16_219_37_begin:
+        %tmp.7 = lgetv %hour.3;
+        symbol [ hour %tmp.7 219 16 20 ];
+        %tmp.8 = 6;
+        %tmp.9 = gte %tmp.7 %tmp.8;
+        bf %tmp.9 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_29_219_37_true:
+        %tmp.10 = lgetv %hour.3;
+        symbol [ hour %tmp.10 219 29 33 ];
+        %tmp.11 = 10;
+        %tmp.12 = lte %tmp.10 %tmp.11;
+        push %tmp.12;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_29_219_37_end:
+        %tmp.13 = phi [%tmp.9 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_16_219_37_begin] [%tmp.12 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_29_219_37_true] [%tmp.13 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_29_219_37_end];
+        bf %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_41_222_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 220 16 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_41_222_12_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_41_222_12_stop" ]
+        %bodyBattery.4 = local;
+        symbol [ bodyBattery %bodyBattery.4 220 20 31 ];
+        %tmp.14 = self;
+        symbol [ self %tmp.14 220 34 38 ];
+        symbol [ getBodyBatteryLevel %tmp.15 220 39 58 ];
+        %tmp.15 = getv function %tmp.14 :getBodyBatteryLevel;
+        %tmp.16 = invoke %tmp.14 %tmp.15();
+        lputv %bodyBattery.4 %tmp.16;
+        symbol [ bodyBattery %bodyBattery.4 220 20 31 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 221 16 ]
+        %tmp.17 = lgetv %bodyBattery.4;
+        symbol [ bodyBattery %tmp.17 221 26 37 ];
+        %tmp.18 = 100.0;
+        %tmp.19 = div %tmp.17 %tmp.18;
+        lputv %quality.1 %tmp.19;
+        symbol [ quality %quality.1 221 16 23 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_41_222_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_222_19_225_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 224 16 ]
+        %tmp.20 = 0.7;
+        lputv %quality.1 %tmp.20;
+        symbol [ quality %quality.1 224 16 23 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_222_19_225_12_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_219_12_225_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_12_227_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_catch:
+        %tmp.21 = exception;
+        push %tmp.21;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 227 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_10_229_8_end" ]
+        %ex.5 = local;
+        symbol [ ex %ex.5 227 17 19 ];
+        %tmp.22 = dup %tmp.21;
+        lputv %ex.5 %tmp.22;
+        symbol [ ex %ex.5 227 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_21_229_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 228 12 ]
+        symbol [ System %tmp.23 228 12 18 ];
+        %tmp.23 = getm $.Toybox.System;
+        symbol [ println %tmp.24 228 19 26 ];
+        %tmp.24 = getv function %tmp.23 :println;
+        %tmp.25 = "Sleep estimation error: ";
+        %tmp.26 = lgetv %ex.5;
+        symbol [ ex %tmp.26 228 56 58 ];
+        symbol [ getErrorMessage %tmp.27 228 59 74 ];
+        %tmp.27 = getv function %tmp.26 :getErrorMessage;
+        %tmp.28 = invoke %tmp.26 %tmp.27();
+        %tmp.29 = add %tmp.25 %tmp.28;
+        invoke %tmp.23 %tmp.24(%tmp.29);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_21_229_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_10_229_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_10_229_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_227_10_229_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally;
+        throw %tmp.21;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_213_8_229_8_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 231 8 ]
+        %tmp.30 = lgetv %quality.1;
+        symbol [ quality %tmp.30 231 15 22 ];
+        ret %tmp.30;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_210_44_232_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 234; @symbol_functiondef = [detectAchievements,234,21,39]; @symbol_param<0> = [steps,234,40,45]; @symbol_param<1> = [stepGoal,234,47,55]; ]
+    private
+    function detectAchievements(steps, stepGoal) {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_234_57_252_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 235 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_234_57_252_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_234_57_252_4_stop" ]
+        %achievementDetected.1 = local;
+        symbol [ achievementDetected %achievementDetected.1 235 12 31 ];
+        %tmp.1 = false;
+        lputv %achievementDetected.1 %tmp.1;
+        symbol [ achievementDetected %achievementDetected.1 235 12 31 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 238 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_12_238_72_begin:
+        %tmp.2 = lgetv %steps;
+        symbol [ steps %tmp.2 238 12 17 ];
+        %tmp.3 = lgetv %stepGoal;
+        symbol [ stepGoal %tmp.3 238 21 29 ];
+        %tmp.4 = gte %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_33_238_72_true:
+        %tmp.5 = self;
+        symbol [ self %tmp.5 238 34 38 ];
+        symbol [ achievementFlags %tmp.6 238 39 55 ];
+        %tmp.6 = getv %tmp.5 :achievementFlags;
+        %tmp.8 = const :stepGoalReached;
+        symbol [ stepGoalReached %tmp.8 238 57 72 const ];
+        %tmp.9 = agetv %tmp.6 %tmp.8;
+        %tmp.10 = not %tmp.9;
+        push %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_33_238_72_end:
+        %tmp.11 = phi [%tmp.4 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_12_238_72_begin] [%tmp.10 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_33_238_72_true] [%tmp.11 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_33_238_72_end];
+        bf %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_75_242_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 239 12 ]
+        %tmp.12 = true;
+        lputv %achievementDetected.1 %tmp.12;
+        symbol [ achievementDetected %achievementDetected.1 239 12 31 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 240 12 ]
+        symbol [ self %self 240 12 16 ];
+        symbol [ achievementFlags %tmp.13 240 17 33 ];
+        %tmp.13 = getv self :achievementFlags;
+        %tmp.14 = true;
+        %tmp.16 = const :stepGoalReached;
+        symbol [ stepGoalReached %tmp.16 240 35 50 const ];
+        aputv %tmp.13 %tmp.16 %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 241 12 ]
+        symbol [ System %tmp.17 241 12 18 ];
+        %tmp.17 = getm $.Toybox.System;
+        symbol [ println %tmp.18 241 19 26 ];
+        %tmp.18 = getv function %tmp.17 :println;
+        %tmp.19 = "Step goal achieved!";
+        invoke %tmp.17 %tmp.18(%tmp.19);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_75_242_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_238_8_242_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 245 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_8_247_8_if_stmt:
+        %tmp.20 = lgetv %steps;
+        symbol [ steps %tmp.20 245 12 17 ];
+        %tmp.21 = self;
+        symbol [ self %tmp.21 245 20 24 ];
+        symbol [ achievementFlags %tmp.22 245 25 41 ];
+        %tmp.22 = getv %tmp.21 :achievementFlags;
+        %tmp.24 = const :lastStepCount;
+        symbol [ lastStepCount %tmp.24 245 43 56 const ];
+        %tmp.25 = agetv %tmp.22 %tmp.24;
+        %tmp.26 = lt %tmp.20 %tmp.25;
+        bf %tmp.26 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_8_247_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_8_247_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_59_247_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 246 12 ]
+        symbol [ self %self 246 12 16 ];
+        symbol [ achievementFlags %tmp.27 246 17 33 ];
+        %tmp.27 = getv self :achievementFlags;
+        %tmp.28 = false;
+        %tmp.30 = const :stepGoalReached;
+        symbol [ stepGoalReached %tmp.30 246 35 50 const ];
+        aputv %tmp.27 %tmp.30 %tmp.28;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_59_247_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_8_247_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_245_8_247_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 249 8 ]
+        symbol [ self %self 249 8 12 ];
+        symbol [ achievementFlags %tmp.31 249 13 29 ];
+        %tmp.31 = getv self :achievementFlags;
+        %tmp.32 = lgetv %steps;
+        symbol [ steps %tmp.32 249 48 53 ];
+        %tmp.34 = const :lastStepCount;
+        symbol [ lastStepCount %tmp.34 249 31 44 const ];
+        aputv %tmp.31 %tmp.34 %tmp.32;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 251 8 ]
+        %tmp.35 = lgetv %achievementDetected.1;
+        symbol [ achievementDetected %tmp.35 251 15 34 ];
+        ret %tmp.35;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_234_57_252_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 254; @symbol_functiondef = [isInAODMode,254,21,32]; ]
+    private
+    function isInAODMode() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_254_35_270_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 257 8 ]
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_beginTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_endTry @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_beginTry:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_12_267_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 258 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_12_267_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_12_267_8_stop" ]
+        %stats.1 = local;
+        symbol [ stats %stats.1 258 16 21 ];
+        symbol [ System %tmp.1 258 24 30 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getSystemStats %tmp.2 258 31 45 ];
+        %tmp.2 = getv function %tmp.1 :getSystemStats;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %stats.1 %tmp.3;
+        symbol [ stats %stats.1 258 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 260 12 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_12_262_12_if_stmt:
+        %tmp.4 = lgetv %stats.1;
+        symbol [ stats %tmp.4 260 16 21 ];
+        %tmp.6 = const :inAOD;
+        symbol [ inAOD %tmp.6 260 27 32 const ];
+        %tmp.7 = canhazplz %tmp.4 %tmp.6;
+        bf %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_12_262_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_12_262_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_34_262_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 261 16 ]
+        %tmp.8 = lgetv %stats.1;
+        symbol [ stats %tmp.8 261 23 28 ];
+        %tmp.9 = as %tmp.8 { (interface { var inAOD; }) };
+        symbol [ inAOD %tmp.10 261 29 34 ];
+        %tmp.10 = getv %tmp.9 :inAOD;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        ret %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_34_262_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_12_262_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_260_12_262_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 265 12 ]
+        %tmp.11 = lgetv %stats.1;
+        symbol [ stats %tmp.11 265 19 24 ];
+        symbol [ battery %tmp.12 265 25 32 ];
+        %tmp.12 = getv %tmp.11 :battery;
+        %tmp.13 = 10;
+        %tmp.14 = lt %tmp.12 %tmp.13;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        ret %tmp.14;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_12_267_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_endTry:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_catch:
+        %tmp.15 = exception;
+        push %tmp.15;
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 267 10 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_catch" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_10_269_8_end" ]
+        %ex.2 = local;
+        symbol [ ex %ex.2 267 17 19 ];
+        %tmp.16 = dup %tmp.15;
+        lputv %ex.2 %tmp.16;
+        symbol [ ex %ex.2 267 17 19 ];
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_21_269_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 268 12 ]
+        pop;
+        %tmp.17 = false;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        ret %tmp.17;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_21_269_8_stop:
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        pop;
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_10_269_8_end:
+        try @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_catch @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_10_269_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_267_10_269_8_end @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        jsr @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally;
+        throw %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_finally:
+        jsrret;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_257_8_269_8_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_254_35_270_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 273; @symbol_functiondef = [updateRestingHRBaseline,273,13,36]; @symbol_param<0> = [currentHR,273,37,46]; @symbol_param<1> = [isResting,273,48,57]; ]
+    function updateRestingHRBaseline(currentHR, isResting) {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_273_59_279_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 274 8 ]
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_12_274_55_begin:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_12_274_37_begin:
+        %tmp.1 = lgetv %isResting;
+        symbol [ isResting %tmp.1 274 12 21 ];
+        bf %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_25_274_37_true:
+        %tmp.2 = lgetv %currentHR;
+        symbol [ currentHR %tmp.2 274 25 34 ];
+        %tmp.3 = 40;
+        %tmp.4 = gt %tmp.2 %tmp.3;
+        push %tmp.4;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_25_274_37_end:
+        %tmp.5 = phi [%tmp.1 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_12_274_37_begin] [%tmp.4 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_25_274_37_true] [%tmp.5 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_25_274_37_end];
+        bf %tmp.5 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_43_274_55_true:
+        %tmp.6 = lgetv %currentHR;
+        symbol [ currentHR %tmp.6 274 43 52 ];
+        %tmp.7 = 100;
+        %tmp.8 = lt %tmp.6 %tmp.7;
+        push %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_43_274_55_end:
+        %tmp.9 = phi [%tmp.5 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_12_274_55_begin] [%tmp.8 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_43_274_55_true] [%tmp.9 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_43_274_55_end];
+        bf %tmp.9 @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_60_278_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 276 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_60_278_8_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_60_278_8_stop" ]
+        %alpha.1 = local;
+        symbol [ alpha %alpha.1 276 16 21 ];
+        %tmp.10 = 0.05;
+        lputv %alpha.1 %tmp.10;
+        symbol [ alpha %alpha.1 276 16 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 277 12 ]
+        symbol [ self %self 277 12 16 ];
+        %tmp.11 = lgetv %alpha.1;
+        symbol [ alpha %tmp.11 277 38 43 ];
+        %tmp.12 = lgetv %currentHR;
+        symbol [ currentHR %tmp.12 277 46 55 ];
+        %tmp.13 = mul %tmp.11 %tmp.12;
+        %tmp.14 = 1.0;
+        %tmp.15 = lgetv %alpha.1;
+        symbol [ alpha %tmp.15 277 67 72 ];
+        %tmp.16 = sub %tmp.14 %tmp.15;
+        %tmp.17 = self;
+        symbol [ self %tmp.17 277 76 80 ];
+        symbol [ restingHRBaseline %tmp.18 277 81 98 ];
+        %tmp.18 = getv %tmp.17 :restingHRBaseline;
+        %tmp.19 = mul %tmp.16 %tmp.18;
+        %tmp.20 = add %tmp.13 %tmp.19;
+        symbol [ restingHRBaseline ? 277 17 34 ];
+        putv self :restingHRBaseline %tmp.20;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_60_278_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_274_8_278_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_273_59_279_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 282; @symbol_functiondef = [debugSensorData,282,13,28]; ]
+    function debugSensorData() {
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_282_31_296_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 283 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_282_31_296_4_start" "_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_282_31_296_4_stop" ]
+        %sensors.1 = local;
+        symbol [ sensors %sensors.1 283 12 19 ];
+        %tmp.1 = self;
+        symbol [ self %tmp.1 283 22 26 ];
+        symbol [ gatherSensorData %tmp.2 283 27 43 ];
+        %tmp.2 = getv function %tmp.1 :gatherSensorData;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %sensors.1 %tmp.3;
+        symbol [ sensors %sensors.1 283 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 285 8 ]
+        symbol [ System %tmp.4 285 8 14 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 285 15 22 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "=== Sensor Data ===";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 286 8 ]
+        symbol [ System %tmp.7 286 8 14 ];
+        %tmp.7 = getm $.Toybox.System;
+        symbol [ println %tmp.8 286 15 22 ];
+        %tmp.8 = getv function %tmp.7 :println;
+        %tmp.9 = "Steps: ";
+        %tmp.10 = lgetv %sensors.1;
+        symbol [ sensors %tmp.10 286 35 42 ];
+        %tmp.12 = const :steps;
+        symbol [ steps %tmp.12 286 44 49 const ];
+        %tmp.13 = agetv %tmp.10 %tmp.12;
+        %tmp.14 = add %tmp.9 %tmp.13;
+        %tmp.15 = "/";
+        %tmp.16 = add %tmp.14 %tmp.15;
+        %tmp.17 = lgetv %sensors.1;
+        symbol [ sensors %tmp.17 286 59 66 ];
+        %tmp.19 = const :stepGoal;
+        symbol [ stepGoal %tmp.19 286 68 76 const ];
+        %tmp.20 = agetv %tmp.17 %tmp.19;
+        %tmp.21 = add %tmp.16 %tmp.20;
+        invoke %tmp.7 %tmp.8(%tmp.21);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 287 8 ]
+        symbol [ System %tmp.22 287 8 14 ];
+        %tmp.22 = getm $.Toybox.System;
+        symbol [ println %tmp.23 287 15 22 ];
+        %tmp.23 = getv function %tmp.22 :println;
+        %tmp.24 = "HR: ";
+        %tmp.25 = lgetv %sensors.1;
+        symbol [ sensors %tmp.25 287 32 39 ];
+        %tmp.27 = const :heartRate;
+        symbol [ heartRate %tmp.27 287 41 50 const ];
+        %tmp.28 = agetv %tmp.25 %tmp.27;
+        %tmp.29 = add %tmp.24 %tmp.28;
+        %tmp.30 = " (resting: ";
+        %tmp.31 = add %tmp.29 %tmp.30;
+        %tmp.32 = lgetv %sensors.1;
+        symbol [ sensors %tmp.32 287 70 77 ];
+        %tmp.34 = const :restingHR;
+        symbol [ restingHR %tmp.34 287 79 88 const ];
+        %tmp.35 = agetv %tmp.32 %tmp.34;
+        %tmp.36 = add %tmp.31 %tmp.35;
+        %tmp.37 = ")";
+        %tmp.38 = add %tmp.36 %tmp.37;
+        invoke %tmp.22 %tmp.23(%tmp.38);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 288 8 ]
+        symbol [ System %tmp.39 288 8 14 ];
+        %tmp.39 = getm $.Toybox.System;
+        symbol [ println %tmp.40 288 15 22 ];
+        %tmp.40 = getv function %tmp.39 :println;
+        %tmp.41 = "Stress: ";
+        %tmp.42 = lgetv %sensors.1;
+        symbol [ sensors %tmp.42 288 36 43 ];
+        %tmp.44 = const :stress;
+        symbol [ stress %tmp.44 288 45 51 const ];
+        %tmp.45 = agetv %tmp.42 %tmp.44;
+        %tmp.46 = add %tmp.41 %tmp.45;
+        invoke %tmp.39 %tmp.40(%tmp.46);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 289 8 ]
+        symbol [ System %tmp.47 289 8 14 ];
+        %tmp.47 = getm $.Toybox.System;
+        symbol [ println %tmp.48 289 15 22 ];
+        %tmp.48 = getv function %tmp.47 :println;
+        %tmp.49 = "Body Battery: ";
+        %tmp.50 = lgetv %sensors.1;
+        symbol [ sensors %tmp.50 289 42 49 ];
+        %tmp.52 = const :bodyBattery;
+        symbol [ bodyBattery %tmp.52 289 51 62 const ];
+        %tmp.53 = agetv %tmp.50 %tmp.52;
+        %tmp.54 = add %tmp.49 %tmp.53;
+        invoke %tmp.47 %tmp.48(%tmp.54);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 290 8 ]
+        symbol [ System %tmp.55 290 8 14 ];
+        %tmp.55 = getm $.Toybox.System;
+        symbol [ println %tmp.56 290 15 22 ];
+        %tmp.56 = getv function %tmp.55 :println;
+        %tmp.57 = "In Activity: ";
+        %tmp.58 = lgetv %sensors.1;
+        symbol [ sensors %tmp.58 290 41 48 ];
+        %tmp.60 = const :inActivity;
+        symbol [ inActivity %tmp.60 290 50 60 const ];
+        %tmp.61 = agetv %tmp.58 %tmp.60;
+        %tmp.62 = add %tmp.57 %tmp.61;
+        invoke %tmp.55 %tmp.56(%tmp.62);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 291 8 ]
+        symbol [ System %tmp.63 291 8 14 ];
+        %tmp.63 = getm $.Toybox.System;
+        symbol [ println %tmp.64 291 15 22 ];
+        %tmp.64 = getv function %tmp.63 :println;
+        %tmp.65 = "Post Activity: ";
+        %tmp.66 = lgetv %sensors.1;
+        symbol [ sensors %tmp.66 291 43 50 ];
+        %tmp.68 = const :postActivity30;
+        symbol [ postActivity30 %tmp.68 291 52 66 const ];
+        %tmp.69 = agetv %tmp.66 %tmp.68;
+        %tmp.70 = add %tmp.65 %tmp.69;
+        invoke %tmp.63 %tmp.64(%tmp.70);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 292 8 ]
+        symbol [ System %tmp.71 292 8 14 ];
+        %tmp.71 = getm $.Toybox.System;
+        symbol [ println %tmp.72 292 15 22 ];
+        %tmp.72 = getv function %tmp.71 :println;
+        %tmp.73 = "Sleep Quality: ";
+        %tmp.74 = lgetv %sensors.1;
+        symbol [ sensors %tmp.74 292 43 50 ];
+        %tmp.76 = const :sleepQuality;
+        symbol [ sleepQuality %tmp.76 292 52 64 const ];
+        %tmp.77 = agetv %tmp.74 %tmp.76;
+        %tmp.78 = add %tmp.73 %tmp.77;
+        invoke %tmp.71 %tmp.72(%tmp.78);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 293 8 ]
+        symbol [ System %tmp.79 293 8 14 ];
+        %tmp.79 = getm $.Toybox.System;
+        symbol [ println %tmp.80 293 15 22 ];
+        %tmp.80 = getv function %tmp.79 :println;
+        %tmp.81 = "Achievement: ";
+        %tmp.82 = lgetv %sensors.1;
+        symbol [ sensors %tmp.82 293 41 48 ];
+        %tmp.84 = const :achievementEvent;
+        symbol [ achievementEvent %tmp.84 293 50 66 const ];
+        %tmp.85 = agetv %tmp.82 %tmp.84;
+        %tmp.86 = add %tmp.81 %tmp.85;
+        invoke %tmp.79 %tmp.80(%tmp.86);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 294 8 ]
+        symbol [ System %tmp.87 294 8 14 ];
+        %tmp.87 = getm $.Toybox.System;
+        symbol [ println %tmp.88 294 15 22 ];
+        %tmp.88 = getv function %tmp.87 :println;
+        %tmp.89 = "AOD: ";
+        %tmp.90 = lgetv %sensors.1;
+        symbol [ sensors %tmp.90 294 33 40 ];
+        %tmp.92 = const :aod;
+        symbol [ aod %tmp.92 294 42 45 const ];
+        %tmp.93 = agetv %tmp.90 %tmp.92;
+        %tmp.94 = add %tmp.89 %tmp.93;
+        invoke %tmp.87 %tmp.88(%tmp.94);
+[ "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc" 295 8 ]
+        symbol [ System %tmp.95 295 8 14 ];
+        %tmp.95 = getm $.Toybox.System;
+        symbol [ println %tmp.96 295 15 22 ];
+        %tmp.96 = getv function %tmp.95 :println;
+        %tmp.97 = "==================";
+        invoke %tmp.95 %tmp.96(%tmp.97);
+_Users_erdalgunes_garmin_jailbot_source_HealthDataProvider_mc_282_31_296_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/HealthDataProvider.mc"; @line = 1; ]
+<init> {
+}

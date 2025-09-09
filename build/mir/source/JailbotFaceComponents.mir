@@ -1,0 +1,642 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Graphics,1,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 3; @symbol_moduledef = [JailbotFace,3,7,18]; ]
+module JailbotFace {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 3; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 5; @symbol_classdef = [Eye,5,10,13]; ]
+    class Eye {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 5; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 5; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 6; @position = 12; @symbol_vardef = [cols,6,12,16]; ]
+        var cols = 9;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 7; @position = 12; @symbol_vardef = [rows,7,12,16]; ]
+        var rows = 4;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 9; @symbol_functiondef = [getSpec,9,17,24]; ]
+        function getSpec() {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_9_27_11_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 10 12 ]
+            symbol [ PixelResolution %tmp.4 10 23 38 ];
+            %tmp.4 = getv ? :PixelResolution;
+            symbol [ GridSpec %tmp.5 10 39 47 ];
+            %tmp.5 = getv function ? %tmp.4 :GridSpec;
+            symbol [ cols %tmp.7 10 48 52 ];
+            %tmp.7 = getv ? :cols;
+            symbol [ rows %tmp.9 10 54 58 ];
+            %tmp.9 = getv ? :rows;
+            %tmp.1 = newc %tmp.5 (%tmp.7, %tmp.9);
+            ret %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_9_27_11_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 14; @symbol_classdef = [Mouth,14,10,15]; ]
+    class Mouth {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 14; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 14; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 15; @position = 12; @symbol_vardef = [cols,15,12,16]; ]
+        var cols = 14;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 16; @position = 12; @symbol_vardef = [rows,16,12,16]; ]
+        var rows = 4;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 18; @symbol_functiondef = [getSpec,18,17,24]; ]
+        function getSpec() {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_18_27_20_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 19 12 ]
+            symbol [ PixelResolution %tmp.4 19 23 38 ];
+            %tmp.4 = getv ? :PixelResolution;
+            symbol [ GridSpec %tmp.5 19 39 47 ];
+            %tmp.5 = getv function ? %tmp.4 :GridSpec;
+            symbol [ cols %tmp.7 19 48 52 ];
+            %tmp.7 = getv ? :cols;
+            symbol [ rows %tmp.9 19 54 58 ];
+            %tmp.9 = getv ? :rows;
+            %tmp.1 = newc %tmp.5 (%tmp.7, %tmp.9);
+            ret %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_18_27_20_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 23; @symbol_classdef = [FaceLayout,23,10,20]; ]
+    class FaceLayout {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 23; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 23; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 24; @position = 12; @symbol_vardef = [resManager,24,12,22]; ]
+        var resManager;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 25; @position = 12; @symbol_vardef = [leftEye,25,12,19]; ]
+        var leftEye;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 26; @position = 12; @symbol_vardef = [rightEye,26,12,20]; ]
+        var rightEye;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 27; @position = 12; @symbol_vardef = [mouth,27,12,17]; ]
+        var mouth;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 28; @position = 12; @symbol_vardef = [eyeSpacingBlocks,28,12,28]; ]
+        var eyeSpacingBlocks = 6;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 30; @symbol_functiondef = [initialize,30,17,27]; ]
+        function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_30_30_35_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 31 12 ]
+            symbol [ PixelResolution %tmp.4 31 29 44 ];
+            %tmp.4 = getv ? :PixelResolution;
+            symbol [ ResolutionManager %tmp.5 31 45 62 ];
+            %tmp.5 = getv function ? %tmp.4 :ResolutionManager;
+            %tmp.1 = newc %tmp.5 ();
+            symbol [ resManager ? 31 12 22 ];
+            putv self :resManager %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 32 12 ]
+            symbol [ Eye %tmp.9 32 26 29 ];
+            %tmp.9 = getv ? :Eye;
+            %tmp.6 = newc %tmp.9 ();
+            symbol [ leftEye ? 32 12 19 ];
+            putv self :leftEye %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 33 12 ]
+            symbol [ Eye %tmp.13 33 27 30 ];
+            %tmp.13 = getv ? :Eye;
+            %tmp.10 = newc %tmp.13 ();
+            symbol [ rightEye ? 33 12 20 ];
+            putv self :rightEye %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 34 12 ]
+            symbol [ Mouth %tmp.17 34 24 29 ];
+            %tmp.17 = getv ? :Mouth;
+            %tmp.14 = newc %tmp.17 ();
+            symbol [ mouth ? 34 12 17 ];
+            putv self :mouth %tmp.14;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_30_30_35_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 37; @symbol_functiondef = [adjustEyeSpacing,37,17,33]; @symbol_param<0> = [blocks,37,34,40]; ]
+        function adjustEyeSpacing(blocks) {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_37_42_39_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 38 12 ]
+            %tmp.1 = lgetv %blocks;
+            symbol [ blocks %tmp.1 38 31 37 ];
+            symbol [ eyeSpacingBlocks ? 38 12 28 ];
+            putv self :eyeSpacingBlocks %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_37_42_39_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 41; @symbol_functiondef = [moveEyesApart,41,17,30]; ]
+        function moveEyesApart() {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_41_33_43_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 42 12 ]
+            symbol [ eyeSpacingBlocks %tmp.2 42 31 47 ];
+            %tmp.2 = getv ? :eyeSpacingBlocks;
+            %tmp.3 = 1;
+            %tmp.4 = add %tmp.2 %tmp.3;
+            symbol [ eyeSpacingBlocks ? 42 12 28 ];
+            putv self :eyeSpacingBlocks %tmp.4;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_41_33_43_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 45; @symbol_functiondef = [moveEyesCloser,45,17,31]; ]
+        function moveEyesCloser() {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_45_34_49_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 46 12 ]
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_12_48_12_if_stmt:
+            symbol [ eyeSpacingBlocks %tmp.2 46 16 32 ];
+            %tmp.2 = getv ? :eyeSpacingBlocks;
+            %tmp.3 = 0;
+            %tmp.4 = gt %tmp.2 %tmp.3;
+            bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_12_48_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_12_48_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_38_48_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 47 16 ]
+            symbol [ eyeSpacingBlocks %tmp.6 47 35 51 ];
+            %tmp.6 = getv ? :eyeSpacingBlocks;
+            %tmp.7 = 1;
+            %tmp.8 = sub %tmp.6 %tmp.7;
+            symbol [ eyeSpacingBlocks ? 47 16 32 ];
+            putv self :eyeSpacingBlocks %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_38_48_12_stop:
+            goto @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_12_48_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_46_12_48_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_45_34_49_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 51; @symbol_functiondef = [setEyeSpacing,51,17,30]; @symbol_param<0> = [blocks,51,31,37]; ]
+        function setEyeSpacing(blocks) {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_51_39_53_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 52 12 ]
+            %tmp.1 = lgetv %blocks;
+            symbol [ blocks %tmp.1 52 31 37 ];
+            symbol [ eyeSpacingBlocks ? 52 12 28 ];
+            putv self :eyeSpacingBlocks %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_51_39_53_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 55; @symbol_functiondef = [draw,55,17,21]; @symbol_param<0> = [dc,55,22,24]; @symbol_param<1> = [screenWidth,55,26,37]; @symbol_param<2> = [screenHeight,55,39,51]; ]
+        function draw(dc, screenWidth, screenHeight) {
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 56 12 ]
+            %tmp.1 = lgetv %dc;
+            symbol [ dc %tmp.1 56 12 14 ];
+            symbol [ setColor %tmp.2 56 15 23 ];
+            %tmp.2 = getv function %tmp.1 :setColor;
+            symbol [ Graphics %tmp.3 56 24 32 ];
+            %tmp.3 = getm $.Toybox.Graphics;
+            symbol [ COLOR_RED %tmp.4 56 33 42 ];
+            %tmp.4 = getv %tmp.3 :COLOR_RED;
+            symbol [ Graphics %tmp.5 56 44 52 ];
+            %tmp.5 = getm $.Toybox.Graphics;
+            symbol [ COLOR_TRANSPARENT %tmp.6 56 53 70 ];
+            %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+            invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 59 12 ]
+            symbol [ resManager %tmp.8 59 12 22 ];
+            %tmp.8 = getv ? :resManager;
+            symbol [ updateScale %tmp.9 59 23 34 ];
+            %tmp.9 = getv function %tmp.8 :updateScale;
+            %tmp.10 = lgetv %dc;
+            symbol [ dc %tmp.10 59 35 37 ];
+            invoke %tmp.8 %tmp.9(%tmp.10);
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 61 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %blockSize.1 = local;
+            symbol [ blockSize %blockSize.1 61 16 25 ];
+            symbol [ resManager %tmp.12 61 28 38 ];
+            %tmp.12 = getv ? :resManager;
+            symbol [ blockSize %tmp.13 61 39 48 ];
+            %tmp.13 = getv %tmp.12 :blockSize;
+            lputv %blockSize.1 %tmp.13;
+            symbol [ blockSize %blockSize.1 61 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 62 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %gap.2 = local;
+            symbol [ gap %gap.2 62 16 19 ];
+            symbol [ resManager %tmp.15 62 22 32 ];
+            %tmp.15 = getv ? :resManager;
+            symbol [ gap %tmp.16 62 33 36 ];
+            %tmp.16 = getv %tmp.15 :gap;
+            lputv %gap.2 %tmp.16;
+            symbol [ gap %gap.2 62 16 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 65 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %clockTime.3 = local;
+            symbol [ clockTime %clockTime.3 65 16 25 ];
+            symbol [ System %tmp.18 65 28 34 ];
+            %tmp.18 = getv ? :System;
+            symbol [ getClockTime %tmp.19 65 35 47 ];
+            %tmp.19 = getv function %tmp.18 :getClockTime;
+            %tmp.20 = invoke %tmp.18 %tmp.19();
+            lputv %clockTime.3 %tmp.20;
+            symbol [ clockTime %clockTime.3 65 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 67 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %shouldBlink.4 = local;
+            symbol [ shouldBlink %shouldBlink.4 67 16 27 ];
+            %tmp.21 = lgetv %clockTime.3;
+            symbol [ clockTime %tmp.21 67 31 40 ];
+            symbol [ sec %tmp.22 67 41 44 ];
+            %tmp.22 = getv %tmp.21 :sec;
+            %tmp.23 = 3;
+            %tmp.24 = mod %tmp.22 %tmp.23;
+            %tmp.25 = 0;
+            %tmp.26 = eq %tmp.24 %tmp.25;
+            lputv %shouldBlink.4 %tmp.26;
+            symbol [ shouldBlink %shouldBlink.4 67 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 70 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %eyeSpec.5 = local;
+            symbol [ eyeSpec %eyeSpec.5 70 16 23 ];
+            symbol [ leftEye %tmp.28 70 26 33 ];
+            %tmp.28 = getv ? :leftEye;
+            symbol [ getSpec %tmp.29 70 34 41 ];
+            %tmp.29 = getv function %tmp.28 :getSpec;
+            %tmp.30 = invoke %tmp.28 %tmp.29();
+            lputv %eyeSpec.5 %tmp.30;
+            symbol [ eyeSpec %eyeSpec.5 70 16 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 71 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %eyeWidth.6 = local;
+            symbol [ eyeWidth %eyeWidth.6 71 16 24 ];
+            %tmp.31 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.31 71 27 34 ];
+            symbol [ cols %tmp.32 71 35 39 ];
+            %tmp.32 = getv %tmp.31 :cols;
+            %tmp.33 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.33 71 42 51 ];
+            %tmp.34 = mul %tmp.32 %tmp.33;
+            %tmp.35 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.35 71 55 62 ];
+            symbol [ cols %tmp.36 71 63 67 ];
+            %tmp.36 = getv %tmp.35 :cols;
+            %tmp.37 = 1;
+            %tmp.38 = sub %tmp.36 %tmp.37;
+            %tmp.39 = lgetv %gap.2;
+            symbol [ gap %tmp.39 71 75 78 ];
+            %tmp.40 = mul %tmp.38 %tmp.39;
+            %tmp.41 = add %tmp.34 %tmp.40;
+            lputv %eyeWidth.6 %tmp.41;
+            symbol [ eyeWidth %eyeWidth.6 71 16 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 72 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %eyeHeight.7 = local;
+            symbol [ eyeHeight %eyeHeight.7 72 16 25 ];
+            %tmp.42 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.42 72 28 35 ];
+            symbol [ rows %tmp.43 72 36 40 ];
+            %tmp.43 = getv %tmp.42 :rows;
+            %tmp.44 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.44 72 43 52 ];
+            %tmp.45 = mul %tmp.43 %tmp.44;
+            %tmp.46 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.46 72 56 63 ];
+            symbol [ rows %tmp.47 72 64 68 ];
+            %tmp.47 = getv %tmp.46 :rows;
+            %tmp.48 = 1;
+            %tmp.49 = sub %tmp.47 %tmp.48;
+            %tmp.50 = lgetv %gap.2;
+            symbol [ gap %tmp.50 72 76 79 ];
+            %tmp.51 = mul %tmp.49 %tmp.50;
+            %tmp.52 = add %tmp.45 %tmp.51;
+            lputv %eyeHeight.7 %tmp.52;
+            symbol [ eyeHeight %eyeHeight.7 72 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 75 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %eyeSpacingPx.8 = local;
+            symbol [ eyeSpacingPx %eyeSpacingPx.8 75 16 28 ];
+            symbol [ eyeSpacingBlocks %tmp.54 75 31 47 ];
+            %tmp.54 = getv ? :eyeSpacingBlocks;
+            %tmp.55 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.55 75 51 60 ];
+            %tmp.56 = lgetv %gap.2;
+            symbol [ gap %tmp.56 75 63 66 ];
+            %tmp.57 = add %tmp.55 %tmp.56;
+            %tmp.58 = mul %tmp.54 %tmp.57;
+            lputv %eyeSpacingPx.8 %tmp.58;
+            symbol [ eyeSpacingPx %eyeSpacingPx.8 75 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 78 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %totalEyesWidth.9 = local;
+            symbol [ totalEyesWidth %totalEyesWidth.9 78 16 30 ];
+            %tmp.59 = lgetv %eyeWidth.6;
+            symbol [ eyeWidth %tmp.59 78 33 41 ];
+            %tmp.60 = 2;
+            %tmp.61 = mul %tmp.59 %tmp.60;
+            %tmp.62 = lgetv %eyeSpacingPx.8;
+            symbol [ eyeSpacingPx %tmp.62 78 48 60 ];
+            %tmp.63 = add %tmp.61 %tmp.62;
+            lputv %totalEyesWidth.9 %tmp.63;
+            symbol [ totalEyesWidth %totalEyesWidth.9 78 16 30 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 79 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %leftEyeX.10 = local;
+            symbol [ leftEyeX %leftEyeX.10 79 16 24 ];
+            %tmp.64 = lgetv %screenWidth;
+            symbol [ screenWidth %tmp.64 79 28 39 ];
+            %tmp.65 = lgetv %totalEyesWidth.9;
+            symbol [ totalEyesWidth %tmp.65 79 42 56 ];
+            %tmp.66 = sub %tmp.64 %tmp.65;
+            %tmp.67 = 2;
+            %tmp.68 = div %tmp.66 %tmp.67;
+            lputv %leftEyeX.10 %tmp.68;
+            symbol [ leftEyeX %leftEyeX.10 79 16 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 80 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %rightEyeX.11 = local;
+            symbol [ rightEyeX %rightEyeX.11 80 16 25 ];
+            %tmp.69 = lgetv %leftEyeX.10;
+            symbol [ leftEyeX %tmp.69 80 28 36 ];
+            %tmp.70 = lgetv %eyeWidth.6;
+            symbol [ eyeWidth %tmp.70 80 39 47 ];
+            %tmp.71 = add %tmp.69 %tmp.70;
+            %tmp.72 = lgetv %eyeSpacingPx.8;
+            symbol [ eyeSpacingPx %tmp.72 80 50 62 ];
+            %tmp.73 = add %tmp.71 %tmp.72;
+            lputv %rightEyeX.11 %tmp.73;
+            symbol [ rightEyeX %rightEyeX.11 80 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 81 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %eyeY.12 = local;
+            symbol [ eyeY %eyeY.12 81 16 20 ];
+            %tmp.74 = lgetv %screenHeight;
+            symbol [ screenHeight %tmp.74 81 23 35 ];
+            %tmp.75 = 3;
+            %tmp.76 = div %tmp.74 %tmp.75;
+            %tmp.77 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.77 81 42 51 ];
+            %tmp.78 = 2;
+            %tmp.79 = mul %tmp.77 %tmp.78;
+            %tmp.80 = add %tmp.76 %tmp.79;
+            lputv %eyeY.12 %tmp.80;
+            symbol [ eyeY %eyeY.12 81 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 84 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %leftEyeMetrics.13 = local;
+            symbol [ leftEyeMetrics %leftEyeMetrics.13 84 16 30 ];
+            symbol [ resManager %tmp.82 84 33 43 ];
+            %tmp.82 = getv ? :resManager;
+            symbol [ positionGrid %tmp.83 84 44 56 ];
+            %tmp.83 = getv function %tmp.82 :positionGrid;
+            %tmp.84 = lgetv %leftEyeX.10;
+            symbol [ leftEyeX %tmp.84 84 57 65 ];
+            %tmp.85 = lgetv %eyeY.12;
+            symbol [ eyeY %tmp.85 84 67 71 ];
+            %tmp.86 = invoke %tmp.82 %tmp.83(%tmp.84, %tmp.85);
+            lputv %leftEyeMetrics.13 %tmp.86;
+            symbol [ leftEyeMetrics %leftEyeMetrics.13 84 16 30 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 85 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %leftRenderer.14 = local;
+            symbol [ leftRenderer %leftRenderer.14 85 16 28 ];
+            symbol [ PixelResolution %tmp.90 85 35 50 ];
+            %tmp.90 = getv ? :PixelResolution;
+            symbol [ PixelRenderer %tmp.91 85 51 64 ];
+            %tmp.91 = getv function ? %tmp.90 :PixelRenderer;
+            %tmp.92 = lgetv %dc;
+            symbol [ dc %tmp.92 85 65 67 ];
+            %tmp.93 = lgetv %leftEyeMetrics.13;
+            symbol [ leftEyeMetrics %tmp.93 85 69 83 ];
+            %tmp.87 = newc %tmp.91 (%tmp.92, %tmp.93);
+            lputv %leftRenderer.14 %tmp.87;
+            symbol [ leftRenderer %leftRenderer.14 85 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 86 12 ]
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_stmt:
+            %tmp.94 = lgetv %shouldBlink.4;
+            symbol [ shouldBlink %tmp.94 86 17 28 ];
+            %tmp.95 = not %tmp.94;
+            bf %tmp.95 @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_30_89_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 88 16 ]
+            %tmp.96 = lgetv %leftRenderer.14;
+            symbol [ leftRenderer %tmp.96 88 16 28 ];
+            symbol [ drawRectangle %tmp.97 88 29 42 ];
+            %tmp.97 = getv function %tmp.96 :drawRectangle;
+            %tmp.98 = 0;
+            %tmp.99 = 0;
+            %tmp.100 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.100 88 49 56 ];
+            symbol [ cols %tmp.101 88 57 61 ];
+            %tmp.101 = getv %tmp.100 :cols;
+            %tmp.102 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.102 88 63 70 ];
+            symbol [ rows %tmp.103 88 71 75 ];
+            %tmp.103 = getv %tmp.102 :rows;
+            invoke %tmp.96 %tmp.97(%tmp.98, %tmp.99, %tmp.101, %tmp.103);
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_30_89_12_stop:
+            goto @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_89_19_92_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 91 16 ]
+            %tmp.104 = lgetv %leftRenderer.14;
+            symbol [ leftRenderer %tmp.104 91 16 28 ];
+            symbol [ drawRectangle %tmp.105 91 29 42 ];
+            %tmp.105 = getv function %tmp.104 :drawRectangle;
+            %tmp.106 = 0;
+            %tmp.107 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.107 91 46 53 ];
+            symbol [ rows %tmp.108 91 54 58 ];
+            %tmp.108 = getv %tmp.107 :rows;
+            %tmp.109 = 2;
+            %tmp.110 = div %tmp.108 %tmp.109;
+            %tmp.111 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.111 91 62 69 ];
+            symbol [ cols %tmp.112 91 70 74 ];
+            %tmp.112 = getv %tmp.111 :cols;
+            %tmp.113 = 1;
+            invoke %tmp.104 %tmp.105(%tmp.106, %tmp.110, %tmp.112, %tmp.113);
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_89_19_92_12_stop:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_86_12_92_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 95 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %rightEyeMetrics.15 = local;
+            symbol [ rightEyeMetrics %rightEyeMetrics.15 95 16 31 ];
+            symbol [ resManager %tmp.115 95 34 44 ];
+            %tmp.115 = getv ? :resManager;
+            symbol [ positionGrid %tmp.116 95 45 57 ];
+            %tmp.116 = getv function %tmp.115 :positionGrid;
+            %tmp.117 = lgetv %rightEyeX.11;
+            symbol [ rightEyeX %tmp.117 95 58 67 ];
+            %tmp.118 = lgetv %eyeY.12;
+            symbol [ eyeY %tmp.118 95 69 73 ];
+            %tmp.119 = invoke %tmp.115 %tmp.116(%tmp.117, %tmp.118);
+            lputv %rightEyeMetrics.15 %tmp.119;
+            symbol [ rightEyeMetrics %rightEyeMetrics.15 95 16 31 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 96 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %rightRenderer.16 = local;
+            symbol [ rightRenderer %rightRenderer.16 96 16 29 ];
+            symbol [ PixelResolution %tmp.123 96 36 51 ];
+            %tmp.123 = getv ? :PixelResolution;
+            symbol [ PixelRenderer %tmp.124 96 52 65 ];
+            %tmp.124 = getv function ? %tmp.123 :PixelRenderer;
+            %tmp.125 = lgetv %dc;
+            symbol [ dc %tmp.125 96 66 68 ];
+            %tmp.126 = lgetv %rightEyeMetrics.15;
+            symbol [ rightEyeMetrics %tmp.126 96 70 85 ];
+            %tmp.120 = newc %tmp.124 (%tmp.125, %tmp.126);
+            lputv %rightRenderer.16 %tmp.120;
+            symbol [ rightRenderer %rightRenderer.16 96 16 29 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 97 12 ]
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_stmt:
+            %tmp.127 = lgetv %shouldBlink.4;
+            symbol [ shouldBlink %tmp.127 97 17 28 ];
+            %tmp.128 = not %tmp.127;
+            bf %tmp.128 @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_30_100_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 99 16 ]
+            %tmp.129 = lgetv %rightRenderer.16;
+            symbol [ rightRenderer %tmp.129 99 16 29 ];
+            symbol [ drawRectangle %tmp.130 99 30 43 ];
+            %tmp.130 = getv function %tmp.129 :drawRectangle;
+            %tmp.131 = 0;
+            %tmp.132 = 0;
+            %tmp.133 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.133 99 50 57 ];
+            symbol [ cols %tmp.134 99 58 62 ];
+            %tmp.134 = getv %tmp.133 :cols;
+            %tmp.135 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.135 99 64 71 ];
+            symbol [ rows %tmp.136 99 72 76 ];
+            %tmp.136 = getv %tmp.135 :rows;
+            invoke %tmp.129 %tmp.130(%tmp.131, %tmp.132, %tmp.134, %tmp.136);
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_30_100_12_stop:
+            goto @_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_100_19_103_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 102 16 ]
+            %tmp.137 = lgetv %rightRenderer.16;
+            symbol [ rightRenderer %tmp.137 102 16 29 ];
+            symbol [ drawRectangle %tmp.138 102 30 43 ];
+            %tmp.138 = getv function %tmp.137 :drawRectangle;
+            %tmp.139 = 0;
+            %tmp.140 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.140 102 47 54 ];
+            symbol [ rows %tmp.141 102 55 59 ];
+            %tmp.141 = getv %tmp.140 :rows;
+            %tmp.142 = 2;
+            %tmp.143 = div %tmp.141 %tmp.142;
+            %tmp.144 = lgetv %eyeSpec.5;
+            symbol [ eyeSpec %tmp.144 102 63 70 ];
+            symbol [ cols %tmp.145 102 71 75 ];
+            %tmp.145 = getv %tmp.144 :cols;
+            %tmp.146 = 1;
+            invoke %tmp.137 %tmp.138(%tmp.139, %tmp.143, %tmp.145, %tmp.146);
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_100_19_103_12_stop:
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_97_12_103_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 106 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthSpec.17 = local;
+            symbol [ mouthSpec %mouthSpec.17 106 16 25 ];
+            symbol [ mouth %tmp.148 106 28 33 ];
+            %tmp.148 = getv ? :mouth;
+            symbol [ getSpec %tmp.149 106 34 41 ];
+            %tmp.149 = getv function %tmp.148 :getSpec;
+            %tmp.150 = invoke %tmp.148 %tmp.149();
+            lputv %mouthSpec.17 %tmp.150;
+            symbol [ mouthSpec %mouthSpec.17 106 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 107 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthWidth.18 = local;
+            symbol [ mouthWidth %mouthWidth.18 107 16 26 ];
+            %tmp.151 = lgetv %mouthSpec.17;
+            symbol [ mouthSpec %tmp.151 107 29 38 ];
+            symbol [ cols %tmp.152 107 39 43 ];
+            %tmp.152 = getv %tmp.151 :cols;
+            %tmp.153 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.153 107 46 55 ];
+            %tmp.154 = mul %tmp.152 %tmp.153;
+            %tmp.155 = lgetv %mouthSpec.17;
+            symbol [ mouthSpec %tmp.155 107 59 68 ];
+            symbol [ cols %tmp.156 107 69 73 ];
+            %tmp.156 = getv %tmp.155 :cols;
+            %tmp.157 = 1;
+            %tmp.158 = sub %tmp.156 %tmp.157;
+            %tmp.159 = lgetv %gap.2;
+            symbol [ gap %tmp.159 107 81 84 ];
+            %tmp.160 = mul %tmp.158 %tmp.159;
+            %tmp.161 = add %tmp.154 %tmp.160;
+            lputv %mouthWidth.18 %tmp.161;
+            symbol [ mouthWidth %mouthWidth.18 107 16 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 108 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthX.19 = local;
+            symbol [ mouthX %mouthX.19 108 16 22 ];
+            %tmp.162 = lgetv %screenWidth;
+            symbol [ screenWidth %tmp.162 108 26 37 ];
+            %tmp.163 = lgetv %mouthWidth.18;
+            symbol [ mouthWidth %tmp.163 108 40 50 ];
+            %tmp.164 = sub %tmp.162 %tmp.163;
+            %tmp.165 = 2;
+            %tmp.166 = div %tmp.164 %tmp.165;
+            lputv %mouthX.19 %tmp.166;
+            symbol [ mouthX %mouthX.19 108 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 109 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthY.20 = local;
+            symbol [ mouthY %mouthY.20 109 16 22 ];
+            %tmp.167 = lgetv %screenHeight;
+            symbol [ screenHeight %tmp.167 109 25 37 ];
+            %tmp.168 = 2;
+            %tmp.169 = mul %tmp.167 %tmp.168;
+            %tmp.170 = 3;
+            %tmp.171 = div %tmp.169 %tmp.170;
+            %tmp.172 = lgetv %blockSize.1;
+            symbol [ blockSize %tmp.172 109 48 57 ];
+            %tmp.173 = 6;
+            %tmp.174 = mul %tmp.172 %tmp.173;
+            %tmp.175 = sub %tmp.171 %tmp.174;
+            lputv %mouthY.20 %tmp.175;
+            symbol [ mouthY %mouthY.20 109 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 111 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthMetrics.21 = local;
+            symbol [ mouthMetrics %mouthMetrics.21 111 16 28 ];
+            symbol [ resManager %tmp.177 111 31 41 ];
+            %tmp.177 = getv ? :resManager;
+            symbol [ positionGrid %tmp.178 111 42 54 ];
+            %tmp.178 = getv function %tmp.177 :positionGrid;
+            %tmp.179 = lgetv %mouthX.19;
+            symbol [ mouthX %tmp.179 111 55 61 ];
+            %tmp.180 = lgetv %mouthY.20;
+            symbol [ mouthY %tmp.180 111 63 69 ];
+            %tmp.181 = invoke %tmp.177 %tmp.178(%tmp.179, %tmp.180);
+            lputv %mouthMetrics.21 %tmp.181;
+            symbol [ mouthMetrics %mouthMetrics.21 111 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 112 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_start" "_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop" ]
+            %mouthRenderer.22 = local;
+            symbol [ mouthRenderer %mouthRenderer.22 112 16 29 ];
+            symbol [ PixelResolution %tmp.185 112 36 51 ];
+            %tmp.185 = getv ? :PixelResolution;
+            symbol [ PixelRenderer %tmp.186 112 52 65 ];
+            %tmp.186 = getv function ? %tmp.185 :PixelRenderer;
+            %tmp.187 = lgetv %dc;
+            symbol [ dc %tmp.187 112 66 68 ];
+            %tmp.188 = lgetv %mouthMetrics.21;
+            symbol [ mouthMetrics %tmp.188 112 70 82 ];
+            %tmp.182 = newc %tmp.186 (%tmp.187, %tmp.188);
+            lputv %mouthRenderer.22 %tmp.182;
+            symbol [ mouthRenderer %mouthRenderer.22 112 16 29 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" 113 12 ]
+            %tmp.189 = lgetv %mouthRenderer.22;
+            symbol [ mouthRenderer %tmp.189 113 12 25 ];
+            symbol [ drawRectangle %tmp.190 113 26 39 ];
+            %tmp.190 = getv function %tmp.189 :drawRectangle;
+            %tmp.191 = 0;
+            %tmp.192 = 0;
+            %tmp.193 = lgetv %mouthSpec.17;
+            symbol [ mouthSpec %tmp.193 113 46 55 ];
+            symbol [ cols %tmp.194 113 56 60 ];
+            %tmp.194 = getv %tmp.193 :cols;
+            %tmp.195 = lgetv %mouthSpec.17;
+            symbol [ mouthSpec %tmp.195 113 62 71 ];
+            symbol [ rows %tmp.196 113 72 76 ];
+            %tmp.196 = getv %tmp.195 :rows;
+            invoke %tmp.189 %tmp.190(%tmp.191, %tmp.192, %tmp.194, %tmp.196);
+_Users_erdalgunes_garmin_jailbot_source_JailbotFaceComponents_mc_55_53_114_8_stop:
+        }
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc"; @line = 1; ]
+<init> {
+}

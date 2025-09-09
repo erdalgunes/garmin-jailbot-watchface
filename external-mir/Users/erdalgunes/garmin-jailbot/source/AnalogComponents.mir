@@ -1,0 +1,1141 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Graphics,1,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [Math,2,13,17]; ]
+using Toybox.Math;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 4; @symbol_moduledef = [AnalogClock,4,7,18]; ]
+module AnalogClock {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 7; @symbol_classdef = [HourHand,7,10,18]; ]
+    class HourHand {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 7; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 7; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 8; @position = 12; @symbol_vardef = [length,8,12,18]; ]
+        var length;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 9; @position = 12; @symbol_vardef = [width,9,12,17]; ]
+        var width;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 10; @position = 12; @symbol_vardef = [color,10,12,17]; ]
+        var color;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 12; @symbol_functiondef = [setup,12,17,22]; @symbol_param<0> = [radius,12,23,29]; ]
+        function setup(radius) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_12_31_16_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 13 12 ]
+            %tmp.1 = lgetv %radius;
+            symbol [ radius %tmp.1 13 21 27 ];
+            %tmp.2 = 0.50;
+            %tmp.3 = mul %tmp.1 %tmp.2;
+            symbol [ length ? 13 12 18 ];
+            putv self :length %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 14 12 ]
+            %tmp.4 = 3;
+            symbol [ width ? 14 12 17 ];
+            putv self :width %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 15 12 ]
+            symbol [ Graphics %tmp.5 15 20 28 ];
+            %tmp.5 = getm $.Toybox.Graphics;
+            symbol [ COLOR_RED %tmp.6 15 29 38 ];
+            %tmp.6 = getv %tmp.5 :COLOR_RED;
+            symbol [ color ? 15 12 17 ];
+            putv self :color %tmp.6;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_12_31_16_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 18; @symbol_functiondef = [draw,18,17,21]; @symbol_param<0> = [dc,18,22,24]; @symbol_param<1> = [centerX,18,26,33]; @symbol_param<2> = [centerY,18,35,42]; @symbol_param<3> = [angle,18,44,49]; ]
+        function draw(dc, centerX, centerY, angle) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 20 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_stop" ]
+            %endX.1 = local;
+            symbol [ endX %endX.1 20 16 20 ];
+            %tmp.1 = lgetv %centerX;
+            symbol [ centerX %tmp.1 20 23 30 ];
+            symbol [ length %tmp.3 20 33 39 ];
+            %tmp.3 = getv ? :length;
+            symbol [ Math %tmp.4 20 42 46 ];
+            %tmp.4 = getm $.Toybox.Math;
+            symbol [ sin %tmp.5 20 47 50 ];
+            %tmp.5 = getv function %tmp.4 :sin;
+            %tmp.6 = lgetv %angle;
+            symbol [ angle %tmp.6 20 51 56 ];
+            %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+            %tmp.8 = mul %tmp.3 %tmp.7;
+            %tmp.9 = add %tmp.1 %tmp.8;
+            lputv %endX.1 %tmp.9;
+            symbol [ endX %endX.1 20 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 21 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_stop" ]
+            %endY.2 = local;
+            symbol [ endY %endY.2 21 16 20 ];
+            %tmp.10 = lgetv %centerY;
+            symbol [ centerY %tmp.10 21 23 30 ];
+            symbol [ length %tmp.12 21 33 39 ];
+            %tmp.12 = getv ? :length;
+            symbol [ Math %tmp.13 21 42 46 ];
+            %tmp.13 = getm $.Toybox.Math;
+            symbol [ cos %tmp.14 21 47 50 ];
+            %tmp.14 = getv function %tmp.13 :cos;
+            %tmp.15 = lgetv %angle;
+            symbol [ angle %tmp.15 21 51 56 ];
+            %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+            %tmp.17 = mul %tmp.12 %tmp.16;
+            %tmp.18 = sub %tmp.10 %tmp.17;
+            lputv %endY.2 %tmp.18;
+            symbol [ endY %endY.2 21 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 22 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_stop" ]
+            %startX.3 = local;
+            symbol [ startX %startX.3 22 16 22 ];
+            %tmp.19 = lgetv %centerX;
+            symbol [ centerX %tmp.19 22 25 32 ];
+            symbol [ length %tmp.21 22 36 42 ];
+            %tmp.21 = getv ? :length;
+            %tmp.22 = 0.67;
+            %tmp.23 = mul %tmp.21 %tmp.22;
+            symbol [ Math %tmp.24 22 53 57 ];
+            %tmp.24 = getm $.Toybox.Math;
+            symbol [ sin %tmp.25 22 58 61 ];
+            %tmp.25 = getv function %tmp.24 :sin;
+            %tmp.26 = lgetv %angle;
+            symbol [ angle %tmp.26 22 62 67 ];
+            %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+            %tmp.28 = mul %tmp.23 %tmp.27;
+            %tmp.29 = add %tmp.19 %tmp.28;
+            lputv %startX.3 %tmp.29;
+            symbol [ startX %startX.3 22 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 23 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_stop" ]
+            %startY.4 = local;
+            symbol [ startY %startY.4 23 16 22 ];
+            %tmp.30 = lgetv %centerY;
+            symbol [ centerY %tmp.30 23 25 32 ];
+            symbol [ length %tmp.32 23 36 42 ];
+            %tmp.32 = getv ? :length;
+            %tmp.33 = 0.67;
+            %tmp.34 = mul %tmp.32 %tmp.33;
+            symbol [ Math %tmp.35 23 53 57 ];
+            %tmp.35 = getm $.Toybox.Math;
+            symbol [ cos %tmp.36 23 58 61 ];
+            %tmp.36 = getv function %tmp.35 :cos;
+            %tmp.37 = lgetv %angle;
+            symbol [ angle %tmp.37 23 62 67 ];
+            %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
+            %tmp.39 = mul %tmp.34 %tmp.38;
+            %tmp.40 = sub %tmp.30 %tmp.39;
+            lputv %startY.4 %tmp.40;
+            symbol [ startY %startY.4 23 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 25 12 ]
+            %tmp.41 = lgetv %dc;
+            symbol [ dc %tmp.41 25 12 14 ];
+            symbol [ setColor %tmp.42 25 15 23 ];
+            %tmp.42 = getv function %tmp.41 :setColor;
+            symbol [ color %tmp.44 25 24 29 ];
+            %tmp.44 = getv ? :color;
+            symbol [ Graphics %tmp.45 25 31 39 ];
+            %tmp.45 = getm $.Toybox.Graphics;
+            symbol [ COLOR_TRANSPARENT %tmp.46 25 40 57 ];
+            %tmp.46 = getv %tmp.45 :COLOR_TRANSPARENT;
+            invoke %tmp.41 %tmp.42(%tmp.44, %tmp.46);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 26 12 ]
+            %tmp.47 = lgetv %dc;
+            symbol [ dc %tmp.47 26 12 14 ];
+            symbol [ setPenWidth %tmp.48 26 15 26 ];
+            %tmp.48 = getv function %tmp.47 :setPenWidth;
+            symbol [ width %tmp.50 26 27 32 ];
+            %tmp.50 = getv ? :width;
+            invoke %tmp.47 %tmp.48(%tmp.50);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 27 12 ]
+            %tmp.51 = lgetv %dc;
+            symbol [ dc %tmp.51 27 12 14 ];
+            symbol [ drawLine %tmp.52 27 15 23 ];
+            %tmp.52 = getv function %tmp.51 :drawLine;
+            %tmp.53 = lgetv %startX.3;
+            symbol [ startX %tmp.53 27 24 30 ];
+            %tmp.54 = lgetv %startY.4;
+            symbol [ startY %tmp.54 27 32 38 ];
+            %tmp.55 = lgetv %endX.1;
+            symbol [ endX %tmp.55 27 40 44 ];
+            %tmp.56 = lgetv %endY.2;
+            symbol [ endY %tmp.56 27 46 50 ];
+            invoke %tmp.51 %tmp.52(%tmp.53, %tmp.54, %tmp.55, %tmp.56);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_18_51_28_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 30; @symbol_functiondef = [calculateAngle,30,17,31]; @symbol_param<0> = [hours,30,32,37]; @symbol_param<1> = [minutes,30,39,46]; ]
+        function calculateAngle(hours, minutes) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_30_48_34_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 32 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_30_48_34_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_30_48_34_8_stop" ]
+            %totalMinutes.1 = local;
+            symbol [ totalMinutes %totalMinutes.1 32 16 28 ];
+            %tmp.1 = lgetv %hours;
+            symbol [ hours %tmp.1 32 32 37 ];
+            %tmp.2 = 12;
+            %tmp.3 = mod %tmp.1 %tmp.2;
+            %tmp.4 = 60;
+            %tmp.5 = mul %tmp.3 %tmp.4;
+            %tmp.6 = lgetv %minutes;
+            symbol [ minutes %tmp.6 32 51 58 ];
+            %tmp.7 = add %tmp.5 %tmp.6;
+            lputv %totalMinutes.1 %tmp.7;
+            symbol [ totalMinutes %totalMinutes.1 32 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 33 12 ]
+            %tmp.8 = lgetv %totalMinutes.1;
+            symbol [ totalMinutes %tmp.8 33 20 32 ];
+            %tmp.9 = 720.0;
+            %tmp.10 = div %tmp.8 %tmp.9;
+            %tmp.11 = 2;
+            %tmp.12 = mul %tmp.10 %tmp.11;
+            symbol [ Math %tmp.13 33 48 52 ];
+            %tmp.13 = getm $.Toybox.Math;
+            symbol [ PI %tmp.14 33 53 55 ];
+            %tmp.14 = getv %tmp.13 :PI;
+            %tmp.15 = mul %tmp.12 %tmp.14;
+            ret %tmp.15;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_30_48_34_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 37; @symbol_classdef = [MinuteHand,37,10,20]; ]
+    class MinuteHand {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 37; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 37; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 38; @position = 12; @symbol_vardef = [length,38,12,18]; ]
+        var length;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 39; @position = 12; @symbol_vardef = [width,39,12,17]; ]
+        var width;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 40; @position = 12; @symbol_vardef = [color,40,12,17]; ]
+        var color;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 42; @symbol_functiondef = [setup,42,17,22]; @symbol_param<0> = [radius,42,23,29]; ]
+        function setup(radius) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_42_31_46_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 43 12 ]
+            %tmp.1 = lgetv %radius;
+            symbol [ radius %tmp.1 43 21 27 ];
+            %tmp.2 = 0.90;
+            %tmp.3 = mul %tmp.1 %tmp.2;
+            symbol [ length ? 43 12 18 ];
+            putv self :length %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 44 12 ]
+            %tmp.4 = 2;
+            symbol [ width ? 44 12 17 ];
+            putv self :width %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 45 12 ]
+            symbol [ Graphics %tmp.5 45 20 28 ];
+            %tmp.5 = getm $.Toybox.Graphics;
+            symbol [ COLOR_RED %tmp.6 45 29 38 ];
+            %tmp.6 = getv %tmp.5 :COLOR_RED;
+            symbol [ color ? 45 12 17 ];
+            putv self :color %tmp.6;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_42_31_46_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 48; @symbol_functiondef = [draw,48,17,21]; @symbol_param<0> = [dc,48,22,24]; @symbol_param<1> = [centerX,48,26,33]; @symbol_param<2> = [centerY,48,35,42]; @symbol_param<3> = [angle,48,44,49]; ]
+        function draw(dc, centerX, centerY, angle) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 50 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_stop" ]
+            %endX.1 = local;
+            symbol [ endX %endX.1 50 16 20 ];
+            %tmp.1 = lgetv %centerX;
+            symbol [ centerX %tmp.1 50 23 30 ];
+            symbol [ length %tmp.3 50 33 39 ];
+            %tmp.3 = getv ? :length;
+            symbol [ Math %tmp.4 50 42 46 ];
+            %tmp.4 = getm $.Toybox.Math;
+            symbol [ sin %tmp.5 50 47 50 ];
+            %tmp.5 = getv function %tmp.4 :sin;
+            %tmp.6 = lgetv %angle;
+            symbol [ angle %tmp.6 50 51 56 ];
+            %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+            %tmp.8 = mul %tmp.3 %tmp.7;
+            %tmp.9 = add %tmp.1 %tmp.8;
+            lputv %endX.1 %tmp.9;
+            symbol [ endX %endX.1 50 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 51 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_stop" ]
+            %endY.2 = local;
+            symbol [ endY %endY.2 51 16 20 ];
+            %tmp.10 = lgetv %centerY;
+            symbol [ centerY %tmp.10 51 23 30 ];
+            symbol [ length %tmp.12 51 33 39 ];
+            %tmp.12 = getv ? :length;
+            symbol [ Math %tmp.13 51 42 46 ];
+            %tmp.13 = getm $.Toybox.Math;
+            symbol [ cos %tmp.14 51 47 50 ];
+            %tmp.14 = getv function %tmp.13 :cos;
+            %tmp.15 = lgetv %angle;
+            symbol [ angle %tmp.15 51 51 56 ];
+            %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+            %tmp.17 = mul %tmp.12 %tmp.16;
+            %tmp.18 = sub %tmp.10 %tmp.17;
+            lputv %endY.2 %tmp.18;
+            symbol [ endY %endY.2 51 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 52 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_stop" ]
+            %startX.3 = local;
+            symbol [ startX %startX.3 52 16 22 ];
+            %tmp.19 = lgetv %centerX;
+            symbol [ centerX %tmp.19 52 25 32 ];
+            symbol [ length %tmp.21 52 36 42 ];
+            %tmp.21 = getv ? :length;
+            %tmp.22 = 0.67;
+            %tmp.23 = mul %tmp.21 %tmp.22;
+            symbol [ Math %tmp.24 52 53 57 ];
+            %tmp.24 = getm $.Toybox.Math;
+            symbol [ sin %tmp.25 52 58 61 ];
+            %tmp.25 = getv function %tmp.24 :sin;
+            %tmp.26 = lgetv %angle;
+            symbol [ angle %tmp.26 52 62 67 ];
+            %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+            %tmp.28 = mul %tmp.23 %tmp.27;
+            %tmp.29 = add %tmp.19 %tmp.28;
+            lputv %startX.3 %tmp.29;
+            symbol [ startX %startX.3 52 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 53 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_stop" ]
+            %startY.4 = local;
+            symbol [ startY %startY.4 53 16 22 ];
+            %tmp.30 = lgetv %centerY;
+            symbol [ centerY %tmp.30 53 25 32 ];
+            symbol [ length %tmp.32 53 36 42 ];
+            %tmp.32 = getv ? :length;
+            %tmp.33 = 0.67;
+            %tmp.34 = mul %tmp.32 %tmp.33;
+            symbol [ Math %tmp.35 53 53 57 ];
+            %tmp.35 = getm $.Toybox.Math;
+            symbol [ cos %tmp.36 53 58 61 ];
+            %tmp.36 = getv function %tmp.35 :cos;
+            %tmp.37 = lgetv %angle;
+            symbol [ angle %tmp.37 53 62 67 ];
+            %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
+            %tmp.39 = mul %tmp.34 %tmp.38;
+            %tmp.40 = sub %tmp.30 %tmp.39;
+            lputv %startY.4 %tmp.40;
+            symbol [ startY %startY.4 53 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 55 12 ]
+            %tmp.41 = lgetv %dc;
+            symbol [ dc %tmp.41 55 12 14 ];
+            symbol [ setColor %tmp.42 55 15 23 ];
+            %tmp.42 = getv function %tmp.41 :setColor;
+            symbol [ color %tmp.44 55 24 29 ];
+            %tmp.44 = getv ? :color;
+            symbol [ Graphics %tmp.45 55 31 39 ];
+            %tmp.45 = getm $.Toybox.Graphics;
+            symbol [ COLOR_TRANSPARENT %tmp.46 55 40 57 ];
+            %tmp.46 = getv %tmp.45 :COLOR_TRANSPARENT;
+            invoke %tmp.41 %tmp.42(%tmp.44, %tmp.46);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 56 12 ]
+            %tmp.47 = lgetv %dc;
+            symbol [ dc %tmp.47 56 12 14 ];
+            symbol [ setPenWidth %tmp.48 56 15 26 ];
+            %tmp.48 = getv function %tmp.47 :setPenWidth;
+            symbol [ width %tmp.50 56 27 32 ];
+            %tmp.50 = getv ? :width;
+            invoke %tmp.47 %tmp.48(%tmp.50);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 57 12 ]
+            %tmp.51 = lgetv %dc;
+            symbol [ dc %tmp.51 57 12 14 ];
+            symbol [ drawLine %tmp.52 57 15 23 ];
+            %tmp.52 = getv function %tmp.51 :drawLine;
+            %tmp.53 = lgetv %startX.3;
+            symbol [ startX %tmp.53 57 24 30 ];
+            %tmp.54 = lgetv %startY.4;
+            symbol [ startY %tmp.54 57 32 38 ];
+            %tmp.55 = lgetv %endX.1;
+            symbol [ endX %tmp.55 57 40 44 ];
+            %tmp.56 = lgetv %endY.2;
+            symbol [ endY %tmp.56 57 46 50 ];
+            invoke %tmp.51 %tmp.52(%tmp.53, %tmp.54, %tmp.55, %tmp.56);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_48_51_58_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 60; @symbol_functiondef = [calculateAngle,60,17,31]; @symbol_param<0> = [minutes,60,32,39]; @symbol_param<1> = [seconds,60,41,48]; ]
+        function calculateAngle(minutes, seconds) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_60_50_64_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 62 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_60_50_64_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_60_50_64_8_stop" ]
+            %totalSeconds.1 = local;
+            symbol [ totalSeconds %totalSeconds.1 62 16 28 ];
+            %tmp.1 = lgetv %minutes;
+            symbol [ minutes %tmp.1 62 31 38 ];
+            %tmp.2 = 60;
+            %tmp.3 = mul %tmp.1 %tmp.2;
+            %tmp.4 = lgetv %seconds;
+            symbol [ seconds %tmp.4 62 46 53 ];
+            %tmp.5 = add %tmp.3 %tmp.4;
+            lputv %totalSeconds.1 %tmp.5;
+            symbol [ totalSeconds %totalSeconds.1 62 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 63 12 ]
+            %tmp.6 = lgetv %totalSeconds.1;
+            symbol [ totalSeconds %tmp.6 63 20 32 ];
+            %tmp.7 = 3600.0;
+            %tmp.8 = div %tmp.6 %tmp.7;
+            %tmp.9 = 2;
+            %tmp.10 = mul %tmp.8 %tmp.9;
+            symbol [ Math %tmp.11 63 49 53 ];
+            %tmp.11 = getm $.Toybox.Math;
+            symbol [ PI %tmp.12 63 54 56 ];
+            %tmp.12 = getv %tmp.11 :PI;
+            %tmp.13 = mul %tmp.10 %tmp.12;
+            ret %tmp.13;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_60_50_64_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 67; @symbol_classdef = [SecondHand,67,10,20]; ]
+    class SecondHand {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 67; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 67; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 68; @position = 12; @symbol_vardef = [length,68,12,18]; ]
+        var length;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 69; @position = 12; @symbol_vardef = [width,69,12,17]; ]
+        var width;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 70; @position = 12; @symbol_vardef = [color,70,12,17]; ]
+        var color;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 72; @symbol_functiondef = [setup,72,17,22]; @symbol_param<0> = [radius,72,23,29]; ]
+        function setup(radius) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_72_31_76_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 73 12 ]
+            %tmp.1 = lgetv %radius;
+            symbol [ radius %tmp.1 73 21 27 ];
+            %tmp.2 = 0.95;
+            %tmp.3 = mul %tmp.1 %tmp.2;
+            symbol [ length ? 73 12 18 ];
+            putv self :length %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 74 12 ]
+            %tmp.4 = 1;
+            symbol [ width ? 74 12 17 ];
+            putv self :width %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 75 12 ]
+            symbol [ Graphics %tmp.5 75 20 28 ];
+            %tmp.5 = getm $.Toybox.Graphics;
+            symbol [ COLOR_WHITE %tmp.6 75 29 40 ];
+            %tmp.6 = getv %tmp.5 :COLOR_WHITE;
+            symbol [ color ? 75 12 17 ];
+            putv self :color %tmp.6;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_72_31_76_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 78; @symbol_functiondef = [draw,78,17,21]; @symbol_param<0> = [dc,78,22,24]; @symbol_param<1> = [centerX,78,26,33]; @symbol_param<2> = [centerY,78,35,42]; @symbol_param<3> = [angle,78,44,49]; ]
+        function draw(dc, centerX, centerY, angle) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 80 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_stop" ]
+            %endX.1 = local;
+            symbol [ endX %endX.1 80 16 20 ];
+            %tmp.1 = lgetv %centerX;
+            symbol [ centerX %tmp.1 80 23 30 ];
+            symbol [ length %tmp.3 80 33 39 ];
+            %tmp.3 = getv ? :length;
+            symbol [ Math %tmp.4 80 42 46 ];
+            %tmp.4 = getm $.Toybox.Math;
+            symbol [ sin %tmp.5 80 47 50 ];
+            %tmp.5 = getv function %tmp.4 :sin;
+            %tmp.6 = lgetv %angle;
+            symbol [ angle %tmp.6 80 51 56 ];
+            %tmp.7 = invoke %tmp.4 %tmp.5(%tmp.6);
+            %tmp.8 = mul %tmp.3 %tmp.7;
+            %tmp.9 = add %tmp.1 %tmp.8;
+            lputv %endX.1 %tmp.9;
+            symbol [ endX %endX.1 80 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 81 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_stop" ]
+            %endY.2 = local;
+            symbol [ endY %endY.2 81 16 20 ];
+            %tmp.10 = lgetv %centerY;
+            symbol [ centerY %tmp.10 81 23 30 ];
+            symbol [ length %tmp.12 81 33 39 ];
+            %tmp.12 = getv ? :length;
+            symbol [ Math %tmp.13 81 42 46 ];
+            %tmp.13 = getm $.Toybox.Math;
+            symbol [ cos %tmp.14 81 47 50 ];
+            %tmp.14 = getv function %tmp.13 :cos;
+            %tmp.15 = lgetv %angle;
+            symbol [ angle %tmp.15 81 51 56 ];
+            %tmp.16 = invoke %tmp.13 %tmp.14(%tmp.15);
+            %tmp.17 = mul %tmp.12 %tmp.16;
+            %tmp.18 = sub %tmp.10 %tmp.17;
+            lputv %endY.2 %tmp.18;
+            symbol [ endY %endY.2 81 16 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 82 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_stop" ]
+            %startX.3 = local;
+            symbol [ startX %startX.3 82 16 22 ];
+            %tmp.19 = lgetv %centerX;
+            symbol [ centerX %tmp.19 82 25 32 ];
+            symbol [ length %tmp.21 82 36 42 ];
+            %tmp.21 = getv ? :length;
+            %tmp.22 = 0.67;
+            %tmp.23 = mul %tmp.21 %tmp.22;
+            symbol [ Math %tmp.24 82 53 57 ];
+            %tmp.24 = getm $.Toybox.Math;
+            symbol [ sin %tmp.25 82 58 61 ];
+            %tmp.25 = getv function %tmp.24 :sin;
+            %tmp.26 = lgetv %angle;
+            symbol [ angle %tmp.26 82 62 67 ];
+            %tmp.27 = invoke %tmp.24 %tmp.25(%tmp.26);
+            %tmp.28 = mul %tmp.23 %tmp.27;
+            %tmp.29 = add %tmp.19 %tmp.28;
+            lputv %startX.3 %tmp.29;
+            symbol [ startX %startX.3 82 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 83 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_stop" ]
+            %startY.4 = local;
+            symbol [ startY %startY.4 83 16 22 ];
+            %tmp.30 = lgetv %centerY;
+            symbol [ centerY %tmp.30 83 25 32 ];
+            symbol [ length %tmp.32 83 36 42 ];
+            %tmp.32 = getv ? :length;
+            %tmp.33 = 0.67;
+            %tmp.34 = mul %tmp.32 %tmp.33;
+            symbol [ Math %tmp.35 83 53 57 ];
+            %tmp.35 = getm $.Toybox.Math;
+            symbol [ cos %tmp.36 83 58 61 ];
+            %tmp.36 = getv function %tmp.35 :cos;
+            %tmp.37 = lgetv %angle;
+            symbol [ angle %tmp.37 83 62 67 ];
+            %tmp.38 = invoke %tmp.35 %tmp.36(%tmp.37);
+            %tmp.39 = mul %tmp.34 %tmp.38;
+            %tmp.40 = sub %tmp.30 %tmp.39;
+            lputv %startY.4 %tmp.40;
+            symbol [ startY %startY.4 83 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 85 12 ]
+            %tmp.41 = lgetv %dc;
+            symbol [ dc %tmp.41 85 12 14 ];
+            symbol [ setColor %tmp.42 85 15 23 ];
+            %tmp.42 = getv function %tmp.41 :setColor;
+            symbol [ color %tmp.44 85 24 29 ];
+            %tmp.44 = getv ? :color;
+            symbol [ Graphics %tmp.45 85 31 39 ];
+            %tmp.45 = getm $.Toybox.Graphics;
+            symbol [ COLOR_TRANSPARENT %tmp.46 85 40 57 ];
+            %tmp.46 = getv %tmp.45 :COLOR_TRANSPARENT;
+            invoke %tmp.41 %tmp.42(%tmp.44, %tmp.46);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 86 12 ]
+            %tmp.47 = lgetv %dc;
+            symbol [ dc %tmp.47 86 12 14 ];
+            symbol [ setPenWidth %tmp.48 86 15 26 ];
+            %tmp.48 = getv function %tmp.47 :setPenWidth;
+            symbol [ width %tmp.50 86 27 32 ];
+            %tmp.50 = getv ? :width;
+            invoke %tmp.47 %tmp.48(%tmp.50);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 87 12 ]
+            %tmp.51 = lgetv %dc;
+            symbol [ dc %tmp.51 87 12 14 ];
+            symbol [ drawLine %tmp.52 87 15 23 ];
+            %tmp.52 = getv function %tmp.51 :drawLine;
+            %tmp.53 = lgetv %startX.3;
+            symbol [ startX %tmp.53 87 24 30 ];
+            %tmp.54 = lgetv %startY.4;
+            symbol [ startY %tmp.54 87 32 38 ];
+            %tmp.55 = lgetv %endX.1;
+            symbol [ endX %tmp.55 87 40 44 ];
+            %tmp.56 = lgetv %endY.2;
+            symbol [ endY %tmp.56 87 46 50 ];
+            invoke %tmp.51 %tmp.52(%tmp.53, %tmp.54, %tmp.55, %tmp.56);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_78_51_88_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 90; @symbol_functiondef = [calculateAngle,90,17,31]; @symbol_param<0> = [seconds,90,32,39]; ]
+        function calculateAngle(seconds) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_90_41_92_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 91 12 ]
+            %tmp.1 = lgetv %seconds;
+            symbol [ seconds %tmp.1 91 20 27 ];
+            %tmp.2 = 60.0;
+            %tmp.3 = div %tmp.1 %tmp.2;
+            %tmp.4 = 2;
+            %tmp.5 = mul %tmp.3 %tmp.4;
+            symbol [ Math %tmp.6 91 42 46 ];
+            %tmp.6 = getm $.Toybox.Math;
+            symbol [ PI %tmp.7 91 47 49 ];
+            %tmp.7 = getv %tmp.6 :PI;
+            %tmp.8 = mul %tmp.5 %tmp.7;
+            ret %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_90_41_92_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 96; @symbol_classdef = [RimIndicators,96,10,23]; ]
+    class RimIndicators {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 96; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 96; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 97; @position = 12; @symbol_vardef = [centerX,97,12,19]; ]
+        var centerX;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 98; @position = 12; @symbol_vardef = [centerY,98,12,19]; ]
+        var centerY;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 99; @position = 12; @symbol_vardef = [radius,99,12,18]; ]
+        var radius;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 100; @position = 12; @symbol_vardef = [hourMarkLength,100,12,26]; ]
+        var hourMarkLength;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 101; @position = 12; @symbol_vardef = [minuteMarkLength,101,12,28]; ]
+        var minuteMarkLength;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 103; @symbol_functiondef = [setup,103,17,22]; @symbol_param<0> = [x,103,23,24]; @symbol_param<1> = [y,103,26,27]; @symbol_param<2> = [r,103,29,30]; ]
+        function setup(x, y, r) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_103_32_109_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 104 12 ]
+            %tmp.1 = lgetv %x;
+            symbol [ x %tmp.1 104 22 23 ];
+            symbol [ centerX ? 104 12 19 ];
+            putv self :centerX %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 105 12 ]
+            %tmp.2 = lgetv %y;
+            symbol [ y %tmp.2 105 22 23 ];
+            symbol [ centerY ? 105 12 19 ];
+            putv self :centerY %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 106 12 ]
+            %tmp.3 = lgetv %r;
+            symbol [ r %tmp.3 106 21 22 ];
+            symbol [ radius ? 106 12 18 ];
+            putv self :radius %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 107 12 ]
+            %tmp.4 = lgetv %r;
+            symbol [ r %tmp.4 107 29 30 ];
+            %tmp.5 = 0.12;
+            %tmp.6 = mul %tmp.4 %tmp.5;
+            symbol [ hourMarkLength ? 107 12 26 ];
+            putv self :hourMarkLength %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 108 12 ]
+            %tmp.7 = lgetv %r;
+            symbol [ r %tmp.7 108 31 32 ];
+            %tmp.8 = 0.06;
+            %tmp.9 = mul %tmp.7 %tmp.8;
+            symbol [ minuteMarkLength ? 108 12 28 ];
+            putv self :minuteMarkLength %tmp.9;
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_103_32_109_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 111; @symbol_functiondef = [draw,111,17,21]; @symbol_param<0> = [dc,111,22,24]; ]
+        function draw(dc) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_111_26_122_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 112 12 ]
+            %tmp.1 = lgetv %dc;
+            symbol [ dc %tmp.1 112 12 14 ];
+            symbol [ setColor %tmp.2 112 15 23 ];
+            %tmp.2 = getv function %tmp.1 :setColor;
+            symbol [ Graphics %tmp.3 112 24 32 ];
+            %tmp.3 = getm $.Toybox.Graphics;
+            symbol [ COLOR_RED %tmp.4 112 33 42 ];
+            %tmp.4 = getv %tmp.3 :COLOR_RED;
+            symbol [ Graphics %tmp.5 112 44 52 ];
+            %tmp.5 = getm $.Toybox.Graphics;
+            symbol [ COLOR_TRANSPARENT %tmp.6 112 53 70 ];
+            %tmp.6 = getv %tmp.5 :COLOR_TRANSPARENT;
+            invoke %tmp.1 %tmp.2(%tmp.4, %tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 116 12 ]
+            %tmp.7 = self;
+            symbol [ drawStrongMark %tmp.8 116 12 26 ];
+            %tmp.8 = getv function %tmp.7 :drawStrongMark;
+            %tmp.9 = lgetv %dc;
+            symbol [ dc %tmp.9 116 27 29 ];
+            %tmp.10 = 0;
+            invoke %tmp.7 %tmp.8(%tmp.9, %tmp.10);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 119 12 ]
+            %tmp.11 = self;
+            symbol [ drawSecondaryMark %tmp.12 119 12 29 ];
+            %tmp.12 = getv function %tmp.11 :drawSecondaryMark;
+            %tmp.13 = lgetv %dc;
+            symbol [ dc %tmp.13 119 30 32 ];
+            symbol [ Math %tmp.14 119 34 38 ];
+            %tmp.14 = getm $.Toybox.Math;
+            symbol [ PI %tmp.15 119 39 41 ];
+            %tmp.15 = getv %tmp.14 :PI;
+            %tmp.16 = 2;
+            %tmp.17 = div %tmp.15 %tmp.16;
+            invoke %tmp.11 %tmp.12(%tmp.13, %tmp.17);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 120 12 ]
+            %tmp.18 = self;
+            symbol [ drawSecondaryMark %tmp.19 120 12 29 ];
+            %tmp.19 = getv function %tmp.18 :drawSecondaryMark;
+            %tmp.20 = lgetv %dc;
+            symbol [ dc %tmp.20 120 30 32 ];
+            symbol [ Math %tmp.21 120 34 38 ];
+            %tmp.21 = getm $.Toybox.Math;
+            symbol [ PI %tmp.22 120 39 41 ];
+            %tmp.22 = getv %tmp.21 :PI;
+            invoke %tmp.18 %tmp.19(%tmp.20, %tmp.22);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 121 12 ]
+            %tmp.23 = self;
+            symbol [ drawSecondaryMark %tmp.24 121 12 29 ];
+            %tmp.24 = getv function %tmp.23 :drawSecondaryMark;
+            %tmp.25 = lgetv %dc;
+            symbol [ dc %tmp.25 121 30 32 ];
+            %tmp.26 = 3;
+            symbol [ Math %tmp.27 121 38 42 ];
+            %tmp.27 = getm $.Toybox.Math;
+            symbol [ PI %tmp.28 121 43 45 ];
+            %tmp.28 = getv %tmp.27 :PI;
+            %tmp.29 = mul %tmp.26 %tmp.28;
+            %tmp.30 = 2;
+            %tmp.31 = div %tmp.29 %tmp.30;
+            invoke %tmp.23 %tmp.24(%tmp.25, %tmp.31);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_111_26_122_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 125; @symbol_functiondef = [drawStrongMark,125,17,31]; @symbol_param<0> = [dc,125,32,34]; @symbol_param<1> = [angle,125,36,41]; ]
+        function drawStrongMark(dc, angle) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 127 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %outerRadius.1 = local;
+            symbol [ outerRadius %outerRadius.1 127 16 27 ];
+            symbol [ radius %tmp.2 127 30 36 ];
+            %tmp.2 = getv ? :radius;
+            %tmp.3 = 0.95;
+            %tmp.4 = mul %tmp.2 %tmp.3;
+            lputv %outerRadius.1 %tmp.4;
+            symbol [ outerRadius %outerRadius.1 127 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 128 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %innerRadius.2 = local;
+            symbol [ innerRadius %innerRadius.2 128 16 27 ];
+            %tmp.5 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.5 128 30 41 ];
+            symbol [ radius %tmp.7 128 45 51 ];
+            %tmp.7 = getv ? :radius;
+            %tmp.8 = 0.08;
+            %tmp.9 = mul %tmp.7 %tmp.8;
+            %tmp.10 = sub %tmp.5 %tmp.9;
+            lputv %innerRadius.2 %tmp.10;
+            symbol [ innerRadius %innerRadius.2 128 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 130 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %outerX.3 = local;
+            symbol [ outerX %outerX.3 130 16 22 ];
+            symbol [ centerX %tmp.12 130 25 32 ];
+            %tmp.12 = getv ? :centerX;
+            %tmp.13 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.13 130 35 46 ];
+            symbol [ Math %tmp.14 130 49 53 ];
+            %tmp.14 = getm $.Toybox.Math;
+            symbol [ sin %tmp.15 130 54 57 ];
+            %tmp.15 = getv function %tmp.14 :sin;
+            %tmp.16 = lgetv %angle;
+            symbol [ angle %tmp.16 130 58 63 ];
+            %tmp.17 = invoke %tmp.14 %tmp.15(%tmp.16);
+            %tmp.18 = mul %tmp.13 %tmp.17;
+            %tmp.19 = add %tmp.12 %tmp.18;
+            lputv %outerX.3 %tmp.19;
+            symbol [ outerX %outerX.3 130 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 131 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %outerY.4 = local;
+            symbol [ outerY %outerY.4 131 16 22 ];
+            symbol [ centerY %tmp.21 131 25 32 ];
+            %tmp.21 = getv ? :centerY;
+            %tmp.22 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.22 131 35 46 ];
+            symbol [ Math %tmp.23 131 49 53 ];
+            %tmp.23 = getm $.Toybox.Math;
+            symbol [ cos %tmp.24 131 54 57 ];
+            %tmp.24 = getv function %tmp.23 :cos;
+            %tmp.25 = lgetv %angle;
+            symbol [ angle %tmp.25 131 58 63 ];
+            %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+            %tmp.27 = mul %tmp.22 %tmp.26;
+            %tmp.28 = sub %tmp.21 %tmp.27;
+            lputv %outerY.4 %tmp.28;
+            symbol [ outerY %outerY.4 131 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 132 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %innerX.5 = local;
+            symbol [ innerX %innerX.5 132 16 22 ];
+            symbol [ centerX %tmp.30 132 25 32 ];
+            %tmp.30 = getv ? :centerX;
+            %tmp.31 = lgetv %innerRadius.2;
+            symbol [ innerRadius %tmp.31 132 35 46 ];
+            symbol [ Math %tmp.32 132 49 53 ];
+            %tmp.32 = getm $.Toybox.Math;
+            symbol [ sin %tmp.33 132 54 57 ];
+            %tmp.33 = getv function %tmp.32 :sin;
+            %tmp.34 = lgetv %angle;
+            symbol [ angle %tmp.34 132 58 63 ];
+            %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+            %tmp.36 = mul %tmp.31 %tmp.35;
+            %tmp.37 = add %tmp.30 %tmp.36;
+            lputv %innerX.5 %tmp.37;
+            symbol [ innerX %innerX.5 132 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 133 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop" ]
+            %innerY.6 = local;
+            symbol [ innerY %innerY.6 133 16 22 ];
+            symbol [ centerY %tmp.39 133 25 32 ];
+            %tmp.39 = getv ? :centerY;
+            %tmp.40 = lgetv %innerRadius.2;
+            symbol [ innerRadius %tmp.40 133 35 46 ];
+            symbol [ Math %tmp.41 133 49 53 ];
+            %tmp.41 = getm $.Toybox.Math;
+            symbol [ cos %tmp.42 133 54 57 ];
+            %tmp.42 = getv function %tmp.41 :cos;
+            %tmp.43 = lgetv %angle;
+            symbol [ angle %tmp.43 133 58 63 ];
+            %tmp.44 = invoke %tmp.41 %tmp.42(%tmp.43);
+            %tmp.45 = mul %tmp.40 %tmp.44;
+            %tmp.46 = sub %tmp.39 %tmp.45;
+            lputv %innerY.6 %tmp.46;
+            symbol [ innerY %innerY.6 133 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 135 12 ]
+            %tmp.47 = lgetv %dc;
+            symbol [ dc %tmp.47 135 12 14 ];
+            symbol [ setPenWidth %tmp.48 135 15 26 ];
+            %tmp.48 = getv function %tmp.47 :setPenWidth;
+            %tmp.49 = 3;
+            invoke %tmp.47 %tmp.48(%tmp.49);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 136 12 ]
+            %tmp.50 = lgetv %dc;
+            symbol [ dc %tmp.50 136 12 14 ];
+            symbol [ drawLine %tmp.51 136 15 23 ];
+            %tmp.51 = getv function %tmp.50 :drawLine;
+            %tmp.52 = lgetv %innerX.5;
+            symbol [ innerX %tmp.52 136 24 30 ];
+            %tmp.53 = lgetv %innerY.6;
+            symbol [ innerY %tmp.53 136 32 38 ];
+            %tmp.54 = lgetv %outerX.3;
+            symbol [ outerX %tmp.54 136 40 46 ];
+            %tmp.55 = lgetv %outerY.4;
+            symbol [ outerY %tmp.55 136 48 54 ];
+            invoke %tmp.50 %tmp.51(%tmp.52, %tmp.53, %tmp.54, %tmp.55);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_125_43_137_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 139; @symbol_functiondef = [drawSecondaryMark,139,17,34]; @symbol_param<0> = [dc,139,35,37]; @symbol_param<1> = [angle,139,39,44]; ]
+        function drawSecondaryMark(dc, angle) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 141 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %outerRadius.1 = local;
+            symbol [ outerRadius %outerRadius.1 141 16 27 ];
+            symbol [ radius %tmp.2 141 30 36 ];
+            %tmp.2 = getv ? :radius;
+            %tmp.3 = 0.95;
+            %tmp.4 = mul %tmp.2 %tmp.3;
+            lputv %outerRadius.1 %tmp.4;
+            symbol [ outerRadius %outerRadius.1 141 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 142 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %innerRadius.2 = local;
+            symbol [ innerRadius %innerRadius.2 142 16 27 ];
+            %tmp.5 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.5 142 30 41 ];
+            symbol [ radius %tmp.7 142 45 51 ];
+            %tmp.7 = getv ? :radius;
+            %tmp.8 = 0.04;
+            %tmp.9 = mul %tmp.7 %tmp.8;
+            %tmp.10 = sub %tmp.5 %tmp.9;
+            lputv %innerRadius.2 %tmp.10;
+            symbol [ innerRadius %innerRadius.2 142 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 144 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %outerX.3 = local;
+            symbol [ outerX %outerX.3 144 16 22 ];
+            symbol [ centerX %tmp.12 144 25 32 ];
+            %tmp.12 = getv ? :centerX;
+            %tmp.13 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.13 144 35 46 ];
+            symbol [ Math %tmp.14 144 49 53 ];
+            %tmp.14 = getm $.Toybox.Math;
+            symbol [ sin %tmp.15 144 54 57 ];
+            %tmp.15 = getv function %tmp.14 :sin;
+            %tmp.16 = lgetv %angle;
+            symbol [ angle %tmp.16 144 58 63 ];
+            %tmp.17 = invoke %tmp.14 %tmp.15(%tmp.16);
+            %tmp.18 = mul %tmp.13 %tmp.17;
+            %tmp.19 = add %tmp.12 %tmp.18;
+            lputv %outerX.3 %tmp.19;
+            symbol [ outerX %outerX.3 144 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 145 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %outerY.4 = local;
+            symbol [ outerY %outerY.4 145 16 22 ];
+            symbol [ centerY %tmp.21 145 25 32 ];
+            %tmp.21 = getv ? :centerY;
+            %tmp.22 = lgetv %outerRadius.1;
+            symbol [ outerRadius %tmp.22 145 35 46 ];
+            symbol [ Math %tmp.23 145 49 53 ];
+            %tmp.23 = getm $.Toybox.Math;
+            symbol [ cos %tmp.24 145 54 57 ];
+            %tmp.24 = getv function %tmp.23 :cos;
+            %tmp.25 = lgetv %angle;
+            symbol [ angle %tmp.25 145 58 63 ];
+            %tmp.26 = invoke %tmp.23 %tmp.24(%tmp.25);
+            %tmp.27 = mul %tmp.22 %tmp.26;
+            %tmp.28 = sub %tmp.21 %tmp.27;
+            lputv %outerY.4 %tmp.28;
+            symbol [ outerY %outerY.4 145 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 146 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %innerX.5 = local;
+            symbol [ innerX %innerX.5 146 16 22 ];
+            symbol [ centerX %tmp.30 146 25 32 ];
+            %tmp.30 = getv ? :centerX;
+            %tmp.31 = lgetv %innerRadius.2;
+            symbol [ innerRadius %tmp.31 146 35 46 ];
+            symbol [ Math %tmp.32 146 49 53 ];
+            %tmp.32 = getm $.Toybox.Math;
+            symbol [ sin %tmp.33 146 54 57 ];
+            %tmp.33 = getv function %tmp.32 :sin;
+            %tmp.34 = lgetv %angle;
+            symbol [ angle %tmp.34 146 58 63 ];
+            %tmp.35 = invoke %tmp.32 %tmp.33(%tmp.34);
+            %tmp.36 = mul %tmp.31 %tmp.35;
+            %tmp.37 = add %tmp.30 %tmp.36;
+            lputv %innerX.5 %tmp.37;
+            symbol [ innerX %innerX.5 146 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 147 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop" ]
+            %innerY.6 = local;
+            symbol [ innerY %innerY.6 147 16 22 ];
+            symbol [ centerY %tmp.39 147 25 32 ];
+            %tmp.39 = getv ? :centerY;
+            %tmp.40 = lgetv %innerRadius.2;
+            symbol [ innerRadius %tmp.40 147 35 46 ];
+            symbol [ Math %tmp.41 147 49 53 ];
+            %tmp.41 = getm $.Toybox.Math;
+            symbol [ cos %tmp.42 147 54 57 ];
+            %tmp.42 = getv function %tmp.41 :cos;
+            %tmp.43 = lgetv %angle;
+            symbol [ angle %tmp.43 147 58 63 ];
+            %tmp.44 = invoke %tmp.41 %tmp.42(%tmp.43);
+            %tmp.45 = mul %tmp.40 %tmp.44;
+            %tmp.46 = sub %tmp.39 %tmp.45;
+            lputv %innerY.6 %tmp.46;
+            symbol [ innerY %innerY.6 147 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 149 12 ]
+            %tmp.47 = lgetv %dc;
+            symbol [ dc %tmp.47 149 12 14 ];
+            symbol [ setPenWidth %tmp.48 149 15 26 ];
+            %tmp.48 = getv function %tmp.47 :setPenWidth;
+            %tmp.49 = 1;
+            invoke %tmp.47 %tmp.48(%tmp.49);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 150 12 ]
+            %tmp.50 = lgetv %dc;
+            symbol [ dc %tmp.50 150 12 14 ];
+            symbol [ drawLine %tmp.51 150 15 23 ];
+            %tmp.51 = getv function %tmp.50 :drawLine;
+            %tmp.52 = lgetv %innerX.5;
+            symbol [ innerX %tmp.52 150 24 30 ];
+            %tmp.53 = lgetv %innerY.6;
+            symbol [ innerY %tmp.53 150 32 38 ];
+            %tmp.54 = lgetv %outerX.3;
+            symbol [ outerX %tmp.54 150 40 46 ];
+            %tmp.55 = lgetv %outerY.4;
+            symbol [ outerY %tmp.55 150 48 54 ];
+            invoke %tmp.50 %tmp.51(%tmp.52, %tmp.53, %tmp.54, %tmp.55);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_139_46_151_8_stop:
+        }
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 155; @symbol_classdef = [AnalogClockFace,155,10,25]; ]
+    class AnalogClockFace {
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 155; ]
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 155; ]
+        static
+        <init> {
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 156; @position = 12; @symbol_vardef = [hourHand,156,12,20]; ]
+        var hourHand;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 157; @position = 12; @symbol_vardef = [minuteHand,157,12,22]; ]
+        var minuteHand;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 158; @position = 12; @symbol_vardef = [secondHand,158,12,22]; ]
+        var secondHand;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 159; @position = 12; @symbol_vardef = [rimIndicators,159,12,25]; ]
+        var rimIndicators;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 160; @position = 12; @symbol_vardef = [centerX,160,12,19]; ]
+        var centerX;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 161; @position = 12; @symbol_vardef = [centerY,161,12,19]; ]
+        var centerY;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 162; @position = 12; @symbol_vardef = [radius,162,12,18]; ]
+        var radius;
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 164; @symbol_functiondef = [initialize,164,17,27]; @symbol_param<0> = [x,164,28,29]; @symbol_param<1> = [y,164,31,32]; @symbol_param<2> = [r,164,34,35]; ]
+        function initialize(x, y, r) as Void {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_164_37_180_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 165 12 ]
+            %tmp.1 = lgetv %x;
+            symbol [ x %tmp.1 165 22 23 ];
+            symbol [ centerX ? 165 12 19 ];
+            putv self :centerX %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 166 12 ]
+            %tmp.2 = lgetv %y;
+            symbol [ y %tmp.2 166 22 23 ];
+            symbol [ centerY ? 166 12 19 ];
+            putv self :centerY %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 167 12 ]
+            %tmp.3 = lgetv %r;
+            symbol [ r %tmp.3 167 21 22 ];
+            symbol [ radius ? 167 12 18 ];
+            putv self :radius %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 169 12 ]
+            symbol [ HourHand %tmp.7 169 27 35 ];
+            %tmp.7 = getv ? :HourHand;
+            %tmp.4 = newc %tmp.7 ();
+            symbol [ hourHand ? 169 12 20 ];
+            putv self :hourHand %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 170 12 ]
+            symbol [ hourHand %tmp.9 170 12 20 ];
+            %tmp.9 = getv ? :hourHand;
+            symbol [ setup %tmp.10 170 21 26 ];
+            %tmp.10 = getv function %tmp.9 :setup;
+            symbol [ radius %tmp.12 170 27 33 ];
+            %tmp.12 = getv ? :radius;
+            invoke %tmp.9 %tmp.10(%tmp.12);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 172 12 ]
+            symbol [ MinuteHand %tmp.16 172 29 39 ];
+            %tmp.16 = getv ? :MinuteHand;
+            %tmp.13 = newc %tmp.16 ();
+            symbol [ minuteHand ? 172 12 22 ];
+            putv self :minuteHand %tmp.13;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 173 12 ]
+            symbol [ minuteHand %tmp.18 173 12 22 ];
+            %tmp.18 = getv ? :minuteHand;
+            symbol [ setup %tmp.19 173 23 28 ];
+            %tmp.19 = getv function %tmp.18 :setup;
+            symbol [ radius %tmp.21 173 29 35 ];
+            %tmp.21 = getv ? :radius;
+            invoke %tmp.18 %tmp.19(%tmp.21);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 175 12 ]
+            symbol [ SecondHand %tmp.25 175 29 39 ];
+            %tmp.25 = getv ? :SecondHand;
+            %tmp.22 = newc %tmp.25 ();
+            symbol [ secondHand ? 175 12 22 ];
+            putv self :secondHand %tmp.22;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 176 12 ]
+            symbol [ secondHand %tmp.27 176 12 22 ];
+            %tmp.27 = getv ? :secondHand;
+            symbol [ setup %tmp.28 176 23 28 ];
+            %tmp.28 = getv function %tmp.27 :setup;
+            symbol [ radius %tmp.30 176 29 35 ];
+            %tmp.30 = getv ? :radius;
+            invoke %tmp.27 %tmp.28(%tmp.30);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 178 12 ]
+            symbol [ RimIndicators %tmp.34 178 32 45 ];
+            %tmp.34 = getv ? :RimIndicators;
+            %tmp.31 = newc %tmp.34 ();
+            symbol [ rimIndicators ? 178 12 25 ];
+            putv self :rimIndicators %tmp.31;
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 179 12 ]
+            symbol [ rimIndicators %tmp.36 179 12 25 ];
+            %tmp.36 = getv ? :rimIndicators;
+            symbol [ setup %tmp.37 179 26 31 ];
+            %tmp.37 = getv function %tmp.36 :setup;
+            symbol [ centerX %tmp.39 179 32 39 ];
+            %tmp.39 = getv ? :centerX;
+            symbol [ centerY %tmp.41 179 41 48 ];
+            %tmp.41 = getv ? :centerY;
+            symbol [ radius %tmp.43 179 50 56 ];
+            %tmp.43 = getv ? :radius;
+            invoke %tmp.36 %tmp.37(%tmp.39, %tmp.41, %tmp.43);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_164_37_180_8_stop:
+        }
+        [ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 182; @symbol_functiondef = [draw,182,17,21]; @symbol_param<0> = [dc,182,22,24]; @symbol_param<1> = [hours,182,26,31]; @symbol_param<2> = [minutes,182,33,40]; @symbol_param<3> = [seconds,182,42,49]; ]
+        function draw(dc, hours, minutes, seconds) {
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 184 12 ]
+            symbol [ rimIndicators %tmp.2 184 12 25 ];
+            %tmp.2 = getv ? :rimIndicators;
+            symbol [ draw %tmp.3 184 26 30 ];
+            %tmp.3 = getv function %tmp.2 :draw;
+            %tmp.4 = lgetv %dc;
+            symbol [ dc %tmp.4 184 31 33 ];
+            invoke %tmp.2 %tmp.3(%tmp.4);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 187 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_stop" ]
+            %hourAngle.1 = local;
+            symbol [ hourAngle %hourAngle.1 187 16 25 ];
+            symbol [ hourHand %tmp.6 187 28 36 ];
+            %tmp.6 = getv ? :hourHand;
+            symbol [ calculateAngle %tmp.7 187 37 51 ];
+            %tmp.7 = getv function %tmp.6 :calculateAngle;
+            %tmp.8 = lgetv %hours;
+            symbol [ hours %tmp.8 187 52 57 ];
+            %tmp.9 = lgetv %minutes;
+            symbol [ minutes %tmp.9 187 59 66 ];
+            %tmp.10 = invoke %tmp.6 %tmp.7(%tmp.8, %tmp.9);
+            lputv %hourAngle.1 %tmp.10;
+            symbol [ hourAngle %hourAngle.1 187 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 188 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_stop" ]
+            %minuteAngle.2 = local;
+            symbol [ minuteAngle %minuteAngle.2 188 16 27 ];
+            symbol [ minuteHand %tmp.12 188 30 40 ];
+            %tmp.12 = getv ? :minuteHand;
+            symbol [ calculateAngle %tmp.13 188 41 55 ];
+            %tmp.13 = getv function %tmp.12 :calculateAngle;
+            %tmp.14 = lgetv %minutes;
+            symbol [ minutes %tmp.14 188 56 63 ];
+            %tmp.15 = lgetv %seconds;
+            symbol [ seconds %tmp.15 188 65 72 ];
+            %tmp.16 = invoke %tmp.12 %tmp.13(%tmp.14, %tmp.15);
+            lputv %minuteAngle.2 %tmp.16;
+            symbol [ minuteAngle %minuteAngle.2 188 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 189 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_start" "_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_stop" ]
+            %secondAngle.3 = local;
+            symbol [ secondAngle %secondAngle.3 189 16 27 ];
+            symbol [ secondHand %tmp.18 189 30 40 ];
+            %tmp.18 = getv ? :secondHand;
+            symbol [ calculateAngle %tmp.19 189 41 55 ];
+            %tmp.19 = getv function %tmp.18 :calculateAngle;
+            %tmp.20 = lgetv %seconds;
+            symbol [ seconds %tmp.20 189 56 63 ];
+            %tmp.21 = invoke %tmp.18 %tmp.19(%tmp.20);
+            lputv %secondAngle.3 %tmp.21;
+            symbol [ secondAngle %secondAngle.3 189 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 191 12 ]
+            symbol [ hourHand %tmp.23 191 12 20 ];
+            %tmp.23 = getv ? :hourHand;
+            symbol [ draw %tmp.24 191 21 25 ];
+            %tmp.24 = getv function %tmp.23 :draw;
+            %tmp.25 = lgetv %dc;
+            symbol [ dc %tmp.25 191 26 28 ];
+            symbol [ centerX %tmp.27 191 30 37 ];
+            %tmp.27 = getv ? :centerX;
+            symbol [ centerY %tmp.29 191 39 46 ];
+            %tmp.29 = getv ? :centerY;
+            %tmp.30 = lgetv %hourAngle.1;
+            symbol [ hourAngle %tmp.30 191 48 57 ];
+            invoke %tmp.23 %tmp.24(%tmp.25, %tmp.27, %tmp.29, %tmp.30);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 192 12 ]
+            symbol [ minuteHand %tmp.32 192 12 22 ];
+            %tmp.32 = getv ? :minuteHand;
+            symbol [ draw %tmp.33 192 23 27 ];
+            %tmp.33 = getv function %tmp.32 :draw;
+            %tmp.34 = lgetv %dc;
+            symbol [ dc %tmp.34 192 28 30 ];
+            symbol [ centerX %tmp.36 192 32 39 ];
+            %tmp.36 = getv ? :centerX;
+            symbol [ centerY %tmp.38 192 41 48 ];
+            %tmp.38 = getv ? :centerY;
+            %tmp.39 = lgetv %minuteAngle.2;
+            symbol [ minuteAngle %tmp.39 192 50 61 ];
+            invoke %tmp.32 %tmp.33(%tmp.34, %tmp.36, %tmp.38, %tmp.39);
+[ "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc" 193 12 ]
+            symbol [ secondHand %tmp.41 193 12 22 ];
+            %tmp.41 = getv ? :secondHand;
+            symbol [ draw %tmp.42 193 23 27 ];
+            %tmp.42 = getv function %tmp.41 :draw;
+            %tmp.43 = lgetv %dc;
+            symbol [ dc %tmp.43 193 28 30 ];
+            symbol [ centerX %tmp.45 193 32 39 ];
+            %tmp.45 = getv ? :centerX;
+            symbol [ centerY %tmp.47 193 41 48 ];
+            %tmp.47 = getv ? :centerY;
+            %tmp.48 = lgetv %secondAngle.3;
+            symbol [ secondAngle %tmp.48 193 50 61 ];
+            invoke %tmp.41 %tmp.42(%tmp.43, %tmp.45, %tmp.47, %tmp.48);
+_Users_erdalgunes_garmin_jailbot_source_AnalogComponents_mc_182_51_196_8_stop:
+        }
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/AnalogComponents.mc"; @line = 1; ]
+<init> {
+}

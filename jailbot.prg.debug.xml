@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+    <manifest filename="/Users/erdalgunes/garmin-jailbot/manifest.xml"/>
+    <pcToLineNum>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="1" lineNum="5" parent="globals/JailbotWatchFaceApp" pc="268435460" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="2" lineNum="7" parent="globals/JailbotWatchFaceView" pc="268435472" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/gen/006-B3906-00/source/Rez.mcgen" id="3" lineNum="7" parent="globals/Rez" pc="268435484" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="4" lineNum="11" parent="globals/JailbotWatchFaceApp" pc="268435504" symbol="onStart"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="5" lineNum="21" parent="globals/JailbotWatchFaceApp" pc="268435507" symbol="onSettingsChanged"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="5" lineNum="22" parent="globals/JailbotWatchFaceApp" pc="268435509" symbol="onSettingsChanged"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="6" lineNum="17" parent="globals/JailbotWatchFaceApp" pc="268435521" symbol="getInitialView"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="6" lineNum="18" parent="globals/JailbotWatchFaceApp" pc="268435523" symbol="getInitialView"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="7" lineNum="7" parent="globals/JailbotWatchFaceApp" pc="268435549" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="7" lineNum="8" parent="globals/JailbotWatchFaceApp" pc="268435551" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceApp.mc" id="8" lineNum="14" parent="globals/JailbotWatchFaceApp" pc="268435564" symbol="onStop"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="11" lineNum="25" parent="globals/JailbotWatchFaceView" pc="268435567" symbol="onLayout"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="71" parent="globals/JailbotWatchFaceView" pc="268435570" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="72" parent="globals/JailbotWatchFaceView" pc="268435573" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="73" parent="globals/JailbotWatchFaceView" pc="268435585" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="74" parent="globals/JailbotWatchFaceView" pc="268435593" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="76" parent="globals/JailbotWatchFaceView" pc="268435601" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="77" parent="globals/JailbotWatchFaceView" pc="268435618" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="78" parent="globals/JailbotWatchFaceView" pc="268435624" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="79" parent="globals/JailbotWatchFaceView" pc="268435631" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="80" parent="globals/JailbotWatchFaceView" pc="268435638" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="81" parent="globals/JailbotWatchFaceView" pc="268435646" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="86" parent="globals/JailbotWatchFaceView" pc="268435659" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="99" parent="globals/JailbotWatchFaceView" pc="268436135" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="101" parent="globals/JailbotWatchFaceView" pc="268436152" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="102" parent="globals/JailbotWatchFaceView" pc="268436156" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="103" parent="globals/JailbotWatchFaceView" pc="268436163" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="104" parent="globals/JailbotWatchFaceView" pc="268436167" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="106" parent="globals/JailbotWatchFaceView" pc="268436171" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="107" parent="globals/JailbotWatchFaceView" pc="268436187" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="108" parent="globals/JailbotWatchFaceView" pc="268436197" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="111" parent="globals/JailbotWatchFaceView" pc="268436210" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="112" parent="globals/JailbotWatchFaceView" pc="268436217" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="115" parent="globals/JailbotWatchFaceView" pc="268436239" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="116" parent="globals/JailbotWatchFaceView" pc="268436246" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="119" parent="globals/JailbotWatchFaceView" pc="268436274" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="120" parent="globals/JailbotWatchFaceView" pc="268436290" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="121" parent="globals/JailbotWatchFaceView" pc="268436310" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="124" parent="globals/JailbotWatchFaceView" pc="268436333" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="125" parent="globals/JailbotWatchFaceView" pc="268436340" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="128" parent="globals/JailbotWatchFaceView" pc="268436368" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="12" lineNum="129" parent="globals/JailbotWatchFaceView" pc="268436375" symbol="drawPixelatedAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="142" parent="globals/JailbotWatchFaceView" pc="268436410" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="144" parent="globals/JailbotWatchFaceView" pc="268436413" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="147" parent="globals/JailbotWatchFaceView" pc="268436417" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="149" parent="globals/JailbotWatchFaceView" pc="268436435" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="151" parent="globals/JailbotWatchFaceView" pc="268436459" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="13" lineNum="153" parent="globals/JailbotWatchFaceView" pc="268436477" symbol="drawHollowBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="14" lineNum="53" parent="globals/JailbotWatchFaceView" pc="268436502" symbol="onPartialUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="14" lineNum="54" parent="globals/JailbotWatchFaceView" pc="268436505" symbol="onPartialUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="14" lineNum="56" parent="globals/JailbotWatchFaceView" pc="268436513" symbol="onPartialUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="14" lineNum="57" parent="globals/JailbotWatchFaceView" pc="268436522" symbol="onPartialUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="14" lineNum="59" parent="globals/JailbotWatchFaceView" pc="268436531" symbol="onPartialUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="15" lineNum="132" parent="globals/JailbotWatchFaceView" pc="268436552" symbol="drawHollowDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="15" lineNum="133" parent="globals/JailbotWatchFaceView" pc="268436555" symbol="drawHollowDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="15" lineNum="134" parent="globals/JailbotWatchFaceView" pc="268436566" symbol="drawHollowDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="15" lineNum="135" parent="globals/JailbotWatchFaceView" pc="268436577" symbol="drawHollowDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="15" lineNum="136" parent="globals/JailbotWatchFaceView" pc="268436591" symbol="drawHollowDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="15" parent="globals/JailbotWatchFaceView" pc="268436644" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="16" parent="globals/JailbotWatchFaceView" pc="268436646" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="17" parent="globals/JailbotWatchFaceView" pc="268436658" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="18" parent="globals/JailbotWatchFaceView" pc="268436687" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="19" parent="globals/JailbotWatchFaceView" pc="268436716" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="17" lineNum="22" parent="globals/JailbotWatchFaceView" pc="268436745" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="31" parent="globals/JailbotWatchFaceView" pc="268436762" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="32" parent="globals/JailbotWatchFaceView" pc="268436765" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="34" parent="globals/JailbotWatchFaceView" pc="268436773" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="35" parent="globals/JailbotWatchFaceView" pc="268436782" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="37" parent="globals/JailbotWatchFaceView" pc="268436791" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="39" parent="globals/JailbotWatchFaceView" pc="268436799" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="40" parent="globals/JailbotWatchFaceView" pc="268436811" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="43" parent="globals/JailbotWatchFaceView" pc="268436819" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="46" parent="globals/JailbotWatchFaceView" pc="268436837" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="47" parent="globals/JailbotWatchFaceView" pc="268436849" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="48" parent="globals/JailbotWatchFaceView" pc="268436857" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotWatchFaceView.mc" id="19" lineNum="49" parent="globals/JailbotWatchFaceView" pc="268436877" symbol="onUpdate"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="20" lineNum="12" parent="globals/AOD/MinimalTimeDisplay" pc="268436898" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="21" lineNum="8" parent="globals/PixelTime/DigitPatterns/&lt;statics&gt;" pc="268437380" symbol="&lt;init&gt;"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="22" lineNum="143" parent="globals/AOD/MinimalTimeDisplay" pc="268437862" symbol="drawFilledDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="22" lineNum="144" parent="globals/AOD/MinimalTimeDisplay" pc="268437865" symbol="drawFilledDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="22" lineNum="145" parent="globals/AOD/MinimalTimeDisplay" pc="268437876" symbol="drawFilledDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="22" lineNum="146" parent="globals/AOD/MinimalTimeDisplay" pc="268437887" symbol="drawFilledDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="22" lineNum="147" parent="globals/AOD/MinimalTimeDisplay" pc="268437901" symbol="drawFilledDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="79" parent="globals/AOD/MinimalTimeDisplay" pc="268437946" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="80" parent="globals/AOD/MinimalTimeDisplay" pc="268437949" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="81" parent="globals/AOD/MinimalTimeDisplay" pc="268437961" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="82" parent="globals/AOD/MinimalTimeDisplay" pc="268437969" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="85" parent="globals/AOD/MinimalTimeDisplay" pc="268437977" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="86" parent="globals/AOD/MinimalTimeDisplay" pc="268437988" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="88" parent="globals/AOD/MinimalTimeDisplay" pc="268437992" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="90" parent="globals/AOD/MinimalTimeDisplay" pc="268438001" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="91" parent="globals/AOD/MinimalTimeDisplay" pc="268438018" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="92" parent="globals/AOD/MinimalTimeDisplay" pc="268438024" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="93" parent="globals/AOD/MinimalTimeDisplay" pc="268438031" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="94" parent="globals/AOD/MinimalTimeDisplay" pc="268438038" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="95" parent="globals/AOD/MinimalTimeDisplay" pc="268438046" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="100" parent="globals/AOD/MinimalTimeDisplay" pc="268438059" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="103" parent="globals/AOD/MinimalTimeDisplay" pc="268438075" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="104" parent="globals/AOD/MinimalTimeDisplay" pc="268438103" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="105" parent="globals/AOD/MinimalTimeDisplay" pc="268438124" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="108" parent="globals/AOD/MinimalTimeDisplay" pc="268438152" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="109" parent="globals/AOD/MinimalTimeDisplay" pc="268438164" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="110" parent="globals/AOD/MinimalTimeDisplay" pc="268438181" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="111" parent="globals/AOD/MinimalTimeDisplay" pc="268438198" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="119" parent="globals/AOD/MinimalTimeDisplay" pc="268438258" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="121" parent="globals/AOD/MinimalTimeDisplay" pc="268438275" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="122" parent="globals/AOD/MinimalTimeDisplay" pc="268438282" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="123" parent="globals/AOD/MinimalTimeDisplay" pc="268438289" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="124" parent="globals/AOD/MinimalTimeDisplay" pc="268438296" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="127" parent="globals/AOD/MinimalTimeDisplay" pc="268438303" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="128" parent="globals/AOD/MinimalTimeDisplay" pc="268438313" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="131" parent="globals/AOD/MinimalTimeDisplay" pc="268438326" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="132" parent="globals/AOD/MinimalTimeDisplay" pc="268438355" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="135" parent="globals/AOD/MinimalTimeDisplay" pc="268438384" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="136" parent="globals/AOD/MinimalTimeDisplay" pc="268438394" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="139" parent="globals/AOD/MinimalTimeDisplay" pc="268438418" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="23" lineNum="140" parent="globals/AOD/MinimalTimeDisplay" pc="268438447" symbol="drawAOD"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="24" lineNum="75" parent="globals/AOD/MinimalTimeDisplay" pc="268438477" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="24" lineNum="76" parent="globals/AOD/MinimalTimeDisplay" pc="268438479" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="25" lineNum="159" parent="globals/AOD/MinimalTimeDisplay" pc="268438509" symbol="drawFilledPixelBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="25" lineNum="161" parent="globals/AOD/MinimalTimeDisplay" pc="268438512" symbol="drawFilledPixelBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="25" lineNum="162" parent="globals/AOD/MinimalTimeDisplay" pc="268438530" symbol="drawFilledPixelBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="25" lineNum="163" parent="globals/AOD/MinimalTimeDisplay" pc="268438548" symbol="drawFilledPixelBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="25" lineNum="166" parent="globals/AOD/MinimalTimeDisplay" pc="268438561" symbol="drawFilledPixelBlock"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="26" lineNum="153" parent="globals/AOD/MinimalTimeDisplay" pc="268438585" symbol="drawFilledColon"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="26" lineNum="155" parent="globals/AOD/MinimalTimeDisplay" pc="268438587" symbol="drawFilledColon"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" id="26" lineNum="156" parent="globals/AOD/MinimalTimeDisplay" pc="268438605" symbol="drawFilledColon"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="27" lineNum="9" parent="globals/JailbotFace/Eye" pc="268438624" symbol="getSpec"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="27" lineNum="10" parent="globals/JailbotFace/Eye" pc="268438626" symbol="getSpec"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="29" lineNum="18" parent="globals/JailbotFace/Mouth" pc="268438659" symbol="getSpec"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="29" lineNum="19" parent="globals/JailbotFace/Mouth" pc="268438661" symbol="getSpec"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="31" lineNum="45" parent="globals/JailbotFace/FaceLayout" pc="268438694" symbol="moveEyesCloser"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="31" lineNum="46" parent="globals/JailbotFace/FaceLayout" pc="268438696" symbol="moveEyesCloser"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="31" lineNum="47" parent="globals/JailbotFace/FaceLayout" pc="268438706" symbol="moveEyesCloser"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="32" lineNum="51" parent="globals/JailbotFace/FaceLayout" pc="268438725" symbol="setEyeSpacing"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="32" lineNum="52" parent="globals/JailbotFace/FaceLayout" pc="268438727" symbol="setEyeSpacing"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="33" lineNum="37" parent="globals/JailbotFace/FaceLayout" pc="268438737" symbol="adjustEyeSpacing"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="33" lineNum="38" parent="globals/JailbotFace/FaceLayout" pc="268438739" symbol="adjustEyeSpacing"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="34" lineNum="30" parent="globals/JailbotFace/FaceLayout" pc="268438749" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="34" lineNum="31" parent="globals/JailbotFace/FaceLayout" pc="268438751" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="34" lineNum="32" parent="globals/JailbotFace/FaceLayout" pc="268438780" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="34" lineNum="33" parent="globals/JailbotFace/FaceLayout" pc="268438805" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="34" lineNum="34" parent="globals/JailbotFace/FaceLayout" pc="268438830" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="55" parent="globals/JailbotFace/FaceLayout" pc="268438856" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="56" parent="globals/JailbotFace/FaceLayout" pc="268438859" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="59" parent="globals/JailbotFace/FaceLayout" pc="268438876" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="61" parent="globals/JailbotFace/FaceLayout" pc="268438892" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="62" parent="globals/JailbotFace/FaceLayout" pc="268438904" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="65" parent="globals/JailbotFace/FaceLayout" pc="268438916" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="66" parent="globals/JailbotFace/FaceLayout" pc="268438929" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="67" parent="globals/JailbotFace/FaceLayout" pc="268438953" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="70" parent="globals/JailbotFace/FaceLayout" pc="268438977" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="73" parent="globals/JailbotFace/FaceLayout" pc="268438990" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="74" parent="globals/JailbotFace/FaceLayout" pc="268439000" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="75" parent="globals/JailbotFace/FaceLayout" pc="268439010" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="76" parent="globals/JailbotFace/FaceLayout" pc="268439020" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="79" parent="globals/JailbotFace/FaceLayout" pc="268439033" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="80" parent="globals/JailbotFace/FaceLayout" pc="268439052" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="81" parent="globals/JailbotFace/FaceLayout" pc="268439080" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="84" parent="globals/JailbotFace/FaceLayout" pc="268439104" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="85" parent="globals/JailbotFace/FaceLayout" pc="268439123" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="86" parent="globals/JailbotFace/FaceLayout" pc="268439151" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="89" parent="globals/JailbotFace/FaceLayout" pc="268439175" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="90" parent="globals/JailbotFace/FaceLayout" pc="268439188" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="91" parent="globals/JailbotFace/FaceLayout" pc="268439212" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="92" parent="globals/JailbotFace/FaceLayout" pc="268439222" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="94" parent="globals/JailbotFace/FaceLayout" pc="268439238" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="95" parent="globals/JailbotFace/FaceLayout" pc="268439257" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="35" lineNum="96" parent="globals/JailbotFace/FaceLayout" pc="268439285" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="36" lineNum="41" parent="globals/JailbotFace/FaceLayout" pc="268439310" symbol="moveEyesApart"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/JailbotFaceComponents.mc" id="36" lineNum="42" parent="globals/JailbotFace/FaceLayout" pc="268439312" symbol="moveEyesApart"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="37" lineNum="29" parent="globals/PixelResolution/PixelMetrics" pc="268439328" symbol="getCellX"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="37" lineNum="30" parent="globals/PixelResolution/PixelMetrics" pc="268439330" symbol="getCellX"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="38" lineNum="33" parent="globals/PixelResolution/PixelMetrics" pc="268439351" symbol="getCellY"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="38" lineNum="34" parent="globals/PixelResolution/PixelMetrics" pc="268439353" symbol="getCellY"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="39" lineNum="37" parent="globals/PixelResolution/PixelMetrics" pc="268439374" symbol="getTotalWidth"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="39" lineNum="38" parent="globals/PixelResolution/PixelMetrics" pc="268439376" symbol="getTotalWidth"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="40" lineNum="41" parent="globals/PixelResolution/PixelMetrics" pc="268439397" symbol="getTotalHeight"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="40" lineNum="42" parent="globals/PixelResolution/PixelMetrics" pc="268439399" symbol="getTotalHeight"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="41" lineNum="22" parent="globals/PixelResolution/PixelMetrics" pc="268439420" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="41" lineNum="23" parent="globals/PixelResolution/PixelMetrics" pc="268439422" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="41" lineNum="24" parent="globals/PixelResolution/PixelMetrics" pc="268439431" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="41" lineNum="25" parent="globals/PixelResolution/PixelMetrics" pc="268439440" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="41" lineNum="26" parent="globals/PixelResolution/PixelMetrics" pc="268439449" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="57" parent="globals/PixelResolution/ResolutionManager" pc="268439459" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="58" parent="globals/PixelResolution/ResolutionManager" pc="268439462" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="59" parent="globals/PixelResolution/ResolutionManager" pc="268439471" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="61" parent="globals/PixelResolution/ResolutionManager" pc="268439481" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="62" parent="globals/PixelResolution/ResolutionManager" pc="268439508" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="62" parent="globals/PixelResolution/ResolutionManager" pc="268439519" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="64" parent="globals/PixelResolution/ResolutionManager" pc="268439531" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="65" parent="globals/PixelResolution/ResolutionManager" pc="268439558" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="42" lineNum="65" parent="globals/PixelResolution/ResolutionManager" pc="268439568" symbol="updateScale"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="43" lineNum="80" parent="globals/PixelResolution/ResolutionManager" pc="268439580" symbol="setGap"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="43" lineNum="81" parent="globals/PixelResolution/ResolutionManager" pc="268439582" symbol="setGap"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="84" parent="globals/PixelResolution/ResolutionManager" pc="268439592" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="85" parent="globals/PixelResolution/ResolutionManager" pc="268439595" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="86" parent="globals/PixelResolution/ResolutionManager" pc="268439627" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="87" parent="globals/PixelResolution/ResolutionManager" pc="268439644" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="89" parent="globals/PixelResolution/ResolutionManager" pc="268439661" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="90" parent="globals/PixelResolution/ResolutionManager" pc="268439677" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="44" lineNum="92" parent="globals/PixelResolution/ResolutionManager" pc="268439693" symbol="centerGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="68" parent="globals/PixelResolution/ResolutionManager" pc="268439696" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="69" parent="globals/PixelResolution/ResolutionManager" pc="268439699" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="70" parent="globals/PixelResolution/ResolutionManager" pc="268439708" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="71" parent="globals/PixelResolution/ResolutionManager" pc="268439718" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="72" parent="globals/PixelResolution/ResolutionManager" pc="268439737" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="72" parent="globals/PixelResolution/ResolutionManager" pc="268439745" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="46" lineNum="73" parent="globals/PixelResolution/ResolutionManager" pc="268439752" symbol="dp"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="47" lineNum="76" parent="globals/PixelResolution/ResolutionManager" pc="268439755" symbol="setBlockSize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="47" lineNum="77" parent="globals/PixelResolution/ResolutionManager" pc="268439757" symbol="setBlockSize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="48" lineNum="95" parent="globals/PixelResolution/ResolutionManager" pc="268439767" symbol="positionGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="48" lineNum="96" parent="globals/PixelResolution/ResolutionManager" pc="268439769" symbol="positionGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="49" lineNum="10" parent="globals/PixelResolution/GridSpec" pc="268439802" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="49" lineNum="11" parent="globals/PixelResolution/GridSpec" pc="268439804" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="49" lineNum="12" parent="globals/PixelResolution/GridSpec" pc="268439813" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="50" lineNum="124" parent="globals/PixelResolution/PixelRenderer" pc="268439823" symbol="drawRectangle"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="50" lineNum="125" parent="globals/PixelResolution/PixelRenderer" pc="268439826" symbol="drawRectangle"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="50" lineNum="126" parent="globals/PixelResolution/PixelRenderer" pc="268439837" symbol="drawRectangle"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="50" lineNum="127" parent="globals/PixelResolution/PixelRenderer" pc="268439848" symbol="drawRectangle"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="51" lineNum="109" parent="globals/PixelResolution/PixelRenderer" pc="268439939" symbol="drawGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="51" lineNum="110" parent="globals/PixelResolution/PixelRenderer" pc="268439942" symbol="drawGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="51" lineNum="111" parent="globals/PixelResolution/PixelRenderer" pc="268439957" symbol="drawGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="51" lineNum="112" parent="globals/PixelResolution/PixelRenderer" pc="268439972" symbol="drawGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="51" lineNum="113" parent="globals/PixelResolution/PixelRenderer" pc="268440001" symbol="drawGrid"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="52" lineNum="104" parent="globals/PixelResolution/PixelRenderer" pc="268440089" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="52" lineNum="105" parent="globals/PixelResolution/PixelRenderer" pc="268440091" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelResolution.mc" id="52" lineNum="106" parent="globals/PixelResolution/PixelRenderer" pc="268440100" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="145" parent="globals/PixelTime/TimeDisplay" pc="268440110" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="146" parent="globals/PixelTime/TimeDisplay" pc="268440113" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="147" parent="globals/PixelTime/TimeDisplay" pc="268440128" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="148" parent="globals/PixelTime/TimeDisplay" pc="268440147" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="150" parent="globals/PixelTime/TimeDisplay" pc="268440175" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="151" parent="globals/PixelTime/TimeDisplay" pc="268440189" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="152" parent="globals/PixelTime/TimeDisplay" pc="268440203" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="53" lineNum="153" parent="globals/PixelTime/TimeDisplay" pc="268440217" symbol="drawDigit"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="54" lineNum="78" parent="globals/PixelTime/TimeDisplay" pc="268440259" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="54" lineNum="79" parent="globals/PixelTime/TimeDisplay" pc="268440261" symbol="initialize"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="82" parent="globals/PixelTime/TimeDisplay" pc="268440291" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="83" parent="globals/PixelTime/TimeDisplay" pc="268440294" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="84" parent="globals/PixelTime/TimeDisplay" pc="268440306" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="85" parent="globals/PixelTime/TimeDisplay" pc="268440314" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="87" parent="globals/PixelTime/TimeDisplay" pc="268440322" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="88" parent="globals/PixelTime/TimeDisplay" pc="268440339" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="89" parent="globals/PixelTime/TimeDisplay" pc="268440345" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="90" parent="globals/PixelTime/TimeDisplay" pc="268440352" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="91" parent="globals/PixelTime/TimeDisplay" pc="268440359" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="92" parent="globals/PixelTime/TimeDisplay" pc="268440367" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="96" parent="globals/PixelTime/TimeDisplay" pc="268440380" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="99" parent="globals/PixelTime/TimeDisplay" pc="268440397" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="101" parent="globals/PixelTime/TimeDisplay" pc="268440413" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="102" parent="globals/PixelTime/TimeDisplay" pc="268440425" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="105" parent="globals/PixelTime/TimeDisplay" pc="268440437" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="106" parent="globals/PixelTime/TimeDisplay" pc="268440459" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="107" parent="globals/PixelTime/TimeDisplay" pc="268440481" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="108" parent="globals/PixelTime/TimeDisplay" pc="268440485" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="111" parent="globals/PixelTime/TimeDisplay" pc="268440498" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="112" parent="globals/PixelTime/TimeDisplay" pc="268440514" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="113" parent="globals/PixelTime/TimeDisplay" pc="268440524" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="116" parent="globals/PixelTime/TimeDisplay" pc="268440528" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="117" parent="globals/PixelTime/TimeDisplay" pc="268440535" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="120" parent="globals/PixelTime/TimeDisplay" pc="268440552" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="121" parent="globals/PixelTime/TimeDisplay" pc="268440559" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="124" parent="globals/PixelTime/TimeDisplay" pc="268440582" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="125" parent="globals/PixelTime/TimeDisplay" pc="268440595" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="126" parent="globals/PixelTime/TimeDisplay" pc="268440605" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="128" parent="globals/PixelTime/TimeDisplay" pc="268440618" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="129" parent="globals/PixelTime/TimeDisplay" pc="268440637" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="130" parent="globals/PixelTime/TimeDisplay" pc="268440665" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="132" parent="globals/PixelTime/TimeDisplay" pc="268440681" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="133" parent="globals/PixelTime/TimeDisplay" pc="268440700" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="134" parent="globals/PixelTime/TimeDisplay" pc="268440728" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="137" parent="globals/PixelTime/TimeDisplay" pc="268440744" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="138" parent="globals/PixelTime/TimeDisplay" pc="268440751" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="141" parent="globals/PixelTime/TimeDisplay" pc="268440774" symbol="draw"/>
+        <entry filename="/Users/erdalgunes/garmin-jailbot/source/PixelTimeComponents.mc" id="55" lineNum="142" parent="globals/PixelTime/TimeDisplay" pc="268440781" symbol="draw"/>
+    </pcToLineNum>
+    <symbolTable>
+        <entry id="8388639" module="true" symbol="Graphics"/>
+        <entry id="15" module="true" symbol="PixelTime"/>
+        <entry id="18" method="true" symbol="drawHollowDigit"/>
+        <entry id="70" method="true" symbol="updateScale"/>
+        <entry field="true" id="75" symbol="digitCols"/>
+        <entry field="true" id="64" symbol="baseWidth"/>
+        <entry field="true" id="49" symbol="mouth"/>
+        <entry id="8388632" method="true" symbol="&lt;init&gt;"/>
+        <entry id="19" method="true" symbol="drawPixelatedAOD"/>
+        <entry id="8389683" method="true" symbol="onSettingsChanged"/>
+        <entry id="2" module="true" symbol="globals/AOD"/>
+        <entry id="6" module="true" symbol="globals/PixelTime/DigitPatterns/&lt;statics&gt;"/>
+        <entry field="true" id="62" symbol="baseBlockSize"/>
+        <entry id="14" module="true" symbol="PixelResolution"/>
+        <entry id="69" method="true" symbol="setGap"/>
+        <entry field="true" id="63" symbol="baseGap"/>
+        <entry field="true" id="45" symbol="rows"/>
+        <entry id="31" object="true" symbol="ResolutionManager"/>
+        <entry id="13" object="true" symbol="JailbotWatchFaceView"/>
+        <entry id="28" object="true" symbol="GridSpec"/>
+        <entry id="8388924" module="true" symbol="Gregorian"/>
+        <entry field="true" id="8388611" module="true" symbol="Toybox"/>
+        <entry id="33" object="true" symbol="TimeDisplay"/>
+        <entry field="true" id="76" symbol="digitRows"/>
+        <entry field="true" id="74" symbol="colonSpacing"/>
+        <entry field="true" id="42" symbol="AppName"/>
+        <entry id="57" method="true" symbol="getCellY"/>
+        <entry id="56" method="true" symbol="getCellX"/>
+        <entry id="29" object="true" symbol="PixelMetrics"/>
+        <entry id="9" module="true" symbol="globals/Rez/Strings"/>
+        <entry id="11" module="true" symbol="JailbotFace"/>
+        <entry id="8388648" module="true" symbol="WatchUi"/>
+        <entry id="8389181" method="true" symbol="drawRectangle"/>
+        <entry id="8390097" method="true" symbol="onPartialUpdate"/>
+        <entry id="7" module="true" symbol="globals/Rez"/>
+        <entry field="true" id="20" symbol="faceLayout"/>
+        <entry id="59" method="true" symbol="getTotalWidth"/>
+        <entry id="46" method="true" symbol="adjustEyeSpacing"/>
+        <entry id="8389124" method="true" symbol="onUpdate"/>
+        <entry field="true" id="55" symbol="gap"/>
+        <entry field="true" id="61" symbol="originY"/>
+        <entry field="true" id="60" symbol="originX"/>
+        <entry id="8388771" module="true" object="true" symbol="Drawables"/>
+        <entry field="true" id="23" symbol="timeDisplay"/>
+        <entry id="44" method="true" symbol="getSpec"/>
+        <entry id="10" module="true" symbol="AOD"/>
+        <entry id="58" method="true" symbol="getTotalHeight"/>
+        <entry id="8389122" method="true" symbol="onLayout"/>
+        <entry id="37" method="true" symbol="drawFilledDigit"/>
+        <entry id="8389376" method="true" symbol="onEnterSleep"/>
+        <entry id="12" object="true" symbol="JailbotWatchFaceApp"/>
+        <entry id="66" method="true" symbol="dp"/>
+        <entry field="true" id="71" symbol="dc"/>
+        <entry id="51" method="true" symbol="moveEyesCloser"/>
+        <entry field="true" id="16" symbol="aodDisplay"/>
+        <entry field="true" id="48" symbol="leftEye"/>
+        <entry id="32" object="true" symbol="DigitPatterns"/>
+        <entry id="77" method="true" symbol="drawDigit"/>
+        <entry id="8" module="true" symbol="globals/Rez/Drawables"/>
+        <entry field="true" id="22" symbol="showAODTest"/>
+        <entry id="35" method="true" symbol="drawAOD"/>
+        <entry field="true" id="21" symbol="inAOD"/>
+        <entry id="25" object="true" symbol="Eye"/>
+        <entry field="true" id="39" symbol="lastMinute"/>
+        <entry id="26" object="true" symbol="FaceLayout"/>
+        <entry id="8389377" method="true" symbol="onExitSleep"/>
+        <entry id="8388644" module="true" symbol="System"/>
+        <entry id="8388769" module="true" object="true" symbol="Rez"/>
+        <entry id="53" method="true" symbol="setEyeSpacing"/>
+        <entry id="8388640" module="true" symbol="Lang"/>
+        <entry id="8389068" method="true" symbol="draw"/>
+        <entry field="true" id="78" symbol="patterns"/>
+        <entry field="true" id="41" symbol="LauncherIcon"/>
+        <entry id="8388610" symbol="statics"/>
+        <entry id="8389123" method="true" symbol="onShow"/>
+        <entry field="true" id="52" symbol="rightEye"/>
+        <entry id="8389350" module="true" symbol="globals"/>
+        <entry id="8388770" module="true" object="true" symbol="Strings"/>
+        <entry id="8388702" method="true" symbol="initialize"/>
+        <entry field="true" id="34" symbol="digitPatterns"/>
+        <entry id="8389279" method="true" symbol="onStart"/>
+        <entry id="24" object="true" symbol="MinimalTimeDisplay"/>
+        <entry field="true" id="54" symbol="blockSize"/>
+        <entry id="8388641" module="true" symbol="Math"/>
+        <entry field="true" id="40" symbol="resManager"/>
+        <entry id="27" object="true" symbol="Mouth"/>
+        <entry id="3" module="true" symbol="globals/JailbotFace"/>
+        <entry id="8389280" method="true" symbol="getInitialView"/>
+        <entry id="68" method="true" symbol="setBlockSize"/>
+        <entry id="8389281" method="true" symbol="onStop"/>
+        <entry id="65" method="true" symbol="centerGrid"/>
+        <entry id="38" method="true" symbol="drawFilledPixelBlock"/>
+        <entry id="36" method="true" symbol="drawFilledColon"/>
+        <entry field="true" id="47" symbol="eyeSpacingBlocks"/>
+        <entry id="72" method="true" symbol="drawGrid"/>
+        <entry id="17" method="true" symbol="drawHollowBlock"/>
+        <entry id="67" method="true" symbol="positionGrid"/>
+        <entry id="5" module="true" symbol="globals/PixelTime"/>
+        <entry id="30" object="true" symbol="PixelRenderer"/>
+        <entry id="8389125" method="true" symbol="onHide"/>
+        <entry field="true" id="43" symbol="cols"/>
+        <entry field="true" id="73" symbol="metrics"/>
+        <entry id="8388635" module="true" symbol="Application"/>
+        <entry id="50" method="true" symbol="moveEyesApart"/>
+        <entry id="4" module="true" symbol="globals/PixelResolution"/>
+    </symbolTable>
+    <localVars>
+        <entry arg="true" endPc="268436409" name="dc" stackId="1" startPc="268435570"/>
+        <entry arg="true" endPc="268436409" name="screenWidth" stackId="2" startPc="268435570"/>
+        <entry arg="true" endPc="268436409" name="screenHeight" stackId="3" startPc="268435570"/>
+        <entry endPc="268436408" name="clockTime" stackId="4" startPc="268435573"/>
+        <entry endPc="268436408" name="hour" stackId="5" startPc="268435573"/>
+        <entry endPc="268436408" name="min" stackId="6" startPc="268435573"/>
+        <entry endPc="268436408" name="is24Hour" stackId="7" startPc="268435573"/>
+        <entry endPc="268436408" name="digitPatterns" stackId="8" startPc="268435573"/>
+        <entry endPc="268436408" name="blockSize" stackId="9" startPc="268435573"/>
+        <entry endPc="268436408" name="digitWidth" stackId="10" startPc="268435573"/>
+        <entry endPc="268436408" name="digitSpacing" stackId="11" startPc="268435573"/>
+        <entry endPc="268436408" name="colonWidth" stackId="12" startPc="268435573"/>
+        <entry endPc="268436408" name="totalWidth" stackId="13" startPc="268435573"/>
+        <entry endPc="268436408" name="startX" stackId="14" startPc="268435573"/>
+        <entry endPc="268436408" name="startY" stackId="15" startPc="268435573"/>
+        <entry endPc="268436408" name="hourTens" stackId="16" startPc="268435573"/>
+        <entry endPc="268436408" name="hourOnes" stackId="17" startPc="268435573"/>
+        <entry endPc="268436408" name="colonX" stackId="18" startPc="268435573"/>
+        <entry endPc="268436408" name="minTens" stackId="19" startPc="268435573"/>
+        <entry endPc="268436408" name="minOnes" stackId="20" startPc="268435573"/>
+        <entry arg="true" endPc="268436501" name="dc" stackId="1" startPc="268436410"/>
+        <entry arg="true" endPc="268436501" name="x" stackId="2" startPc="268436410"/>
+        <entry arg="true" endPc="268436501" name="y" stackId="3" startPc="268436410"/>
+        <entry arg="true" endPc="268436501" name="size" stackId="4" startPc="268436410"/>
+        <entry endPc="268436500" name="borderWidth" stackId="5" startPc="268436413"/>
+        <entry arg="true" endPc="268436551" name="dc" stackId="1" startPc="268436502"/>
+        <entry endPc="268436550" name="width" stackId="2" startPc="268436505"/>
+        <entry endPc="268436550" name="height" stackId="3" startPc="268436505"/>
+        <entry arg="true" endPc="268436643" name="dc" stackId="1" startPc="268436552"/>
+        <entry arg="true" endPc="268436643" name="pattern" stackId="2" startPc="268436552"/>
+        <entry arg="true" endPc="268436643" name="x" stackId="3" startPc="268436552"/>
+        <entry arg="true" endPc="268436643" name="y" stackId="4" startPc="268436552"/>
+        <entry arg="true" endPc="268436643" name="blockSize" stackId="5" startPc="268436552"/>
+        <entry endPc="268436642" name="row" stackId="6" startPc="268436566"/>
+        <entry endPc="268436632" name="col" stackId="7" startPc="268436577"/>
+        <entry arg="true" endPc="268436897" name="dc" stackId="1" startPc="268436762"/>
+        <entry endPc="268436896" name="width" stackId="2" startPc="268436765"/>
+        <entry endPc="268436896" name="height" stackId="3" startPc="268436765"/>
+        <entry arg="true" endPc="268437945" name="renderer" stackId="1" startPc="268437862"/>
+        <entry arg="true" endPc="268437945" name="pattern" stackId="2" startPc="268437862"/>
+        <entry arg="true" endPc="268437945" name="startCol" stackId="3" startPc="268437862"/>
+        <entry arg="true" endPc="268437945" name="startRow" stackId="4" startPc="268437862"/>
+        <entry endPc="268437944" name="row" stackId="5" startPc="268437876"/>
+        <entry endPc="268437934" name="col" stackId="6" startPc="268437887"/>
+        <entry arg="true" endPc="268438476" name="dc" stackId="1" startPc="268437946"/>
+        <entry arg="true" endPc="268438476" name="screenWidth" stackId="2" startPc="268437946"/>
+        <entry arg="true" endPc="268438476" name="screenHeight" stackId="3" startPc="268437946"/>
+        <entry endPc="268438475" name="clockTime" stackId="4" startPc="268437949"/>
+        <entry endPc="268438475" name="hour" stackId="5" startPc="268437949"/>
+        <entry endPc="268438475" name="min" stackId="6" startPc="268437949"/>
+        <entry endPc="268438475" name="is24Hour" stackId="7" startPc="268437949"/>
+        <entry endPc="268438475" name="timeSpec" stackId="8" startPc="268437949"/>
+        <entry endPc="268438475" name="timeMetrics" stackId="9" startPc="268437949"/>
+        <entry endPc="268438475" name="timeRenderer" stackId="10" startPc="268437949"/>
+        <entry endPc="268438475" name="clearWidth" stackId="11" startPc="268437949"/>
+        <entry endPc="268438475" name="clearHeight" stackId="12" startPc="268437949"/>
+        <entry endPc="268438475" name="hourTens" stackId="13" startPc="268437949"/>
+        <entry endPc="268438475" name="hourOnes" stackId="14" startPc="268437949"/>
+        <entry endPc="268438475" name="minTens" stackId="15" startPc="268437949"/>
+        <entry endPc="268438475" name="minOnes" stackId="16" startPc="268437949"/>
+        <entry endPc="268438475" name="shiftX" stackId="17" startPc="268437949"/>
+        <entry endPc="268438475" name="shiftY" stackId="18" startPc="268437949"/>
+        <entry arg="true" endPc="268438584" name="renderer" stackId="1" startPc="268438509"/>
+        <entry arg="true" endPc="268438584" name="col" stackId="2" startPc="268438509"/>
+        <entry arg="true" endPc="268438584" name="row" stackId="3" startPc="268438509"/>
+        <entry endPc="268438583" name="x" stackId="4" startPc="268438512"/>
+        <entry endPc="268438583" name="y" stackId="5" startPc="268438512"/>
+        <entry endPc="268438583" name="size" stackId="6" startPc="268438512"/>
+        <entry arg="true" endPc="268438623" name="renderer" stackId="1" startPc="268438585"/>
+        <entry arg="true" endPc="268438623" name="startCol" stackId="2" startPc="268438585"/>
+        <entry arg="true" endPc="268438623" name="startRow" stackId="3" startPc="268438585"/>
+        <entry arg="true" endPc="268438736" name="blocks" stackId="1" startPc="268438725"/>
+        <entry arg="true" endPc="268438748" name="blocks" stackId="1" startPc="268438737"/>
+        <entry arg="true" endPc="268439309" name="dc" stackId="1" startPc="268438856"/>
+        <entry arg="true" endPc="268439309" name="screenWidth" stackId="2" startPc="268438856"/>
+        <entry arg="true" endPc="268439309" name="screenHeight" stackId="3" startPc="268438856"/>
+        <entry endPc="268439308" name="blockSize" stackId="4" startPc="268438859"/>
+        <entry endPc="268439308" name="gap" stackId="5" startPc="268438859"/>
+        <entry endPc="268439308" name="eyeSpec" stackId="6" startPc="268438859"/>
+        <entry endPc="268439308" name="eyeWidth" stackId="7" startPc="268438859"/>
+        <entry endPc="268439308" name="eyeHeight" stackId="8" startPc="268438859"/>
+        <entry endPc="268439308" name="eyeSpacingPx" stackId="9" startPc="268438859"/>
+        <entry endPc="268439308" name="totalEyesWidth" stackId="10" startPc="268438859"/>
+        <entry endPc="268439308" name="leftEyeX" stackId="11" startPc="268438859"/>
+        <entry endPc="268439308" name="rightEyeX" stackId="12" startPc="268438859"/>
+        <entry endPc="268439308" name="eyeY" stackId="13" startPc="268438859"/>
+        <entry endPc="268439308" name="leftEyeMetrics" stackId="14" startPc="268438859"/>
+        <entry endPc="268439308" name="leftRenderer" stackId="15" startPc="268438859"/>
+        <entry endPc="268439308" name="rightEyeMetrics" stackId="16" startPc="268438859"/>
+        <entry endPc="268439308" name="rightRenderer" stackId="17" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthSpec" stackId="18" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthWidth" stackId="19" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthX" stackId="20" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthY" stackId="21" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthMetrics" stackId="22" startPc="268438859"/>
+        <entry endPc="268439308" name="mouthRenderer" stackId="23" startPc="268438859"/>
+        <entry arg="true" endPc="268439350" name="col" stackId="1" startPc="268439328"/>
+        <entry arg="true" endPc="268439373" name="row" stackId="1" startPc="268439351"/>
+        <entry arg="true" endPc="268439396" name="cols" stackId="1" startPc="268439374"/>
+        <entry arg="true" endPc="268439419" name="rows" stackId="1" startPc="268439397"/>
+        <entry arg="true" endPc="268439458" name="block" stackId="1" startPc="268439420"/>
+        <entry arg="true" endPc="268439458" name="g" stackId="2" startPc="268439420"/>
+        <entry arg="true" endPc="268439458" name="x" stackId="3" startPc="268439420"/>
+        <entry arg="true" endPc="268439458" name="y" stackId="4" startPc="268439420"/>
+        <entry arg="true" endPc="268439579" name="dc" stackId="1" startPc="268439459"/>
+        <entry endPc="268439578" name="currentWidth" stackId="2" startPc="268439462"/>
+        <entry endPc="268439578" name="scale" stackId="3" startPc="268439462"/>
+        <entry arg="true" endPc="268439591" name="g" stackId="1" startPc="268439580"/>
+        <entry arg="true" endPc="268439695" name="screenWidth" stackId="1" startPc="268439592"/>
+        <entry arg="true" endPc="268439695" name="screenHeight" stackId="2" startPc="268439592"/>
+        <entry arg="true" endPc="268439695" name="gridSpec" stackId="3" startPc="268439592"/>
+        <entry endPc="268439695" name="metrics" stackId="4" startPc="268439595"/>
+        <entry endPc="268439695" name="totalWidth" stackId="5" startPc="268439595"/>
+        <entry endPc="268439695" name="totalHeight" stackId="6" startPc="268439595"/>
+        <entry arg="true" endPc="268439754" name="pixels" stackId="1" startPc="268439696"/>
+        <entry arg="true" endPc="268439754" name="dc" stackId="2" startPc="268439696"/>
+        <entry endPc="268439754" name="currentWidth" stackId="3" startPc="268439699"/>
+        <entry endPc="268439754" name="scale" stackId="4" startPc="268439699"/>
+        <entry endPc="268439754" name="result" stackId="5" startPc="268439699"/>
+        <entry arg="true" endPc="268439766" name="size" stackId="1" startPc="268439755"/>
+        <entry arg="true" endPc="268439801" name="x" stackId="1" startPc="268439767"/>
+        <entry arg="true" endPc="268439801" name="y" stackId="2" startPc="268439767"/>
+        <entry arg="true" endPc="268439822" name="c" stackId="1" startPc="268439802"/>
+        <entry arg="true" endPc="268439822" name="r" stackId="2" startPc="268439802"/>
+        <entry arg="true" endPc="268439938" name="startCol" stackId="1" startPc="268439823"/>
+        <entry arg="true" endPc="268439938" name="startRow" stackId="2" startPc="268439823"/>
+        <entry arg="true" endPc="268439938" name="cols" stackId="3" startPc="268439823"/>
+        <entry arg="true" endPc="268439938" name="rows" stackId="4" startPc="268439823"/>
+        <entry endPc="268439937" name="row" stackId="5" startPc="268439837"/>
+        <entry endPc="268439927" name="col" stackId="6" startPc="268439848"/>
+        <entry arg="true" endPc="268440088" name="gridSpec" stackId="1" startPc="268439939"/>
+        <entry arg="true" endPc="268440088" name="pattern" stackId="2" startPc="268439939"/>
+        <entry endPc="268440087" name="row" stackId="3" startPc="268439957"/>
+        <entry endPc="268440077" name="col" stackId="4" startPc="268439972"/>
+        <entry arg="true" endPc="268440109" name="drawContext" stackId="1" startPc="268440089"/>
+        <entry arg="true" endPc="268440109" name="pixelMetrics" stackId="2" startPc="268440089"/>
+        <entry arg="true" endPc="268440258" name="dc" stackId="1" startPc="268440110"/>
+        <entry arg="true" endPc="268440258" name="digit" stackId="2" startPc="268440110"/>
+        <entry arg="true" endPc="268440258" name="x" stackId="3" startPc="268440110"/>
+        <entry arg="true" endPc="268440258" name="y" stackId="4" startPc="268440110"/>
+        <entry endPc="268440257" name="pattern" stackId="5" startPc="268440113"/>
+        <entry endPc="268440257" name="metrics" stackId="6" startPc="268440113"/>
+        <entry endPc="268440257" name="renderer" stackId="7" startPc="268440113"/>
+        <entry endPc="268440257" name="row" stackId="8" startPc="268440189"/>
+        <entry endPc="268440247" name="col" stackId="9" startPc="268440203"/>
+        <entry arg="true" endPc="268440810" name="dc" stackId="1" startPc="268440291"/>
+        <entry arg="true" endPc="268440810" name="screenWidth" stackId="2" startPc="268440291"/>
+        <entry arg="true" endPc="268440810" name="screenHeight" stackId="3" startPc="268440291"/>
+        <entry endPc="268440809" name="clockTime" stackId="4" startPc="268440294"/>
+        <entry endPc="268440809" name="hour" stackId="5" startPc="268440294"/>
+        <entry endPc="268440809" name="min" stackId="6" startPc="268440294"/>
+        <entry endPc="268440809" name="is24Hour" stackId="7" startPc="268440294"/>
+        <entry endPc="268440809" name="blockSize" stackId="8" startPc="268440294"/>
+        <entry endPc="268440809" name="gap" stackId="9" startPc="268440294"/>
+        <entry endPc="268440809" name="digitWidth" stackId="10" startPc="268440294"/>
+        <entry endPc="268440809" name="digitHeight" stackId="11" startPc="268440294"/>
+        <entry endPc="268440809" name="colonWidth" stackId="12" startPc="268440294"/>
+        <entry endPc="268440809" name="spaceBetweenDigits" stackId="13" startPc="268440294"/>
+        <entry endPc="268440809" name="totalWidth" stackId="14" startPc="268440294"/>
+        <entry endPc="268440809" name="startX" stackId="15" startPc="268440294"/>
+        <entry endPc="268440809" name="startY" stackId="16" startPc="268440294"/>
+        <entry endPc="268440809" name="hourTens" stackId="17" startPc="268440294"/>
+        <entry endPc="268440809" name="hourOnes" stackId="18" startPc="268440294"/>
+        <entry endPc="268440809" name="colonX" stackId="19" startPc="268440294"/>
+        <entry endPc="268440809" name="colonY1" stackId="20" startPc="268440294"/>
+        <entry endPc="268440809" name="colonY2" stackId="21" startPc="268440294"/>
+        <entry endPc="268440809" name="colonMetrics" stackId="22" startPc="268440294"/>
+        <entry endPc="268440809" name="colonRenderer" stackId="23" startPc="268440294"/>
+        <entry endPc="268440809" name="minTens" stackId="24" startPc="268440294"/>
+        <entry endPc="268440809" name="minOnes" stackId="25" startPc="268440294"/>
+    </localVars>
+    <deviceInfo deviceVersion="8fc30743a4191ec19bcafa28e3ffcc2b5a958a17" partNumber="006-B3906-00"/>
+    <annotations>
+        <annotationEntry annotation="initialized" class="Drawables" module="globals/Rez" symbol="LauncherIcon"/>
+        <annotationEntry annotation="initialized" class="Strings" module="globals/Rez" symbol="AppName"/>
+    </annotations>
+    <dataEntryOffsetMappings>
+        <dataEntry label="globals" offset="94" parentId="" symbolId="globals" type="module"/>
+        <dataEntry label="globals/JailbotWatchFaceApp" offset="188" parentId="globals" symbolId="JailbotWatchFaceApp" type="class"/>
+        <dataEntry label="globals/JailbotWatchFaceView" offset="268" parentId="globals" symbolId="JailbotWatchFaceView" type="class"/>
+        <dataEntry label="globals/AOD" offset="447" parentId="globals" symbolId="AOD" type="module"/>
+        <dataEntry label="globals/Rez" offset="482" parentId="globals" symbolId="Rez" type="module"/>
+        <dataEntry label="globals/JailbotFace" offset="526" parentId="globals" symbolId="JailbotFace" type="module"/>
+        <dataEntry label="globals/PixelResolution" offset="579" parentId="globals" symbolId="PixelResolution" type="module"/>
+        <dataEntry label="globals/PixelTime" offset="641" parentId="globals" symbolId="PixelTime" type="module"/>
+        <dataEntry label="globals/AOD/MinimalTimeDisplay" offset="685" parentId="AOD" symbolId="MinimalTimeDisplay" type="class"/>
+        <dataEntry label="globals/Rez/Drawables" offset="792" parentId="Rez" symbolId="Drawables" type="module"/>
+        <dataEntry label="globals/Rez/Strings" offset="827" parentId="Rez" symbolId="Strings" type="module"/>
+        <dataEntry label="globals/JailbotFace/Eye" offset="862" parentId="JailbotFace" symbolId="Eye" type="class"/>
+        <dataEntry label="globals/JailbotFace/Mouth" offset="933" parentId="JailbotFace" symbolId="Mouth" type="class"/>
+        <dataEntry label="globals/JailbotFace/FaceLayout" offset="1004" parentId="JailbotFace" symbolId="FaceLayout" type="class"/>
+        <dataEntry label="globals/PixelResolution/PixelMetrics" offset="1138" parentId="PixelResolution" symbolId="PixelMetrics" type="class"/>
+        <dataEntry label="globals/PixelResolution/ResolutionManager" offset="1254" parentId="PixelResolution" symbolId="ResolutionManager" type="class"/>
+        <dataEntry label="globals/PixelResolution/GridSpec" offset="1397" parentId="PixelResolution" symbolId="GridSpec" type="class"/>
+        <dataEntry label="globals/PixelResolution/PixelRenderer" offset="1459" parentId="PixelResolution" symbolId="PixelRenderer" type="class"/>
+        <dataEntry label="globals/PixelTime/TimeDisplay" offset="1539" parentId="PixelTime" symbolId="TimeDisplay" type="class"/>
+        <dataEntry label="globals/PixelTime/DigitPatterns" offset="1637" parentId="PixelTime" symbolId="DigitPatterns" type="class"/>
+        <dataEntry label="globals/PixelTime/DigitPatterns/&lt;statics&gt;" offset="1685" parentId="DigitPatterns" symbolId="&lt;statics&gt;" type="module"/>
+    </dataEntryOffsetMappings>
+    <functions>
+        <functionEntry accessMode="public" endPc="268435471" name="&lt;init&gt;" parent="JailbotWatchFaceApp" startPc="268435460">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435483" name="&lt;init&gt;" parent="JailbotWatchFaceView" startPc="268435472">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="AOD">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435503" name="&lt;init&gt;" parent="Rez" startPc="268435484">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="JailbotFace">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="PixelResolution">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="PixelTime">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435506" name="onStart" parent="JailbotWatchFaceApp" startPc="268435504">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435520" name="onSettingsChanged" parent="JailbotWatchFaceApp" startPc="268435507">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435548" name="getInitialView" parent="JailbotWatchFaceApp" startPc="268435521">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435563" name="initialize" parent="JailbotWatchFaceApp" startPc="268435549">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435566" name="onStop" parent="JailbotWatchFaceApp" startPc="268435564">
+            <param id="state"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onExitSleep" parent="JailbotWatchFaceView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onShow" parent="JailbotWatchFaceView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268435569" name="onLayout" parent="JailbotWatchFaceView" startPc="268435567">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436409" name="drawPixelatedAOD" parent="JailbotWatchFaceView" startPc="268435570">
+            <param id="dc"/>
+            <param id="screenWidth"/>
+            <param id="screenHeight"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436501" name="drawHollowBlock" parent="JailbotWatchFaceView" startPc="268436410">
+            <param id="dc"/>
+            <param id="x"/>
+            <param id="y"/>
+            <param id="size"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436551" name="onPartialUpdate" parent="JailbotWatchFaceView" startPc="268436502">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436643" name="drawHollowDigit" parent="JailbotWatchFaceView" startPc="268436552">
+            <param id="dc"/>
+            <param id="pattern"/>
+            <param id="x"/>
+            <param id="y"/>
+            <param id="blockSize"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onEnterSleep" parent="JailbotWatchFaceView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436761" name="initialize" parent="JailbotWatchFaceView" startPc="268436644">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="onHide" parent="JailbotWatchFaceView">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268436897" name="onUpdate" parent="JailbotWatchFaceView" startPc="268436762">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437379" name="&lt;init&gt;" parent="MinimalTimeDisplay" startPc="268436898">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Drawables">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Strings">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Eye">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="Mouth">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="FaceLayout">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="PixelMetrics">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="ResolutionManager">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="GridSpec">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="PixelRenderer">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="TimeDisplay">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="&lt;init&gt;" parent="DigitPatterns">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437861" name="&lt;init&gt;" parent="globals/PixelTime/DigitPatterns" startPc="268437380">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268437945" name="drawFilledDigit" parent="MinimalTimeDisplay" startPc="268437862">
+            <param id="renderer"/>
+            <param id="pattern"/>
+            <param id="startCol"/>
+            <param id="startRow"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438476" name="drawAOD" parent="MinimalTimeDisplay" startPc="268437946">
+            <param id="dc"/>
+            <param id="screenWidth"/>
+            <param id="screenHeight"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438508" name="initialize" parent="MinimalTimeDisplay" startPc="268438477">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438584" name="drawFilledPixelBlock" parent="MinimalTimeDisplay" startPc="268438509">
+            <param id="renderer"/>
+            <param id="col"/>
+            <param id="row"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438623" name="drawFilledColon" parent="MinimalTimeDisplay" startPc="268438585">
+            <param id="renderer"/>
+            <param id="startCol"/>
+            <param id="startRow"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438658" name="getSpec" parent="Eye" startPc="268438624">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="Eye">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438693" name="getSpec" parent="Mouth" startPc="268438659">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="Mouth">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438724" name="moveEyesCloser" parent="FaceLayout" startPc="268438694">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438736" name="setEyeSpacing" parent="FaceLayout" startPc="268438725">
+            <param id="blocks"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438748" name="adjustEyeSpacing" parent="FaceLayout" startPc="268438737">
+            <param id="blocks"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268438855" name="initialize" parent="FaceLayout" startPc="268438749">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439309" name="draw" parent="FaceLayout" startPc="268438856">
+            <param id="dc"/>
+            <param id="screenWidth"/>
+            <param id="screenHeight"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439327" name="moveEyesApart" parent="FaceLayout" startPc="268439310">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439350" name="getCellX" parent="PixelMetrics" startPc="268439328">
+            <param id="col"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439373" name="getCellY" parent="PixelMetrics" startPc="268439351">
+            <param id="row"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439396" name="getTotalWidth" parent="PixelMetrics" startPc="268439374">
+            <param id="cols"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439419" name="getTotalHeight" parent="PixelMetrics" startPc="268439397">
+            <param id="rows"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439458" name="initialize" parent="PixelMetrics" startPc="268439420">
+            <param id="block"/>
+            <param id="g"/>
+            <param id="x"/>
+            <param id="y"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439579" name="updateScale" parent="ResolutionManager" startPc="268439459">
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439591" name="setGap" parent="ResolutionManager" startPc="268439580">
+            <param id="g"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439695" name="centerGrid" parent="ResolutionManager" startPc="268439592">
+            <param id="screenWidth"/>
+            <param id="screenHeight"/>
+            <param id="gridSpec"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="ResolutionManager">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439754" name="dp" parent="ResolutionManager" startPc="268439696">
+            <param id="pixels"/>
+            <param id="dc"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439766" name="setBlockSize" parent="ResolutionManager" startPc="268439755">
+            <param id="size"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439801" name="positionGrid" parent="ResolutionManager" startPc="268439767">
+            <param id="x"/>
+            <param id="y"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439822" name="initialize" parent="GridSpec" startPc="268439802">
+            <param id="c"/>
+            <param id="r"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268439938" name="drawRectangle" parent="PixelRenderer" startPc="268439823">
+            <param id="startCol"/>
+            <param id="startRow"/>
+            <param id="cols"/>
+            <param id="rows"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440088" name="drawGrid" parent="PixelRenderer" startPc="268439939">
+            <param id="gridSpec"/>
+            <param id="pattern"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440109" name="initialize" parent="PixelRenderer" startPc="268440089">
+            <param id="drawContext"/>
+            <param id="pixelMetrics"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440258" name="drawDigit" parent="TimeDisplay" startPc="268440110">
+            <param id="dc"/>
+            <param id="digit"/>
+            <param id="x"/>
+            <param id="y"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440290" name="initialize" parent="TimeDisplay" startPc="268440259">
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" endPc="268440810" name="draw" parent="TimeDisplay" startPc="268440291">
+            <param id="dc"/>
+            <param id="screenWidth"/>
+            <param id="screenHeight"/>
+            <documentation/>
+        </functionEntry>
+        <functionEntry accessMode="public" name="initialize" parent="DigitPatterns">
+            <documentation/>
+        </functionEntry>
+    </functions>
+</debugInfo>
