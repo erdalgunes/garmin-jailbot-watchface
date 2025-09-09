@@ -154,24 +154,24 @@ ustad check success --claimed --evidence "file on device" --expected "deployed s
 /source/
 ├── JailbotWatchFaceView.mc    # Main watch face, hour positioning logic
 ├── AODComponents.mc            # Always-On Display with Ghost Jailbot
-├── MoodSystem.mc              # Mood states (Victory, Drowsy, Focused, etc.)
-├── MoodEngine.mc              # Mood orchestration, blinking scheduler
-├── EmoticonSystem.mc          # ASCII emoticon rendering (":D", "-_-", etc.)
 ├── PixelResolution.mc         # Pixel art rendering system
-└── HealthDataProvider.mc      # Sensor data aggregation
+└── JailbotWatchFaceApp.mc     # Application entry point
 ```
 
 ### Key Components
 
-#### Mood System
-- **States**: Victory, Overheat, Drowsy, Recovering, Focused, Charged, Standby
-- **Triggers**: Based on body battery, stress, steps, heart rate
-- **Blinking**: Natural blink patterns per mood (2-8 second intervals)
+#### Main Watch Face
+- **JailbotWatchFaceView**: Core time display with hour circling rim
+- **Blinking**: Simple natural blink patterns (2-8 second intervals)
 
 #### AOD Implementation
 - Ghost Jailbot: Hollow outline (70% fewer pixels)
 - Blinking schedule: Minutes 0,13,17,26,30,34,39,43,51,52
 - Minimal redraws for battery efficiency
+
+#### Pixel Resolution
+- Device-independent rendering
+- Scales properly across fenix7 and FR965 resolutions
 
 ## 🐛 Known Issues & Solutions
 

@@ -29,7 +29,7 @@ Development guidelines with ustad cognitive scaffolding:
 
 ### For Users
 - **Unique Features**: Hour number circles the rim based on minutes
-- **Mood System**: 7 dynamic moods based on health metrics
+- **Simple Character**: Jailbot with natural blinking animations
 - **AOD Support**: Optimized Ghost Jailbot for AMOLED displays
 - **Device Support**: fenix 7 series and Forerunner 965
 

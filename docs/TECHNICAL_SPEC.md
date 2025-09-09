@@ -1,5 +1,5 @@
 # Jailbot Watch Face — Technical Specification
-Version: 1.0  
+Version: 1.1 (Simplified)  
 SDK: Garmin Connect IQ 8.2.3  
 Language: MonkeyC  
 Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
@@ -10,20 +10,17 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 
 ### Goal
 - Unique time presentation where the current hour numeral orbits the watch rim based on the current minute (e.g., 12:15 → "12" is at 3 o'clock).
-- Characterful "Jailbot" mood system and emoticon animations without compromising battery life.
+- Simple "Jailbot" character with natural blinking animations without compromising battery life.
 - Robust AOD with a "Ghost Jailbot" outline rendering and curated blink schedule.
 
 ### High-Level Modules
 - **JailbotWatchFaceView** (main UI, update loop, hour-on-rim logic)
 - **AODComponents** (AOD rendering, ghost mode, AOD scheduling)
-- **MoodSystem** (state model for moods)
-- **MoodEngine** (state transitions, blink scheduler, orchestration)
-- **EmoticonSystem** (ASCII emoticon rendering as pixel art)
 - **PixelResolution** (device scaling, crisp pixel art primitives)
-- **HealthDataProvider** (sensor access and aggregation)
+- **JailbotWatchFaceApp** (application entry point and lifecycle)
 
 ### Primary Toybox APIs
-- WatchUi, Graphics, System, Time, Time.Gregorian, ActivityMonitor, Sensor
+- WatchUi, Graphics, System, Time, Time.Gregorian
 - Lang, Math, Application
 
 ### Time Positioning Model
@@ -32,7 +29,7 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 - 0 minutes at 12 o'clock; 15 minutes at 3 o'clock; always upright (no text rotation)
 
 ### Update Policy
-- Normal: 1000 ms (per-second update)
+- Normal: 1000 ms (per-second update for blinking)
 - AOD: minimal redraws (once per minute), with a curated blink schedule
 
 ---
@@ -41,16 +38,15 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 
 ### 2.1 JailbotWatchFaceView
 #### Responsibilities
-- Initialize view, assets, fonts, colors, and scaling via PixelResolution.
+- Initialize view, fonts, colors, and scaling via PixelResolution.
 - Compute hour rim position each update tick.
-- Render main scene: hour on rim, face, emoticon, health widgets, and background.
+- Render main scene: hour on rim, Jailbot face with blinking.
 - Route to AODComponents when AOD or sleep mode is active.
 
 #### Inputs
 - Time: current hour/minute/second, 12/24h setting
-- Mood state and blink state from MoodEngine
+- Blink state (simple timer-based)
 - PixelResolution metrics (scale, center, radius)
-- HealthDataProvider outputs (HR, steps, battery level, etc.)
 
 #### Outputs
 - Calls Graphics API to draw primitives and text
@@ -59,7 +55,7 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 #### Key Behaviors
 - Hour number = 12/24h-respecting display hour; positioned by minute angle.
 - Hour text remains upright; centered at computed (x, y).
-- Collision/overlap avoidance not necessary given single numeral on rim and inset of 35 px.
+- Simple blinking: 2-8 second intervals, 150ms duration.
 
 ### 2.2 AODComponents
 #### Responsibilities
@@ -79,50 +75,13 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 #### Update Rate
 - Once per minute in AOD; trigger one additional on-demand partial update for the blink event in the scheduled minute.
 
-### 2.3 MoodSystem
-#### States (7)
-- Victory, Overheat, Drowsy, Recovering, Focused, Charged, Standby
-
-#### Display Effects
-- Each state maps to one primary emoticon + optional accent color
-- Soft blink behavior for select states (e.g., Victory, Focused)
-
-#### Inputs
-- HealthDataProvider readouts (HR zones, steps progress, rest state)
-- Time of day (e.g., Drowsy in late night with low activity)
-- Battery level (Charged vs. Recovering)
-
-#### Outputs
-- CurrentMood (enum)
-- Blink policy (enabled/disabled) and preferred interval range
-
-### 2.4 MoodEngine
-#### Responsibilities
-- Compute mood transitions on cadence (e.g., every 5–10 seconds) based on HealthDataProvider.
-- Schedule "natural" blink windows in normal mode (2–8 s intervals; 150 ms duration).
-- Publish blink state to the view and EmoticonSystem.
-
-#### AOD Behavior
-- Disable natural random blinks.
-- Use curated AOD schedule only.
-
-### 2.5 EmoticonSystem
-#### Responsibilities
-- Render ASCII emoticons (e.g., ":D", "-_-", ";)", "x_x") as crisp pixel art.
-- Provide width/height metrics for layout.
-
-#### Implementation Notes
-- Do not rely on device fonts for monospacing; use custom pixel glyphs via PixelResolution.
-- Support per-glyph kerning to keep emoticons compact and centered.
-- Optional: lightweight path stroke mode for outline-only AOD emoticons.
-
-### 2.6 PixelResolution
+### 2.3 PixelResolution
 #### Responsibilities
 - Normalize pixel art appearance across resolutions (fenix7: 218/260/280; fr965: 454).
 - Provide a consistent logical grid (e.g., baseGrid = 228 units) and an integer scale factor:
   - `scale = floor(min(deviceW, deviceH) / baseGrid)`
 - Provide drawing helpers
-  - drawPixel, drawLine, drawRect, drawCircle, drawSprite (bitmap or vector)
+  - drawPixel, drawLine, drawRect, drawCircle
   - text metrics wrapper and centered text draw
 - Provide geometric info
   - centerX, centerY, rimRadius (min dimension / 2 - margin)
@@ -130,28 +89,11 @@ Targets: fenix 7 family (MIP), Forerunner 965 (AMOLED with AOD)
 #### AOD Optimization
 - Expose simplified draw methods for outline-only mode.
 
-### 2.7 HealthDataProvider
+### 2.4 JailbotWatchFaceApp
 #### Responsibilities
-- Aggregate sensor data with graceful fallbacks.
-- Expose:
-  - heartRate (current, avg, zone)
-  - steps, stepGoalProgress
-  - batteryLevel
-  - sleepLikely (heuristic with time-of-day + low HR + low steps)
-  - stress/recovery proxies if available
-
-#### Data Sources (Toybox)
-- ActivityMonitor (steps, goals, activity state)
-- Sensor (heart rate)
-- System (battery level)
-
-#### Permissions
-- access_heart_rate (for HR)
-- access_activity (or access_fitness, depending on SDK permissions in use)
-- access_user_profile (for goals, user settings)
-
-#### Update Cadence
-- Refresh snapshot on each onUpdate; use cached values when unavailable.
+- Application lifecycle management
+- Initialize watch face view
+- Handle settings and configurations
 
 ---
 
@@ -174,9 +116,8 @@ function onUpdate(dc as Graphics.Dc)
 - time = Time.now()
 - drawBackground(dc)
 - drawHourOnRim(dc, time)
-- MoodEngine.update(time)
-- EmoticonSystem.draw(dc, MoodEngine.getCurrentEmoticon(), centerX, centerY)
-- drawHealthWidgets(dc, HealthDataProvider.getSnapshot())
+- drawJailbotCharacter(dc)
+- updateBlinkState()
 - scheduleNextUpdate(1000)
 
 ```monkeyc
@@ -223,39 +164,28 @@ function maybeBlink(dc)
   - toggle small outline stroke or eye highlight
   - use onPartialUpdate to revert after 150 ms
 
-### 3.3 MoodSystem
+### 3.3 PixelResolution
 
 ```monkeyc
-enum Mood { Victory, Overheat, Drowsy, Recovering, Focused, Charged, Standby }
+function init(dc as Graphics.Dc)
+```
+- Determine deviceW, deviceH; compute center, rimRadius, scale.
+
+```monkeyc
+function getScale() as Number
+function getCenter() as {x:Number, y:Number}
+function getRimRadius() as Number
 ```
 
 ```monkeyc
-function getEmoticonFor(mood as Mood) as String
+function drawPixel/drawLine/drawRect/drawCircle(...)
 ```
-- Victory: ":D"
-- Overheat: ">:|"
-- Drowsy: "-_-"
-- Recovering: "^_^"
-- Focused: "o_o"
-- Charged: "=)"
-- Standby: ":|"
-
-### 3.4 MoodEngine
+- Respect integer snapping for crispness
+- outlineOnly flag for AOD
 
 ```monkeyc
-function update(now as Time)
+function drawCenteredText(dc, text, x, y, font?, color?)
 ```
-- Evaluate transitions:
-  - Overheat → elevated HR sustained > N seconds
-  - Drowsy → late-night window + low HR + minimal steps
-  - Recovering → moderate HR decreasing trend
-  - Focused → daytime + steady steps cadence
-  - Charged → battery > 80% and steps progress good
-  - Victory → goal event or random celebratory pulse with cooldown
-  - Standby → default
-- Manage blink:
-  - Normal: nextBlinkAt = now + rand(2..8)s; blink 150 ms
-  - AOD: disable random; defer to AOD schedule
 
 ---
 
@@ -269,11 +199,9 @@ function update(now as Time)
 - Precompute 60 sin/cos pairs for minute angles at startup.
 - Cache text widths for "00".."23" (or "1".."12") to avoid repeated metrics calls.
 - Avoid anti-aliased gradients; use solid fills and minimal strokes.
-- For emoticons, draw minimal primitives; avoid per-frame allocations.
 
 ### Memory
 - Avoid large bitmaps; use vector/pixel primitives.
-- Keep glyph tables compact; only characters used by configured emoticons.
 - Forerunner 965 shows higher resolution; prefer procedural drawing, not scaled bitmaps.
 
 ### Garbage Collection
@@ -312,25 +240,16 @@ function update(now as Time)
 - Verify blink only at minutes [0,13,17,26,30,34,39,43,51,52]
 - Confirm only brief partial updates occur in those minutes
 
-#### Mood Transitions
-- Elevated HR induces Overheat
-- Late night + low movement → Drowsy
-- After intense activity taper → Recovering
-- Goal reached → Victory
-
-#### Emoticon Rendering
-- All supported emoticons centered; no clipping at various scales
-
-#### HealthData Fallbacks
-- No HR permission → HR features disabled gracefully
-- No steps available → progress UI hidden or defaulted
+#### Jailbot Rendering
+- Character centered and properly scaled
+- No clipping at various resolutions
 
 #### Battery
 - Low battery → ensure AOD remains minimal; no heavy redraws
 
 ### Visual QA
 - Verify text legibility on MIP vs AMOLED
-- Emoticon and hour text not overlapping critical UI elements
+- Hour text not overlapping Jailbot character
 - Ghost outline visible but sparse in AOD
 
 ### Performance QA
@@ -340,7 +259,7 @@ function update(now as Time)
 
 ### Regression
 - DST changes, month rollover, leap year unaffected
-- Locale changes (numerals) — if using default numerals, verify unchanged; if localized, ensure width cache updated
+- Locale changes (numerals) — if using default numerals, verify unchanged
 
 ---
 
@@ -351,17 +270,12 @@ function update(now as Time)
 source/
 ├── JailbotWatchFaceView.mc
 ├── AODComponents.mc
-├── MoodSystem.mc
-├── MoodEngine.mc
-├── EmoticonSystem.mc
 ├── PixelResolution.mc
-├── HealthDataProvider.mc
 └── JailbotWatchFaceApp.mc
 
 resources/
 ├── strings/strings.xml
-├── fonts/ (optional pixel font assets)
-└── images/ (minimal; prefer procedural)
+└── fonts/ (optional pixel font assets)
 
 manifest.xml
 monkey.jungle
@@ -375,10 +289,7 @@ monkey.jungle
 - **products**:
   - fenix7 family variants (7S, 7, 7X)
   - forerunner965
-- **permissions**: 
-  - access_heart_rate
-  - access_activity (or access_fitness)
-  - access_user_profile
+- **permissions**: None required (simplified version)
 - **AOD**: true (for AMOLED devices)
 
 ### Build Process
@@ -397,7 +308,6 @@ monkey.jungle
 ### Distribution
 - **Garmin Connect IQ Store**
 - Provide description, screenshots (MIP + AMOLED), and AOD previews
-- Declare permissions clearly (HR, activity)
 
 ### Post-Release Monitoring
 - Capture crash logs (if any)
@@ -455,20 +365,7 @@ if (isAOD && schedule.contains(currentMinute)) {
 
 ---
 
-## Appendix B: State Heuristics (Reference)
-
-### Mood Triggers
-- **Overheat**: HR zone >= 4 for > 60 s
-- **Drowsy**: Local time 22:00–05:00; steps near-zero; HR low/stable
-- **Recovering**: HR trending down after recent elevated activity
-- **Focused**: Steps cadence moderate; daytime; HR zone 2–3
-- **Charged**: Battery ≥ 80%; steps progress ≥ 60%
-- **Victory**: Step goal reached or random positive pulse with cooldown ≥ 2h
-- **Standby**: Default state
-
----
-
-## Appendix C: AOD Rendering Rules
+## Appendix B: AOD Rendering Rules
 
 - **Colors**: 1–2 colors max; prefer white/green on black for AMOLED
 - **Primitives**: outlines only; no gradients or complex fills
@@ -478,4 +375,4 @@ if (isAOD && schedule.contains(currentMinute)) {
 
 ---
 
-*End of Technical Specification v1.0*
+*End of Technical Specification v1.1*
