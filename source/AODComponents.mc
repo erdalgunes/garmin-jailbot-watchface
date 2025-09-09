@@ -181,13 +181,27 @@ module AOD {
             dc.setPenWidth(1);
             dc.drawRoundedRectangle(centerX - size/2, centerY - size/2, size, size, size/8);
             
-            // Draw minimal eyes - just 2 dots
+            // Get current minute for blink timing
+            var clockTime = System.getClockTime();
+            var min = clockTime.min;
+            
+            // Blink logic: close eyes occasionally (about every 10-15 minutes)
+            // Use modulo for predictable but infrequent blinking
+            var shouldBlink = (min % 13 == 0) || (min % 17 == 0); // Blinks at minutes 0,13,17,26,30,34,39,43,51,52
+            
             var eyeY = centerY - size/6;
             var leftEyeX = centerX - size/4;
             var rightEyeX = centerX + size/4;
             
-            dc.fillCircle(leftEyeX, eyeY, 1);
-            dc.fillCircle(rightEyeX, eyeY, 1);
+            if (shouldBlink) {
+                // Draw closed eyes - horizontal lines instead of dots
+                dc.drawLine(leftEyeX - 2, eyeY, leftEyeX + 2, eyeY);
+                dc.drawLine(rightEyeX - 2, eyeY, rightEyeX + 2, eyeY);
+            } else {
+                // Draw open eyes - just 2 dots
+                dc.fillCircle(leftEyeX, eyeY, 1);
+                dc.fillCircle(rightEyeX, eyeY, 1);
+            }
             
             // Draw minimal mouth - single line
             var mouthY = centerY + size/6;

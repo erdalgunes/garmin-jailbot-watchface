@@ -1389,9 +1389,9 @@ _Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_168_50_174_8_stop:
         }
         [ @file = "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc"; @line = 176; @symbol_functiondef = [drawGhostJailbot,176,17,33]; @symbol_param<0> = [dc,176,34,36]; @symbol_param<1> = [screenWidth,176,38,49]; @symbol_param<2> = [centerY,176,51,58]; ]
         function drawGhostJailbot(dc, screenWidth, centerY) {
-_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start:
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start:
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 177 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
             %centerX.1 = local;
             symbol [ centerX %centerX.1 177 16 23 ];
             %tmp.1 = lgetv %screenWidth;
@@ -1401,7 +1401,7 @@ _Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start:
             lputv %centerX.1 %tmp.3;
             symbol [ centerX %centerX.1 177 16 23 ];
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 178 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
             %size.2 = local;
             symbol [ size %size.2 178 16 20 ];
             %tmp.4 = lgetv %screenWidth;
@@ -1446,104 +1446,200 @@ _Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start:
             %tmp.26 = div %tmp.24 %tmp.25;
             invoke %tmp.10 %tmp.11(%tmp.16, %tmp.21, %tmp.22, %tmp.23, %tmp.26);
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 185 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
-            %eyeY.3 = local;
-            symbol [ eyeY %eyeY.3 185 16 20 ];
-            %tmp.27 = lgetv %centerY;
-            symbol [ centerY %tmp.27 185 23 30 ];
-            %tmp.28 = lgetv %size.2;
-            symbol [ size %tmp.28 185 33 37 ];
-            %tmp.29 = 6;
-            %tmp.30 = div %tmp.28 %tmp.29;
-            %tmp.31 = sub %tmp.27 %tmp.30;
-            lputv %eyeY.3 %tmp.31;
-            symbol [ eyeY %eyeY.3 185 16 20 ];
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %clockTime.3 = local;
+            symbol [ clockTime %clockTime.3 185 16 25 ];
+            symbol [ System %tmp.27 185 28 34 ];
+            %tmp.27 = getm $.Toybox.System;
+            symbol [ getClockTime %tmp.28 185 35 47 ];
+            %tmp.28 = getv function %tmp.27 :getClockTime;
+            %tmp.29 = invoke %tmp.27 %tmp.28();
+            lputv %clockTime.3 %tmp.29;
+            symbol [ clockTime %clockTime.3 185 16 25 ];
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 186 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
-            %leftEyeX.4 = local;
-            symbol [ leftEyeX %leftEyeX.4 186 16 24 ];
-            %tmp.32 = lgetv %centerX.1;
-            symbol [ centerX %tmp.32 186 27 34 ];
-            %tmp.33 = lgetv %size.2;
-            symbol [ size %tmp.33 186 37 41 ];
-            %tmp.34 = 4;
-            %tmp.35 = div %tmp.33 %tmp.34;
-            %tmp.36 = sub %tmp.32 %tmp.35;
-            lputv %leftEyeX.4 %tmp.36;
-            symbol [ leftEyeX %leftEyeX.4 186 16 24 ];
-[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 187 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
-            %rightEyeX.5 = local;
-            symbol [ rightEyeX %rightEyeX.5 187 16 25 ];
-            %tmp.37 = lgetv %centerX.1;
-            symbol [ centerX %tmp.37 187 28 35 ];
-            %tmp.38 = lgetv %size.2;
-            symbol [ size %tmp.38 187 38 42 ];
-            %tmp.39 = 4;
-            %tmp.40 = div %tmp.38 %tmp.39;
-            %tmp.41 = add %tmp.37 %tmp.40;
-            lputv %rightEyeX.5 %tmp.41;
-            symbol [ rightEyeX %rightEyeX.5 187 16 25 ];
-[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 189 12 ]
-            %tmp.42 = lgetv %dc;
-            symbol [ dc %tmp.42 189 12 14 ];
-            symbol [ fillCircle %tmp.43 189 15 25 ];
-            %tmp.43 = getv function %tmp.42 :fillCircle;
-            %tmp.44 = lgetv %leftEyeX.4;
-            symbol [ leftEyeX %tmp.44 189 26 34 ];
-            %tmp.45 = lgetv %eyeY.3;
-            symbol [ eyeY %tmp.45 189 36 40 ];
-            %tmp.46 = 1;
-            invoke %tmp.42 %tmp.43(%tmp.44, %tmp.45, %tmp.46);
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %min.4 = local;
+            symbol [ min %min.4 186 16 19 ];
+            %tmp.30 = lgetv %clockTime.3;
+            symbol [ clockTime %tmp.30 186 22 31 ];
+            symbol [ min %tmp.31 186 32 35 ];
+            %tmp.31 = getv %tmp.30 :min;
+            lputv %min.4 %tmp.31;
+            symbol [ min %min.4 186 16 19 ];
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 190 12 ]
-            %tmp.47 = lgetv %dc;
-            symbol [ dc %tmp.47 190 12 14 ];
-            symbol [ fillCircle %tmp.48 190 15 25 ];
-            %tmp.48 = getv function %tmp.47 :fillCircle;
-            %tmp.49 = lgetv %rightEyeX.5;
-            symbol [ rightEyeX %tmp.49 190 26 35 ];
-            %tmp.50 = lgetv %eyeY.3;
-            symbol [ eyeY %tmp.50 190 37 41 ];
-            %tmp.51 = 1;
-            invoke %tmp.47 %tmp.48(%tmp.49, %tmp.50, %tmp.51);
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %shouldBlink.5 = local;
+            symbol [ shouldBlink %shouldBlink.5 190 16 27 ];
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_30_190_63_begin:
+            %tmp.32 = lgetv %min.4;
+            symbol [ min %tmp.32 190 31 34 ];
+            %tmp.33 = 13;
+            %tmp.34 = mod %tmp.32 %tmp.33;
+            %tmp.35 = 0;
+            %tmp.36 = eq %tmp.34 %tmp.35;
+            %tmp.37 = dup %tmp.36;
+            bt %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_49_190_63_end;
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_49_190_63_false:
+            %tmp.38 = lgetv %min.4;
+            symbol [ min %tmp.38 190 50 53 ];
+            %tmp.39 = 17;
+            %tmp.40 = mod %tmp.38 %tmp.39;
+            %tmp.41 = 0;
+            %tmp.42 = eq %tmp.40 %tmp.41;
+            %tmp.43 = or %tmp.36 %tmp.42;
+            push %tmp.43;
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_49_190_63_end:
+            %tmp.44 = phi [%tmp.37 @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_30_190_63_begin] [%tmp.43 @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_49_190_63_false] [%tmp.44 @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_190_49_190_63_end];
+            lputv %shouldBlink.5 %tmp.44;
+            symbol [ shouldBlink %shouldBlink.5 190 16 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 192 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %eyeY.6 = local;
+            symbol [ eyeY %eyeY.6 192 16 20 ];
+            %tmp.45 = lgetv %centerY;
+            symbol [ centerY %tmp.45 192 23 30 ];
+            %tmp.46 = lgetv %size.2;
+            symbol [ size %tmp.46 192 33 37 ];
+            %tmp.47 = 6;
+            %tmp.48 = div %tmp.46 %tmp.47;
+            %tmp.49 = sub %tmp.45 %tmp.48;
+            lputv %eyeY.6 %tmp.49;
+            symbol [ eyeY %eyeY.6 192 16 20 ];
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 193 12 ]
-            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop" ]
-            %mouthY.6 = local;
-            symbol [ mouthY %mouthY.6 193 16 22 ];
-            %tmp.52 = lgetv %centerY;
-            symbol [ centerY %tmp.52 193 25 32 ];
-            %tmp.53 = lgetv %size.2;
-            symbol [ size %tmp.53 193 35 39 ];
-            %tmp.54 = 6;
-            %tmp.55 = div %tmp.53 %tmp.54;
-            %tmp.56 = add %tmp.52 %tmp.55;
-            lputv %mouthY.6 %tmp.56;
-            symbol [ mouthY %mouthY.6 193 16 22 ];
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %leftEyeX.7 = local;
+            symbol [ leftEyeX %leftEyeX.7 193 16 24 ];
+            %tmp.50 = lgetv %centerX.1;
+            symbol [ centerX %tmp.50 193 27 34 ];
+            %tmp.51 = lgetv %size.2;
+            symbol [ size %tmp.51 193 37 41 ];
+            %tmp.52 = 4;
+            %tmp.53 = div %tmp.51 %tmp.52;
+            %tmp.54 = sub %tmp.50 %tmp.53;
+            lputv %leftEyeX.7 %tmp.54;
+            symbol [ leftEyeX %leftEyeX.7 193 16 24 ];
 [ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 194 12 ]
-            %tmp.57 = lgetv %dc;
-            symbol [ dc %tmp.57 194 12 14 ];
-            symbol [ drawLine %tmp.58 194 15 23 ];
-            %tmp.58 = getv function %tmp.57 :drawLine;
-            %tmp.59 = lgetv %centerX.1;
-            symbol [ centerX %tmp.59 194 24 31 ];
-            %tmp.60 = lgetv %size.2;
-            symbol [ size %tmp.60 194 34 38 ];
-            %tmp.61 = 4;
-            %tmp.62 = div %tmp.60 %tmp.61;
-            %tmp.63 = sub %tmp.59 %tmp.62;
-            %tmp.64 = lgetv %mouthY.6;
-            symbol [ mouthY %tmp.64 194 42 48 ];
-            %tmp.65 = lgetv %centerX.1;
-            symbol [ centerX %tmp.65 194 50 57 ];
-            %tmp.66 = lgetv %size.2;
-            symbol [ size %tmp.66 194 60 64 ];
-            %tmp.67 = 4;
-            %tmp.68 = div %tmp.66 %tmp.67;
-            %tmp.69 = add %tmp.65 %tmp.68;
-            %tmp.70 = lgetv %mouthY.6;
-            symbol [ mouthY %tmp.70 194 68 74 ];
-            invoke %tmp.57 %tmp.58(%tmp.63, %tmp.64, %tmp.69, %tmp.70);
-_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_195_8_stop:
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %rightEyeX.8 = local;
+            symbol [ rightEyeX %rightEyeX.8 194 16 25 ];
+            %tmp.55 = lgetv %centerX.1;
+            symbol [ centerX %tmp.55 194 28 35 ];
+            %tmp.56 = lgetv %size.2;
+            symbol [ size %tmp.56 194 38 42 ];
+            %tmp.57 = 4;
+            %tmp.58 = div %tmp.56 %tmp.57;
+            %tmp.59 = add %tmp.55 %tmp.58;
+            lputv %rightEyeX.8 %tmp.59;
+            symbol [ rightEyeX %rightEyeX.8 194 16 25 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 196 12 ]
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_stmt:
+            %tmp.60 = lgetv %shouldBlink.5;
+            symbol [ shouldBlink %tmp.60 196 16 27 ];
+            bf %tmp.60 @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_29_200_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 198 16 ]
+            %tmp.61 = lgetv %dc;
+            symbol [ dc %tmp.61 198 16 18 ];
+            symbol [ drawLine %tmp.62 198 19 27 ];
+            %tmp.62 = getv function %tmp.61 :drawLine;
+            %tmp.63 = lgetv %leftEyeX.7;
+            symbol [ leftEyeX %tmp.63 198 28 36 ];
+            %tmp.64 = 2;
+            %tmp.65 = sub %tmp.63 %tmp.64;
+            %tmp.66 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.66 198 42 46 ];
+            %tmp.67 = lgetv %leftEyeX.7;
+            symbol [ leftEyeX %tmp.67 198 48 56 ];
+            %tmp.68 = 2;
+            %tmp.69 = add %tmp.67 %tmp.68;
+            %tmp.70 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.70 198 62 66 ];
+            invoke %tmp.61 %tmp.62(%tmp.65, %tmp.66, %tmp.69, %tmp.70);
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 199 16 ]
+            %tmp.71 = lgetv %dc;
+            symbol [ dc %tmp.71 199 16 18 ];
+            symbol [ drawLine %tmp.72 199 19 27 ];
+            %tmp.72 = getv function %tmp.71 :drawLine;
+            %tmp.73 = lgetv %rightEyeX.8;
+            symbol [ rightEyeX %tmp.73 199 28 37 ];
+            %tmp.74 = 2;
+            %tmp.75 = sub %tmp.73 %tmp.74;
+            %tmp.76 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.76 199 43 47 ];
+            %tmp.77 = lgetv %rightEyeX.8;
+            symbol [ rightEyeX %tmp.77 199 49 58 ];
+            %tmp.78 = 2;
+            %tmp.79 = add %tmp.77 %tmp.78;
+            %tmp.80 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.80 199 64 68 ];
+            invoke %tmp.71 %tmp.72(%tmp.75, %tmp.76, %tmp.79, %tmp.80);
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_29_200_12_stop:
+            goto @_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_200_19_204_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 202 16 ]
+            %tmp.81 = lgetv %dc;
+            symbol [ dc %tmp.81 202 16 18 ];
+            symbol [ fillCircle %tmp.82 202 19 29 ];
+            %tmp.82 = getv function %tmp.81 :fillCircle;
+            %tmp.83 = lgetv %leftEyeX.7;
+            symbol [ leftEyeX %tmp.83 202 30 38 ];
+            %tmp.84 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.84 202 40 44 ];
+            %tmp.85 = 1;
+            invoke %tmp.81 %tmp.82(%tmp.83, %tmp.84, %tmp.85);
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 203 16 ]
+            %tmp.86 = lgetv %dc;
+            symbol [ dc %tmp.86 203 16 18 ];
+            symbol [ fillCircle %tmp.87 203 19 29 ];
+            %tmp.87 = getv function %tmp.86 :fillCircle;
+            %tmp.88 = lgetv %rightEyeX.8;
+            symbol [ rightEyeX %tmp.88 203 30 39 ];
+            %tmp.89 = lgetv %eyeY.6;
+            symbol [ eyeY %tmp.89 203 41 45 ];
+            %tmp.90 = 1;
+            invoke %tmp.86 %tmp.87(%tmp.88, %tmp.89, %tmp.90);
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_200_19_204_12_stop:
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_196_12_204_12_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 207 12 ]
+            [ "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_start" "_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop" ]
+            %mouthY.9 = local;
+            symbol [ mouthY %mouthY.9 207 16 22 ];
+            %tmp.91 = lgetv %centerY;
+            symbol [ centerY %tmp.91 207 25 32 ];
+            %tmp.92 = lgetv %size.2;
+            symbol [ size %tmp.92 207 35 39 ];
+            %tmp.93 = 6;
+            %tmp.94 = div %tmp.92 %tmp.93;
+            %tmp.95 = add %tmp.91 %tmp.94;
+            lputv %mouthY.9 %tmp.95;
+            symbol [ mouthY %mouthY.9 207 16 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/AODComponents.mc" 208 12 ]
+            %tmp.96 = lgetv %dc;
+            symbol [ dc %tmp.96 208 12 14 ];
+            symbol [ drawLine %tmp.97 208 15 23 ];
+            %tmp.97 = getv function %tmp.96 :drawLine;
+            %tmp.98 = lgetv %centerX.1;
+            symbol [ centerX %tmp.98 208 24 31 ];
+            %tmp.99 = lgetv %size.2;
+            symbol [ size %tmp.99 208 34 38 ];
+            %tmp.100 = 4;
+            %tmp.101 = div %tmp.99 %tmp.100;
+            %tmp.102 = sub %tmp.98 %tmp.101;
+            %tmp.103 = lgetv %mouthY.9;
+            symbol [ mouthY %tmp.103 208 42 48 ];
+            %tmp.104 = lgetv %centerX.1;
+            symbol [ centerX %tmp.104 208 50 57 ];
+            %tmp.105 = lgetv %size.2;
+            symbol [ size %tmp.105 208 60 64 ];
+            %tmp.106 = 4;
+            %tmp.107 = div %tmp.105 %tmp.106;
+            %tmp.108 = add %tmp.104 %tmp.107;
+            %tmp.109 = lgetv %mouthY.9;
+            symbol [ mouthY %tmp.109 208 68 74 ];
+            invoke %tmp.96 %tmp.97(%tmp.102, %tmp.103, %tmp.108, %tmp.109);
+_Users_erdalgunes_garmin_jailbot_source_AODComponents_mc_176_60_209_8_stop:
         }
     }
 }
