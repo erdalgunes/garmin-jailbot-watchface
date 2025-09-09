@@ -11,6 +11,8 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     var aodDisplay;
     var inAOD = false;
     var updateTimer;
+    var moodEngine;
+    var healthDataProvider;
 
     function initialize() {
         WatchFace.initialize();
@@ -19,7 +21,11 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         analogFace = null;
         aodDisplay = new AOD.MinimalTimeDisplay();
         
-        // Create a timer to update every second for smooth second hand and blinking
+        // Initialize mood system
+        moodEngine = new MoodEngine();
+        healthDataProvider = new HealthDataProvider();
+        
+        // Create a timer to update every second for mood system and animations
         updateTimer = new Timer.Timer();
     }
 
@@ -110,7 +116,7 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
             [[1,1,1],[1,0,1],[1,1,1],[0,0,1],[1,1,1]]  // 9
         ];
         
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
         
         var blockSize = 15; // Larger blocks for AOD
         var digitWidth = 3 * blockSize;
@@ -192,31 +198,34 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         // Draw analog hands (minimalist - only outer third)
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
         
-        // Hour hand
+        // Hour hand (pivots from center with small tail)
         var hourAngle = (hours % 12) * Math.PI / 6.0 + minutes * Math.PI / 360.0;
         var hourLength = radius * 0.5;
-        var hourStartX = centerX + (hourLength * 0.67) * Math.sin(hourAngle);
-        var hourStartY = centerY - (hourLength * 0.67) * Math.cos(hourAngle);
+        var hourTail = hourLength * 0.15; // Small tail opposite the hand
+        var hourStartX = centerX - hourTail * Math.sin(hourAngle);
+        var hourStartY = centerY + hourTail * Math.cos(hourAngle);
         var hourEndX = centerX + hourLength * Math.sin(hourAngle);
         var hourEndY = centerY - hourLength * Math.cos(hourAngle);
         dc.setPenWidth(3);
         dc.drawLine(hourStartX, hourStartY, hourEndX, hourEndY);
         
-        // Minute hand
+        // Minute hand (pivots from center with small tail)
         var minuteAngle = minutes * Math.PI / 30.0;
         var minuteLength = radius * 0.8;
-        var minuteStartX = centerX + (minuteLength * 0.67) * Math.sin(minuteAngle);
-        var minuteStartY = centerY - (minuteLength * 0.67) * Math.cos(minuteAngle);
+        var minuteTail = minuteLength * 0.15; // Small tail opposite the hand
+        var minuteStartX = centerX - minuteTail * Math.sin(minuteAngle);
+        var minuteStartY = centerY + minuteTail * Math.cos(minuteAngle);
         var minuteEndX = centerX + minuteLength * Math.sin(minuteAngle);
         var minuteEndY = centerY - minuteLength * Math.cos(minuteAngle);
         dc.setPenWidth(2);
         dc.drawLine(minuteStartX, minuteStartY, minuteEndX, minuteEndY);
         
-        // Second hand
+        // Second hand (pivots from center with small tail)
         var secondAngle = seconds * Math.PI / 30.0;
         var secondLength = radius * 0.9;
-        var secondStartX = centerX + (secondLength * 0.67) * Math.sin(secondAngle);
-        var secondStartY = centerY - (secondLength * 0.67) * Math.cos(secondAngle);
+        var secondTail = secondLength * 0.2; // Slightly longer tail for balance
+        var secondStartX = centerX - secondTail * Math.sin(secondAngle);
+        var secondStartY = centerY + secondTail * Math.cos(secondAngle);
         var secondEndX = centerX + secondLength * Math.sin(secondAngle);
         var secondEndY = centerY - secondLength * Math.cos(secondAngle);
         dc.setPenWidth(1);
@@ -252,7 +261,7 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         var gridStartY = panelY + dotSize;
         
         var shouldBlink = (clockTime.sec % 3 == 0);
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
         
         // Recreate exact reference layout: 12x8 grid
         var cols = 12;
@@ -425,6 +434,8 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         var centerX = width / 2;
         var centerY = height / 2;
         
+        System.println("Screen center: " + centerX + ", " + centerY + " (width=" + width + ", height=" + height + ")");
+        
         var clockTime = System.getClockTime();
         var hours = clockTime.hour;
         var minutes = clockTime.min;
@@ -442,7 +453,7 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
             var markerX = centerX + rimRadius * Math.sin(angle);
             var markerY = centerY - rimRadius * Math.cos(angle);
             
-            dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+            dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
             
             if (i % 5 == 0) {
                 // Major markers (5-minute intervals) - rounded rectangles
@@ -458,35 +469,29 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
             }
         }
         
-        // 2. Draw LARGER Jailbot 2.0 face in center using design language
-        var faceSize = width * 0.7; // Increased from 0.4 to 0.7
-        var eyeWidth = faceSize / 5; // Wider eyes
-        var eyeHeight = faceSize / 10; // Taller eyes
-        var eyeY = centerY - faceSize / 8;
-        var leftEyeX = centerX - faceSize / 6;
-        var rightEyeX = centerX + faceSize / 6;
-        
-        // Eye blinking every 3 seconds
-        var shouldBlink = (clockTime.sec % 3 == 0);
-        
-        if (!shouldBlink) {
-            // Draw larger narrowed red eyes (rounded rectangles)
-            dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-            dc.fillRoundedRectangle(leftEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
-            dc.fillRoundedRectangle(rightEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
+        // 2. Update mood system and get expressive Jailbot face
+        try {
+            var rawSensors = healthDataProvider.gatherSensorData();
+            rawSensors[:aod] = inAOD; // Add AOD state
+            
+            var renderData = moodEngine.update(rawSensors);
+            
+            // Draw expressive Jailbot face using mood system
+            var faceSize = width * 0.7;
+            var renderer = new ExpressionRenderer();
+            renderer.render(dc, renderData, faceSize, centerX, centerY);
+            
+            // No debug text - clean design
+            
+        } catch (ex) {
+            // Fallback to simple static face if mood system fails
+            System.println("Mood system error: " + ex.getErrorMessage());
+            self.drawStaticJailbotFace(dc, centerX, centerY, width * 0.7);
         }
         
-        // Mouth: Larger rounded rectangular mouth below eyes
-        var mouthWidth = faceSize / 2.5; // Wider mouth
-        var mouthHeight = faceSize / 12; // Taller mouth
-        var mouthY = centerY + faceSize / 12;
-        
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-        dc.fillRoundedRectangle(centerX - mouthWidth/2, mouthY, mouthWidth, mouthHeight, 4);
-        
-        // 3. Draw hour number at minute position (no circle)
+        // 3. Draw hour number at MINUTE position - shows progress through the hour
         var minuteAngle = minutes * Math.PI / 30.0; // 6 degrees per minute
-        var handRadius = rimRadius - 40; // Distance from center to number
+        var handRadius = rimRadius - 15; // Much closer to rim edge
         var numberX = centerX + handRadius * Math.sin(minuteAngle);
         var numberY = centerY - handRadius * Math.cos(minuteAngle);
         
@@ -509,9 +514,29 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         dc.drawText(numberX + 1, numberY + 1, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER);
         
         // Main number (Jailbot red)
-        dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
         dc.drawText(numberX, numberY, Graphics.FONT_LARGE, hourStr, Graphics.TEXT_JUSTIFY_CENTER);
         
         // No battery indicator - clean minimal design
+    }
+    
+    // Fallback static face for error conditions
+    function drawStaticJailbotFace(dc, centerX, centerY, faceSize) {
+        // Simple static eyes and mouth
+        var eyeWidth = faceSize / 5;
+        var eyeHeight = faceSize / 10;
+        var eyeY = centerY - faceSize / 8;
+        var leftEyeX = centerX - faceSize / 6;
+        var rightEyeX = centerX + faceSize / 6;
+        
+        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+        dc.fillRoundedRectangle(leftEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
+        dc.fillRoundedRectangle(rightEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
+        
+        var mouthWidth = faceSize / 2.5;
+        var mouthHeight = faceSize / 12;
+        var mouthY = centerY + faceSize / 12;
+        
+        dc.fillRoundedRectangle(centerX - mouthWidth/2, mouthY, mouthWidth, mouthHeight, 4);
     }
 }
