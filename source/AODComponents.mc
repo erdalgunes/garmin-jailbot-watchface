@@ -81,11 +81,9 @@ module AOD {
             var hour = clockTime.hour;
             var min = clockTime.min;
             
-            // Only update if minute changed (save power)
-            if (min == lastMinute) {
-                return;
-            }
-            lastMinute = min;
+            // Clear screen only once per minute for battery
+            dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+            dc.clear();
             
             var is24Hour = System.getDeviceSettings().is24Hour;
             if (!is24Hour) {
