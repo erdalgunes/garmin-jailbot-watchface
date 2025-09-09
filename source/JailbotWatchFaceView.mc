@@ -211,9 +211,26 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
         dc.clear();
         
-        // Simple digital time for AOD
+        // AOD best practice: minimal pixels, dim color (white at low brightness appears gray)
+        // Using DK_GRAY for better battery on AMOLED (fewer bright pixels)
         var timeStr = hour.format("%02d") + ":" + min.format("%02d");
-        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width/2, height/2, Graphics.FONT_LARGE, timeStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(width/2, height/2, Graphics.FONT_MEDIUM, timeStr, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        
+        // Optional: Add minimal Jailbot face outline (very dim)
+        var centerX = width / 2;
+        var centerY = height / 2;
+        var faceSize = width * 0.3; // Much smaller for AOD
+        
+        // Ghost eyes (just outlines, not filled)
+        var eyeY = centerY - faceSize / 8 - 20;
+        var leftEyeX = centerX - faceSize / 6;
+        var rightEyeX = centerX + faceSize / 6;
+        var eyeWidth = faceSize / 8;
+        var eyeHeight = 2; // Just thin lines
+        
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawRectangle(leftEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight);
+        dc.drawRectangle(rightEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight);
     }
 }

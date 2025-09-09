@@ -1,0 +1,656 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Timer,1,13,18]; ]
+using Toybox.Timer;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [WatchUi,3,13,20]; ]
+using Toybox.WatchUi;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 4; @symbol_usingdef<0> = [Toybox,4,6,12]; @symbol_usingdef<1> = [Math,4,13,17]; ]
+using Toybox.Math;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 5; @symbol_usingdef<0> = [Toybox,5,6,12]; @symbol_usingdef<1> = [Lang,5,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 9; @symbol_classdef = [BlinkController,9,6,21]; ]
+class BlinkController {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 9; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 9; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 11; @position = 16; @symbol_vardef = [blinkState,11,16,26]; ]
+    private
+    var blinkState;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 12; @position = 16; @symbol_vardef = [blinkTimer,12,16,26]; ]
+    private
+    var blinkTimer;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 13; @position = 16; @symbol_vardef = [reopenTimer,13,16,27]; ]
+    private
+    var reopenTimer;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 14; @position = 16; @symbol_vardef = [isRunning,14,16,25]; ]
+    private
+    var isRunning;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 15; @position = 16; @symbol_vardef = [lastBlinkTime,15,16,29]; ]
+    private
+    var lastBlinkTime;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 16; @position = 16; @symbol_vardef = [blinkCount,16,16,26]; ]
+    private
+    var blinkCount;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 19; @position = 18; @symbol_constdef = [MIN_INTERVAL_MS,19,18,33]; ]
+    private
+    const MIN_INTERVAL_MS = 2000;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 20; @position = 18; @symbol_constdef = [MAX_INTERVAL_MS,20,18,33]; ]
+    private
+    const MAX_INTERVAL_MS = 8000;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 21; @position = 18; @symbol_constdef = [BLINK_DURATION_MS,21,18,35]; ]
+    private
+    const BLINK_DURATION_MS = 150;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 22; @position = 18; @symbol_constdef = [DOUBLE_BLINK_PROB,22,18,35]; ]
+    private
+    const DOUBLE_BLINK_PROB = 0.1;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 23; @position = 18; @symbol_constdef = [DOUBLE_BLINK_GAP_MS,23,18,37]; ]
+    private
+    const DOUBLE_BLINK_GAP_MS = 200;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 25; @symbol_functiondef = [initialize,25,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_25_26_34_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 26 8 ]
+        %tmp.1 = "OPEN";
+        symbol [ blinkState ? 26 8 18 ];
+        putv self :blinkState %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 27 8 ]
+        %tmp.2 = null;
+        symbol [ blinkTimer ? 27 8 18 ];
+        putv self :blinkTimer %tmp.2;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 28 8 ]
+        %tmp.3 = null;
+        symbol [ reopenTimer ? 28 8 19 ];
+        putv self :reopenTimer %tmp.3;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 29 8 ]
+        %tmp.4 = false;
+        symbol [ isRunning ? 29 8 17 ];
+        putv self :isRunning %tmp.4;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 30 8 ]
+        %tmp.5 = 0;
+        symbol [ lastBlinkTime ? 30 8 21 ];
+        putv self :lastBlinkTime %tmp.5;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 31 8 ]
+        %tmp.6 = 0;
+        symbol [ blinkCount ? 31 8 18 ];
+        putv self :blinkCount %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 33 8 ]
+        symbol [ System %tmp.7 33 8 14 ];
+        %tmp.7 = getm $.Toybox.System;
+        symbol [ println %tmp.8 33 15 22 ];
+        %tmp.8 = getv function %tmp.7 :println;
+        %tmp.9 = "BlinkController: Initialized - state=";
+        symbol [ blinkState %tmp.11 33 65 75 ];
+        %tmp.11 = getv ? :blinkState;
+        %tmp.12 = add %tmp.9 %tmp.11;
+        invoke %tmp.7 %tmp.8(%tmp.12);
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_25_26_34_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 37; @symbol_functiondef = [start,37,13,18]; ]
+    function start() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_37_21_48_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 38 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_8_41_8_if_stmt:
+        symbol [ isRunning %tmp.2 38 12 21 ];
+        %tmp.2 = getv ? :isRunning;
+        bf %tmp.2 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_8_41_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_8_41_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_23_41_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 39 12 ]
+        symbol [ System %tmp.3 39 12 18 ];
+        %tmp.3 = getm $.Toybox.System;
+        symbol [ println %tmp.4 39 19 26 ];
+        %tmp.4 = getv function %tmp.3 :println;
+        %tmp.5 = "BlinkController: Already running, ignoring start()";
+        invoke %tmp.3 %tmp.4(%tmp.5);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 40 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_23_41_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_8_41_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_38_8_41_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 43 8 ]
+        %tmp.6 = true;
+        symbol [ isRunning ? 43 8 17 ];
+        putv self :isRunning %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 44 8 ]
+        %tmp.7 = "OPEN";
+        symbol [ blinkState ? 44 8 18 ];
+        putv self :blinkState %tmp.7;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 45 8 ]
+        symbol [ System %tmp.8 45 8 14 ];
+        %tmp.8 = getm $.Toybox.System;
+        symbol [ println %tmp.9 45 15 22 ];
+        %tmp.9 = getv function %tmp.8 :println;
+        %tmp.10 = "BlinkController: Starting blink system";
+        invoke %tmp.8 %tmp.9(%tmp.10);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 47 8 ]
+        %tmp.11 = self;
+        symbol [ scheduleNextBlink %tmp.12 47 8 25 ];
+        %tmp.12 = getv function %tmp.11 :scheduleNextBlink;
+        invoke %tmp.11 %tmp.12();
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_37_21_48_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 51; @symbol_functiondef = [stop,51,13,17]; ]
+    function stop() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_51_20_72_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 52 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_8_55_8_if_stmt:
+        symbol [ isRunning %tmp.2 52 13 22 ];
+        %tmp.2 = getv ? :isRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_8_55_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_8_55_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_24_55_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 53 12 ]
+        symbol [ System %tmp.4 53 12 18 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 53 19 26 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "BlinkController: Already stopped, ignoring stop()";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 54 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_24_55_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_8_55_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_52_8_55_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 57 8 ]
+        symbol [ System %tmp.7 57 8 14 ];
+        %tmp.7 = getm $.Toybox.System;
+        symbol [ println %tmp.8 57 15 22 ];
+        %tmp.8 = getv function %tmp.7 :println;
+        %tmp.9 = "BlinkController: Stopping blink system";
+        invoke %tmp.7 %tmp.8(%tmp.9);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 58 8 ]
+        %tmp.10 = false;
+        symbol [ isRunning ? 58 8 17 ];
+        putv self :isRunning %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 59 8 ]
+        %tmp.11 = "OPEN";
+        symbol [ blinkState ? 59 8 18 ];
+        putv self :blinkState %tmp.11;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 62 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_8_65_8_if_stmt:
+        symbol [ blinkTimer %tmp.13 62 12 22 ];
+        %tmp.13 = getv ? :blinkTimer;
+        %tmp.14 = null;
+        %tmp.15 = ne %tmp.13 %tmp.14;
+        bf %tmp.15 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_8_65_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_8_65_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_32_65_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 63 12 ]
+        symbol [ blinkTimer %tmp.17 63 12 22 ];
+        %tmp.17 = getv ? :blinkTimer;
+        %tmp.18 = as %tmp.17 { (!Null) };
+        symbol [ stop %tmp.19 63 23 27 ];
+        %tmp.19 = getv function %tmp.18 :stop;
+        invoke %tmp.18 %tmp.19();
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 64 12 ]
+        %tmp.20 = null;
+        symbol [ blinkTimer ? 64 12 22 ];
+        putv self :blinkTimer %tmp.20;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_32_65_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_8_65_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_62_8_65_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 66 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_8_69_8_if_stmt:
+        symbol [ reopenTimer %tmp.22 66 12 23 ];
+        %tmp.22 = getv ? :reopenTimer;
+        %tmp.23 = null;
+        %tmp.24 = ne %tmp.22 %tmp.23;
+        bf %tmp.24 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_8_69_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_8_69_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_33_69_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 67 12 ]
+        symbol [ reopenTimer %tmp.26 67 12 23 ];
+        %tmp.26 = getv ? :reopenTimer;
+        %tmp.27 = as %tmp.26 { (!Null) };
+        symbol [ stop %tmp.28 67 24 28 ];
+        %tmp.28 = getv function %tmp.27 :stop;
+        invoke %tmp.27 %tmp.28();
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 68 12 ]
+        %tmp.29 = null;
+        symbol [ reopenTimer ? 68 12 23 ];
+        putv self :reopenTimer %tmp.29;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_33_69_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_8_69_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_66_8_69_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 71 8 ]
+        symbol [ System %tmp.30 71 8 14 ];
+        %tmp.30 = getm $.Toybox.System;
+        symbol [ println %tmp.31 71 15 22 ];
+        %tmp.31 = getv function %tmp.30 :println;
+        %tmp.32 = "BlinkController: Stopped and cleaned up";
+        invoke %tmp.30 %tmp.31(%tmp.32);
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_51_20_72_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 75; @symbol_functiondef = [getBlinkState,75,13,26]; ]
+    function getBlinkState() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_75_29_77_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 76 8 ]
+        symbol [ blinkState %tmp.2 76 15 25 ];
+        %tmp.2 = getv ? :blinkState;
+        ret %tmp.2;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_75_29_77_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 80; @symbol_functiondef = [getDebugInfo,80,13,25]; ]
+    function getDebugInfo() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_80_28_89_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 81 8 ]
+        %tmp.1 = newd 6;
+        %tmp.3 = const :state;
+        symbol [ state %tmp.3 82 13 18 const ];
+        symbol [ blinkState %tmp.5 82 22 32 ];
+        %tmp.5 = getv ? :blinkState;
+        %tmp.6 = dup %tmp.1;
+        %tmp.7 = aputv %tmp.6 %tmp.3 %tmp.5;
+        %tmp.9 = const :isRunning;
+        symbol [ isRunning %tmp.9 83 13 22 const ];
+        symbol [ isRunning %tmp.11 83 26 35 ];
+        %tmp.11 = getv ? :isRunning;
+        %tmp.12 = dup %tmp.7;
+        %tmp.13 = aputv %tmp.12 %tmp.9 %tmp.11;
+        %tmp.15 = const :blinkCount;
+        symbol [ blinkCount %tmp.15 84 13 23 const ];
+        symbol [ blinkCount %tmp.17 84 27 37 ];
+        %tmp.17 = getv ? :blinkCount;
+        %tmp.18 = dup %tmp.13;
+        %tmp.19 = aputv %tmp.18 %tmp.15 %tmp.17;
+        %tmp.21 = const :lastBlinkTime;
+        symbol [ lastBlinkTime %tmp.21 85 13 26 const ];
+        symbol [ lastBlinkTime %tmp.23 85 30 43 ];
+        %tmp.23 = getv ? :lastBlinkTime;
+        %tmp.24 = dup %tmp.19;
+        %tmp.25 = aputv %tmp.24 %tmp.21 %tmp.23;
+        %tmp.27 = const :hasBlinkTimer;
+        symbol [ hasBlinkTimer %tmp.27 86 13 26 const ];
+        symbol [ blinkTimer %tmp.29 86 31 41 ];
+        %tmp.29 = getv ? :blinkTimer;
+        %tmp.30 = null;
+        %tmp.31 = ne %tmp.29 %tmp.30;
+        %tmp.32 = dup %tmp.25;
+        %tmp.33 = aputv %tmp.32 %tmp.27 %tmp.31;
+        %tmp.35 = const :hasReopenTimer;
+        symbol [ hasReopenTimer %tmp.35 87 13 27 const ];
+        symbol [ reopenTimer %tmp.37 87 32 43 ];
+        %tmp.37 = getv ? :reopenTimer;
+        %tmp.38 = null;
+        %tmp.39 = ne %tmp.37 %tmp.38;
+        %tmp.40 = dup %tmp.33;
+        %tmp.41 = aputv %tmp.40 %tmp.35 %tmp.39;
+        ret %tmp.41;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_80_28_89_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 92; @symbol_functiondef = [onLowPowerChange,92,13,29]; @symbol_param<0> = [isLowPower,92,30,40]; ]
+    function onLowPowerChange(isLowPower) {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_92_42_100_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 93 8 ]
+        symbol [ System %tmp.1 93 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 93 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "BlinkController: Power state change - lowPower=";
+        %tmp.4 = lgetv %isLowPower;
+        symbol [ isLowPower %tmp.4 93 75 85 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        invoke %tmp.1 %tmp.2(%tmp.5);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 95 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_stmt:
+        %tmp.6 = lgetv %isLowPower;
+        symbol [ isLowPower %tmp.6 95 12 22 ];
+        bf %tmp.6 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_24_97_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 96 12 ]
+        %tmp.7 = self;
+        symbol [ stop %tmp.8 96 12 16 ];
+        %tmp.8 = getv function %tmp.7 :stop;
+        invoke %tmp.7 %tmp.8();
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_24_97_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 97 15 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_15_99_8_if_stmt:
+        symbol [ isRunning %tmp.10 97 20 29 ];
+        %tmp.10 = getv ? :isRunning;
+        %tmp.11 = not %tmp.10;
+        bf %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_15_99_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_15_99_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_31_99_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 98 12 ]
+        %tmp.12 = self;
+        symbol [ start %tmp.13 98 12 17 ];
+        %tmp.13 = getv function %tmp.12 :start;
+        invoke %tmp.12 %tmp.13();
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_31_99_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_15_99_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_97_15_99_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_95_8_99_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_92_42_100_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 103; @symbol_functiondef = [scheduleNextBlink,103,21,38]; ]
+    private
+    function scheduleNextBlink() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_103_41_116_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 104 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_8_107_8_if_stmt:
+        symbol [ isRunning %tmp.2 104 13 22 ];
+        %tmp.2 = getv ? :isRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_8_107_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_8_107_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_24_107_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 105 12 ]
+        symbol [ System %tmp.4 105 12 18 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 105 19 26 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "BlinkController: Not running, skipping schedule";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 106 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_24_107_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_8_107_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_104_8_107_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 110 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_103_41_116_4_start" "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_103_41_116_4_stop" ]
+        %interval.1 = local;
+        symbol [ interval %interval.1 110 12 20 ];
+        symbol [ MIN_INTERVAL_MS %tmp.8 110 23 38 ];
+        %tmp.8 = getv ? :MIN_INTERVAL_MS;
+        symbol [ Math %tmp.9 110 42 46 ];
+        %tmp.9 = getm $.Toybox.Math;
+        symbol [ rand %tmp.10 110 47 51 ];
+        %tmp.10 = getv function %tmp.9 :rand;
+        %tmp.11 = invoke %tmp.9 %tmp.10();
+        symbol [ MAX_INTERVAL_MS %tmp.13 110 57 72 ];
+        %tmp.13 = getv ? :MAX_INTERVAL_MS;
+        symbol [ MIN_INTERVAL_MS %tmp.15 110 75 90 ];
+        %tmp.15 = getv ? :MIN_INTERVAL_MS;
+        %tmp.16 = sub %tmp.13 %tmp.15;
+        %tmp.17 = 1;
+        %tmp.18 = add %tmp.16 %tmp.17;
+        %tmp.19 = mod %tmp.11 %tmp.18;
+        %tmp.20 = add %tmp.8 %tmp.19;
+        lputv %interval.1 %tmp.20;
+        symbol [ interval %interval.1 110 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 112 8 ]
+        symbol [ System %tmp.21 112 8 14 ];
+        %tmp.21 = getm $.Toybox.System;
+        symbol [ println %tmp.22 112 15 22 ];
+        %tmp.22 = getv function %tmp.21 :println;
+        %tmp.23 = "BlinkController: Scheduling next blink in ";
+        %tmp.24 = lgetv %interval.1;
+        symbol [ interval %tmp.24 112 70 78 ];
+        %tmp.25 = add %tmp.23 %tmp.24;
+        %tmp.26 = "ms";
+        %tmp.27 = add %tmp.25 %tmp.26;
+        invoke %tmp.21 %tmp.22(%tmp.27);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 114 8 ]
+        symbol [ Timer %tmp.30 114 25 30 ];
+        %tmp.30 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.31 114 31 36 ];
+        %tmp.31 = getv function ? %tmp.30 :Timer;
+        %tmp.28 = newc %tmp.31 ();
+        symbol [ blinkTimer ? 114 8 18 ];
+        putv self :blinkTimer %tmp.28;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 115 8 ]
+        symbol [ blinkTimer %tmp.33 115 8 18 ];
+        %tmp.33 = getv ? :blinkTimer;
+        symbol [ start %tmp.34 115 19 24 ];
+        %tmp.34 = getv function %tmp.33 :start;
+        %tmp.35 = self;
+        symbol [ method %tmp.36 115 25 31 ];
+        %tmp.36 = getv function %tmp.35 :method;
+        %tmp.38 = const :beginBlink;
+        symbol [ beginBlink %tmp.38 115 33 43 const ];
+        %tmp.39 = invoke %tmp.35 %tmp.36(%tmp.38);
+        %tmp.40 = as %tmp.39 Lang.Method;
+        symbol [ Lang %tmp.40 115 48 52 ];
+        symbol [ Method %tmp.40 115 53 59 ];
+        %tmp.41 = lgetv %interval.1;
+        symbol [ interval %tmp.41 115 61 69 ];
+        %tmp.42 = false;
+        invoke %tmp.33 %tmp.34(%tmp.40, %tmp.41, %tmp.42);
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_103_41_116_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 119; @symbol_functiondef = [beginBlink,119,13,23]; ]
+    function beginBlink() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_119_26_138_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 120 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_8_123_8_if_stmt:
+        symbol [ isRunning %tmp.2 120 13 22 ];
+        %tmp.2 = getv ? :isRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_8_123_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_8_123_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_24_123_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 121 12 ]
+        symbol [ System %tmp.4 121 12 18 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 121 19 26 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "BlinkController: Not running, ignoring blink";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 122 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_24_123_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_8_123_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_120_8_123_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 125 8 ]
+        %tmp.7 = null;
+        symbol [ blinkTimer ? 125 8 18 ];
+        putv self :blinkTimer %tmp.7;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 126 8 ]
+        %tmp.8 = "CLOSED";
+        symbol [ blinkState ? 126 8 18 ];
+        putv self :blinkState %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 127 8 ]
+        symbol [ blinkCount %tmp.11 127 8 18 ];
+        %tmp.11 = getv ? :blinkCount;
+        %tmp.12 = add %tmp.11 1;
+        symbol [ blinkCount ? 127 8 18 ];
+        putv self :blinkCount dup %tmp.12;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 128 8 ]
+        symbol [ System %tmp.13 128 24 30 ];
+        %tmp.13 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.14 128 31 39 ];
+        %tmp.14 = getv function %tmp.13 :getTimer;
+        %tmp.15 = invoke %tmp.13 %tmp.14();
+        symbol [ lastBlinkTime ? 128 8 21 ];
+        putv self :lastBlinkTime %tmp.15;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 130 8 ]
+        symbol [ System %tmp.16 130 8 14 ];
+        %tmp.16 = getm $.Toybox.System;
+        symbol [ println %tmp.17 130 15 22 ];
+        %tmp.17 = getv function %tmp.16 :println;
+        %tmp.18 = "BlinkController: BLINK #";
+        symbol [ blinkCount %tmp.20 130 52 62 ];
+        %tmp.20 = getv ? :blinkCount;
+        %tmp.21 = add %tmp.18 %tmp.20;
+        %tmp.22 = " - CLOSING eyes";
+        %tmp.23 = add %tmp.21 %tmp.22;
+        invoke %tmp.16 %tmp.17(%tmp.23);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 133 8 ]
+        symbol [ WatchUi %tmp.24 133 8 15 ];
+        %tmp.24 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.25 133 16 29 ];
+        %tmp.25 = getv function %tmp.24 :requestUpdate;
+        invoke %tmp.24 %tmp.25();
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 136 8 ]
+        symbol [ Timer %tmp.28 136 26 31 ];
+        %tmp.28 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.29 136 32 37 ];
+        %tmp.29 = getv function ? %tmp.28 :Timer;
+        %tmp.26 = newc %tmp.29 ();
+        symbol [ reopenTimer ? 136 8 19 ];
+        putv self :reopenTimer %tmp.26;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 137 8 ]
+        symbol [ reopenTimer %tmp.31 137 8 19 ];
+        %tmp.31 = getv ? :reopenTimer;
+        symbol [ start %tmp.32 137 20 25 ];
+        %tmp.32 = getv function %tmp.31 :start;
+        %tmp.33 = self;
+        symbol [ method %tmp.34 137 26 32 ];
+        %tmp.34 = getv function %tmp.33 :method;
+        %tmp.36 = const :endBlink;
+        symbol [ endBlink %tmp.36 137 34 42 const ];
+        %tmp.37 = invoke %tmp.33 %tmp.34(%tmp.36);
+        %tmp.38 = as %tmp.37 Lang.Method;
+        symbol [ Lang %tmp.38 137 47 51 ];
+        symbol [ Method %tmp.38 137 52 58 ];
+        symbol [ BLINK_DURATION_MS %tmp.40 137 60 77 ];
+        %tmp.40 = getv ? :BLINK_DURATION_MS;
+        %tmp.41 = false;
+        invoke %tmp.31 %tmp.32(%tmp.38, %tmp.40, %tmp.41);
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_119_26_138_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 141; @symbol_functiondef = [endBlink,141,13,21]; ]
+    function endBlink() {
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 142 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_8_145_8_if_stmt:
+        symbol [ isRunning %tmp.2 142 13 22 ];
+        %tmp.2 = getv ? :isRunning;
+        %tmp.3 = not %tmp.2;
+        bf %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_8_145_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_8_145_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_24_145_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 143 12 ]
+        symbol [ System %tmp.4 143 12 18 ];
+        %tmp.4 = getm $.Toybox.System;
+        symbol [ println %tmp.5 143 19 26 ];
+        %tmp.5 = getv function %tmp.4 :println;
+        %tmp.6 = "BlinkController: Not running, ignoring reopen";
+        invoke %tmp.4 %tmp.5(%tmp.6);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 144 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_24_145_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_8_145_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_142_8_145_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 147 8 ]
+        %tmp.7 = null;
+        symbol [ reopenTimer ? 147 8 19 ];
+        putv self :reopenTimer %tmp.7;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 148 8 ]
+        %tmp.8 = "OPEN";
+        symbol [ blinkState ? 148 8 18 ];
+        putv self :blinkState %tmp.8;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 150 8 ]
+        symbol [ System %tmp.9 150 8 14 ];
+        %tmp.9 = getm $.Toybox.System;
+        symbol [ println %tmp.10 150 15 22 ];
+        %tmp.10 = getv function %tmp.9 :println;
+        %tmp.11 = "BlinkController: OPENING eyes after blink #";
+        symbol [ blinkCount %tmp.13 150 71 81 ];
+        %tmp.13 = getv ? :blinkCount;
+        %tmp.14 = add %tmp.11 %tmp.13;
+        invoke %tmp.9 %tmp.10(%tmp.14);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 153 8 ]
+        symbol [ WatchUi %tmp.15 153 8 15 ];
+        %tmp.15 = getm $.Toybox.WatchUi;
+        symbol [ requestUpdate %tmp.16 153 16 29 ];
+        %tmp.16 = getv function %tmp.15 :requestUpdate;
+        invoke %tmp.15 %tmp.16();
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 156 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_start" "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_stop" ]
+        %rand.1 = local;
+        symbol [ rand %rand.1 156 12 16 ];
+        symbol [ Math %tmp.17 156 19 23 ];
+        %tmp.17 = getm $.Toybox.Math;
+        symbol [ rand %tmp.18 156 24 28 ];
+        %tmp.18 = getv function %tmp.17 :rand;
+        %tmp.19 = invoke %tmp.17 %tmp.18();
+        %tmp.20 = 1000;
+        %tmp.21 = mod %tmp.19 %tmp.20;
+        lputv %rand.1 %tmp.21;
+        symbol [ rand %rand.1 156 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 157 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_start" "_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_stop" ]
+        %doubleThreshold.2 = local;
+        symbol [ doubleThreshold %doubleThreshold.2 157 12 27 ];
+        symbol [ DOUBLE_BLINK_PROB %tmp.23 157 30 47 ];
+        %tmp.23 = getv ? :DOUBLE_BLINK_PROB;
+        %tmp.24 = 1000;
+        %tmp.25 = mul %tmp.23 %tmp.24;
+        lputv %doubleThreshold.2 %tmp.25;
+        symbol [ doubleThreshold %doubleThreshold.2 157 12 27 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 159 8 ]
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_stmt:
+        %tmp.26 = lgetv %rand.1;
+        symbol [ rand %tmp.26 159 12 16 ];
+        %tmp.27 = lgetv %doubleThreshold.2;
+        symbol [ doubleThreshold %tmp.27 159 19 34 ];
+        %tmp.28 = lt %tmp.26 %tmp.27;
+        bf %tmp.28 @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_36_165_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 160 12 ]
+        symbol [ System %tmp.29 160 12 18 ];
+        %tmp.29 = getm $.Toybox.System;
+        symbol [ println %tmp.30 160 19 26 ];
+        %tmp.30 = getv function %tmp.29 :println;
+        %tmp.31 = "BlinkController: Double blink triggered! (rand=";
+        %tmp.32 = lgetv %rand.1;
+        symbol [ rand %tmp.32 160 79 83 ];
+        %tmp.33 = add %tmp.31 %tmp.32;
+        %tmp.34 = " < ";
+        %tmp.35 = add %tmp.33 %tmp.34;
+        %tmp.36 = lgetv %doubleThreshold.2;
+        symbol [ doubleThreshold %tmp.36 160 94 109 ];
+        %tmp.37 = add %tmp.35 %tmp.36;
+        %tmp.38 = ")";
+        %tmp.39 = add %tmp.37 %tmp.38;
+        invoke %tmp.29 %tmp.30(%tmp.39);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 163 12 ]
+        symbol [ Timer %tmp.42 163 29 34 ];
+        %tmp.42 = getm $.Toybox.Timer;
+        symbol [ Timer %tmp.43 163 35 40 ];
+        %tmp.43 = getv function ? %tmp.42 :Timer;
+        %tmp.40 = newc %tmp.43 ();
+        symbol [ blinkTimer ? 163 12 22 ];
+        putv self :blinkTimer %tmp.40;
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 164 12 ]
+        symbol [ blinkTimer %tmp.45 164 12 22 ];
+        %tmp.45 = getv ? :blinkTimer;
+        symbol [ start %tmp.46 164 23 28 ];
+        %tmp.46 = getv function %tmp.45 :start;
+        %tmp.47 = self;
+        symbol [ method %tmp.48 164 29 35 ];
+        %tmp.48 = getv function %tmp.47 :method;
+        %tmp.50 = const :beginBlink;
+        symbol [ beginBlink %tmp.50 164 37 47 const ];
+        %tmp.51 = invoke %tmp.47 %tmp.48(%tmp.50);
+        %tmp.52 = as %tmp.51 Lang.Method;
+        symbol [ Lang %tmp.52 164 52 56 ];
+        symbol [ Method %tmp.52 164 57 63 ];
+        symbol [ DOUBLE_BLINK_GAP_MS %tmp.54 164 65 84 ];
+        %tmp.54 = getv ? :DOUBLE_BLINK_GAP_MS;
+        %tmp.55 = false;
+        invoke %tmp.45 %tmp.46(%tmp.52, %tmp.54, %tmp.55);
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_36_165_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_165_15_168_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 166 12 ]
+        symbol [ System %tmp.56 166 12 18 ];
+        %tmp.56 = getm $.Toybox.System;
+        symbol [ println %tmp.57 166 19 26 ];
+        %tmp.57 = getv function %tmp.56 :println;
+        %tmp.58 = "BlinkController: Single blink, scheduling next normal blink";
+        invoke %tmp.56 %tmp.57(%tmp.58);
+[ "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc" 167 12 ]
+        %tmp.59 = self;
+        symbol [ scheduleNextBlink %tmp.60 167 12 29 ];
+        %tmp.60 = getv function %tmp.59 :scheduleNextBlink;
+        invoke %tmp.59 %tmp.60();
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_165_15_168_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_159_8_168_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_BlinkController_mc_141_24_169_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/BlinkController.mc"; @line = 1; ]
+<init> {
+}

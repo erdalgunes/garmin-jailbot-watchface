@@ -28,11 +28,11 @@ class IMoodState {
     
     function blinkProfile(ctx) {
         return {
-            :min => 3.0,
-            :max => 6.5, 
-            :mean => 4.2,
-            :doubleProb => 0.0,
-            :closureMs => 100
+            :min => 1.5,
+            :max => 4.0, 
+            :mean => 2.5,
+            :doubleProb => 0.1,
+            :closureMs => 120
         };
     }
     

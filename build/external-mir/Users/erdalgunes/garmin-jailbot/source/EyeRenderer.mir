@@ -1,0 +1,502 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Graphics,1,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 6; @symbol_classdef = [EyeRenderer,6,6,17]; ]
+class EyeRenderer {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 8; @symbol_functiondef = [initialize,8,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_8_26_10_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 9 8 ]
+        symbol [ System %tmp.1 9 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 9 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "EyeRenderer: Initialized";
+        invoke %tmp.1 %tmp.2(%tmp.3);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_8_26_10_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 17; @symbol_functiondef = [drawEyes,17,13,21]; @symbol_param<0> = [dc,17,22,24]; @symbol_param<1> = [centerX,17,26,33]; @symbol_param<2> = [centerY,17,35,42]; @symbol_param<3> = [faceSize,17,44,52]; @symbol_param<4> = [state,17,54,59]; ]
+    function drawEyes(dc, centerX, centerY, faceSize, state) {
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 18 8 ]
+        symbol [ System %tmp.1 18 8 14 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ println %tmp.2 18 15 22 ];
+        %tmp.2 = getv function %tmp.1 :println;
+        %tmp.3 = "EyeRenderer: Drawing eyes - state=";
+        %tmp.4 = lgetv %state;
+        symbol [ state %tmp.4 18 62 67 ];
+        %tmp.5 = add %tmp.3 %tmp.4;
+        %tmp.6 = " faceSize=";
+        %tmp.7 = add %tmp.5 %tmp.6;
+        %tmp.8 = lgetv %faceSize;
+        symbol [ faceSize %tmp.8 18 85 93 ];
+        %tmp.9 = add %tmp.7 %tmp.8;
+        invoke %tmp.1 %tmp.2(%tmp.9);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 21 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_stop" ]
+        %eyeSpacing.1 = local;
+        symbol [ eyeSpacing %eyeSpacing.1 21 12 22 ];
+        %tmp.10 = lgetv %faceSize;
+        symbol [ faceSize %tmp.10 21 25 33 ];
+        %tmp.11 = 0.18;
+        %tmp.12 = mul %tmp.10 %tmp.11;
+        lputv %eyeSpacing.1 %tmp.12;
+        symbol [ eyeSpacing %eyeSpacing.1 21 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 22 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_stop" ]
+        %eyeY.2 = local;
+        symbol [ eyeY %eyeY.2 22 12 16 ];
+        %tmp.13 = lgetv %centerY;
+        symbol [ centerY %tmp.13 22 19 26 ];
+        %tmp.14 = lgetv %faceSize;
+        symbol [ faceSize %tmp.14 22 29 37 ];
+        %tmp.15 = 0.08;
+        %tmp.16 = mul %tmp.14 %tmp.15;
+        %tmp.17 = sub %tmp.13 %tmp.16;
+        lputv %eyeY.2 %tmp.17;
+        symbol [ eyeY %eyeY.2 22 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 24 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_stop" ]
+        %leftEyeX.3 = local;
+        symbol [ leftEyeX %leftEyeX.3 24 12 20 ];
+        %tmp.18 = lgetv %centerX;
+        symbol [ centerX %tmp.18 24 23 30 ];
+        %tmp.19 = lgetv %eyeSpacing.1;
+        symbol [ eyeSpacing %tmp.19 24 33 43 ];
+        %tmp.20 = sub %tmp.18 %tmp.19;
+        lputv %leftEyeX.3 %tmp.20;
+        symbol [ leftEyeX %leftEyeX.3 24 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 25 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_stop" ]
+        %rightEyeX.4 = local;
+        symbol [ rightEyeX %rightEyeX.4 25 12 21 ];
+        %tmp.21 = lgetv %centerX;
+        symbol [ centerX %tmp.21 25 24 31 ];
+        %tmp.22 = lgetv %eyeSpacing.1;
+        symbol [ eyeSpacing %tmp.22 25 34 44 ];
+        %tmp.23 = add %tmp.21 %tmp.22;
+        lputv %rightEyeX.4 %tmp.23;
+        symbol [ rightEyeX %rightEyeX.4 25 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 28 8 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 28 8 10 ];
+        symbol [ setColor %tmp.25 28 11 19 ];
+        %tmp.25 = getv function %tmp.24 :setColor;
+        symbol [ Graphics %tmp.26 28 20 28 ];
+        %tmp.26 = getm $.Toybox.Graphics;
+        symbol [ COLOR_GREEN %tmp.27 28 29 40 ];
+        %tmp.27 = getv %tmp.26 :COLOR_GREEN;
+        symbol [ Graphics %tmp.28 28 42 50 ];
+        %tmp.28 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.29 28 51 68 ];
+        %tmp.29 = getv %tmp.28 :COLOR_TRANSPARENT;
+        invoke %tmp.24 %tmp.25(%tmp.27, %tmp.29);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 30 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_stmt:
+        %tmp.30 = lgetv %state;
+        symbol [ state %tmp.30 30 12 17 ];
+        symbol [ equals %tmp.31 30 18 24 ];
+        %tmp.31 = getv function %tmp.30 :equals;
+        %tmp.32 = "OPEN";
+        %tmp.33 = invoke %tmp.30 %tmp.31(%tmp.32);
+        bf %tmp.33 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_false;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_34_32_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 31 12 ]
+        %tmp.34 = self;
+        symbol [ drawOpenEyes %tmp.35 31 12 24 ];
+        %tmp.35 = getv function %tmp.34 :drawOpenEyes;
+        %tmp.36 = lgetv %dc;
+        symbol [ dc %tmp.36 31 25 27 ];
+        %tmp.37 = lgetv %leftEyeX.3;
+        symbol [ leftEyeX %tmp.37 31 29 37 ];
+        %tmp.38 = lgetv %rightEyeX.4;
+        symbol [ rightEyeX %tmp.38 31 39 48 ];
+        %tmp.39 = lgetv %eyeY.2;
+        symbol [ eyeY %tmp.39 31 50 54 ];
+        %tmp.40 = lgetv %faceSize;
+        symbol [ faceSize %tmp.40 31 56 64 ];
+        invoke %tmp.34 %tmp.35(%tmp.36, %tmp.37, %tmp.38, %tmp.39, %tmp.40);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_34_32_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_false:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 32 15 ]
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_stmt:
+        %tmp.41 = lgetv %state;
+        symbol [ state %tmp.41 32 19 24 ];
+        symbol [ equals %tmp.42 32 25 31 ];
+        %tmp.42 = getv function %tmp.41 :equals;
+        %tmp.43 = "CLOSED";
+        %tmp.44 = invoke %tmp.41 %tmp.42(%tmp.43);
+        bf %tmp.44 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_else_false;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_43_34_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 33 12 ]
+        %tmp.45 = self;
+        symbol [ drawClosedEyes %tmp.46 33 12 26 ];
+        %tmp.46 = getv function %tmp.45 :drawClosedEyes;
+        %tmp.47 = lgetv %dc;
+        symbol [ dc %tmp.47 33 27 29 ];
+        %tmp.48 = lgetv %leftEyeX.3;
+        symbol [ leftEyeX %tmp.48 33 31 39 ];
+        %tmp.49 = lgetv %rightEyeX.4;
+        symbol [ rightEyeX %tmp.49 33 41 50 ];
+        %tmp.50 = lgetv %eyeY.2;
+        symbol [ eyeY %tmp.50 33 52 56 ];
+        %tmp.51 = lgetv %faceSize;
+        symbol [ faceSize %tmp.51 33 58 66 ];
+        invoke %tmp.45 %tmp.46(%tmp.47, %tmp.48, %tmp.49, %tmp.50, %tmp.51);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_43_34_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_else_false:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_34_15_38_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 35 12 ]
+        symbol [ System %tmp.52 35 12 18 ];
+        %tmp.52 = getm $.Toybox.System;
+        symbol [ println %tmp.53 35 19 26 ];
+        %tmp.53 = getv function %tmp.52 :println;
+        %tmp.54 = "EyeRenderer: ERROR - Unknown state: ";
+        %tmp.55 = lgetv %state;
+        symbol [ state %tmp.55 35 68 73 ];
+        %tmp.56 = add %tmp.54 %tmp.55;
+        invoke %tmp.52 %tmp.53(%tmp.56);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 37 12 ]
+        %tmp.57 = self;
+        symbol [ drawOpenEyes %tmp.58 37 12 24 ];
+        %tmp.58 = getv function %tmp.57 :drawOpenEyes;
+        %tmp.59 = lgetv %dc;
+        symbol [ dc %tmp.59 37 25 27 ];
+        %tmp.60 = lgetv %leftEyeX.3;
+        symbol [ leftEyeX %tmp.60 37 29 37 ];
+        %tmp.61 = lgetv %rightEyeX.4;
+        symbol [ rightEyeX %tmp.61 37 39 48 ];
+        %tmp.62 = lgetv %eyeY.2;
+        symbol [ eyeY %tmp.62 37 50 54 ];
+        %tmp.63 = lgetv %faceSize;
+        symbol [ faceSize %tmp.63 37 56 64 ];
+        invoke %tmp.57 %tmp.58(%tmp.59, %tmp.60, %tmp.61, %tmp.62, %tmp.63);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_34_15_38_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_32_15_38_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_30_8_38_8_if_end:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_17_61_39_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 42; @symbol_functiondef = [drawOpenEyes,42,21,33]; @symbol_param<0> = [dc,42,34,36]; @symbol_param<1> = [leftX,42,38,43]; @symbol_param<2> = [rightX,42,45,51]; @symbol_param<3> = [y,42,53,54]; @symbol_param<4> = [faceSize,42,56,64]; ]
+    private
+    function drawOpenEyes(dc, leftX, rightX, y, faceSize) {
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 43 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_stop" ]
+        %eyeWidth.1 = local;
+        symbol [ eyeWidth %eyeWidth.1 43 12 20 ];
+        %tmp.1 = lgetv %faceSize;
+        symbol [ faceSize %tmp.1 43 23 31 ];
+        %tmp.2 = 0.25;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %eyeWidth.1 %tmp.3;
+        symbol [ eyeWidth %eyeWidth.1 43 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 44 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_stop" ]
+        %eyeHeight.2 = local;
+        symbol [ eyeHeight %eyeHeight.2 44 12 21 ];
+        %tmp.4 = lgetv %faceSize;
+        symbol [ faceSize %tmp.4 44 24 32 ];
+        %tmp.5 = 0.12;
+        %tmp.6 = mul %tmp.4 %tmp.5;
+        lputv %eyeHeight.2 %tmp.6;
+        symbol [ eyeHeight %eyeHeight.2 44 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 45 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_stop" ]
+        %eyeRadius.3 = local;
+        symbol [ eyeRadius %eyeRadius.3 45 12 21 ];
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_begin:
+        %tmp.7 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.7 45 25 33 ];
+        %tmp.8 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.8 45 36 45 ];
+        %tmp.9 = lt %tmp.7 %tmp.8;
+        bf %tmp.9 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_false;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_true:
+        %tmp.10 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.10 45 48 56 ];
+        push %tmp.10;
+        goto @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_end;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_false:
+        %tmp.11 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.11 45 59 68 ];
+        push %tmp.11;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_end:
+        %tmp.12 = phi [%tmp.9 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_begin] [%tmp.10 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_true] [%tmp.11 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_false] [%tmp.12 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_45_25_45_59_end];
+        %tmp.13 = 0.3;
+        %tmp.14 = mul %tmp.12 %tmp.13;
+        lputv %eyeRadius.3 %tmp.14;
+        symbol [ eyeRadius %eyeRadius.3 45 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 47 8 ]
+        symbol [ System %tmp.15 47 8 14 ];
+        %tmp.15 = getm $.Toybox.System;
+        symbol [ println %tmp.16 47 15 22 ];
+        %tmp.16 = getv function %tmp.15 :println;
+        %tmp.17 = "EyeRenderer: Open eyes - width=";
+        %tmp.18 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.18 47 59 67 ];
+        %tmp.19 = add %tmp.17 %tmp.18;
+        %tmp.20 = " height=";
+        %tmp.21 = add %tmp.19 %tmp.20;
+        %tmp.22 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.22 47 83 92 ];
+        %tmp.23 = add %tmp.21 %tmp.22;
+        invoke %tmp.15 %tmp.16(%tmp.23);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 50 8 ]
+        %tmp.24 = lgetv %dc;
+        symbol [ dc %tmp.24 50 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.25 50 11 31 ];
+        %tmp.25 = getv function %tmp.24 :fillRoundedRectangle;
+        %tmp.26 = lgetv %leftX;
+        symbol [ leftX %tmp.26 51 12 17 ];
+        %tmp.27 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.27 51 20 28 ];
+        %tmp.28 = 2;
+        %tmp.29 = div %tmp.27 %tmp.28;
+        %tmp.30 = sub %tmp.26 %tmp.29;
+        %tmp.31 = lgetv %y;
+        symbol [ y %tmp.31 52 12 13 ];
+        %tmp.32 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.32 52 16 25 ];
+        %tmp.33 = 2;
+        %tmp.34 = div %tmp.32 %tmp.33;
+        %tmp.35 = sub %tmp.31 %tmp.34;
+        %tmp.36 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.36 53 12 20 ];
+        %tmp.37 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.37 54 12 21 ];
+        %tmp.38 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.38 55 12 21 ];
+        invoke %tmp.24 %tmp.25(%tmp.30, %tmp.35, %tmp.36, %tmp.37, %tmp.38);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 59 8 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 59 8 10 ];
+        symbol [ fillRoundedRectangle %tmp.40 59 11 31 ];
+        %tmp.40 = getv function %tmp.39 :fillRoundedRectangle;
+        %tmp.41 = lgetv %rightX;
+        symbol [ rightX %tmp.41 60 12 18 ];
+        %tmp.42 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.42 60 21 29 ];
+        %tmp.43 = 2;
+        %tmp.44 = div %tmp.42 %tmp.43;
+        %tmp.45 = sub %tmp.41 %tmp.44;
+        %tmp.46 = lgetv %y;
+        symbol [ y %tmp.46 61 12 13 ];
+        %tmp.47 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.47 61 16 25 ];
+        %tmp.48 = 2;
+        %tmp.49 = div %tmp.47 %tmp.48;
+        %tmp.50 = sub %tmp.46 %tmp.49;
+        %tmp.51 = lgetv %eyeWidth.1;
+        symbol [ eyeWidth %tmp.51 62 12 20 ];
+        %tmp.52 = lgetv %eyeHeight.2;
+        symbol [ eyeHeight %tmp.52 63 12 21 ];
+        %tmp.53 = lgetv %eyeRadius.3;
+        symbol [ eyeRadius %tmp.53 64 12 21 ];
+        invoke %tmp.39 %tmp.40(%tmp.45, %tmp.50, %tmp.51, %tmp.52, %tmp.53);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 67 8 ]
+        symbol [ System %tmp.54 67 8 14 ];
+        %tmp.54 = getm $.Toybox.System;
+        symbol [ println %tmp.55 67 15 22 ];
+        %tmp.55 = getv function %tmp.54 :println;
+        %tmp.56 = "EyeRenderer: Drew open eyes at (";
+        %tmp.57 = lgetv %leftX;
+        symbol [ leftX %tmp.57 67 60 65 ];
+        %tmp.58 = add %tmp.56 %tmp.57;
+        %tmp.59 = ",";
+        %tmp.60 = add %tmp.58 %tmp.59;
+        %tmp.61 = lgetv %y;
+        symbol [ y %tmp.61 67 74 75 ];
+        %tmp.62 = add %tmp.60 %tmp.61;
+        %tmp.63 = ") and (";
+        %tmp.64 = add %tmp.62 %tmp.63;
+        %tmp.65 = lgetv %rightX;
+        symbol [ rightX %tmp.65 67 90 96 ];
+        %tmp.66 = add %tmp.64 %tmp.65;
+        %tmp.67 = ",";
+        %tmp.68 = add %tmp.66 %tmp.67;
+        %tmp.69 = lgetv %y;
+        symbol [ y %tmp.69 67 105 106 ];
+        %tmp.70 = add %tmp.68 %tmp.69;
+        %tmp.71 = ")";
+        %tmp.72 = add %tmp.70 %tmp.71;
+        invoke %tmp.54 %tmp.55(%tmp.72);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_42_66_68_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 71; @symbol_functiondef = [drawClosedEyes,71,21,35]; @symbol_param<0> = [dc,71,36,38]; @symbol_param<1> = [leftX,71,40,45]; @symbol_param<2> = [rightX,71,47,53]; @symbol_param<3> = [y,71,55,56]; @symbol_param<4> = [faceSize,71,58,66]; ]
+    private
+    function drawClosedEyes(dc, leftX, rightX, y, faceSize) {
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 72 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_stop" ]
+        %lidWidth.1 = local;
+        symbol [ lidWidth %lidWidth.1 72 12 20 ];
+        %tmp.1 = lgetv %faceSize;
+        symbol [ faceSize %tmp.1 72 23 31 ];
+        %tmp.2 = 0.3;
+        %tmp.3 = mul %tmp.1 %tmp.2;
+        lputv %lidWidth.1 %tmp.3;
+        symbol [ lidWidth %lidWidth.1 72 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 73 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_start" "_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_stop" ]
+        %lineWidth.2 = local;
+        symbol [ lineWidth %lineWidth.2 73 12 21 ];
+        %tmp.4 = lgetv %faceSize;
+        symbol [ faceSize %tmp.4 73 25 33 ];
+        %tmp.5 = 20;
+        %tmp.6 = div %tmp.4 %tmp.5;
+        symbol [ toNumber %tmp.7 73 40 48 ];
+        %tmp.7 = getv function %tmp.6 :toNumber;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        lputv %lineWidth.2 %tmp.8;
+        symbol [ lineWidth %lineWidth.2 73 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 74 8 ]
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_8_74_44_if_stmt:
+        %tmp.9 = lgetv %lineWidth.2;
+        symbol [ lineWidth %tmp.9 74 12 21 ];
+        %tmp.10 = 2;
+        %tmp.11 = lt %tmp.9 %tmp.10;
+        bf %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_8_74_44_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_8_74_44_if_true:
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_27_74_44_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 74 29 ]
+        %tmp.12 = 2;
+        lputv %lineWidth.2 %tmp.12;
+        symbol [ lineWidth %lineWidth.2 74 29 38 ];
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_27_74_44_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_8_74_44_if_end;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_74_8_74_44_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 76 8 ]
+        symbol [ System %tmp.13 76 8 14 ];
+        %tmp.13 = getm $.Toybox.System;
+        symbol [ println %tmp.14 76 15 22 ];
+        %tmp.14 = getv function %tmp.13 :println;
+        %tmp.15 = "EyeRenderer: Closed eyes - lidWidth=";
+        %tmp.16 = lgetv %lidWidth.1;
+        symbol [ lidWidth %tmp.16 76 64 72 ];
+        %tmp.17 = add %tmp.15 %tmp.16;
+        %tmp.18 = " lineWidth=";
+        %tmp.19 = add %tmp.17 %tmp.18;
+        %tmp.20 = lgetv %lineWidth.2;
+        symbol [ lineWidth %tmp.20 76 91 100 ];
+        %tmp.21 = add %tmp.19 %tmp.20;
+        invoke %tmp.13 %tmp.14(%tmp.21);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 78 8 ]
+        %tmp.22 = lgetv %dc;
+        symbol [ dc %tmp.22 78 8 10 ];
+        symbol [ setPenWidth %tmp.23 78 11 22 ];
+        %tmp.23 = getv function %tmp.22 :setPenWidth;
+        %tmp.24 = lgetv %lineWidth.2;
+        symbol [ lineWidth %tmp.24 78 23 32 ];
+        invoke %tmp.22 %tmp.23(%tmp.24);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 81 8 ]
+        %tmp.25 = lgetv %dc;
+        symbol [ dc %tmp.25 81 8 10 ];
+        symbol [ drawLine %tmp.26 81 11 19 ];
+        %tmp.26 = getv function %tmp.25 :drawLine;
+        %tmp.27 = lgetv %leftX;
+        symbol [ leftX %tmp.27 82 12 17 ];
+        %tmp.28 = lgetv %lidWidth.1;
+        symbol [ lidWidth %tmp.28 82 20 28 ];
+        %tmp.29 = 2;
+        %tmp.30 = div %tmp.28 %tmp.29;
+        %tmp.31 = sub %tmp.27 %tmp.30;
+        %tmp.32 = lgetv %y;
+        symbol [ y %tmp.32 83 12 13 ];
+        %tmp.33 = lgetv %leftX;
+        symbol [ leftX %tmp.33 84 12 17 ];
+        %tmp.34 = lgetv %lidWidth.1;
+        symbol [ lidWidth %tmp.34 84 20 28 ];
+        %tmp.35 = 2;
+        %tmp.36 = div %tmp.34 %tmp.35;
+        %tmp.37 = add %tmp.33 %tmp.36;
+        %tmp.38 = lgetv %y;
+        symbol [ y %tmp.38 85 12 13 ];
+        invoke %tmp.25 %tmp.26(%tmp.31, %tmp.32, %tmp.37, %tmp.38);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 89 8 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 89 8 10 ];
+        symbol [ drawLine %tmp.40 89 11 19 ];
+        %tmp.40 = getv function %tmp.39 :drawLine;
+        %tmp.41 = lgetv %rightX;
+        symbol [ rightX %tmp.41 90 12 18 ];
+        %tmp.42 = lgetv %lidWidth.1;
+        symbol [ lidWidth %tmp.42 90 21 29 ];
+        %tmp.43 = 2;
+        %tmp.44 = div %tmp.42 %tmp.43;
+        %tmp.45 = sub %tmp.41 %tmp.44;
+        %tmp.46 = lgetv %y;
+        symbol [ y %tmp.46 91 12 13 ];
+        %tmp.47 = lgetv %rightX;
+        symbol [ rightX %tmp.47 92 12 18 ];
+        %tmp.48 = lgetv %lidWidth.1;
+        symbol [ lidWidth %tmp.48 92 21 29 ];
+        %tmp.49 = 2;
+        %tmp.50 = div %tmp.48 %tmp.49;
+        %tmp.51 = add %tmp.47 %tmp.50;
+        %tmp.52 = lgetv %y;
+        symbol [ y %tmp.52 93 12 13 ];
+        invoke %tmp.39 %tmp.40(%tmp.45, %tmp.46, %tmp.51, %tmp.52);
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 96 8 ]
+        symbol [ System %tmp.53 96 8 14 ];
+        %tmp.53 = getm $.Toybox.System;
+        symbol [ println %tmp.54 96 15 22 ];
+        %tmp.54 = getv function %tmp.53 :println;
+        %tmp.55 = "EyeRenderer: Drew closed eyes at (";
+        %tmp.56 = lgetv %leftX;
+        symbol [ leftX %tmp.56 96 62 67 ];
+        %tmp.57 = add %tmp.55 %tmp.56;
+        %tmp.58 = ",";
+        %tmp.59 = add %tmp.57 %tmp.58;
+        %tmp.60 = lgetv %y;
+        symbol [ y %tmp.60 96 76 77 ];
+        %tmp.61 = add %tmp.59 %tmp.60;
+        %tmp.62 = ") and (";
+        %tmp.63 = add %tmp.61 %tmp.62;
+        %tmp.64 = lgetv %rightX;
+        symbol [ rightX %tmp.64 96 92 98 ];
+        %tmp.65 = add %tmp.63 %tmp.64;
+        %tmp.66 = ",";
+        %tmp.67 = add %tmp.65 %tmp.66;
+        %tmp.68 = lgetv %y;
+        symbol [ y %tmp.68 96 107 108 ];
+        %tmp.69 = add %tmp.67 %tmp.68;
+        %tmp.70 = ")";
+        %tmp.71 = add %tmp.69 %tmp.70;
+        invoke %tmp.53 %tmp.54(%tmp.71);
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_71_68_97_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 100; @symbol_functiondef = [getDebugInfo,100,13,25]; ]
+    function getDebugInfo() {
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_100_28_105_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc" 101 8 ]
+        %tmp.1 = newd 2;
+        %tmp.3 = const :renderer;
+        symbol [ renderer %tmp.3 102 13 21 const ];
+        %tmp.4 = "EyeRenderer";
+        %tmp.5 = dup %tmp.1;
+        %tmp.6 = aputv %tmp.5 %tmp.3 %tmp.4;
+        %tmp.8 = const :version;
+        symbol [ version %tmp.8 103 13 20 const ];
+        %tmp.9 = "1.0";
+        %tmp.10 = dup %tmp.6;
+        %tmp.11 = aputv %tmp.10 %tmp.8 %tmp.9;
+        ret %tmp.11;
+_Users_erdalgunes_garmin_jailbot_source_EyeRenderer_mc_100_28_105_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/EyeRenderer.mc"; @line = 1; ]
+<init> {
+}
