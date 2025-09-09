@@ -113,55 +113,85 @@ module AOD {
                 clearHeight + timeMetrics.blockSize * 2
             );
             
-            // Draw time digits with low-luminance filled pixels (burn-in safe)
-            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
+            // Ghost Jailbot AOD - hollow outlines for minimal pixels
+            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
             
             var hourTens = hour / 10;
             var hourOnes = hour % 10;
             var minTens = min / 10;
             var minOnes = min % 10;
             
-            // Add burn-in prevention pixel shifting (1px random walk)
-            var shiftX = (min % 3) - 1;  // -1, 0, 1 shift based on minute
-            var shiftY = ((min / 3) % 3) - 1;  // vertical shift every 3 minutes
+            // Draw hollow outline digits (much fewer pixels than filled)
+            drawHollowDigit(timeRenderer, digitPatterns[hourTens], 2, 3);
+            drawHollowDigit(timeRenderer, digitPatterns[hourOnes], 7, 3);
             
-            // Position digits: HH:MM layout with pixel shifting
-            drawFilledDigit(timeRenderer, digitPatterns[hourTens], 2 + shiftX, 3 + shiftY);
-            drawFilledDigit(timeRenderer, digitPatterns[hourOnes], 7 + shiftX, 3 + shiftY);
+            // Draw minimal colon - just 2 pixels
+            drawMinimalColon(timeRenderer, 12, 3);
             
-            // Draw colon (blink every other minute to reduce burn-in)
-            if (min % 2 == 0) {
-                drawFilledColon(timeRenderer, 12 + shiftX, 3 + shiftY);
-            }
+            drawHollowDigit(timeRenderer, digitPatterns[minTens], 15, 3);
+            drawHollowDigit(timeRenderer, digitPatterns[minOnes], 20, 3);
             
-            drawFilledDigit(timeRenderer, digitPatterns[minTens], 15 + shiftX, 3 + shiftY);
-            drawFilledDigit(timeRenderer, digitPatterns[minOnes], 20 + shiftX, 3 + shiftY);
+            // Draw Ghost Jailbot outline above time
+            drawGhostJailbot(dc, screenWidth, screenHeight/3);
         }
         
-        function drawFilledDigit(renderer, pattern, startCol, startRow) {
+        function drawHollowDigit(renderer, pattern, startCol, startRow) {
+            // Draw only the outline of the digit pattern (minimal pixels)
             for (var row = 0; row < 5; row++) {
                 for (var col = 0; col < 3; col++) {
                     if (pattern[row][col] == 1) {
-                        drawFilledPixelBlock(renderer, startCol + col, startRow + row);
+                        // Check if this is an edge pixel
+                        var isEdge = false;
+                        
+                        // Check if any neighbor is empty (0 or out of bounds)
+                        if (row == 0 || row == 4 || col == 0 || col == 2) {
+                            isEdge = true;
+                        } else if (pattern[row-1][col] == 0 || pattern[row+1][col] == 0 ||
+                                   pattern[row][col-1] == 0 || pattern[row][col+1] == 0) {
+                            isEdge = true;
+                        }
+                        
+                        if (isEdge) {
+                            drawPixelDot(renderer, startCol + col, startRow + row);
+                        }
                     }
                 }
             }
         }
         
-        function drawFilledColon(renderer, startCol, startRow) {
-            // Draw colon as two filled blocks vertically aligned
-            drawFilledPixelBlock(renderer, startCol, startRow + 1);
-            drawFilledPixelBlock(renderer, startCol, startRow + 3);
+        function drawMinimalColon(renderer, startCol, startRow) {
+            // Just 2 minimal dots for colon
+            drawPixelDot(renderer, startCol, startRow + 1);
+            drawPixelDot(renderer, startCol, startRow + 3);
         }
         
-        function drawFilledPixelBlock(renderer, col, row) {
-            // Draw filled pixel block (burn-in safe, uses fewer pixels than borders)
+        function drawPixelDot(renderer, col, row) {
+            // Draw single pixel for minimal battery usage
             var x = renderer.metrics.getCellX(col);
             var y = renderer.metrics.getCellY(row);
             var size = renderer.metrics.blockSize;
-            
-            // Fill entire block for better readability and fewer edge pixels
             renderer.dc.fillRectangle(x, y, size, size);
+        }
+        
+        function drawGhostJailbot(dc, screenWidth, centerY) {
+            var centerX = screenWidth / 2;
+            var size = screenWidth / 6; // Small ghost Jailbot
+            
+            // Draw hollow rectangle for head outline
+            dc.setPenWidth(1);
+            dc.drawRoundedRectangle(centerX - size/2, centerY - size/2, size, size, size/8);
+            
+            // Draw minimal eyes - just 2 dots
+            var eyeY = centerY - size/6;
+            var leftEyeX = centerX - size/4;
+            var rightEyeX = centerX + size/4;
+            
+            dc.fillCircle(leftEyeX, eyeY, 1);
+            dc.fillCircle(rightEyeX, eyeY, 1);
+            
+            // Draw minimal mouth - single line
+            var mouthY = centerY + size/6;
+            dc.drawLine(centerX - size/4, mouthY, centerX + size/4, mouthY);
         }
     }
 }
