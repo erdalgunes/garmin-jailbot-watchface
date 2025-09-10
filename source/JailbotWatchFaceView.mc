@@ -10,16 +10,28 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     var inAOD = false;
     var updateTimer;
     
-    // Simple blink state
+    // Simple blink state (kept for AOD mode)
     var isBlinking = false;
     var nextBlinkTime = 0;
     var blinkStartTime = 0;
     var blinkDuration = 150; // milliseconds
     
+    // Expression system
+    var expressionEngine = null;
+    
     function initialize() {
         WatchFace.initialize();
         updateTimer = new Timer.Timer();
         scheduleNextBlink();
+        
+        // Initialize expression system
+        try {
+            expressionEngine = new ExpressionEngine();
+        } catch (e) {
+            // Graceful fallback if expression system fails
+            System.println("Expression system init failed: " + e.getErrorMessage());
+            expressionEngine = null;
+        }
     }
 
     function onLayout(dc) {
@@ -136,7 +148,32 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
     }
     
     function drawJailbotFace(dc, centerX, centerY, faceSize) {
-        // Eyes
+        // If expression engine is available, use it for expressions
+        if (expressionEngine != null) {
+            var displayState = expressionEngine.update(!inAOD);
+            
+            // Draw expression face
+            drawExpressionFace(dc, centerX, centerY, faceSize, displayState);
+            
+            // Debug info (can be removed later)
+            //dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+            //dc.drawText(centerX, centerY + faceSize/2, Graphics.FONT_XTINY, expressionEngine.getDebugInfo(), Graphics.TEXT_JUSTIFY_CENTER);
+        } else {
+            // Fallback to simple face
+            drawSimpleFace(dc, centerX, centerY, faceSize);
+        }
+    }
+    
+    function drawExpressionFace(dc, centerX, centerY, faceSize, displayState) {
+        if (displayState == null || displayState[:expression] == null) {
+            drawSimpleFace(dc, centerX, centerY, faceSize);
+            return;
+        }
+        
+        var expr = displayState[:expression];
+        var eyesClosed = displayState[:eyesClosed];
+        
+        // Eyes position
         var eyeWidth = faceSize / 5;
         var eyeHeight = faceSize / 10;
         var eyeY = centerY - faceSize / 8;
@@ -145,20 +182,125 @@ class JailbotWatchFaceView extends WatchUi.WatchFace {
         
         dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
         
-        // Draw eyes based on blink state
-        if (isBlinking) {
-            // Draw as horizontal lines when blinking (- -)
+        // Draw eyes based on expression and blink state
+        if (eyesClosed) {
+            // Closed eyes (blinking)
             var lineThickness = 3;
             var lineY = eyeY + eyeHeight / 2;
             dc.fillRectangle(leftEyeX - eyeWidth/2, lineY - lineThickness/2, eyeWidth, lineThickness);
             dc.fillRectangle(rightEyeX - eyeWidth/2, lineY - lineThickness/2, eyeWidth, lineThickness);
         } else {
-            // Draw normal open eyes
+            // Draw expression-specific eyes
+            drawExpressionEyes(dc, expr.eyes, leftEyeX, rightEyeX, eyeY, eyeWidth, eyeHeight);
+        }
+        
+        // Draw expression-specific mouth
+        var mouthY = centerY + faceSize / 12;
+        drawExpressionMouth(dc, expr.mouth, centerX, mouthY, faceSize);
+    }
+    
+    function drawExpressionEyes(dc, eyeType, leftX, rightX, y, width, height) {
+        switch(eyeType) {
+            case EyeType.NORMAL:
+            case EyeType.ALERT:
+                // Normal round eyes
+                dc.fillRoundedRectangle(leftX - width/2, y, width, height, 4);
+                dc.fillRoundedRectangle(rightX - width/2, y, width, height, 4);
+                break;
+                
+            case EyeType.TIRED:
+                // Half-closed eyes
+                dc.fillRectangle(leftX - width/2, y + height/2, width, height/2);
+                dc.fillRectangle(rightX - width/2, y + height/2, width, height/2);
+                break;
+                
+            case EyeType.HAPPY:
+                // Arc eyes (^ ^)
+                dc.drawArc(leftX, y + height/2, width/2, 0, 180);
+                dc.drawArc(rightX, y + height/2, width/2, 0, 180);
+                break;
+                
+            case EyeType.STRESSED:
+                // Angled eyes (> <)
+                for (var i = 0; i < 3; i++) {
+                    dc.drawLine(leftX - width/2 + i, y, leftX + width/2 - i, y + height);
+                    dc.drawLine(rightX - width/2 + i, y + height, rightX + width/2 - i, y);
+                }
+                break;
+                
+            case EyeType.FOCUSED:
+                // Small round eyes
+                dc.fillCircle(leftX, y + height/2, width/3);
+                dc.fillCircle(rightX, y + height/2, width/3);
+                break;
+                
+            default:
+                // Default to normal eyes
+                dc.fillRoundedRectangle(leftX - width/2, y, width, height, 4);
+                dc.fillRoundedRectangle(rightX - width/2, y, width, height, 4);
+        }
+    }
+    
+    function drawExpressionMouth(dc, mouthType, centerX, mouthY, faceSize) {
+        var mouthWidth = faceSize / 2.5;
+        var mouthHeight = faceSize / 12;
+        
+        switch(mouthType) {
+            case MouthType.NEUTRAL:
+                // Straight line
+                dc.fillRoundedRectangle(centerX - mouthWidth/2, mouthY, mouthWidth, mouthHeight, 4);
+                break;
+                
+            case MouthType.SMILE:
+                // Curved smile
+                dc.drawArc(centerX, mouthY - mouthHeight, mouthWidth/2, 20, 160);
+                dc.drawArc(centerX, mouthY - mouthHeight + 1, mouthWidth/2, 20, 160);
+                dc.drawArc(centerX, mouthY - mouthHeight + 2, mouthWidth/2, 20, 160);
+                break;
+                
+            case MouthType.FROWN:
+                // Curved frown
+                dc.drawArc(centerX, mouthY + mouthHeight*2, mouthWidth/2, 200, 340);
+                dc.drawArc(centerX, mouthY + mouthHeight*2 - 1, mouthWidth/2, 200, 340);
+                dc.drawArc(centerX, mouthY + mouthHeight*2 - 2, mouthWidth/2, 200, 340);
+                break;
+                
+            case MouthType.OPEN:
+                // Open circle
+                dc.fillCircle(centerX, mouthY + mouthHeight/2, mouthHeight);
+                break;
+                
+            case MouthType.DETERMINED:
+                // Thick straight line
+                dc.fillRectangle(centerX - mouthWidth/2, mouthY - 1, mouthWidth, mouthHeight + 2);
+                break;
+                
+            default:
+                // Default to neutral
+                dc.fillRoundedRectangle(centerX - mouthWidth/2, mouthY, mouthWidth, mouthHeight, 4);
+        }
+    }
+    
+    function drawSimpleFace(dc, centerX, centerY, faceSize) {
+        // Original simple face code (fallback)
+        var eyeWidth = faceSize / 5;
+        var eyeHeight = faceSize / 10;
+        var eyeY = centerY - faceSize / 8;
+        var leftEyeX = centerX - faceSize / 6;
+        var rightEyeX = centerX + faceSize / 6;
+        
+        dc.setColor(Graphics.COLOR_GREEN, Graphics.COLOR_TRANSPARENT);
+        
+        if (isBlinking) {
+            var lineThickness = 3;
+            var lineY = eyeY + eyeHeight / 2;
+            dc.fillRectangle(leftEyeX - eyeWidth/2, lineY - lineThickness/2, eyeWidth, lineThickness);
+            dc.fillRectangle(rightEyeX - eyeWidth/2, lineY - lineThickness/2, eyeWidth, lineThickness);
+        } else {
             dc.fillRoundedRectangle(leftEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
             dc.fillRoundedRectangle(rightEyeX - eyeWidth/2, eyeY, eyeWidth, eyeHeight, 4);
         }
         
-        // Mouth (always visible)
         var mouthWidth = faceSize / 2.5;
         var mouthHeight = faceSize / 12;
         var mouthY = centerY + faceSize / 12;

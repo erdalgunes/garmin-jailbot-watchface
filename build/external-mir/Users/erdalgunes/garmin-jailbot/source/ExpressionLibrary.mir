@@ -1,0 +1,635 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Lang,1,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 4; @symbol_moduledef = [ExpressionId,4,7,19]; ]
+module ExpressionId {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 4; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 5; @position = 10; @symbol_constdef = [REST,5,10,14]; ]
+    const REST = 0;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 6; @position = 10; @symbol_constdef = [HAPPY,6,10,15]; ]
+    const HAPPY = 1;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 7; @position = 10; @symbol_constdef = [STRESSED,7,10,18]; ]
+    const STRESSED = 2;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 8; @position = 10; @symbol_constdef = [TIRED,8,10,15]; ]
+    const TIRED = 3;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 9; @position = 10; @symbol_constdef = [FOCUSED,9,10,17]; ]
+    const FOCUSED = 4;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 10; @position = 10; @symbol_constdef = [ALERT,10,10,15]; ]
+    const ALERT = 5;
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 14; @symbol_moduledef = [EyeType,14,7,14]; ]
+module EyeType {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 14; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 15; @position = 10; @symbol_constdef = [NORMAL,15,10,16]; ]
+    const NORMAL = 0;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 16; @position = 10; @symbol_constdef = [TIRED,16,10,15]; ]
+    const TIRED = 1;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 17; @position = 10; @symbol_constdef = [ALERT,17,10,15]; ]
+    const ALERT = 2;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 18; @position = 10; @symbol_constdef = [HAPPY,18,10,15]; ]
+    const HAPPY = 3;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 19; @position = 10; @symbol_constdef = [STRESSED,19,10,18]; ]
+    const STRESSED = 4;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 20; @position = 10; @symbol_constdef = [FOCUSED,20,10,17]; ]
+    const FOCUSED = 5;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 21; @position = 10; @symbol_constdef = [CLOSED,21,10,16]; ]
+    const CLOSED = 6;
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 25; @symbol_moduledef = [MouthType,25,7,16]; ]
+module MouthType {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 25; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 26; @position = 10; @symbol_constdef = [NEUTRAL,26,10,17]; ]
+    const NEUTRAL = 0;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 27; @position = 10; @symbol_constdef = [SMILE,27,10,15]; ]
+    const SMILE = 1;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 28; @position = 10; @symbol_constdef = [FROWN,28,10,15]; ]
+    const FROWN = 2;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 29; @position = 10; @symbol_constdef = [OPEN,29,10,14]; ]
+    const OPEN = 3;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 30; @position = 10; @symbol_constdef = [DETERMINED,30,10,20]; ]
+    const DETERMINED = 4;
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 34; @symbol_moduledef = [BlinkPattern,34,7,19]; ]
+module BlinkPattern {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 34; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 35; @position = 10; @symbol_constdef = [NORMAL,35,10,16]; ]
+    const NORMAL = 0;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 36; @position = 10; @symbol_constdef = [TIRED,36,10,15]; ]
+    const TIRED = 1;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 37; @position = 10; @symbol_constdef = [STRESSED,37,10,18]; ]
+    const STRESSED = 2;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 38; @position = 10; @symbol_constdef = [RESTING,38,10,17]; ]
+    const RESTING = 3;
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 42; @symbol_classdef = [ExpressionLibrary,42,6,23]; ]
+class ExpressionLibrary {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 42; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 42; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 45; @symbol_functiondef = [get,45,20,23]; @symbol_param<0> = [id,45,24,26]; ]
+    static
+    function get(id) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_45_28_105_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 46 8 ]
+        %tmp.1 = lgetv %id;
+        symbol [ id %tmp.1 46 15 17 ];
+        push %tmp.1;
+        switch %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_switchStmtEnd;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_switchStmtBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 47 12 ]
+        %tmp.2 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.4 47 17 29 ];
+        %tmp.4 = getv ? :ExpressionId;
+        symbol [ REST %tmp.5 47 30 34 ];
+        %tmp.5 = getv %tmp.4 :REST;
+        %tmp.6 = getv function %tmp.2 :equals;
+        %tmp.7 = invoke %tmp.2 %tmp.6 (%tmp.5);
+        bt %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_47_12_54_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 56 12 ]
+        %tmp.8 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.10 56 17 29 ];
+        %tmp.10 = getv ? :ExpressionId;
+        symbol [ HAPPY %tmp.11 56 30 35 ];
+        %tmp.11 = getv %tmp.10 :HAPPY;
+        %tmp.12 = getv function %tmp.8 :equals;
+        %tmp.13 = invoke %tmp.8 %tmp.12 (%tmp.11);
+        bt %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_56_12_63_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 65 12 ]
+        %tmp.14 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.16 65 17 29 ];
+        %tmp.16 = getv ? :ExpressionId;
+        symbol [ STRESSED %tmp.17 65 30 38 ];
+        %tmp.17 = getv %tmp.16 :STRESSED;
+        %tmp.18 = getv function %tmp.14 :equals;
+        %tmp.19 = invoke %tmp.14 %tmp.18 (%tmp.17);
+        bt %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_65_12_72_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 74 12 ]
+        %tmp.20 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.22 74 17 29 ];
+        %tmp.22 = getv ? :ExpressionId;
+        symbol [ TIRED %tmp.23 74 30 35 ];
+        %tmp.23 = getv %tmp.22 :TIRED;
+        %tmp.24 = getv function %tmp.20 :equals;
+        %tmp.25 = invoke %tmp.20 %tmp.24 (%tmp.23);
+        bt %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_74_12_81_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 83 12 ]
+        %tmp.26 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.28 83 17 29 ];
+        %tmp.28 = getv ? :ExpressionId;
+        symbol [ FOCUSED %tmp.29 83 30 37 ];
+        %tmp.29 = getv %tmp.28 :FOCUSED;
+        %tmp.30 = getv function %tmp.26 :equals;
+        %tmp.31 = invoke %tmp.26 %tmp.30 (%tmp.29);
+        bt %tmp.31 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_83_12_90_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 92 12 ]
+        %tmp.32 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.34 92 17 29 ];
+        %tmp.34 = getv ? :ExpressionId;
+        symbol [ ALERT %tmp.35 92 30 35 ];
+        %tmp.35 = getv %tmp.34 :ALERT;
+        %tmp.36 = getv function %tmp.32 :equals;
+        %tmp.37 = invoke %tmp.32 %tmp.36 (%tmp.35);
+        bt %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_92_12_99_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 101 12 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_switchStmtDefault:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_defaultCodeBegin;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_47_12_54_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 48 16 ]
+        %tmp.38 = newd 5;
+        %tmp.40 = const :eyes;
+        symbol [ eyes %tmp.40 49 21 25 const ];
+        symbol [ EyeType %tmp.42 49 29 36 ];
+        %tmp.42 = getv ? :EyeType;
+        symbol [ NORMAL %tmp.43 49 37 43 ];
+        %tmp.43 = getv %tmp.42 :NORMAL;
+        %tmp.44 = dup %tmp.38;
+        %tmp.45 = aputv %tmp.44 %tmp.40 %tmp.43;
+        %tmp.47 = const :mouth;
+        symbol [ mouth %tmp.47 50 21 26 const ];
+        symbol [ MouthType %tmp.49 50 30 39 ];
+        %tmp.49 = getv ? :MouthType;
+        symbol [ NEUTRAL %tmp.50 50 40 47 ];
+        %tmp.50 = getv %tmp.49 :NEUTRAL;
+        %tmp.51 = dup %tmp.45;
+        %tmp.52 = aputv %tmp.51 %tmp.47 %tmp.50;
+        %tmp.54 = const :blink;
+        symbol [ blink %tmp.54 51 21 26 const ];
+        symbol [ BlinkPattern %tmp.56 51 30 42 ];
+        %tmp.56 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.57 51 43 49 ];
+        %tmp.57 = getv %tmp.56 :NORMAL;
+        %tmp.58 = dup %tmp.52;
+        %tmp.59 = aputv %tmp.58 %tmp.54 %tmp.57;
+        %tmp.61 = const :minDur;
+        symbol [ minDur %tmp.61 52 21 27 const ];
+        %tmp.62 = 5;
+        %tmp.63 = dup %tmp.59;
+        %tmp.64 = aputv %tmp.63 %tmp.61 %tmp.62;
+        %tmp.66 = const :priority;
+        symbol [ priority %tmp.66 53 21 29 const ];
+        %tmp.67 = 10;
+        %tmp.68 = dup %tmp.64;
+        %tmp.69 = aputv %tmp.68 %tmp.66 %tmp.67;
+        ret %tmp.69;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_56_12_63_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 57 16 ]
+        %tmp.70 = newd 5;
+        %tmp.72 = const :eyes;
+        symbol [ eyes %tmp.72 58 21 25 const ];
+        symbol [ EyeType %tmp.74 58 29 36 ];
+        %tmp.74 = getv ? :EyeType;
+        symbol [ HAPPY %tmp.75 58 37 42 ];
+        %tmp.75 = getv %tmp.74 :HAPPY;
+        %tmp.76 = dup %tmp.70;
+        %tmp.77 = aputv %tmp.76 %tmp.72 %tmp.75;
+        %tmp.79 = const :mouth;
+        symbol [ mouth %tmp.79 59 21 26 const ];
+        symbol [ MouthType %tmp.81 59 30 39 ];
+        %tmp.81 = getv ? :MouthType;
+        symbol [ SMILE %tmp.82 59 40 45 ];
+        %tmp.82 = getv %tmp.81 :SMILE;
+        %tmp.83 = dup %tmp.77;
+        %tmp.84 = aputv %tmp.83 %tmp.79 %tmp.82;
+        %tmp.86 = const :blink;
+        symbol [ blink %tmp.86 60 21 26 const ];
+        symbol [ BlinkPattern %tmp.88 60 30 42 ];
+        %tmp.88 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.89 60 43 49 ];
+        %tmp.89 = getv %tmp.88 :NORMAL;
+        %tmp.90 = dup %tmp.84;
+        %tmp.91 = aputv %tmp.90 %tmp.86 %tmp.89;
+        %tmp.93 = const :minDur;
+        symbol [ minDur %tmp.93 61 21 27 const ];
+        %tmp.94 = 8;
+        %tmp.95 = dup %tmp.91;
+        %tmp.96 = aputv %tmp.95 %tmp.93 %tmp.94;
+        %tmp.98 = const :priority;
+        symbol [ priority %tmp.98 62 21 29 const ];
+        %tmp.99 = 50;
+        %tmp.100 = dup %tmp.96;
+        %tmp.101 = aputv %tmp.100 %tmp.98 %tmp.99;
+        ret %tmp.101;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_65_12_72_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 66 16 ]
+        %tmp.102 = newd 5;
+        %tmp.104 = const :eyes;
+        symbol [ eyes %tmp.104 67 21 25 const ];
+        symbol [ EyeType %tmp.106 67 29 36 ];
+        %tmp.106 = getv ? :EyeType;
+        symbol [ STRESSED %tmp.107 67 37 45 ];
+        %tmp.107 = getv %tmp.106 :STRESSED;
+        %tmp.108 = dup %tmp.102;
+        %tmp.109 = aputv %tmp.108 %tmp.104 %tmp.107;
+        %tmp.111 = const :mouth;
+        symbol [ mouth %tmp.111 68 21 26 const ];
+        symbol [ MouthType %tmp.113 68 30 39 ];
+        %tmp.113 = getv ? :MouthType;
+        symbol [ FROWN %tmp.114 68 40 45 ];
+        %tmp.114 = getv %tmp.113 :FROWN;
+        %tmp.115 = dup %tmp.109;
+        %tmp.116 = aputv %tmp.115 %tmp.111 %tmp.114;
+        %tmp.118 = const :blink;
+        symbol [ blink %tmp.118 69 21 26 const ];
+        symbol [ BlinkPattern %tmp.120 69 30 42 ];
+        %tmp.120 = getv ? :BlinkPattern;
+        symbol [ STRESSED %tmp.121 69 43 51 ];
+        %tmp.121 = getv %tmp.120 :STRESSED;
+        %tmp.122 = dup %tmp.116;
+        %tmp.123 = aputv %tmp.122 %tmp.118 %tmp.121;
+        %tmp.125 = const :minDur;
+        symbol [ minDur %tmp.125 70 21 27 const ];
+        %tmp.126 = 10;
+        %tmp.127 = dup %tmp.123;
+        %tmp.128 = aputv %tmp.127 %tmp.125 %tmp.126;
+        %tmp.130 = const :priority;
+        symbol [ priority %tmp.130 71 21 29 const ];
+        %tmp.131 = 80;
+        %tmp.132 = dup %tmp.128;
+        %tmp.133 = aputv %tmp.132 %tmp.130 %tmp.131;
+        ret %tmp.133;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_74_12_81_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 75 16 ]
+        %tmp.134 = newd 5;
+        %tmp.136 = const :eyes;
+        symbol [ eyes %tmp.136 76 21 25 const ];
+        symbol [ EyeType %tmp.138 76 29 36 ];
+        %tmp.138 = getv ? :EyeType;
+        symbol [ TIRED %tmp.139 76 37 42 ];
+        %tmp.139 = getv %tmp.138 :TIRED;
+        %tmp.140 = dup %tmp.134;
+        %tmp.141 = aputv %tmp.140 %tmp.136 %tmp.139;
+        %tmp.143 = const :mouth;
+        symbol [ mouth %tmp.143 77 21 26 const ];
+        symbol [ MouthType %tmp.145 77 30 39 ];
+        %tmp.145 = getv ? :MouthType;
+        symbol [ NEUTRAL %tmp.146 77 40 47 ];
+        %tmp.146 = getv %tmp.145 :NEUTRAL;
+        %tmp.147 = dup %tmp.141;
+        %tmp.148 = aputv %tmp.147 %tmp.143 %tmp.146;
+        %tmp.150 = const :blink;
+        symbol [ blink %tmp.150 78 21 26 const ];
+        symbol [ BlinkPattern %tmp.152 78 30 42 ];
+        %tmp.152 = getv ? :BlinkPattern;
+        symbol [ TIRED %tmp.153 78 43 48 ];
+        %tmp.153 = getv %tmp.152 :TIRED;
+        %tmp.154 = dup %tmp.148;
+        %tmp.155 = aputv %tmp.154 %tmp.150 %tmp.153;
+        %tmp.157 = const :minDur;
+        symbol [ minDur %tmp.157 79 21 27 const ];
+        %tmp.158 = 10;
+        %tmp.159 = dup %tmp.155;
+        %tmp.160 = aputv %tmp.159 %tmp.157 %tmp.158;
+        %tmp.162 = const :priority;
+        symbol [ priority %tmp.162 80 21 29 const ];
+        %tmp.163 = 70;
+        %tmp.164 = dup %tmp.160;
+        %tmp.165 = aputv %tmp.164 %tmp.162 %tmp.163;
+        ret %tmp.165;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_83_12_90_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 84 16 ]
+        %tmp.166 = newd 5;
+        %tmp.168 = const :eyes;
+        symbol [ eyes %tmp.168 85 21 25 const ];
+        symbol [ EyeType %tmp.170 85 29 36 ];
+        %tmp.170 = getv ? :EyeType;
+        symbol [ FOCUSED %tmp.171 85 37 44 ];
+        %tmp.171 = getv %tmp.170 :FOCUSED;
+        %tmp.172 = dup %tmp.166;
+        %tmp.173 = aputv %tmp.172 %tmp.168 %tmp.171;
+        %tmp.175 = const :mouth;
+        symbol [ mouth %tmp.175 86 21 26 const ];
+        symbol [ MouthType %tmp.177 86 30 39 ];
+        %tmp.177 = getv ? :MouthType;
+        symbol [ DETERMINED %tmp.178 86 40 50 ];
+        %tmp.178 = getv %tmp.177 :DETERMINED;
+        %tmp.179 = dup %tmp.173;
+        %tmp.180 = aputv %tmp.179 %tmp.175 %tmp.178;
+        %tmp.182 = const :blink;
+        symbol [ blink %tmp.182 87 21 26 const ];
+        symbol [ BlinkPattern %tmp.184 87 30 42 ];
+        %tmp.184 = getv ? :BlinkPattern;
+        symbol [ RESTING %tmp.185 87 43 50 ];
+        %tmp.185 = getv %tmp.184 :RESTING;
+        %tmp.186 = dup %tmp.180;
+        %tmp.187 = aputv %tmp.186 %tmp.182 %tmp.185;
+        %tmp.189 = const :minDur;
+        symbol [ minDur %tmp.189 88 21 27 const ];
+        %tmp.190 = 15;
+        %tmp.191 = dup %tmp.187;
+        %tmp.192 = aputv %tmp.191 %tmp.189 %tmp.190;
+        %tmp.194 = const :priority;
+        symbol [ priority %tmp.194 89 21 29 const ];
+        %tmp.195 = 90;
+        %tmp.196 = dup %tmp.192;
+        %tmp.197 = aputv %tmp.196 %tmp.194 %tmp.195;
+        ret %tmp.197;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_92_12_99_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 93 16 ]
+        %tmp.198 = newd 5;
+        %tmp.200 = const :eyes;
+        symbol [ eyes %tmp.200 94 21 25 const ];
+        symbol [ EyeType %tmp.202 94 29 36 ];
+        %tmp.202 = getv ? :EyeType;
+        symbol [ ALERT %tmp.203 94 37 42 ];
+        %tmp.203 = getv %tmp.202 :ALERT;
+        %tmp.204 = dup %tmp.198;
+        %tmp.205 = aputv %tmp.204 %tmp.200 %tmp.203;
+        %tmp.207 = const :mouth;
+        symbol [ mouth %tmp.207 95 21 26 const ];
+        symbol [ MouthType %tmp.209 95 30 39 ];
+        %tmp.209 = getv ? :MouthType;
+        symbol [ NEUTRAL %tmp.210 95 40 47 ];
+        %tmp.210 = getv %tmp.209 :NEUTRAL;
+        %tmp.211 = dup %tmp.205;
+        %tmp.212 = aputv %tmp.211 %tmp.207 %tmp.210;
+        %tmp.214 = const :blink;
+        symbol [ blink %tmp.214 96 21 26 const ];
+        symbol [ BlinkPattern %tmp.216 96 30 42 ];
+        %tmp.216 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.217 96 43 49 ];
+        %tmp.217 = getv %tmp.216 :NORMAL;
+        %tmp.218 = dup %tmp.212;
+        %tmp.219 = aputv %tmp.218 %tmp.214 %tmp.217;
+        %tmp.221 = const :minDur;
+        symbol [ minDur %tmp.221 97 21 27 const ];
+        %tmp.222 = 6;
+        %tmp.223 = dup %tmp.219;
+        %tmp.224 = aputv %tmp.223 %tmp.221 %tmp.222;
+        %tmp.226 = const :priority;
+        symbol [ priority %tmp.226 98 21 29 const ];
+        %tmp.227 = 60;
+        %tmp.228 = dup %tmp.224;
+        %tmp.229 = aputv %tmp.228 %tmp.226 %tmp.227;
+        ret %tmp.229;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_101_12_103_45_switchCase:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_defaultCodeBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 103 16 ]
+        %tmp.230 = self;
+        symbol [ get %tmp.231 103 23 26 ];
+        %tmp.231 = getv function %tmp.230 :get;
+        symbol [ ExpressionId %tmp.233 103 27 39 ];
+        %tmp.233 = getv ? :ExpressionId;
+        symbol [ REST %tmp.234 103 40 44 ];
+        %tmp.234 = getv %tmp.233 :REST;
+        %tmp.235 = invoke %tmp.230 %tmp.231(%tmp.234);
+        ret %tmp.235;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_46_8_104_8_switchStmtEnd:
+        pop;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_45_28_105_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 108; @symbol_functiondef = [getBlinkTiming,108,20,34]; @symbol_param<0> = [pattern,108,35,42]; ]
+    static
+    function getBlinkTiming(pattern) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_108_44_141_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 109 8 ]
+        %tmp.1 = lgetv %pattern;
+        symbol [ pattern %tmp.1 109 15 22 ];
+        push %tmp.1;
+        switch %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_switchStmtEnd;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_switchStmtBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 110 12 ]
+        %tmp.2 = dup %tmp.1;
+        symbol [ BlinkPattern %tmp.4 110 17 29 ];
+        %tmp.4 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.5 110 30 36 ];
+        %tmp.5 = getv %tmp.4 :NORMAL;
+        %tmp.6 = getv function %tmp.2 :equals;
+        %tmp.7 = invoke %tmp.2 %tmp.6 (%tmp.5);
+        bt %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_110_12_115_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 117 12 ]
+        %tmp.8 = dup %tmp.1;
+        symbol [ BlinkPattern %tmp.10 117 17 29 ];
+        %tmp.10 = getv ? :BlinkPattern;
+        symbol [ TIRED %tmp.11 117 30 35 ];
+        %tmp.11 = getv %tmp.10 :TIRED;
+        %tmp.12 = getv function %tmp.8 :equals;
+        %tmp.13 = invoke %tmp.8 %tmp.12 (%tmp.11);
+        bt %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_117_12_122_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 124 12 ]
+        %tmp.14 = dup %tmp.1;
+        symbol [ BlinkPattern %tmp.16 124 17 29 ];
+        %tmp.16 = getv ? :BlinkPattern;
+        symbol [ STRESSED %tmp.17 124 30 38 ];
+        %tmp.17 = getv %tmp.16 :STRESSED;
+        %tmp.18 = getv function %tmp.14 :equals;
+        %tmp.19 = invoke %tmp.14 %tmp.18 (%tmp.17);
+        bt %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_124_12_129_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 131 12 ]
+        %tmp.20 = dup %tmp.1;
+        symbol [ BlinkPattern %tmp.22 131 17 29 ];
+        %tmp.22 = getv ? :BlinkPattern;
+        symbol [ RESTING %tmp.23 131 30 37 ];
+        %tmp.23 = getv %tmp.22 :RESTING;
+        %tmp.24 = getv function %tmp.20 :equals;
+        %tmp.25 = invoke %tmp.20 %tmp.24 (%tmp.23);
+        bt %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_131_12_136_17_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 138 12 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_switchStmtDefault:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_defaultCodeBegin;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_110_12_115_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 111 16 ]
+        %tmp.26 = newd 3;
+        %tmp.28 = const :minInterval;
+        symbol [ minInterval %tmp.28 112 21 32 const ];
+        %tmp.29 = 3000;
+        %tmp.30 = dup %tmp.26;
+        %tmp.31 = aputv %tmp.30 %tmp.28 %tmp.29;
+        %tmp.33 = const :maxInterval;
+        symbol [ maxInterval %tmp.33 113 21 32 const ];
+        %tmp.34 = 6000;
+        %tmp.35 = dup %tmp.31;
+        %tmp.36 = aputv %tmp.35 %tmp.33 %tmp.34;
+        %tmp.38 = const :duration;
+        symbol [ duration %tmp.38 114 21 29 const ];
+        %tmp.39 = 120;
+        %tmp.40 = dup %tmp.36;
+        %tmp.41 = aputv %tmp.40 %tmp.38 %tmp.39;
+        ret %tmp.41;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_117_12_122_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 118 16 ]
+        %tmp.42 = newd 3;
+        %tmp.44 = const :minInterval;
+        symbol [ minInterval %tmp.44 119 21 32 const ];
+        %tmp.45 = 2000;
+        %tmp.46 = dup %tmp.42;
+        %tmp.47 = aputv %tmp.46 %tmp.44 %tmp.45;
+        %tmp.49 = const :maxInterval;
+        symbol [ maxInterval %tmp.49 120 21 32 const ];
+        %tmp.50 = 4000;
+        %tmp.51 = dup %tmp.47;
+        %tmp.52 = aputv %tmp.51 %tmp.49 %tmp.50;
+        %tmp.54 = const :duration;
+        symbol [ duration %tmp.54 121 21 29 const ];
+        %tmp.55 = 200;
+        %tmp.56 = dup %tmp.52;
+        %tmp.57 = aputv %tmp.56 %tmp.54 %tmp.55;
+        ret %tmp.57;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_124_12_129_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 125 16 ]
+        %tmp.58 = newd 3;
+        %tmp.60 = const :minInterval;
+        symbol [ minInterval %tmp.60 126 21 32 const ];
+        %tmp.61 = 800;
+        %tmp.62 = dup %tmp.58;
+        %tmp.63 = aputv %tmp.62 %tmp.60 %tmp.61;
+        %tmp.65 = const :maxInterval;
+        symbol [ maxInterval %tmp.65 127 21 32 const ];
+        %tmp.66 = 1600;
+        %tmp.67 = dup %tmp.63;
+        %tmp.68 = aputv %tmp.67 %tmp.65 %tmp.66;
+        %tmp.70 = const :duration;
+        symbol [ duration %tmp.70 128 21 29 const ];
+        %tmp.71 = 80;
+        %tmp.72 = dup %tmp.68;
+        %tmp.73 = aputv %tmp.72 %tmp.70 %tmp.71;
+        ret %tmp.73;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_131_12_136_17_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 132 16 ]
+        %tmp.74 = newd 3;
+        %tmp.76 = const :minInterval;
+        symbol [ minInterval %tmp.76 133 21 32 const ];
+        %tmp.77 = 6000;
+        %tmp.78 = dup %tmp.74;
+        %tmp.79 = aputv %tmp.78 %tmp.76 %tmp.77;
+        %tmp.81 = const :maxInterval;
+        symbol [ maxInterval %tmp.81 134 21 32 const ];
+        %tmp.82 = 10000;
+        %tmp.83 = dup %tmp.79;
+        %tmp.84 = aputv %tmp.83 %tmp.81 %tmp.82;
+        %tmp.86 = const :duration;
+        symbol [ duration %tmp.86 135 21 29 const ];
+        %tmp.87 = 120;
+        %tmp.88 = dup %tmp.84;
+        %tmp.89 = aputv %tmp.88 %tmp.86 %tmp.87;
+        ret %tmp.89;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_138_12_139_58_switchCase:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_defaultCodeBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 139 16 ]
+        %tmp.90 = self;
+        symbol [ getBlinkTiming %tmp.91 139 23 37 ];
+        %tmp.91 = getv function %tmp.90 :getBlinkTiming;
+        symbol [ BlinkPattern %tmp.93 139 38 50 ];
+        %tmp.93 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.94 139 51 57 ];
+        %tmp.94 = getv %tmp.93 :NORMAL;
+        %tmp.95 = invoke %tmp.90 %tmp.91(%tmp.94);
+        ret %tmp.95;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_109_8_140_8_switchStmtEnd:
+        pop;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_108_44_141_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 144; @symbol_functiondef = [getName,144,20,27]; @symbol_param<0> = [id,144,28,30]; ]
+    static
+    function getName(id) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_144_32_154_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 145 8 ]
+        %tmp.1 = lgetv %id;
+        symbol [ id %tmp.1 145 15 17 ];
+        push %tmp.1;
+        switch %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_switchStmtEnd;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_switchStmtBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 146 12 ]
+        %tmp.2 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.4 146 17 29 ];
+        %tmp.4 = getv ? :ExpressionId;
+        symbol [ REST %tmp.5 146 30 34 ];
+        %tmp.5 = getv %tmp.4 :REST;
+        %tmp.6 = getv function %tmp.2 :equals;
+        %tmp.7 = invoke %tmp.2 %tmp.6 (%tmp.5);
+        bt %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_146_12_146_49_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 147 12 ]
+        %tmp.8 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.10 147 17 29 ];
+        %tmp.10 = getv ? :ExpressionId;
+        symbol [ HAPPY %tmp.11 147 30 35 ];
+        %tmp.11 = getv %tmp.10 :HAPPY;
+        %tmp.12 = getv function %tmp.8 :equals;
+        %tmp.13 = invoke %tmp.8 %tmp.12 (%tmp.11);
+        bt %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_147_12_147_51_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 148 12 ]
+        %tmp.14 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.16 148 17 29 ];
+        %tmp.16 = getv ? :ExpressionId;
+        symbol [ STRESSED %tmp.17 148 30 38 ];
+        %tmp.17 = getv %tmp.16 :STRESSED;
+        %tmp.18 = getv function %tmp.14 :equals;
+        %tmp.19 = invoke %tmp.14 %tmp.18 (%tmp.17);
+        bt %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_148_12_148_57_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 149 12 ]
+        %tmp.20 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.22 149 17 29 ];
+        %tmp.22 = getv ? :ExpressionId;
+        symbol [ TIRED %tmp.23 149 30 35 ];
+        %tmp.23 = getv %tmp.22 :TIRED;
+        %tmp.24 = getv function %tmp.20 :equals;
+        %tmp.25 = invoke %tmp.20 %tmp.24 (%tmp.23);
+        bt %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_149_12_149_51_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 150 12 ]
+        %tmp.26 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.28 150 17 29 ];
+        %tmp.28 = getv ? :ExpressionId;
+        symbol [ FOCUSED %tmp.29 150 30 37 ];
+        %tmp.29 = getv %tmp.28 :FOCUSED;
+        %tmp.30 = getv function %tmp.26 :equals;
+        %tmp.31 = invoke %tmp.26 %tmp.30 (%tmp.29);
+        bt %tmp.31 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_150_12_150_55_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 151 12 ]
+        %tmp.32 = dup %tmp.1;
+        symbol [ ExpressionId %tmp.34 151 17 29 ];
+        %tmp.34 = getv ? :ExpressionId;
+        symbol [ ALERT %tmp.35 151 30 35 ];
+        %tmp.35 = getv %tmp.34 :ALERT;
+        %tmp.36 = getv function %tmp.32 :equals;
+        %tmp.37 = invoke %tmp.32 %tmp.36 (%tmp.35);
+        bt %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_151_12_151_51_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 152 12 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_switchStmtDefault:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_defaultCodeBegin;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_146_12_146_49_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 146 36 ]
+        %tmp.38 = "Rest";
+        ret %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_147_12_147_51_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 147 37 ]
+        %tmp.39 = "Happy";
+        ret %tmp.39;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_148_12_148_57_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 148 40 ]
+        %tmp.40 = "Stressed";
+        ret %tmp.40;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_149_12_149_51_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 149 37 ]
+        %tmp.41 = "Tired";
+        ret %tmp.41;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_150_12_150_55_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 150 39 ]
+        %tmp.42 = "Focused";
+        ret %tmp.42;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_151_12_151_51_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 151 37 ]
+        %tmp.43 = "Alert";
+        ret %tmp.43;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_152_12_152_37_switchCase:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_defaultCodeBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc" 152 21 ]
+        %tmp.44 = "Unknown";
+        ret %tmp.44;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_145_8_153_8_switchStmtEnd:
+        pop;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionLibrary_mc_144_32_154_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionLibrary.mc"; @line = 1; ]
+<init> {
+}

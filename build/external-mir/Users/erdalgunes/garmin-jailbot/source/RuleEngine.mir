@@ -1,0 +1,760 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Lang,1,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 5; @symbol_classdef = [ExpressionState,5,6,21]; ]
+class ExpressionState {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 5; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 5; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 6; @position = 8; @symbol_vardef = [id,6,8,10]; ]
+    var id;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 7; @position = 8; @symbol_vardef = [eyes,7,8,12]; ]
+    var eyes;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 8; @position = 8; @symbol_vardef = [mouth,8,8,13]; ]
+    var mouth;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 9; @position = 8; @symbol_vardef = [blinkPattern,9,8,20]; ]
+    var blinkPattern;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 10; @position = 8; @symbol_vardef = [priority,10,8,16]; ]
+    var priority;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 11; @position = 8; @symbol_vardef = [minDurationSec,11,8,22]; ]
+    var minDurationSec;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 12; @position = 8; @symbol_vardef = [startTimeSec,12,8,20]; ]
+    var startTimeSec;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 14; @symbol_functiondef = [initialize,14,13,23]; @symbol_param<0> = [expressionId,14,24,36]; @symbol_param<1> = [epochSec,14,38,46]; ]
+    function initialize(expressionId, epochSec) as Void {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_14_48_23_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 15 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_14_48_23_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_14_48_23_4_stop" ]
+        %data.1 = local;
+        symbol [ data %data.1 15 12 16 ];
+        symbol [ ExpressionLibrary %tmp.2 15 19 36 ];
+        %tmp.2 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.3 15 37 40 ];
+        %tmp.3 = getv function %tmp.2 :get;
+        %tmp.4 = lgetv %expressionId;
+        symbol [ expressionId %tmp.4 15 41 53 ];
+        %tmp.5 = invoke %tmp.2 %tmp.3(%tmp.4);
+        lputv %data.1 %tmp.5;
+        symbol [ data %data.1 15 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 16 8 ]
+        symbol [ self %self 16 8 12 ];
+        %tmp.6 = lgetv %expressionId;
+        symbol [ expressionId %tmp.6 16 18 30 ];
+        symbol [ id ? 16 13 15 ];
+        putv self :id %tmp.6;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 17 8 ]
+        symbol [ self %self 17 8 12 ];
+        %tmp.7 = lgetv %data.1;
+        symbol [ data %tmp.7 17 20 24 ];
+        %tmp.9 = const :eyes;
+        symbol [ eyes %tmp.9 17 26 30 const ];
+        %tmp.10 = agetv %tmp.7 %tmp.9;
+        symbol [ eyes ? 17 13 17 ];
+        putv self :eyes %tmp.10;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 18 8 ]
+        symbol [ self %self 18 8 12 ];
+        %tmp.11 = lgetv %data.1;
+        symbol [ data %tmp.11 18 21 25 ];
+        %tmp.13 = const :mouth;
+        symbol [ mouth %tmp.13 18 27 32 const ];
+        %tmp.14 = agetv %tmp.11 %tmp.13;
+        symbol [ mouth ? 18 13 18 ];
+        putv self :mouth %tmp.14;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 19 8 ]
+        symbol [ self %self 19 8 12 ];
+        %tmp.15 = lgetv %data.1;
+        symbol [ data %tmp.15 19 28 32 ];
+        %tmp.17 = const :blink;
+        symbol [ blink %tmp.17 19 34 39 const ];
+        %tmp.18 = agetv %tmp.15 %tmp.17;
+        symbol [ blinkPattern ? 19 13 25 ];
+        putv self :blinkPattern %tmp.18;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 20 8 ]
+        symbol [ self %self 20 8 12 ];
+        %tmp.19 = lgetv %data.1;
+        symbol [ data %tmp.19 20 24 28 ];
+        %tmp.21 = const :priority;
+        symbol [ priority %tmp.21 20 30 38 const ];
+        %tmp.22 = agetv %tmp.19 %tmp.21;
+        symbol [ priority ? 20 13 21 ];
+        putv self :priority %tmp.22;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 21 8 ]
+        symbol [ self %self 21 8 12 ];
+        %tmp.23 = lgetv %data.1;
+        symbol [ data %tmp.23 21 30 34 ];
+        %tmp.25 = const :minDur;
+        symbol [ minDur %tmp.25 21 36 42 const ];
+        %tmp.26 = agetv %tmp.23 %tmp.25;
+        symbol [ minDurationSec ? 21 13 27 ];
+        putv self :minDurationSec %tmp.26;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 22 8 ]
+        symbol [ self %self 22 8 12 ];
+        %tmp.27 = lgetv %epochSec;
+        symbol [ epochSec %tmp.27 22 28 36 ];
+        symbol [ startTimeSec ? 22 13 25 ];
+        putv self :startTimeSec %tmp.27;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_14_48_23_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 26; @symbol_functiondef = [canTransition,26,13,26]; @symbol_param<0> = [currentEpochSec,26,27,42]; ]
+    function canTransition(currentEpochSec) {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_26_44_29_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 27 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_26_44_29_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_26_44_29_4_stop" ]
+        %elapsed.1 = local;
+        symbol [ elapsed %elapsed.1 27 12 19 ];
+        %tmp.1 = lgetv %currentEpochSec;
+        symbol [ currentEpochSec %tmp.1 27 22 37 ];
+        symbol [ startTimeSec %tmp.3 27 40 52 ];
+        %tmp.3 = getv ? :startTimeSec;
+        %tmp.4 = sub %tmp.1 %tmp.3;
+        lputv %elapsed.1 %tmp.4;
+        symbol [ elapsed %elapsed.1 27 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 28 8 ]
+        %tmp.5 = lgetv %elapsed.1;
+        symbol [ elapsed %tmp.5 28 15 22 ];
+        symbol [ minDurationSec %tmp.7 28 26 40 ];
+        %tmp.7 = getv ? :minDurationSec;
+        %tmp.8 = gte %tmp.5 %tmp.7;
+        ret %tmp.8;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_26_44_29_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 33; @symbol_moduledef = [ExprConfig,33,7,17]; ]
+module ExprConfig {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 33; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 34; @position = 10; @symbol_constdef = [BODY_BATT_LOW,34,10,23]; ]
+    const BODY_BATT_LOW = 20;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 35; @position = 10; @symbol_constdef = [STRESS_HIGH,35,10,21]; ]
+    const STRESS_HIGH = 70;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 36; @position = 10; @symbol_constdef = [HR_ZONE_FOCUSED,36,10,25]; ]
+    const HR_ZONE_FOCUSED = 4;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 37; @position = 10; @symbol_constdef = [MOVE_BAR_ALERT,37,10,24]; ]
+    const MOVE_BAR_ALERT = 4;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 38; @position = 10; @symbol_constdef = [GOAL_DONE,38,10,19]; ]
+    const GOAL_DONE = 100;
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 42; @symbol_classdef = [RuleEngine,42,6,16]; ]
+class RuleEngine {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 42; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 42; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 44; @position = 8; @symbol_vardef = [_currentState,44,8,21]; ]
+    var _currentState = null;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 46; @symbol_functiondef = [initialize,46,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_46_26_49_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 48 8 ]
+        symbol [ ExpressionState %tmp.4 48 28 43 ];
+        %tmp.4 = getv ? :ExpressionState;
+        symbol [ ExpressionId %tmp.6 48 44 56 ];
+        %tmp.6 = getv ? :ExpressionId;
+        symbol [ REST %tmp.7 48 57 61 ];
+        %tmp.7 = getv %tmp.6 :REST;
+        symbol [ System %tmp.8 48 63 69 ];
+        %tmp.8 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.9 48 70 82 ];
+        %tmp.9 = getv function %tmp.8 :getClockTime;
+        %tmp.10 = invoke %tmp.8 %tmp.9();
+        symbol [ timeZoneOffset %tmp.11 48 85 99 ];
+        %tmp.11 = getv %tmp.10 :timeZoneOffset;
+        symbol [ System %tmp.12 48 102 108 ];
+        %tmp.12 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.13 48 109 121 ];
+        %tmp.13 = getv function %tmp.12 :getClockTime;
+        %tmp.14 = invoke %tmp.12 %tmp.13();
+        symbol [ dst %tmp.15 48 124 127 ];
+        %tmp.15 = getv %tmp.14 :dst;
+        %tmp.16 = add %tmp.11 %tmp.15;
+        %tmp.1 = newc %tmp.4 (%tmp.7, %tmp.16);
+        symbol [ _currentState ? 48 8 21 ];
+        putv self :_currentState %tmp.1;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_46_26_49_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 52; @symbol_functiondef = [evaluate,52,13,21]; @symbol_param<0> = [healthSnapshot,52,22,36]; ]
+    function evaluate(healthSnapshot) {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 53 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 53 12 15 ];
+        symbol [ System %tmp.1 53 18 24 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.2 53 25 37 ];
+        %tmp.2 = getv function %tmp.1 :getClockTime;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %now.1 %tmp.3;
+        symbol [ now %now.1 53 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 54 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_stop" ]
+        %epochSec.2 = local;
+        symbol [ epochSec %epochSec.2 54 12 20 ];
+        %tmp.4 = lgetv %now.1;
+        symbol [ now %tmp.4 54 23 26 ];
+        symbol [ timeZoneOffset %tmp.5 54 27 41 ];
+        %tmp.5 = getv %tmp.4 :timeZoneOffset;
+        %tmp.6 = lgetv %now.1;
+        symbol [ now %tmp.6 54 44 47 ];
+        symbol [ dst %tmp.7 54 48 51 ];
+        %tmp.7 = getv %tmp.6 :dst;
+        %tmp.8 = add %tmp.5 %tmp.7;
+        lputv %epochSec.2 %tmp.8;
+        symbol [ epochSec %epochSec.2 54 12 20 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 57 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_stop" ]
+        %bestExpression.3 = local;
+        symbol [ bestExpression %bestExpression.3 57 12 26 ];
+        %tmp.9 = self;
+        symbol [ findBestExpression %tmp.10 57 29 47 ];
+        %tmp.10 = getv function %tmp.9 :findBestExpression;
+        %tmp.11 = lgetv %healthSnapshot;
+        symbol [ healthSnapshot %tmp.11 57 48 62 ];
+        %tmp.12 = invoke %tmp.9 %tmp.10(%tmp.11);
+        lputv %bestExpression.3 %tmp.12;
+        symbol [ bestExpression %bestExpression.3 57 12 26 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 60 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_8_62_8_if_stmt:
+        %tmp.13 = self;
+        symbol [ shouldKeepCurrent %tmp.14 60 12 29 ];
+        %tmp.14 = getv function %tmp.13 :shouldKeepCurrent;
+        %tmp.15 = lgetv %bestExpression.3;
+        symbol [ bestExpression %tmp.15 60 30 44 ];
+        %tmp.16 = lgetv %epochSec.2;
+        symbol [ epochSec %tmp.16 60 46 54 ];
+        %tmp.17 = invoke %tmp.13 %tmp.14(%tmp.15, %tmp.16);
+        bf %tmp.17 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_8_62_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_8_62_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_57_62_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 61 12 ]
+        symbol [ _currentState %tmp.19 61 19 32 ];
+        %tmp.19 = getv ? :_currentState;
+        ret %tmp.19;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_57_62_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_8_62_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_60_8_62_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 65 8 ]
+        symbol [ ExpressionState %tmp.23 65 28 43 ];
+        %tmp.23 = getv ? :ExpressionState;
+        %tmp.24 = lgetv %bestExpression.3;
+        symbol [ bestExpression %tmp.24 65 44 58 ];
+        %tmp.26 = const :id;
+        symbol [ id %tmp.26 65 60 62 const ];
+        %tmp.27 = agetv %tmp.24 %tmp.26;
+        %tmp.28 = lgetv %epochSec.2;
+        symbol [ epochSec %tmp.28 65 65 73 ];
+        %tmp.20 = newc %tmp.23 (%tmp.27, %tmp.28);
+        symbol [ _currentState ? 65 8 21 ];
+        putv self :_currentState %tmp.20;
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 66 8 ]
+        symbol [ _currentState %tmp.30 66 15 28 ];
+        %tmp.30 = getv ? :_currentState;
+        ret %tmp.30;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_52_38_67_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 70; @symbol_functiondef = [findBestExpression,70,21,39]; @symbol_param<0> = [snapshot,70,40,48]; ]
+    private
+    function findBestExpression(snapshot) {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 71 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_stop" ]
+        %candidates.1 = local;
+        symbol [ candidates %candidates.1 71 12 22 ];
+        %tmp.1 = newa 0;
+        lputv %candidates.1 %tmp.1;
+        symbol [ candidates %candidates.1 71 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 76 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_8_81_8_if_stmt:
+        %tmp.2 = lgetv %snapshot;
+        symbol [ snapshot %tmp.2 76 12 20 ];
+        symbol [ hrZone %tmp.3 76 21 27 ];
+        %tmp.3 = getv %tmp.2 :hrZone;
+        symbol [ ExprConfig %tmp.5 76 31 41 ];
+        %tmp.5 = getv ? :ExprConfig;
+        symbol [ HR_ZONE_FOCUSED %tmp.6 76 42 57 ];
+        %tmp.6 = getv %tmp.5 :HR_ZONE_FOCUSED;
+        %tmp.7 = gte %tmp.3 %tmp.6;
+        bf %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_8_81_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_8_81_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_59_81_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 77 12 ]
+        %tmp.8 = lgetv %candidates.1;
+        symbol [ candidates %tmp.8 77 12 22 ];
+        symbol [ add %tmp.9 77 23 26 ];
+        %tmp.9 = getv function %tmp.8 :add;
+        %tmp.10 = newd 2;
+        %tmp.12 = const :id;
+        symbol [ id %tmp.12 78 17 19 const ];
+        symbol [ ExpressionId %tmp.14 78 23 35 ];
+        %tmp.14 = getv ? :ExpressionId;
+        symbol [ FOCUSED %tmp.15 78 36 43 ];
+        %tmp.15 = getv %tmp.14 :FOCUSED;
+        %tmp.16 = dup %tmp.10;
+        %tmp.17 = aputv %tmp.16 %tmp.12 %tmp.15;
+        %tmp.19 = const :priority;
+        symbol [ priority %tmp.19 79 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.21 79 29 46 ];
+        %tmp.21 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.22 79 47 50 ];
+        %tmp.22 = getv function %tmp.21 :get;
+        symbol [ ExpressionId %tmp.24 79 51 63 ];
+        %tmp.24 = getv ? :ExpressionId;
+        symbol [ FOCUSED %tmp.25 79 64 71 ];
+        %tmp.25 = getv %tmp.24 :FOCUSED;
+        %tmp.26 = invoke %tmp.21 %tmp.22(%tmp.25);
+        %tmp.28 = const :priority;
+        symbol [ priority %tmp.28 79 74 82 const ];
+        %tmp.29 = agetv %tmp.26 %tmp.28;
+        %tmp.30 = dup %tmp.17;
+        %tmp.31 = aputv %tmp.30 %tmp.19 %tmp.29;
+        invoke %tmp.8 %tmp.9(%tmp.31);
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_59_81_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_8_81_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_76_8_81_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 84 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_8_89_8_if_stmt:
+        %tmp.32 = lgetv %snapshot;
+        symbol [ snapshot %tmp.32 84 12 20 ];
+        symbol [ stress %tmp.33 84 21 27 ];
+        %tmp.33 = getv %tmp.32 :stress;
+        symbol [ ExprConfig %tmp.35 84 31 41 ];
+        %tmp.35 = getv ? :ExprConfig;
+        symbol [ STRESS_HIGH %tmp.36 84 42 53 ];
+        %tmp.36 = getv %tmp.35 :STRESS_HIGH;
+        %tmp.37 = gte %tmp.33 %tmp.36;
+        bf %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_8_89_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_8_89_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_55_89_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 85 12 ]
+        %tmp.38 = lgetv %candidates.1;
+        symbol [ candidates %tmp.38 85 12 22 ];
+        symbol [ add %tmp.39 85 23 26 ];
+        %tmp.39 = getv function %tmp.38 :add;
+        %tmp.40 = newd 2;
+        %tmp.42 = const :id;
+        symbol [ id %tmp.42 86 17 19 const ];
+        symbol [ ExpressionId %tmp.44 86 23 35 ];
+        %tmp.44 = getv ? :ExpressionId;
+        symbol [ STRESSED %tmp.45 86 36 44 ];
+        %tmp.45 = getv %tmp.44 :STRESSED;
+        %tmp.46 = dup %tmp.40;
+        %tmp.47 = aputv %tmp.46 %tmp.42 %tmp.45;
+        %tmp.49 = const :priority;
+        symbol [ priority %tmp.49 87 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.51 87 29 46 ];
+        %tmp.51 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.52 87 47 50 ];
+        %tmp.52 = getv function %tmp.51 :get;
+        symbol [ ExpressionId %tmp.54 87 51 63 ];
+        %tmp.54 = getv ? :ExpressionId;
+        symbol [ STRESSED %tmp.55 87 64 72 ];
+        %tmp.55 = getv %tmp.54 :STRESSED;
+        %tmp.56 = invoke %tmp.51 %tmp.52(%tmp.55);
+        %tmp.58 = const :priority;
+        symbol [ priority %tmp.58 87 75 83 const ];
+        %tmp.59 = agetv %tmp.56 %tmp.58;
+        %tmp.60 = dup %tmp.47;
+        %tmp.61 = aputv %tmp.60 %tmp.49 %tmp.59;
+        invoke %tmp.38 %tmp.39(%tmp.61);
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_55_89_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_8_89_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_84_8_89_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 92 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_12_92_76_begin:
+        %tmp.62 = lgetv %snapshot;
+        symbol [ snapshot %tmp.62 92 12 20 ];
+        symbol [ bodyBattery %tmp.63 92 21 32 ];
+        %tmp.63 = getv %tmp.62 :bodyBattery;
+        %tmp.64 = 0;
+        %tmp.65 = gte %tmp.63 %tmp.64;
+        bf %tmp.65 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_41_92_76_true:
+        %tmp.66 = lgetv %snapshot;
+        symbol [ snapshot %tmp.66 92 41 49 ];
+        symbol [ bodyBattery %tmp.67 92 50 61 ];
+        %tmp.67 = getv %tmp.66 :bodyBattery;
+        symbol [ ExprConfig %tmp.69 92 65 75 ];
+        %tmp.69 = getv ? :ExprConfig;
+        symbol [ BODY_BATT_LOW %tmp.70 92 76 89 ];
+        %tmp.70 = getv %tmp.69 :BODY_BATT_LOW;
+        %tmp.71 = lte %tmp.67 %tmp.70;
+        push %tmp.71;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_41_92_76_end:
+        %tmp.72 = phi [%tmp.65 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_12_92_76_begin] [%tmp.71 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_41_92_76_true] [%tmp.72 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_41_92_76_end];
+        bf %tmp.72 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_91_97_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 93 12 ]
+        %tmp.73 = lgetv %candidates.1;
+        symbol [ candidates %tmp.73 93 12 22 ];
+        symbol [ add %tmp.74 93 23 26 ];
+        %tmp.74 = getv function %tmp.73 :add;
+        %tmp.75 = newd 2;
+        %tmp.77 = const :id;
+        symbol [ id %tmp.77 94 17 19 const ];
+        symbol [ ExpressionId %tmp.79 94 23 35 ];
+        %tmp.79 = getv ? :ExpressionId;
+        symbol [ TIRED %tmp.80 94 36 41 ];
+        %tmp.80 = getv %tmp.79 :TIRED;
+        %tmp.81 = dup %tmp.75;
+        %tmp.82 = aputv %tmp.81 %tmp.77 %tmp.80;
+        %tmp.84 = const :priority;
+        symbol [ priority %tmp.84 95 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.86 95 29 46 ];
+        %tmp.86 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.87 95 47 50 ];
+        %tmp.87 = getv function %tmp.86 :get;
+        symbol [ ExpressionId %tmp.89 95 51 63 ];
+        %tmp.89 = getv ? :ExpressionId;
+        symbol [ TIRED %tmp.90 95 64 69 ];
+        %tmp.90 = getv %tmp.89 :TIRED;
+        %tmp.91 = invoke %tmp.86 %tmp.87(%tmp.90);
+        %tmp.93 = const :priority;
+        symbol [ priority %tmp.93 95 72 80 const ];
+        %tmp.94 = agetv %tmp.91 %tmp.93;
+        %tmp.95 = dup %tmp.82;
+        %tmp.96 = aputv %tmp.95 %tmp.84 %tmp.94;
+        invoke %tmp.73 %tmp.74(%tmp.96);
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_91_97_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_92_8_97_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 100 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_8_105_8_if_stmt:
+        %tmp.97 = lgetv %snapshot;
+        symbol [ snapshot %tmp.97 100 12 20 ];
+        symbol [ moveBar %tmp.98 100 21 28 ];
+        %tmp.98 = getv %tmp.97 :moveBar;
+        symbol [ ExprConfig %tmp.100 100 32 42 ];
+        %tmp.100 = getv ? :ExprConfig;
+        symbol [ MOVE_BAR_ALERT %tmp.101 100 43 57 ];
+        %tmp.101 = getv %tmp.100 :MOVE_BAR_ALERT;
+        %tmp.102 = gte %tmp.98 %tmp.101;
+        bf %tmp.102 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_8_105_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_8_105_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_59_105_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 101 12 ]
+        %tmp.103 = lgetv %candidates.1;
+        symbol [ candidates %tmp.103 101 12 22 ];
+        symbol [ add %tmp.104 101 23 26 ];
+        %tmp.104 = getv function %tmp.103 :add;
+        %tmp.105 = newd 2;
+        %tmp.107 = const :id;
+        symbol [ id %tmp.107 102 17 19 const ];
+        symbol [ ExpressionId %tmp.109 102 23 35 ];
+        %tmp.109 = getv ? :ExpressionId;
+        symbol [ ALERT %tmp.110 102 36 41 ];
+        %tmp.110 = getv %tmp.109 :ALERT;
+        %tmp.111 = dup %tmp.105;
+        %tmp.112 = aputv %tmp.111 %tmp.107 %tmp.110;
+        %tmp.114 = const :priority;
+        symbol [ priority %tmp.114 103 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.116 103 29 46 ];
+        %tmp.116 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.117 103 47 50 ];
+        %tmp.117 = getv function %tmp.116 :get;
+        symbol [ ExpressionId %tmp.119 103 51 63 ];
+        %tmp.119 = getv ? :ExpressionId;
+        symbol [ ALERT %tmp.120 103 64 69 ];
+        %tmp.120 = getv %tmp.119 :ALERT;
+        %tmp.121 = invoke %tmp.116 %tmp.117(%tmp.120);
+        %tmp.123 = const :priority;
+        symbol [ priority %tmp.123 103 72 80 const ];
+        %tmp.124 = agetv %tmp.121 %tmp.123;
+        %tmp.125 = dup %tmp.112;
+        %tmp.126 = aputv %tmp.125 %tmp.114 %tmp.124;
+        invoke %tmp.103 %tmp.104(%tmp.126);
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_59_105_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_8_105_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_100_8_105_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 108 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_8_113_8_if_stmt:
+        %tmp.127 = lgetv %snapshot;
+        symbol [ snapshot %tmp.127 108 12 20 ];
+        symbol [ stepGoalPercent %tmp.128 108 21 36 ];
+        %tmp.128 = getv %tmp.127 :stepGoalPercent;
+        symbol [ ExprConfig %tmp.130 108 40 50 ];
+        %tmp.130 = getv ? :ExprConfig;
+        symbol [ GOAL_DONE %tmp.131 108 51 60 ];
+        %tmp.131 = getv %tmp.130 :GOAL_DONE;
+        %tmp.132 = gte %tmp.128 %tmp.131;
+        bf %tmp.132 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_8_113_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_8_113_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_62_113_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 109 12 ]
+        %tmp.133 = lgetv %candidates.1;
+        symbol [ candidates %tmp.133 109 12 22 ];
+        symbol [ add %tmp.134 109 23 26 ];
+        %tmp.134 = getv function %tmp.133 :add;
+        %tmp.135 = newd 2;
+        %tmp.137 = const :id;
+        symbol [ id %tmp.137 110 17 19 const ];
+        symbol [ ExpressionId %tmp.139 110 23 35 ];
+        %tmp.139 = getv ? :ExpressionId;
+        symbol [ HAPPY %tmp.140 110 36 41 ];
+        %tmp.140 = getv %tmp.139 :HAPPY;
+        %tmp.141 = dup %tmp.135;
+        %tmp.142 = aputv %tmp.141 %tmp.137 %tmp.140;
+        %tmp.144 = const :priority;
+        symbol [ priority %tmp.144 111 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.146 111 29 46 ];
+        %tmp.146 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.147 111 47 50 ];
+        %tmp.147 = getv function %tmp.146 :get;
+        symbol [ ExpressionId %tmp.149 111 51 63 ];
+        %tmp.149 = getv ? :ExpressionId;
+        symbol [ HAPPY %tmp.150 111 64 69 ];
+        %tmp.150 = getv %tmp.149 :HAPPY;
+        %tmp.151 = invoke %tmp.146 %tmp.147(%tmp.150);
+        %tmp.153 = const :priority;
+        symbol [ priority %tmp.153 111 72 80 const ];
+        %tmp.154 = agetv %tmp.151 %tmp.153;
+        %tmp.155 = dup %tmp.142;
+        %tmp.156 = aputv %tmp.155 %tmp.144 %tmp.154;
+        invoke %tmp.133 %tmp.134(%tmp.156);
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_62_113_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_8_113_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_108_8_113_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 116 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_8_121_8_if_stmt:
+        %tmp.157 = lgetv %candidates.1;
+        symbol [ candidates %tmp.157 116 12 22 ];
+        symbol [ size %tmp.158 116 23 27 ];
+        %tmp.158 = getv function %tmp.157 :size;
+        %tmp.159 = invoke %tmp.157 %tmp.158();
+        %tmp.160 = 0;
+        %tmp.161 = eq %tmp.159 %tmp.160;
+        bf %tmp.161 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_8_121_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_8_121_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_36_121_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 117 12 ]
+        %tmp.162 = newd 2;
+        %tmp.164 = const :id;
+        symbol [ id %tmp.164 118 17 19 const ];
+        symbol [ ExpressionId %tmp.166 118 23 35 ];
+        %tmp.166 = getv ? :ExpressionId;
+        symbol [ REST %tmp.167 118 36 40 ];
+        %tmp.167 = getv %tmp.166 :REST;
+        %tmp.168 = dup %tmp.162;
+        %tmp.169 = aputv %tmp.168 %tmp.164 %tmp.167;
+        %tmp.171 = const :priority;
+        symbol [ priority %tmp.171 119 17 25 const ];
+        symbol [ ExpressionLibrary %tmp.173 119 29 46 ];
+        %tmp.173 = getv ? :ExpressionLibrary;
+        symbol [ get %tmp.174 119 47 50 ];
+        %tmp.174 = getv function %tmp.173 :get;
+        symbol [ ExpressionId %tmp.176 119 51 63 ];
+        %tmp.176 = getv ? :ExpressionId;
+        symbol [ REST %tmp.177 119 64 68 ];
+        %tmp.177 = getv %tmp.176 :REST;
+        %tmp.178 = invoke %tmp.173 %tmp.174(%tmp.177);
+        %tmp.180 = const :priority;
+        symbol [ priority %tmp.180 119 71 79 const ];
+        %tmp.181 = agetv %tmp.178 %tmp.180;
+        %tmp.182 = dup %tmp.169;
+        %tmp.183 = aputv %tmp.182 %tmp.171 %tmp.181;
+        ret %tmp.183;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_36_121_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_8_121_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_116_8_121_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 124 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_stop" ]
+        %best.2 = local;
+        symbol [ best %best.2 124 12 16 ];
+        %tmp.184 = lgetv %candidates.1;
+        symbol [ candidates %tmp.184 124 19 29 ];
+        %tmp.185 = 0;
+        %tmp.186 = agetv %tmp.184 %tmp.185;
+        lputv %best.2 %tmp.186;
+        symbol [ best %best.2 124 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 125 8 ]
+        for @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_test @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_incr @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_init:
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_begin" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_end" ]
+        %i.3 = local;
+        symbol [ i %i.3 125 17 18 ];
+        %tmp.187 = 1;
+        lputv %i.3 %tmp.187;
+        symbol [ i %i.3 125 17 18 ];
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_test:
+        %tmp.188 = lgetv %i.3;
+        symbol [ i %tmp.188 125 24 25 ];
+        %tmp.189 = lgetv %candidates.1;
+        symbol [ candidates %tmp.189 125 28 38 ];
+        symbol [ size %tmp.190 125 39 43 ];
+        %tmp.190 = getv function %tmp.189 :size;
+        %tmp.191 = invoke %tmp.189 %tmp.190();
+        %tmp.192 = lt %tmp.188 %tmp.191;
+        bf %tmp.192 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_begin:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_52_129_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 126 12 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_12_128_12_if_stmt:
+        %tmp.193 = lgetv %candidates.1;
+        symbol [ candidates %tmp.193 126 16 26 ];
+        %tmp.194 = lgetv %i.3;
+        symbol [ i %tmp.194 126 27 28 ];
+        %tmp.195 = agetv %tmp.193 %tmp.194;
+        %tmp.197 = const :priority;
+        symbol [ priority %tmp.197 126 31 39 const ];
+        %tmp.198 = agetv %tmp.195 %tmp.197;
+        %tmp.199 = lgetv %best.2;
+        symbol [ best %tmp.199 126 43 47 ];
+        %tmp.201 = const :priority;
+        symbol [ priority %tmp.201 126 49 57 const ];
+        %tmp.202 = agetv %tmp.199 %tmp.201;
+        %tmp.203 = gt %tmp.198 %tmp.202;
+        bf %tmp.203 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_12_128_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_12_128_12_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_60_128_12_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 127 16 ]
+        %tmp.204 = lgetv %candidates.1;
+        symbol [ candidates %tmp.204 127 23 33 ];
+        %tmp.205 = lgetv %i.3;
+        symbol [ i %tmp.205 127 34 35 ];
+        %tmp.206 = agetv %tmp.204 %tmp.205;
+        lputv %best.2 %tmp.206;
+        symbol [ best %best.2 127 16 20 ];
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_60_128_12_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_12_128_12_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_126_12_128_12_if_end:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_52_129_8_stop:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_incr:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 125 ]
+        %tmp.209 = lgetv %i.3;
+        symbol [ i %tmp.209 125 47 48 ];
+        %tmp.210 = add %tmp.209 1;
+        lputv %i.3 %tmp.210;
+        symbol [ i %i.3 125 47 48 ];
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_test;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_125_8_129_8_for_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 131 8 ]
+        %tmp.211 = lgetv %best.2;
+        symbol [ best %tmp.211 131 15 19 ];
+        ret %tmp.211;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_70_50_132_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 135; @symbol_functiondef = [shouldKeepCurrent,135,21,38]; @symbol_param<0> = [newCandidate,135,39,51]; @symbol_param<1> = [epochSec,135,53,61]; ]
+    private
+    function shouldKeepCurrent(newCandidate, epochSec) {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_135_63_149_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 136 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_8_138_8_if_stmt:
+        symbol [ _currentState %tmp.2 136 12 25 ];
+        %tmp.2 = getv ? :_currentState;
+        %tmp.3 = null;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_8_138_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_8_138_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_35_138_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 137 12 ]
+        %tmp.5 = false;
+        ret %tmp.5;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_35_138_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_8_138_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_136_8_138_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 141 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_8_145_8_if_stmt:
+        symbol [ _currentState %tmp.7 141 13 26 ];
+        %tmp.7 = getv ? :_currentState;
+        symbol [ canTransition %tmp.8 141 27 40 ];
+        %tmp.8 = getv function %tmp.7 :canTransition;
+        %tmp.9 = lgetv %epochSec;
+        symbol [ epochSec %tmp.9 141 41 49 ];
+        %tmp.10 = invoke %tmp.7 %tmp.8(%tmp.9);
+        %tmp.11 = not %tmp.10;
+        bf %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_8_145_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_8_145_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_52_145_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 143 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_52_145_8_start" "_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_52_145_8_stop" ]
+        %priorityJump.1 = local;
+        symbol [ priorityJump %priorityJump.1 143 16 28 ];
+        %tmp.12 = lgetv %newCandidate;
+        symbol [ newCandidate %tmp.12 143 31 43 ];
+        %tmp.14 = const :priority;
+        symbol [ priority %tmp.14 143 45 53 const ];
+        %tmp.15 = agetv %tmp.12 %tmp.14;
+        symbol [ _currentState %tmp.17 143 57 70 ];
+        %tmp.17 = getv ? :_currentState;
+        symbol [ priority %tmp.18 143 71 79 ];
+        %tmp.18 = getv %tmp.17 :priority;
+        %tmp.19 = sub %tmp.15 %tmp.18;
+        lputv %priorityJump.1 %tmp.19;
+        symbol [ priorityJump %priorityJump.1 143 16 28 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 144 12 ]
+        %tmp.20 = lgetv %priorityJump.1;
+        symbol [ priorityJump %tmp.20 144 19 31 ];
+        %tmp.21 = 20;
+        %tmp.22 = lt %tmp.20 %tmp.21;
+        ret %tmp.22;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_52_145_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_8_145_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_141_8_145_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 148 8 ]
+        %tmp.23 = false;
+        ret %tmp.23;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_135_63_149_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 152; @symbol_functiondef = [getCurrentState,152,13,28]; ]
+    function getCurrentState() {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_152_31_154_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 153 8 ]
+        symbol [ _currentState %tmp.2 153 15 28 ];
+        %tmp.2 = getv ? :_currentState;
+        ret %tmp.2;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_152_31_154_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 157; @symbol_functiondef = [getDebugString,157,13,27]; ]
+    function getDebugString() {
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_157_30_162_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 158 8 ]
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_8_160_8_if_stmt:
+        symbol [ _currentState %tmp.2 158 12 25 ];
+        %tmp.2 = getv ? :_currentState;
+        %tmp.3 = null;
+        %tmp.4 = eq %tmp.2 %tmp.3;
+        bf %tmp.4 @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_8_160_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_8_160_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_35_160_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 159 12 ]
+        %tmp.5 = "No expression";
+        ret %tmp.5;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_35_160_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_8_160_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_158_8_160_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc" 161 8 ]
+        symbol [ ExpressionLibrary %tmp.7 161 15 32 ];
+        %tmp.7 = getv ? :ExpressionLibrary;
+        symbol [ getName %tmp.8 161 33 40 ];
+        %tmp.8 = getv function %tmp.7 :getName;
+        symbol [ _currentState %tmp.10 161 41 54 ];
+        %tmp.10 = getv ? :_currentState;
+        symbol [ id %tmp.11 161 55 57 ];
+        %tmp.11 = getv %tmp.10 :id;
+        %tmp.12 = invoke %tmp.7 %tmp.8(%tmp.11);
+        %tmp.13 = " (P:";
+        %tmp.14 = add %tmp.12 %tmp.13;
+        symbol [ _currentState %tmp.16 161 70 83 ];
+        %tmp.16 = getv ? :_currentState;
+        symbol [ priority %tmp.17 161 84 92 ];
+        %tmp.17 = getv %tmp.16 :priority;
+        %tmp.18 = add %tmp.14 %tmp.17;
+        %tmp.19 = ")";
+        %tmp.20 = add %tmp.18 %tmp.19;
+        ret %tmp.20;
+_Users_erdalgunes_garmin_jailbot_source_RuleEngine_mc_157_30_162_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/RuleEngine.mc"; @line = 1; ]
+<init> {
+}
