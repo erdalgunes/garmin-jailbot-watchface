@@ -1,0 +1,598 @@
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 1; @symbol_usingdef<0> = [Toybox,1,6,12]; @symbol_usingdef<1> = [Lang,1,13,17]; ]
+using Toybox.Lang;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 2; @symbol_usingdef<0> = [Toybox,2,6,12]; @symbol_usingdef<1> = [System,2,13,19]; ]
+using Toybox.System;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 3; @symbol_usingdef<0> = [Toybox,3,6,12]; @symbol_usingdef<1> = [Graphics,3,13,21]; ]
+using Toybox.Graphics;
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 6; @symbol_classdef = [ExpressionEngine,6,6,22]; ]
+class ExpressionEngine {
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 6; ]
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 6; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 8; @position = 8; @symbol_vardef = [_healthSource,8,8,21]; ]
+    var _healthSource;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 9; @position = 8; @symbol_vardef = [_ruleEngine,9,8,19]; ]
+    var _ruleEngine;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 10; @position = 8; @symbol_vardef = [_blinkController,10,8,24]; ]
+    var _blinkController;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 11; @position = 8; @symbol_vardef = [_currentState,11,8,21]; ]
+    var _currentState = null;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 12; @position = 8; @symbol_vardef = [_lastUpdateSec,12,8,22]; ]
+    var _lastUpdateSec = 0;
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 14; @symbol_functiondef = [initialize,14,13,23]; ]
+    function initialize() as Void {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_14_26_18_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 15 8 ]
+        symbol [ HealthDataSource %tmp.4 15 28 44 ];
+        %tmp.4 = getv ? :HealthDataSource;
+        %tmp.1 = newc %tmp.4 ();
+        symbol [ _healthSource ? 15 8 21 ];
+        putv self :_healthSource %tmp.1;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 16 8 ]
+        symbol [ RuleEngine %tmp.8 16 26 36 ];
+        %tmp.8 = getv ? :RuleEngine;
+        %tmp.5 = newc %tmp.8 ();
+        symbol [ _ruleEngine ? 16 8 19 ];
+        putv self :_ruleEngine %tmp.5;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 17 8 ]
+        symbol [ BlinkController %tmp.12 17 31 46 ];
+        %tmp.12 = getv ? :BlinkController;
+        %tmp.9 = newc %tmp.12 ();
+        symbol [ _blinkController ? 17 8 24 ];
+        putv self :_blinkController %tmp.9;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_14_26_18_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 21; @symbol_functiondef = [update,21,13,19]; @symbol_param<0> = [isAwake,21,20,27]; ]
+    function update(isAwake) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 22 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop" ]
+        %now.1 = local;
+        symbol [ now %now.1 22 12 15 ];
+        symbol [ System %tmp.1 22 18 24 ];
+        %tmp.1 = getm $.Toybox.System;
+        symbol [ getClockTime %tmp.2 22 25 37 ];
+        %tmp.2 = getv function %tmp.1 :getClockTime;
+        %tmp.3 = invoke %tmp.1 %tmp.2();
+        lputv %now.1 %tmp.3;
+        symbol [ now %now.1 22 12 15 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 23 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop" ]
+        %currentSec.2 = local;
+        symbol [ currentSec %currentSec.2 23 12 22 ];
+        %tmp.4 = lgetv %now.1;
+        symbol [ now %tmp.4 23 25 28 ];
+        symbol [ timeZoneOffset %tmp.5 23 29 43 ];
+        %tmp.5 = getv %tmp.4 :timeZoneOffset;
+        %tmp.6 = lgetv %now.1;
+        symbol [ now %tmp.6 23 46 49 ];
+        symbol [ dst %tmp.7 23 50 53 ];
+        %tmp.7 = getv %tmp.6 :dst;
+        %tmp.8 = add %tmp.5 %tmp.7;
+        lputv %currentSec.2 %tmp.8;
+        symbol [ currentSec %currentSec.2 23 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 26 8 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_8_34_8_if_stmt:
+        %tmp.9 = lgetv %currentSec.2;
+        symbol [ currentSec %tmp.9 26 12 22 ];
+        symbol [ _lastUpdateSec %tmp.11 26 26 40 ];
+        %tmp.11 = getv ? :_lastUpdateSec;
+        %tmp.12 = ne %tmp.9 %tmp.11;
+        bf %tmp.12 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_8_34_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_8_34_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_42_34_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 27 12 ]
+        %tmp.13 = lgetv %currentSec.2;
+        symbol [ currentSec %tmp.13 27 29 39 ];
+        symbol [ _lastUpdateSec ? 27 12 26 ];
+        putv self :_lastUpdateSec %tmp.13;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 30 12 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_42_34_8_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_42_34_8_stop" ]
+        %healthSnapshot.3 = local;
+        symbol [ healthSnapshot %healthSnapshot.3 30 16 30 ];
+        symbol [ _healthSource %tmp.15 30 33 46 ];
+        %tmp.15 = getv ? :_healthSource;
+        symbol [ getSnapshot %tmp.16 30 47 58 ];
+        %tmp.16 = getv function %tmp.15 :getSnapshot;
+        %tmp.17 = invoke %tmp.15 %tmp.16();
+        lputv %healthSnapshot.3 %tmp.17;
+        symbol [ healthSnapshot %healthSnapshot.3 30 16 30 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 33 12 ]
+        symbol [ _ruleEngine %tmp.19 33 28 39 ];
+        %tmp.19 = getv ? :_ruleEngine;
+        symbol [ evaluate %tmp.20 33 40 48 ];
+        %tmp.20 = getv function %tmp.19 :evaluate;
+        %tmp.21 = lgetv %healthSnapshot.3;
+        symbol [ healthSnapshot %tmp.21 33 49 63 ];
+        %tmp.22 = invoke %tmp.19 %tmp.20(%tmp.21);
+        symbol [ _currentState ? 33 12 25 ];
+        putv self :_currentState %tmp.22;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_42_34_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_8_34_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_26_8_34_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 37 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop" ]
+        %currentMs.4 = local;
+        symbol [ currentMs %currentMs.4 37 12 21 ];
+        symbol [ System %tmp.23 37 24 30 ];
+        %tmp.23 = getm $.Toybox.System;
+        symbol [ getTimer %tmp.24 37 31 39 ];
+        %tmp.24 = getv function %tmp.23 :getTimer;
+        %tmp.25 = invoke %tmp.23 %tmp.24();
+        lputv %currentMs.4 %tmp.25;
+        symbol [ currentMs %currentMs.4 37 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 38 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop" ]
+        %blinkPattern.5 = local;
+        symbol [ blinkPattern %blinkPattern.5 38 12 24 ];
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_begin:
+        symbol [ _currentState %tmp.27 38 27 40 ];
+        %tmp.27 = getv ? :_currentState;
+        %tmp.28 = null;
+        %tmp.29 = ne %tmp.27 %tmp.28;
+        bf %tmp.29 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_false;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_true:
+        symbol [ _currentState %tmp.31 38 51 64 ];
+        %tmp.31 = getv ? :_currentState;
+        %tmp.32 = as %tmp.31 { (!Null) };
+        symbol [ blinkPattern %tmp.33 38 65 77 ];
+        %tmp.33 = getv %tmp.32 :blinkPattern;
+        push %tmp.33;
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_false:
+        symbol [ BlinkPattern %tmp.35 38 80 92 ];
+        %tmp.35 = getv ? :BlinkPattern;
+        symbol [ NORMAL %tmp.36 38 93 99 ];
+        %tmp.36 = getv %tmp.35 :NORMAL;
+        push %tmp.36;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_end:
+        %tmp.37 = phi [%tmp.29 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_begin] [%tmp.33 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_true] [%tmp.36 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_false] [%tmp.37 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_38_27_38_93_end];
+        lputv %blinkPattern.5 %tmp.37;
+        symbol [ blinkPattern %blinkPattern.5 38 12 24 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 39 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop" ]
+        %eyesClosed.6 = local;
+        symbol [ eyesClosed %eyesClosed.6 39 12 22 ];
+        symbol [ _blinkController %tmp.39 39 25 41 ];
+        %tmp.39 = getv ? :_blinkController;
+        symbol [ update %tmp.40 39 42 48 ];
+        %tmp.40 = getv function %tmp.39 :update;
+        %tmp.41 = lgetv %currentMs.4;
+        symbol [ currentMs %tmp.41 39 49 58 ];
+        %tmp.42 = lgetv %blinkPattern.5;
+        symbol [ blinkPattern %tmp.42 39 60 72 ];
+        %tmp.43 = lgetv %isAwake;
+        symbol [ isAwake %tmp.43 39 74 81 ];
+        %tmp.44 = invoke %tmp.39 %tmp.40(%tmp.41, %tmp.42, %tmp.43);
+        lputv %eyesClosed.6 %tmp.44;
+        symbol [ eyesClosed %eyesClosed.6 39 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 42 8 ]
+        %tmp.45 = newd 2;
+        %tmp.47 = const :expression;
+        symbol [ expression %tmp.47 43 13 23 const ];
+        symbol [ _currentState %tmp.49 43 27 40 ];
+        %tmp.49 = getv ? :_currentState;
+        %tmp.50 = dup %tmp.45;
+        %tmp.51 = aputv %tmp.50 %tmp.47 %tmp.49;
+        %tmp.53 = const :eyesClosed;
+        symbol [ eyesClosed %tmp.53 44 13 23 const ];
+        %tmp.54 = lgetv %eyesClosed.6;
+        symbol [ eyesClosed %tmp.54 44 27 37 ];
+        %tmp.55 = dup %tmp.51;
+        %tmp.56 = aputv %tmp.55 %tmp.53 %tmp.54;
+        ret %tmp.56;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_21_29_46_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 49; @symbol_functiondef = [drawExpression,49,13,27]; @symbol_param<0> = [dc,49,28,30]; @symbol_param<1> = [x,49,32,33]; @symbol_param<2> = [y,49,35,36]; @symbol_param<3> = [displayState,49,38,50]; ]
+    function drawExpression(dc, x, y, displayState) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 50 8 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_stmt:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_12_50_65_begin:
+        %tmp.1 = lgetv %displayState;
+        symbol [ displayState %tmp.1 50 12 24 ];
+        %tmp.2 = null;
+        %tmp.3 = eq %tmp.1 %tmp.2;
+        bt %tmp.3 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_true;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_36_50_65_false:
+        %tmp.4 = lgetv %displayState;
+        symbol [ displayState %tmp.4 50 36 48 ];
+        %tmp.5 = as %tmp.4 { (!Null) };
+        %tmp.7 = const :expression;
+        symbol [ expression %tmp.7 50 50 60 const ];
+        %tmp.8 = agetv %tmp.5 %tmp.7;
+        %tmp.9 = null;
+        %tmp.10 = eq %tmp.8 %tmp.9;
+        push %tmp.10;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_36_50_65_end:
+        %tmp.11 = phi [%tmp.3 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_12_50_65_begin] [%tmp.10 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_36_50_65_false] [%tmp.11 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_36_50_65_end];
+        bf %tmp.11 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_true:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_71_52_8_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 51 12 ]
+        ret ?;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_71_52_8_stop:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_50_8_52_8_if_end:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 54 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_stop" ]
+        %expr.1 = local;
+        symbol [ expr %expr.1 54 12 16 ];
+        %tmp.12 = lgetv %displayState;
+        symbol [ displayState %tmp.12 54 19 31 ];
+        %tmp.14 = const :expression;
+        symbol [ expression %tmp.14 54 33 43 const ];
+        %tmp.15 = agetv %tmp.12 %tmp.14;
+        lputv %expr.1 %tmp.15;
+        symbol [ expr %expr.1 54 12 16 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 55 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_stop" ]
+        %eyesClosed.2 = local;
+        symbol [ eyesClosed %eyesClosed.2 55 12 22 ];
+        %tmp.16 = lgetv %displayState;
+        symbol [ displayState %tmp.16 55 25 37 ];
+        %tmp.18 = const :eyesClosed;
+        symbol [ eyesClosed %tmp.18 55 39 49 const ];
+        %tmp.19 = agetv %tmp.16 %tmp.18;
+        lputv %eyesClosed.2 %tmp.19;
+        symbol [ eyesClosed %eyesClosed.2 55 12 22 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 59 8 ]
+        %tmp.20 = lgetv %dc;
+        symbol [ dc %tmp.20 59 8 10 ];
+        symbol [ setColor %tmp.21 59 11 19 ];
+        %tmp.21 = getv function %tmp.20 :setColor;
+        symbol [ Graphics %tmp.22 59 20 28 ];
+        %tmp.22 = getm $.Toybox.Graphics;
+        symbol [ COLOR_WHITE %tmp.23 59 29 40 ];
+        %tmp.23 = getv %tmp.22 :COLOR_WHITE;
+        symbol [ Graphics %tmp.24 59 42 50 ];
+        %tmp.24 = getm $.Toybox.Graphics;
+        symbol [ COLOR_TRANSPARENT %tmp.25 59 51 68 ];
+        %tmp.25 = getv %tmp.24 :COLOR_TRANSPARENT;
+        invoke %tmp.20 %tmp.21(%tmp.23, %tmp.25);
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 61 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_stop" ]
+        %eyeChar.3 = local;
+        symbol [ eyeChar %eyeChar.3 61 12 19 ];
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_begin:
+        %tmp.26 = lgetv %eyesClosed.2;
+        symbol [ eyesClosed %tmp.26 61 22 32 ];
+        bf %tmp.26 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_false;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_true:
+        %tmp.27 = "- -";
+        push %tmp.27;
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_end;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_false:
+        %tmp.28 = self;
+        symbol [ getEyeCharacter %tmp.29 61 43 58 ];
+        %tmp.29 = getv function %tmp.28 :getEyeCharacter;
+        %tmp.30 = lgetv %expr.1;
+        symbol [ expr %tmp.30 61 59 63 ];
+        symbol [ eyes %tmp.31 61 64 68 ];
+        %tmp.31 = getv %tmp.30 :eyes;
+        %tmp.32 = invoke %tmp.28 %tmp.29(%tmp.31);
+        push %tmp.32;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_end:
+        %tmp.33 = phi [%tmp.26 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_begin] [%tmp.27 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_true] [%tmp.32 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_false] [%tmp.33 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_61_22_61_68_end];
+        lputv %eyeChar.3 %tmp.33;
+        symbol [ eyeChar %eyeChar.3 61 12 19 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 62 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_stop" ]
+        %mouthChar.4 = local;
+        symbol [ mouthChar %mouthChar.4 62 12 21 ];
+        %tmp.34 = self;
+        symbol [ getMouthCharacter %tmp.35 62 24 41 ];
+        %tmp.35 = getv function %tmp.34 :getMouthCharacter;
+        %tmp.36 = lgetv %expr.1;
+        symbol [ expr %tmp.36 62 42 46 ];
+        symbol [ mouth %tmp.37 62 47 52 ];
+        %tmp.37 = getv %tmp.36 :mouth;
+        %tmp.38 = invoke %tmp.34 %tmp.35(%tmp.37);
+        lputv %mouthChar.4 %tmp.38;
+        symbol [ mouthChar %mouthChar.4 62 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 65 8 ]
+        %tmp.39 = lgetv %dc;
+        symbol [ dc %tmp.39 65 8 10 ];
+        symbol [ drawText %tmp.40 65 11 19 ];
+        %tmp.40 = getv function %tmp.39 :drawText;
+        %tmp.41 = lgetv %x;
+        symbol [ x %tmp.41 65 20 21 ];
+        %tmp.42 = lgetv %y;
+        symbol [ y %tmp.42 65 23 24 ];
+        %tmp.43 = 20;
+        %tmp.44 = sub %tmp.42 %tmp.43;
+        symbol [ Graphics %tmp.45 65 31 39 ];
+        %tmp.45 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.46 65 40 49 ];
+        %tmp.46 = getv %tmp.45 :FONT_TINY;
+        %tmp.47 = lgetv %eyeChar.3;
+        symbol [ eyeChar %tmp.47 65 51 58 ];
+        symbol [ Graphics %tmp.48 65 60 68 ];
+        %tmp.48 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.49 65 69 88 ];
+        %tmp.49 = getv %tmp.48 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.39 %tmp.40(%tmp.41, %tmp.44, %tmp.46, %tmp.47, %tmp.49);
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 68 8 ]
+        %tmp.50 = lgetv %dc;
+        symbol [ dc %tmp.50 68 8 10 ];
+        symbol [ drawText %tmp.51 68 11 19 ];
+        %tmp.51 = getv function %tmp.50 :drawText;
+        %tmp.52 = lgetv %x;
+        symbol [ x %tmp.52 68 20 21 ];
+        %tmp.53 = lgetv %y;
+        symbol [ y %tmp.53 68 23 24 ];
+        %tmp.54 = 10;
+        %tmp.55 = add %tmp.53 %tmp.54;
+        symbol [ Graphics %tmp.56 68 31 39 ];
+        %tmp.56 = getm $.Toybox.Graphics;
+        symbol [ FONT_TINY %tmp.57 68 40 49 ];
+        %tmp.57 = getv %tmp.56 :FONT_TINY;
+        %tmp.58 = lgetv %mouthChar.4;
+        symbol [ mouthChar %tmp.58 68 51 60 ];
+        symbol [ Graphics %tmp.59 68 62 70 ];
+        %tmp.59 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.60 68 71 90 ];
+        %tmp.60 = getv %tmp.59 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.50 %tmp.51(%tmp.52, %tmp.55, %tmp.57, %tmp.58, %tmp.60);
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 71 8 ]
+        %tmp.61 = lgetv %dc;
+        symbol [ dc %tmp.61 71 8 10 ];
+        symbol [ drawText %tmp.62 71 11 19 ];
+        %tmp.62 = getv function %tmp.61 :drawText;
+        %tmp.63 = lgetv %x;
+        symbol [ x %tmp.63 71 20 21 ];
+        %tmp.64 = lgetv %y;
+        symbol [ y %tmp.64 71 23 24 ];
+        %tmp.65 = 30;
+        %tmp.66 = add %tmp.64 %tmp.65;
+        symbol [ Graphics %tmp.67 71 31 39 ];
+        %tmp.67 = getm $.Toybox.Graphics;
+        symbol [ FONT_XTINY %tmp.68 71 40 50 ];
+        %tmp.68 = getv %tmp.67 :FONT_XTINY;
+        symbol [ ExpressionLibrary %tmp.70 71 52 69 ];
+        %tmp.70 = getv ? :ExpressionLibrary;
+        symbol [ getName %tmp.71 71 70 77 ];
+        %tmp.71 = getv function %tmp.70 :getName;
+        %tmp.72 = lgetv %expr.1;
+        symbol [ expr %tmp.72 71 78 82 ];
+        symbol [ id %tmp.73 71 83 85 ];
+        %tmp.73 = getv %tmp.72 :id;
+        %tmp.74 = invoke %tmp.70 %tmp.71(%tmp.73);
+        symbol [ Graphics %tmp.75 71 88 96 ];
+        %tmp.75 = getm $.Toybox.Graphics;
+        symbol [ TEXT_JUSTIFY_CENTER %tmp.76 71 97 116 ];
+        %tmp.76 = getv %tmp.75 :TEXT_JUSTIFY_CENTER;
+        invoke %tmp.61 %tmp.62(%tmp.63, %tmp.66, %tmp.68, %tmp.74, %tmp.76);
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_49_52_72_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 75; @symbol_functiondef = [getEyeCharacter,75,21,36]; @symbol_param<0> = [eyeType,75,37,44]; ]
+    private
+    function getEyeCharacter(eyeType) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_75_46_85_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 76 8 ]
+        %tmp.1 = lgetv %eyeType;
+        symbol [ eyeType %tmp.1 76 15 22 ];
+        push %tmp.1;
+        switch %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_switchStmtEnd;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_switchStmtBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 77 12 ]
+        %tmp.2 = dup %tmp.1;
+        symbol [ EyeType %tmp.4 77 17 24 ];
+        %tmp.4 = getv ? :EyeType;
+        symbol [ NORMAL %tmp.5 77 25 31 ];
+        %tmp.5 = getv %tmp.4 :NORMAL;
+        %tmp.6 = getv function %tmp.2 :equals;
+        %tmp.7 = invoke %tmp.2 %tmp.6 (%tmp.5);
+        bt %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_77_12_77_45_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 78 12 ]
+        %tmp.8 = dup %tmp.1;
+        symbol [ EyeType %tmp.10 78 17 24 ];
+        %tmp.10 = getv ? :EyeType;
+        symbol [ TIRED %tmp.11 78 25 30 ];
+        %tmp.11 = getv %tmp.10 :TIRED;
+        %tmp.12 = getv function %tmp.8 :equals;
+        %tmp.13 = invoke %tmp.8 %tmp.12 (%tmp.11);
+        bt %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_78_12_78_44_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 79 12 ]
+        %tmp.14 = dup %tmp.1;
+        symbol [ EyeType %tmp.16 79 17 24 ];
+        %tmp.16 = getv ? :EyeType;
+        symbol [ ALERT %tmp.17 79 25 30 ];
+        %tmp.17 = getv %tmp.16 :ALERT;
+        %tmp.18 = getv function %tmp.14 :equals;
+        %tmp.19 = invoke %tmp.14 %tmp.18 (%tmp.17);
+        bt %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_79_12_79_44_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 80 12 ]
+        %tmp.20 = dup %tmp.1;
+        symbol [ EyeType %tmp.22 80 17 24 ];
+        %tmp.22 = getv ? :EyeType;
+        symbol [ HAPPY %tmp.23 80 25 30 ];
+        %tmp.23 = getv %tmp.22 :HAPPY;
+        %tmp.24 = getv function %tmp.20 :equals;
+        %tmp.25 = invoke %tmp.20 %tmp.24 (%tmp.23);
+        bt %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_80_12_80_44_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 81 12 ]
+        %tmp.26 = dup %tmp.1;
+        symbol [ EyeType %tmp.28 81 17 24 ];
+        %tmp.28 = getv ? :EyeType;
+        symbol [ STRESSED %tmp.29 81 25 33 ];
+        %tmp.29 = getv %tmp.28 :STRESSED;
+        %tmp.30 = getv function %tmp.26 :equals;
+        %tmp.31 = invoke %tmp.26 %tmp.30 (%tmp.29);
+        bt %tmp.31 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_81_12_81_47_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 82 12 ]
+        %tmp.32 = dup %tmp.1;
+        symbol [ EyeType %tmp.34 82 17 24 ];
+        %tmp.34 = getv ? :EyeType;
+        symbol [ FOCUSED %tmp.35 82 25 32 ];
+        %tmp.35 = getv %tmp.34 :FOCUSED;
+        %tmp.36 = getv function %tmp.32 :equals;
+        %tmp.37 = invoke %tmp.32 %tmp.36 (%tmp.35);
+        bt %tmp.37 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_82_12_82_46_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 83 12 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_switchStmtDefault:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_defaultCodeBegin;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_77_12_77_45_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 77 33 ]
+        %tmp.38 = "O O";
+        ret %tmp.38;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_78_12_78_44_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 78 32 ]
+        %tmp.39 = "- -";
+        ret %tmp.39;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_79_12_79_44_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 79 32 ]
+        %tmp.40 = "O O";
+        ret %tmp.40;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_80_12_80_44_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 80 32 ]
+        %tmp.41 = "^ ^";
+        ret %tmp.41;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_81_12_81_47_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 81 35 ]
+        %tmp.42 = "> <";
+        ret %tmp.42;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_82_12_82_46_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 82 34 ]
+        %tmp.43 = "o o";
+        ret %tmp.43;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_83_12_83_33_switchCase:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_defaultCodeBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 83 21 ]
+        %tmp.44 = "O O";
+        ret %tmp.44;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_76_8_84_8_switchStmtEnd:
+        pop;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_75_46_85_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 88; @symbol_functiondef = [getMouthCharacter,88,21,38]; @symbol_param<0> = [mouthType,88,39,48]; ]
+    private
+    function getMouthCharacter(mouthType) {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_88_50_97_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 89 8 ]
+        %tmp.1 = lgetv %mouthType;
+        symbol [ mouthType %tmp.1 89 15 24 ];
+        push %tmp.1;
+        switch %tmp.1 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_switchStmtEnd;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_switchStmtBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 90 12 ]
+        %tmp.2 = dup %tmp.1;
+        symbol [ MouthType %tmp.4 90 17 26 ];
+        %tmp.4 = getv ? :MouthType;
+        symbol [ NEUTRAL %tmp.5 90 27 34 ];
+        %tmp.5 = getv %tmp.4 :NEUTRAL;
+        %tmp.6 = getv function %tmp.2 :equals;
+        %tmp.7 = invoke %tmp.2 %tmp.6 (%tmp.5);
+        bt %tmp.7 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_90_12_90_48_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 91 12 ]
+        %tmp.8 = dup %tmp.1;
+        symbol [ MouthType %tmp.10 91 17 26 ];
+        %tmp.10 = getv ? :MouthType;
+        symbol [ SMILE %tmp.11 91 27 32 ];
+        %tmp.11 = getv %tmp.10 :SMILE;
+        %tmp.12 = getv function %tmp.8 :equals;
+        %tmp.13 = invoke %tmp.8 %tmp.12 (%tmp.11);
+        bt %tmp.13 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_91_12_91_48_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 92 12 ]
+        %tmp.14 = dup %tmp.1;
+        symbol [ MouthType %tmp.16 92 17 26 ];
+        %tmp.16 = getv ? :MouthType;
+        symbol [ FROWN %tmp.17 92 27 32 ];
+        %tmp.17 = getv %tmp.16 :FROWN;
+        %tmp.18 = getv function %tmp.14 :equals;
+        %tmp.19 = invoke %tmp.14 %tmp.18 (%tmp.17);
+        bt %tmp.19 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_92_12_92_48_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 93 12 ]
+        %tmp.20 = dup %tmp.1;
+        symbol [ MouthType %tmp.22 93 17 26 ];
+        %tmp.22 = getv ? :MouthType;
+        symbol [ OPEN %tmp.23 93 27 31 ];
+        %tmp.23 = getv %tmp.22 :OPEN;
+        %tmp.24 = getv function %tmp.20 :equals;
+        %tmp.25 = invoke %tmp.20 %tmp.24 (%tmp.23);
+        bt %tmp.25 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_93_12_93_43_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 94 12 ]
+        %tmp.26 = dup %tmp.1;
+        symbol [ MouthType %tmp.28 94 17 26 ];
+        %tmp.28 = getv ? :MouthType;
+        symbol [ DETERMINED %tmp.29 94 27 37 ];
+        %tmp.29 = getv %tmp.28 :DETERMINED;
+        %tmp.30 = getv function %tmp.26 :equals;
+        %tmp.31 = invoke %tmp.26 %tmp.30 (%tmp.29);
+        bt %tmp.31 @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_94_12_94_51_switchCase;
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 95 12 ]
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_switchStmtDefault:
+        goto @_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_defaultCodeBegin;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_90_12_90_48_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 90 36 ]
+        %tmp.32 = "___";
+        ret %tmp.32;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_91_12_91_48_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 91 34 ]
+        %tmp.33 = "\\__/";
+        ret %tmp.33;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_92_12_92_48_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 92 34 ]
+        %tmp.34 = "/--\\";
+        ret %tmp.34;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_93_12_93_43_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 93 33 ]
+        %tmp.35 = "O";
+        ret %tmp.35;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_94_12_94_51_switchCase:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 94 39 ]
+        %tmp.36 = "===";
+        ret %tmp.36;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_95_12_95_33_switchCase:
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_defaultCodeBegin:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 95 21 ]
+        %tmp.37 = "___";
+        ret %tmp.37;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_89_8_96_8_switchStmtEnd:
+        pop;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_88_50_97_4_stop:
+    }
+    [ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 100; @symbol_functiondef = [getDebugInfo,100,13,25]; ]
+    function getDebugInfo() {
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_start:
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 101 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_stop" ]
+        %healthDebug.1 = local;
+        symbol [ healthDebug %healthDebug.1 101 12 23 ];
+        symbol [ _healthSource %tmp.2 101 26 39 ];
+        %tmp.2 = getv ? :_healthSource;
+        symbol [ getDebugString %tmp.3 101 40 54 ];
+        %tmp.3 = getv function %tmp.2 :getDebugString;
+        %tmp.4 = invoke %tmp.2 %tmp.3();
+        lputv %healthDebug.1 %tmp.4;
+        symbol [ healthDebug %healthDebug.1 101 12 23 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 102 8 ]
+        [ "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_start" "_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_stop" ]
+        %ruleDebug.2 = local;
+        symbol [ ruleDebug %ruleDebug.2 102 12 21 ];
+        symbol [ _ruleEngine %tmp.6 102 24 35 ];
+        %tmp.6 = getv ? :_ruleEngine;
+        symbol [ getDebugString %tmp.7 102 36 50 ];
+        %tmp.7 = getv function %tmp.6 :getDebugString;
+        %tmp.8 = invoke %tmp.6 %tmp.7();
+        lputv %ruleDebug.2 %tmp.8;
+        symbol [ ruleDebug %ruleDebug.2 102 12 21 ];
+[ "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc" 103 8 ]
+        %tmp.9 = lgetv %healthDebug.1;
+        symbol [ healthDebug %tmp.9 103 15 26 ];
+        %tmp.10 = "\n";
+        %tmp.11 = add %tmp.9 %tmp.10;
+        %tmp.12 = lgetv %ruleDebug.2;
+        symbol [ ruleDebug %tmp.12 103 36 45 ];
+        %tmp.13 = add %tmp.11 %tmp.12;
+        ret %tmp.13;
+_Users_erdalgunes_garmin_jailbot_source_ExpressionEngine_mc_100_28_104_4_stop:
+    }
+}
+[ @file = "/Users/erdalgunes/garmin-jailbot/source/ExpressionEngine.mc"; @line = 1; ]
+<init> {
+}
